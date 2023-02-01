@@ -1,11 +1,11 @@
 version: "3.7"
 services:
-  innosig_frontend_webapp:
-    container_name: innosig_frontend_webapp
+  iqoption_frontend_webapp:
+    container_name: iqoption_frontend_webapp
     build:
       context: .
       dockerfile: Dockerfile
-    image: innosig_frontend_webapp
+    image: iqoption_frontend_webapp
     volumes:
       - ./nginx/conf.d/:/etc/nginx/conf.d/
     networks:
@@ -14,4 +14,4 @@ services:
 networks:
   external-network:
     external:
-      name: innosig-backend-backtesting_internal-network
+      name: innosig-iqoption-trader_internal-network
