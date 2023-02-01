@@ -1,6 +1,6 @@
 # build stage
 FROM node:lts-alpine as build-stage
-RUN apk add python3
+RUN apk add g++ make py3-pip
 WORKDIR /app
 COPY package*.json ./
 RUN npm install
