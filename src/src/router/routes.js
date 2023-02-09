@@ -147,6 +147,24 @@ export default [
     component: () => import("../views/strategies/view.vue"),
   },
   {
+    path: "/bonds",
+    name: "bonds",
+    meta: {
+      title: "Bonds",
+      authRequired: true,
+    },
+    component: () => import("../views/bonds/index.vue"),
+  },
+  {
+    path: "/bonds/:id",
+    name: "Bond",
+    meta: {
+      title: "Bond",
+      authRequired: true,
+    },
+    component: () => import("../views/bonds/view.vue"),
+  },
+  {
     path: "/dashboard/crypto",
     name: "dashboard-crypto",
     meta: {

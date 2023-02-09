@@ -12,10 +12,18 @@
         </b-col>
         <b-col md="6">
           <div class="p-1">
-            <h5 class="font-size-14 mb-1 mt-0">indicators</h5>
+            <h5 class="font-size-14 mb-1 mt-0">signal</h5>
+            <div class="p-0">
+              <input type="text" class="form-control" v-model="objModel.signal" disabled>
+            </div>
+          </div>
+        </b-col>
+        <b-col md="6">
+          <div class="p-1">
+            <h5 class="font-size-14 mb-1 mt-0">strategies</h5>
             <div class="p-0">
               <Multiselect class="form-control"
-                           v-model="objModel.indicators"
+                           v-model="objModel.strategies"
                            mode="tags"
                            :close-on-select="false"
                            :filter-results="false"
@@ -27,11 +35,10 @@
                               return await asyncFind(query) // check JS block for implementation
                             }"
               />
-              <pre class="language-json"><code>{{ objModel.indicators }}</code></pre>
+              <pre class="language-json"><code>{{ objModel.strategies }}</code></pre>
             </div>
           </div>
         </b-col>
-
         <b-col md="6">
           <div class="p-1">
             <h5 class="font-size-14 mb-1 mt-0">enabled</h5>
@@ -44,17 +51,23 @@
         </b-col>
         <b-col md="6">
           <div class="p-1">
-            <h5 class="font-size-14 mb-5 mt-0">minimal_buy_signals</h5>
-            <div class="p-3">
-              <Slider v-model="objModel.minimal_buy_signals" :min="0" :max="10"/>
-            </div>
-          </div>
-        </b-col>
-        <b-col md="6">
-          <div class="p-1">
-            <h5 class="font-size-14 mb-5 mt-0">minimal_sell_signals</h5>
-            <div class="p-3">
-              <Slider v-model="objModel.minimal_sell_signals" :min="0" :max="10"/>
+            <h5 class="font-size-14 mb-1 mt-0">interval</h5>
+            <div class="p-0">
+              <Multiselect class="form-control"
+                           v-model="objModel.interval"
+                           :close-on-select="true"
+                           :searchable="true"
+                           :create-option="false"
+                           mode="tags"
+                           :options="[
+                        { value: '1m', label: '1 M' },
+                        { value: '5m', label: '5 M' },
+                        { value: '15m', label: '15m' },
+                        { value: '30m', label: '30m' },
+                        { value: '1h', label: '1h' },
+                        { value: '2h', label: '2h' },
+                        { value: '4h', label: '4h' },
+                      ]"/>
             </div>
           </div>
         </b-col>
@@ -78,15 +91,14 @@ import "@vueform/multiselect/themes/default.css";
 import {
   BForm, BButton, BCard, BCol, BRow
 } from 'bootstrap-vue-3';
-import Slider from "@vueform/slider";
 import Swal from "sweetalert2";
+import BondViewModel from "@/models/viewmodels/bond";
 import StrategyViewModel from "@/models/viewmodels/strategy";
-import IndicatorViewModel from "@/models/viewmodels/indicator";
 
 export default {
   name: 'Bot',
   components: {
-    BForm, BButton, Slider, BCard, BCol, BRow, Multiselect
+    BForm, BButton, BCard, BCol, BRow, Multiselect
   },
   props: {
     isEdit: {
@@ -94,19 +106,19 @@ export default {
       default: false
     },
     objProp: {
-      type: StrategyViewModel,
+      type: BondViewModel,
       default: () => {
-        return new StrategyViewModel()
+        return new BondViewModel()
       }
     },
   },
   data() {
     return {
-      objModel: new StrategyViewModel(),
+      objModel: new BondViewModel(),
       isLoadingSelect: false,
       selected: null,
-      createColumns: ['name', 'indicators', 'minimal_buy_signals', 'minimal_sell_signals', 'enabled'],
-      updateColumns: ['name', 'indicators', 'minimal_buy_signals', 'minimal_sell_signals', 'enabled'],
+      createColumns: ['name', 'strategies', 'interval', 'signal', 'enabled'],
+      updateColumns: ['name', 'strategies', 'interval', 'signal', 'enabled'],
     };
   },
   watch: {
@@ -125,9 +137,9 @@ export default {
       if (query === "") {
         return [];
       }
-      const response = await IndicatorViewModel.search(query)
+      const response = await StrategyViewModel.search(query)
       return response.data._items.map((item) => {
-        return { value: item["_id"], label: item["endpoint"] }
+        return { value: item["_id"], label: item["name"] }
       });
     },
     createOrUpdateObj(update = false) {

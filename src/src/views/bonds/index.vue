@@ -9,8 +9,8 @@
             class="px-auto mx-auto text-center"
         >
           <blockquote class="blockquote custom-blockquote blockquote-outline blockquote-secondary rounded mb-0 mt-3">
-            <p class="text-dark mb-2">No Strategies found</p>
-            <footer class="blockquote-footer mt-0">Tip: create a strategy by clicking the button below</footer>
+            <p class="text-dark mb-2">No Bonds found</p>
+            <footer class="blockquote-footer mt-0">Tip: create a bond by clicking the button below</footer>
           </blockquote>
 
           <b-button
@@ -51,7 +51,7 @@
               :items="modifiedObjects"
           >
             <template #cell(name)="row">
-              <a :href="`/strategies/${objects.get_by_index(row.index)._id}`">
+              <a :href="`/bonds/${objects.get_by_index(row.index)._id}`">
                 {{ row.item.name }}
               </a>
             </template>
@@ -78,7 +78,7 @@
             title="Create new strategy"
             hide-footer
         >
-          <strategy-add
+          <bond-add
               @created="addObj"
               @exit="closeModal"
           />
@@ -92,26 +92,26 @@
 import {
   BRow, BCol, BPagination, BTable, BButton, BModal,
 } from 'bootstrap-vue-3';
-import StrategyAdd from "@/views/strategies/components/add";
+import BondAdd from "@/views/bonds/components/add";
 import Layout from "../../layouts/main.vue";
 import PageHeader from "@/components/page-header";
 import appConfig from "../../../app.config";
 import Swal from "sweetalert2";
 import {AlertTriangleIcon} from "@zhuowenli/vue-feather-icons";
-import StrategyViewModel from "@/models/viewmodels/strategy";
-import StrategyRepository from "@/models/repositories/strategy";
+import BondViewModel from "@/models/viewmodels/bond";
+import BondRepository from "@/models/repositories/bond";
 
 export default {
   page: {
-    title: "Strategies",
+    title: "Bonds",
     meta: [{ name: "description", content: appConfig.description }],
   },
   data() {
     return {
-      title: "Strategies",
+      title: "Bonds",
       items: [
         {
-          text: "Strategies",
+          text: "Bonds",
           active: true,
         },
       ],
@@ -134,7 +134,7 @@ export default {
     BTable,
     BButton,
     BModal,
-    StrategyAdd
+    BondAdd
   },
   props: {
     market: {
@@ -173,10 +173,10 @@ export default {
     },
     getAll() {
       this.loading = true;
-      StrategyViewModel.all(this.page).then(res => {
+      BondViewModel.all(this.page).then(res => {
         this.total = res.data._meta.total;
         this.perPage = res.data._meta.max_results;
-        return new StrategyRepository(res.data._items);
+        return new BondRepository(res.data._items);
       }).then(results => {
         this.objects = results;
         this.loading = false;
@@ -188,8 +188,8 @@ export default {
       for (const _m of _modified) {
         this.modifiedObjects.push({
           name: _m.name,
-          minimal_sell_signals: _m.minimal_sell_signals,
-          minimal_buy_signals: _m.minimal_buy_signals,
+          signal: _m.signal,
+          interval: _m.interval.toString(),
           actions: undefined,
         });
       }

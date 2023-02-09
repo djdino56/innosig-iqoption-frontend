@@ -3,7 +3,7 @@
   import RightBar from "@/components/right-bar";
   import Footer from "@/components/footer";
   import {
-    StarIcon, Navigation2Icon,AwardIcon, UserIcon, ActivityIcon, BellIcon
+    StarIcon, Navigation2Icon, AwardIcon, UserIcon, ActivityIcon, BellIcon, MoveIcon
   } from "@zhuowenli/vue-feather-icons";
 
 
@@ -65,6 +65,7 @@ export default {
       RightBar,
       Footer,
       StarIcon,
+      MoveIcon,
       Navigation2Icon,
       AwardIcon,
       UserIcon,
@@ -136,6 +137,13 @@ export default {
                 <a class="nav-link menu-link" href="/signals">
                   <BellIcon></BellIcon>
                   <span data-key="t-landing">Signals</span>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link menu-link" href="/bonds">
+                  <MoveIcon></MoveIcon>
+                  <span data-key="t-landing">Bonds</span>
                 </a>
               </li>
 

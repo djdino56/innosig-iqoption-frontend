@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <PageHeader :title="title" :items="items" />
-  <section class="strategy-details">
+  <section class="bond-details">
     <!-- Alert: No item found -->
     <b-alert
         variant="danger"
@@ -11,12 +11,12 @@
         Error fetching strategy data
       </h4>
       <div class="alert-body">
-        No strategy found with this item slug. Check
+        No bond found with this item slug. Check
         <b-link
             class="alert-link"
-            :to="{ name: 'strategies'}"
+            :to="{ name: 'bonds'}"
         >
-          Strategies
+          Bonds
         </b-link>
         for other items.
       </div>
@@ -25,7 +25,7 @@
     <!-- Content -->
     <b-row>
       <b-col md="12">
-        <strategy-create-or-edit
+        <bond-create-or-edit
             :is-edit="true"
             :obj-prop="obj"
         />
@@ -39,10 +39,10 @@
 import {
   BAlert, BLink, BRow, BCol
 } from 'bootstrap-vue-3';
-import StrategyCreateOrEdit from "@/views/strategies/components/add";
+import BondCreateOrEdit from "@/views/bonds/components/add";
 import Layout from "../../layouts/main.vue";
 import PageHeader from "@/components/page-header";
-import StrategyViewModel from '@/models/viewmodels/strategy';
+import BondViewModel from '@/models/viewmodels/bond';
 /* eslint-disable global-require */
 export default {
   components: {
@@ -52,7 +52,7 @@ export default {
     BLink,
     Layout,
     PageHeader,
-    StrategyCreateOrEdit,
+    BondCreateOrEdit,
   },
   props: {
     json: {
@@ -66,15 +66,15 @@ export default {
   },
   data() {
     return {
-      title: "Strategy",
+      title: "Bond",
       items: [
         {
-          text: "Strategy",
+          text: "Bond",
           active: true,
         },
       ],
       id: this.$route.params.id,
-      obj: new StrategyViewModel(),
+      obj: new BondViewModel(),
     };
   },
   mounted() {
@@ -82,8 +82,8 @@ export default {
   },
   methods: {
     init() {
-      StrategyViewModel.Get(this.id).then(response => {
-        this.obj = new StrategyViewModel(response.data);
+      BondViewModel.Get(this.id).then(response => {
+        this.obj = new BondViewModel(response.data);
       });
     }
   },

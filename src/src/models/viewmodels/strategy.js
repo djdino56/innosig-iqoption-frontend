@@ -28,7 +28,6 @@ export default class StrategyViewModel extends BaseViewModel {
                     _etag = '',
                     minimal_sell_signals = 2,
                     minimal_buy_signals = 2,
-                    interval = [],
                     indicators = [],
                 } = {}) {
         super();
@@ -38,7 +37,6 @@ export default class StrategyViewModel extends BaseViewModel {
         this.name = name;
         this.strategy_key = strategy_key;
         this.enabled = enabled;
-        this.interval = interval;
         this.minimal_sell_signals = minimal_sell_signals;
         this.minimal_buy_signals = minimal_buy_signals;
         this.indicators = indicators;
