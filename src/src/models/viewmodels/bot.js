@@ -3,9 +3,6 @@ import BaseViewModel from "./base_viewmodel";
 import axios from "axios";
 
 export default class BotViewModel extends BaseViewModel {
-    static get ServiceUrl() {
-        return 'https://api.jurrex.com'
-    }
 
     static get _model_name() {
         return "bot";

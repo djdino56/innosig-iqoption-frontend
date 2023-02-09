@@ -15,7 +15,7 @@ export default class BaseViewModel {
   }
 
   static get ServiceUrl() {
-    return null
+    return 'http://127.0.0.1:5000'
   }
 
   static ObjUrl({ parentModel = null, parentId = null, objId = null }) {

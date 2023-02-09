@@ -1,9 +1,6 @@
 import BaseViewModel from './base_viewmodel'
 
 export default class AccountViewModel extends BaseViewModel {
-    static get ServiceUrl() {
-        return 'https://api.jurrex.com'
-    }
 
     static get _model_name() {
         return 'account'

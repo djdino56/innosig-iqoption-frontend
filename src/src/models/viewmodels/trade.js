@@ -3,9 +3,6 @@ import BaseViewModel from "./base_viewmodel";
 import axios from "axios";
 
 export default class TradeViewModel extends BaseViewModel {
-  static get ServiceUrl() {
-    return 'https://api.jurrex.com'
-  }
 
   static get _model_name() {
     return "trade";
