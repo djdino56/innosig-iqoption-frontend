@@ -43,7 +43,7 @@
     }
 
     .fc-col-header-cell {
-        background-color: var(--#{$variable-prefix}light);
+        background-color: var(--#{$prefix}light);
     }
 
     .fc-col-header-cell-cushion {
@@ -114,7 +114,7 @@
 }
 
 .fc-theme-bootstrap a:not([href]) {
-    color: var(--#{$variable-prefix}body-color);
+    color: var(--#{$prefix}body-color);
 }
 
 .fc-event {
@@ -152,7 +152,7 @@
 }
 
 .fc-button {
-    background: $card-bg;
+    background: var(--#{$prefix}card-bg-custom);
     border-color: $border-color;
     color: $gray-700;
     text-transform: capitalize;
@@ -388,7 +388,7 @@ $value in $theme-colors {
 
 .fc-daygrid-event-harness .fc-daygrid-event.bg-soft-dark{
     .fc-event-main, .fc-event-title {
-        color:  var(--#{$variable-prefix}dark) !important;
+        color:  var(--#{$prefix}dark) !important;
     }
 }
 

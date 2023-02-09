@@ -58,7 +58,7 @@ export default {
   components: {
     Layout,
     PageHeader,
-    lottie: Lottie,
+    lottie: Lottie
   },
 };
 </script>
@@ -66,27 +66,22 @@ export default {
 <template>
   <Layout>
     <PageHeader :title="title" :items="items" />
-    <div class="row">
-      <div class="col-xl-9">
-        <div class="card">
-          <div class="card-header">
+    <b-row>
+      <b-col xl="9">
+        <b-card no-body>
+          <b-card-header>
             <div class="d-flex align-items-center">
               <h5 class="card-title flex-grow-1 mb-0">Order #VL2667</h5>
               <div class="flex-shrink-0">
-                <router-link
-                  to="/invoices/detail"
-                  class="btn btn-primary btn-sm"
-                  ><i class="ri-download-2-fill align-middle me-1"></i>
-                  Invoice</router-link
-                >
+                <router-link to="/invoices/detail" class="btn btn-primary btn-sm"><i
+                    class="ri-download-2-fill align-middle me-1"></i>
+                  Invoice</router-link>
               </div>
             </div>
-          </div>
-          <div class="card-body">
+          </b-card-header>
+          <b-card-body>
             <div class="table-responsive table-card">
-              <table
-                class="table table-nowrap align-middle table-borderless mb-0"
-              >
+              <table class="table table-nowrap align-middle table-borderless mb-0">
                 <thead class="table-light text-muted">
                   <tr>
                     <th scope="col">Product Details</th>
@@ -100,22 +95,13 @@ export default {
                   <tr v-for="(item, index) of orderSummary" :key="index">
                     <td>
                       <div class="d-flex">
-                        <div
-                          class="flex-shrink-0 avatar-md bg-light rounded p-1"
-                        >
-                          <img
-                            :src="item.img"
-                            alt=""
-                            class="img-fluid d-block"
-                          />
+                        <div class="flex-shrink-0 avatar-md bg-light rounded p-1">
+                          <img :src="item.img" alt="" class="img-fluid d-block" />
                         </div>
                         <div class="flex-grow-1 ms-3">
                           <h5 class="fs-15">
-                            <router-link
-                              to="/ecommerce/product-details"
-                              class="link-primary"
-                              >{{ item.product }}</router-link
-                            >
+                            <router-link to="/ecommerce/product-details" class="link-primary">{{ item.product }}
+                            </router-link>
                           </h5>
                           <p class="text-muted mb-0">
                             Color: <span class="fw-medium">Pink</span>
@@ -130,9 +116,8 @@ export default {
                     <td>{{ item.quantity }}</td>
                     <td>
                       <div class="text-warning fs-15">
-                        <i class="ri-star-fill"></i><i class="ri-star-fill"></i
-                        ><i class="ri-star-fill"></i><i class="ri-star-fill"></i
-                        ><i class="ri-star-half-fill"></i>
+                        <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i
+                          class="ri-star-fill"></i><i class="ri-star-half-fill"></i>
                       </div>
                     </td>
                     <td class="fw-medium text-end">$239.98</td>
@@ -172,43 +157,28 @@ export default {
                 </tbody>
               </table>
             </div>
-          </div>
-        </div>
-        <!--end card-->
-        <div class="card">
-          <div class="card-header">
+          </b-card-body>
+        </b-card>
+        <b-card no-body>
+          <b-card-header>
             <div class="d-sm-flex align-items-center">
               <h5 class="card-title flex-grow-1 mb-0">Order Status</h5>
               <div class="flex-shrink-0 mt-2 mt-sm-0">
-                <a
-                  href="javascript:void(0);"
-                  class="btn btn-soft-primary btn-sm mt-2 mt-sm-0"
-                  ><i class="ri-map-pin-line align-middle me-1"></i> Change
-                  Address</a
-                >
-                <a
-                  href="javascript:void(0);"
-                  class="btn btn-soft-secondary btn-sm mt-2 mt-sm-0"
-                  ><i
-                    class="mdi mdi-archive-remove-outline align-middle me-1"
-                  ></i>
-                  Cancel Order</a
-                >
+                <b-link href="javascript:void(0);" class="btn btn-soft-primary btn-sm mt-2 mt-sm-0"><i
+                    class="ri-map-pin-line align-middle me-1"></i> Change
+                  Address</b-link>
+                <b-link href="javascript:void(0);" class="btn btn-soft-secondary btn-sm mt-2 mt-sm-0 ms-1"><i
+                    class="mdi mdi-archive-remove-outline align-middle me-1"></i>
+                  Cancel Order</b-link>
               </div>
             </div>
-          </div>
-          <div class="card-body">
+          </b-card-header>
+          <b-card-body>
             <div class="profile-timeline">
               <div class="accordion accordion-flush" id="accordionFlushExample">
                 <div class="accordion-item border-0">
                   <div class="accordion-header" id="headingOne">
-                    <a
-                      class="accordion-button p-2 shadow-none"
-                      data-bs-toggle="collapse"
-                      href="#collapseOne"
-                      aria-expanded="true"
-                      aria-controls="collapseOne"
-                    >
+                    <b-link class="accordion-button p-2 shadow-none" v-b-toggle.collapseOne>
                       <div class="d-flex align-items-center">
                         <div class="flex-shrink-0 avatar-xs">
                           <div class="avatar-title bg-primary rounded-circle">
@@ -222,32 +192,20 @@ export default {
                           </h6>
                         </div>
                       </div>
-                    </a>
+                    </b-link>
                   </div>
-                  <div
-                    id="collapseOne"
-                    class="accordion-collapse collapse show"
-                    aria-labelledby="headingOne"
-                    data-bs-parent="#accordionExample"
-                  >
+                  <b-collapse id="collapseOne" visible>
                     <div class="accordion-body ms-2 ps-5 pt-0">
                       <h6 class="mb-1">An order has been placed.</h6>
                       <p class="text-muted">Wed, 15 Dec 2021 - 05:34PM</p>
-
                       <h6 class="mb-1">Seller has proccessed your order.</h6>
                       <p class="text-muted mb-0">Thu, 16 Dec 2021 - 5:48AM</p>
                     </div>
-                  </div>
+                  </b-collapse>
                 </div>
                 <div class="accordion-item border-0">
                   <div class="accordion-header" id="headingTwo">
-                    <a
-                      class="accordion-button p-2 shadow-none"
-                      data-bs-toggle="collapse"
-                      href="#collapseTwo"
-                      aria-expanded="false"
-                      aria-controls="collapseTwo"
-                    >
+                    <b-link class="accordion-button p-2 shadow-none" v-b-toggle.collapseTwo>
                       <div class="d-flex align-items-center">
                         <div class="flex-shrink-0 avatar-xs">
                           <div class="avatar-title bg-primary rounded-circle">
@@ -255,37 +213,26 @@ export default {
                           </div>
                         </div>
                         <div class="flex-grow-1 ms-3">
-                          <h6 class="fs-15 mb-0 fw-semibold">
+                          <h6 class="fs-15 mb-1 fw-semibold">
                             Packed -
                             <span class="fw-normal">Thu, 16 Dec 2021</span>
                           </h6>
                         </div>
                       </div>
-                    </a>
+                    </b-link>
                   </div>
-                  <div
-                    id="collapseTwo"
-                    class="accordion-collapse collapse show"
-                    aria-labelledby="headingTwo"
-                    data-bs-parent="#accordionExample"
-                  >
+                  <b-collapse id="collapseTwo" visible>
                     <div class="accordion-body ms-2 ps-5 pt-0">
                       <h6 class="mb-1">
                         Your Item has been picked up by courier patner
                       </h6>
                       <p class="text-muted mb-0">Fri, 17 Dec 2021 - 9:45AM</p>
                     </div>
-                  </div>
+                  </b-collapse>
                 </div>
                 <div class="accordion-item border-0">
                   <div class="accordion-header" id="headingThree">
-                    <a
-                      class="accordion-button p-2 shadow-none"
-                      data-bs-toggle="collapse"
-                      href="#collapseThree"
-                      aria-expanded="false"
-                      aria-controls="collapseThree"
-                    >
+                    <b-link class="accordion-button p-2 shadow-none" v-b-toggle.collapseThree>
                       <div class="d-flex align-items-center">
                         <div class="flex-shrink-0 avatar-xs">
                           <div class="avatar-title bg-primary rounded-circle">
@@ -293,152 +240,101 @@ export default {
                           </div>
                         </div>
                         <div class="flex-grow-1 ms-3">
-                          <h6 class="fs-15 mb-0 fw-semibold">
+                          <h6 class="fs-15 mb-1 fw-semibold">
                             Shipping -
                             <span class="fw-normal">Thu, 16 Dec 2021</span>
                           </h6>
                         </div>
                       </div>
-                    </a>
+                    </b-link>
                   </div>
-                  <div
-                    id="collapseThree"
-                    class="accordion-collapse collapse show"
-                    aria-labelledby="headingThree"
-                    data-bs-parent="#accordionExample"
-                  >
+                  <b-collapse id="collapseThree" visible>
                     <div class="accordion-body ms-2 ps-5 pt-0">
                       <h6 class="fs-14">RQK Logistics - MFDS1400457854</h6>
                       <h6 class="mb-1">Your item has been shipped.</h6>
                       <p class="text-muted mb-0">Sat, 18 Dec 2021 - 4.54PM</p>
                     </div>
-                  </div>
+                  </b-collapse>
                 </div>
                 <div class="accordion-item border-0">
                   <div class="accordion-header" id="headingFour">
-                    <a
-                      class="accordion-button p-2 shadow-none"
-                      data-bs-toggle="collapse"
-                      href="#collapseFour"
-                      aria-expanded="false"
-                    >
+                    <b-link class="accordion-button p-2 shadow-none" data-bs-toggle="collapse" href="#collapseFour"
+                      aria-expanded="false">
                       <div class="d-flex align-items-center">
                         <div class="flex-shrink-0 avatar-xs">
-                          <div
-                            class="
-                              avatar-title
-                              bg-light
-                              text-primary
-                              rounded-circle
-                            "
-                          >
+                          <div class="avatar-title bg-light text-primary rounded-circle">
                             <i class="ri-takeaway-fill"></i>
                           </div>
                         </div>
                         <div class="flex-grow-1 ms-3">
-                          <h6 class="fs-15 mb-0 fw-semibold">Out For Delivery</h6>
+                          <h6 class="fs-14 mb-0 fw-semibold">
+                            Out For Delivery
+                          </h6>
                         </div>
                       </div>
-                    </a>
+                    </b-link>
                   </div>
                 </div>
                 <div class="accordion-item border-0">
                   <div class="accordion-header" id="headingFive">
-                    <a
-                      class="accordion-button p-2 shadow-none"
-                      data-bs-toggle="collapse"
-                      href="#collapseFile"
-                      aria-expanded="false"
-                    >
+                    <b-link class="accordion-button p-2 shadow-none" data-bs-toggle="collapse" href="#collapseFile"
+                      aria-expanded="false">
                       <div class="d-flex align-items-center">
                         <div class="flex-shrink-0 avatar-xs">
-                          <div
-                            class="
-                              avatar-title
-                              bg-light
-                              text-primary
-                              rounded-circle
-                            "
-                          >
+                          <div class="avatar-title bg-light text-primary rounded-circle">
                             <i class="mdi mdi-package-variant"></i>
                           </div>
                         </div>
                         <div class="flex-grow-1 ms-3">
-                          <h6 class="fs-15 mb-0 fw-semibold">Delivered</h6>
+                          <h6 class="fs-14 mb-0 fw-semibold">Delivered</h6>
                         </div>
                       </div>
-                    </a>
+                    </b-link>
                   </div>
                 </div>
               </div>
-              <!--end accordion-->
             </div>
-          </div>
-        </div>
-        <!--end card-->
-      </div>
-      <!--end col-->
-      <div class="col-xl-3">
-        <div class="card">
-          <div class="card-header">
+          </b-card-body>
+        </b-card>
+      </b-col>
+      <b-col xl="3">
+        <b-card no-body>
+          <b-card-header>
             <div class="d-flex">
               <h5 class="card-title flex-grow-1 mb-0">
-                <i
-                  class="
-                    mdi mdi-truck-fast-outline
-                    align-middle
-                    me-1
-                    text-muted
-                  "
-                ></i>
+                <i class="mdi mdi-truck-fast-outline align-middle me-1 text-muted"></i>
                 Logistics Details
               </h5>
               <div class="flex-shrink-0">
-                <a
-                  href="javascript:void(0);"
-                  class="badge badge-soft-primary fs-11"
-                  >Track Order</a
-                >
+                <b-link href="javascript:void(0);" class="badge badge-soft-primary fs-11">Track Order</b-link>
               </div>
             </div>
-          </div>
-          <div class="card-body">
+          </b-card-header>
+          <b-card-body>
             <div class="text-center">
-              <lottie
-                colors="primary:#405189,secondary:#08a88a"
-                :options="defaultOptions"
-                :height="80"
-                :width="80"
-              />
+              <lottie colors="primary:#25a0e2,secondary:#00bd9d" :options="defaultOptions" :height="80" :width="80" />
               <h5 class="fs-16 mt-2">RQK Logistics</h5>
               <p class="text-muted mb-0">ID: MFDS1400457854</p>
               <p class="text-muted mb-0">Payment Mode : Debit Card</p>
             </div>
-          </div>
-        </div>
-        <!--end card-->
+          </b-card-body>
+        </b-card>
 
-        <div class="card">
-          <div class="card-header">
+        <b-card no-body>
+          <b-card-header>
             <div class="d-flex">
               <h5 class="card-title flex-grow-1 mb-0">Customer Details</h5>
               <div class="flex-shrink-0">
-                <a href="javascript:void(0);" class="link-secondary"
-                  >View Profile</a
-                >
+                <b-link href="javascript:void(0);" class="link-secondary">View Profile</b-link>
               </div>
             </div>
-          </div>
-          <div class="card-body">
+          </b-card-header>
+          <b-card-body>
             <ul class="list-unstyled mb-0 vstack gap-3">
               <li>
                 <div class="d-flex align-items-center">
                   <div class="flex-shrink-0">
-                    <img
-                      src="@/assets/images/users/avatar-3.jpg"
-                      alt=""
-                      class="avatar-sm rounded"
-                    />
+                    <img src="@/assets/images/users/avatar-3.jpg" alt="" class="avatar-sm rounded" />
                   </div>
                   <div class="flex-grow-1 ms-3">
                     <h6 class="fs-14 mb-1">Joseph Parkers</h6>
@@ -447,25 +343,22 @@ export default {
                 </div>
               </li>
               <li>
-                <i class="ri-mail-line me-2 align-middle text-muted fs-16"></i
-                >josephparker@gmail.com
+                <i class="ri-mail-line me-2 align-middle text-muted fs-16"></i>josephparker@gmail.com
               </li>
               <li>
-                <i class="ri-phone-line me-2 align-middle text-muted fs-16"></i
-                >+(256) 245451 441
+                <i class="ri-phone-line me-2 align-middle text-muted fs-16"></i>+(256) 245451 441
               </li>
             </ul>
-          </div>
-        </div>
-        <!--end card-->
-        <div class="card">
-          <div class="card-header">
+          </b-card-body>
+        </b-card>
+        <b-card no-body>
+          <b-card-header>
             <h5 class="card-title mb-0">
               <i class="ri-map-pin-line align-middle me-1 text-muted"></i>
               Billing Address
             </h5>
-          </div>
-          <div class="card-body">
+          </b-card-header>
+          <b-card-body>
             <ul class="list-unstyled vstack gap-2 fs-13 mb-0">
               <li class="fw-medium fs-14">Joseph Parker</li>
               <li>+(256) 245451 451</li>
@@ -473,17 +366,16 @@ export default {
               <li>New York - 25645</li>
               <li>United States</li>
             </ul>
-          </div>
-        </div>
-        <!--end card-->
-        <div class="card">
-          <div class="card-header">
+          </b-card-body>
+        </b-card>
+        <b-card no-body>
+          <b-card-header>
             <h5 class="card-title mb-0">
               <i class="ri-map-pin-line align-middle me-1 text-muted"></i>
               Shipping Address
             </h5>
-          </div>
-          <div class="card-body">
+          </b-card-header>
+          <b-card-body>
             <ul class="list-unstyled vstack gap-2 fs-13 mb-0">
               <li class="fw-medium fs-14">Joseph Parker</li>
               <li>+(256) 245451 451</li>
@@ -491,20 +383,17 @@ export default {
               <li>California - 24567</li>
               <li>United States</li>
             </ul>
-          </div>
-        </div>
-        <!--end card-->
+          </b-card-body>
+        </b-card>
 
-        <div class="card">
-          <div class="card-header">
+        <b-card no-body>
+          <b-card-header>
             <h5 class="card-title mb-0">
-              <i
-                class="ri-secure-payment-line align-bottom me-1 text-muted"
-              ></i>
+              <i class="ri-secure-payment-line align-bottom me-1 text-muted"></i>
               Payment Details
             </h5>
-          </div>
-          <div class="card-body">
+          </b-card-header>
+          <b-card-body>
             <div class="d-flex align-items-center mb-2">
               <div class="flex-shrink-0">
                 <p class="text-muted mb-0">Transactions:</p>
@@ -545,12 +434,9 @@ export default {
                 <h6 class="mb-0">$415.96</h6>
               </div>
             </div>
-          </div>
-        </div>
-        <!--end card-->
-      </div>
-      <!--end col-->
-    </div>
-    <!--end row-->
+          </b-card-body>
+        </b-card>
+      </b-col>
+    </b-row>
   </Layout>
 </template>

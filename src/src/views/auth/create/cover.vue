@@ -1,120 +1,118 @@
 <script>
-    export default {
-        methods: {
-            validatePassword() {
-                // passowrd match
-                var password = document.getElementById("password-input"),
-                    confirm_password = document.getElementById("confirm-password-input");
+export default {
+    methods: {
+        validatePassword() {
+            // passowrd match
+            var password = document.getElementById("password-input"),
+                confirm_password = document.getElementById("confirm-password-input");
 
-                //Password validation
+            //Password validation
 
-                if (password.value != confirm_password.value) {
-                    confirm_password.setCustomValidity("Passwords Don't Match");
-                } else {
-                    confirm_password.setCustomValidity("");
-                }
+            if (password.value != confirm_password.value) {
+                confirm_password.setCustomValidity("Passwords Don't Match");
+            } else {
+                confirm_password.setCustomValidity("");
             }
-        },
-        mounted() {
-            var password = document.getElementById("password-input")
-            password.onchange = this.validatePassword;
-            document.querySelectorAll("form .auth-pass-inputgroup")
-                .forEach(function (item) {
-                    item.querySelectorAll(".password-addon").forEach(function (subitem) {
-                        subitem.addEventListener("click", function () {
-                            var passwordInput = item.querySelector(".password-input");
-                            if (passwordInput.type === "password") {
-                                passwordInput.type = "text";
-                            } else {
-                                passwordInput.type = "password";
-                            }
-                        });
+        }
+    },
+    mounted() {
+        var password = document.getElementById("password-input");
+        password.onchange = this.validatePassword;
+        document.querySelectorAll("form .auth-pass-inputgroup")
+            .forEach(function (item) {
+                item.querySelectorAll(".password-addon").forEach(function (subitem) {
+                    subitem.addEventListener("click", function () {
+                        var passwordInput = item.querySelector(".password-input");
+                        if (passwordInput.type === "password") {
+                            passwordInput.type = "text";
+                        } else {
+                            passwordInput.type = "password";
+                        }
                     });
                 });
+            });
 
 
 
-            var myInput = document.getElementById("password-input");
-            var letter = document.getElementById("pass-lower");
-            var capital = document.getElementById("pass-upper");
-            var number = document.getElementById("pass-number");
-            var length = document.getElementById("pass-length");
+        var myInput = document.getElementById("password-input");
+        var letter = document.getElementById("pass-lower");
+        var capital = document.getElementById("pass-upper");
+        var number = document.getElementById("pass-number");
+        var length = document.getElementById("pass-length");
 
-            // When the user clicks on the password field, show the message box
-            myInput.onfocus = function () {
-                document.getElementById("password-contain").style.display = "block";
-            };
+        // When the user clicks on the password field, show the message box
+        myInput.onfocus = function () {
+            document.getElementById("password-contain").style.display = "block";
+        };
 
-            // When the user clicks outside of the password field, hide the password-contain box
-            myInput.onblur = function () {
-                document.getElementById("password-contain").style.display = "none";
-            };
+        // When the user clicks outside of the password field, hide the password-contain box
+        myInput.onblur = function () {
+            document.getElementById("password-contain").style.display = "none";
+        };
 
-            // When the user starts to type something inside the password field
-            myInput.onkeyup = function () {
-                // Validate lowercase letters
-                var lowerCaseLetters = /[a-z]/g;
-                if (myInput.value.match(lowerCaseLetters)) {
-                    letter.classList.remove("invalid");
-                    letter.classList.add("valid");
-                } else {
-                    letter.classList.remove("valid");
-                    letter.classList.add("invalid");
-                }
+        // When the user starts to type something inside the password field
+        myInput.onkeyup = function () {
+            // Validate lowercase letters
+            var lowerCaseLetters = /[a-z]/g;
+            if (myInput.value.match(lowerCaseLetters)) {
+                letter.classList.remove("invalid");
+                letter.classList.add("valid");
+            } else {
+                letter.classList.remove("valid");
+                letter.classList.add("invalid");
+            }
 
-                // Validate capital letters
-                var upperCaseLetters = /[A-Z]/g;
-                if (myInput.value.match(upperCaseLetters)) {
-                    capital.classList.remove("invalid");
-                    capital.classList.add("valid");
-                } else {
-                    capital.classList.remove("valid");
-                    capital.classList.add("invalid");
-                }
+            // Validate capital letters
+            var upperCaseLetters = /[A-Z]/g;
+            if (myInput.value.match(upperCaseLetters)) {
+                capital.classList.remove("invalid");
+                capital.classList.add("valid");
+            } else {
+                capital.classList.remove("valid");
+                capital.classList.add("invalid");
+            }
 
-                // Validate numbers
-                var numbers = /[0-9]/g;
-                if (myInput.value.match(numbers)) {
-                    number.classList.remove("invalid");
-                    number.classList.add("valid");
-                } else {
-                    number.classList.remove("valid");
-                    number.classList.add("invalid");
-                }
+            // Validate numbers
+            var numbers = /[0-9]/g;
+            if (myInput.value.match(numbers)) {
+                number.classList.remove("invalid");
+                number.classList.add("valid");
+            } else {
+                number.classList.remove("valid");
+                number.classList.add("invalid");
+            }
 
-                // Validate length
-                if (myInput.value.length >= 8) {
-                    length.classList.remove("invalid");
-                    length.classList.add("valid");
-                } else {
-                    length.classList.remove("valid");
-                    length.classList.add("invalid");
-                }
-            };
-        },
+            // Validate length
+            if (myInput.value.length >= 8) {
+                length.classList.remove("invalid");
+                length.classList.add("valid");
+            } else {
+                length.classList.remove("valid");
+                length.classList.add("invalid");
+            }
+        };
+    },
 
-    }
+};
 </script>
 
 <template>
-    <!-- auth-page wrapper -->
     <div class="auth-page-wrapper auth-bg-cover py-5 d-flex justify-content-center align-items-center min-vh-100">
         <div class="bg-overlay"></div>
-        <!-- auth-page content -->
         <div class="auth-page-content overflow-hidden pt-lg-5">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="card overflow-hidden">
-                            <div class="row justify-content-center g-0">
-                                <div class="col-lg-6">
+            <b-container>
+                <b-row>
+                    <b-col lg="12">
+                        <b-card no-body class="overflow-hidden border-0">
+                            <b-row class="justify-content-center g-0">
+                                <b-col lg="6">
                                     <div class="p-lg-5 p-4 auth-one-bg h-100">
                                         <div class="bg-overlay"></div>
                                         <div class="position-relative h-100 d-flex flex-column">
                                             <div class="mb-4">
-                                                <a href="/" class="d-block">
+                                                <b-link href="/" class="d-block">
                                                     <img src="@/assets/images/logo-light.png" alt="" height="18">
-                                                </a>
+                                                </b-link>
                                             </div>
                                             <div class="mt-auto">
                                                 <div class="mb-3">
@@ -147,14 +145,12 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <!-- end carousel -->
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <!-- end col -->
+                                </b-col>
 
-                                <div class="col-lg-6">
+                                <b-col lg="6">
                                     <div class="p-lg-5 p-4">
                                         <h5 class="text-primary">Create new password</h5>
                                         <p class="text-muted">Your new password must be different from previous used
@@ -169,10 +165,10 @@
                                                             onpaste="return false" placeholder="Enter password"
                                                             id="password-input" aria-describedby="passwordInput"
                                                             pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
-                                                        <button
-                                                            class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon"
+                                                        <b-button variant="link"
+                                                            class="position-absolute end-0 top-0 text-decoration-none text-muted password-addon"
                                                             type="button" id="password-addon"><i
-                                                                class="ri-eye-fill align-middle"></i></button>
+                                                                class="ri-eye-fill align-middle"></i></b-button>
                                                     </div>
                                                     <div id="passwordInput" class="form-text">Must be at least 8
                                                         characters.</div>
@@ -186,10 +182,10 @@
                                                             onpaste="return false" placeholder="Confirm password"
                                                             pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                                                             id="confirm-password-input" required>
-                                                        <button
-                                                            class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon"
+                                                        <b-button variant="link"
+                                                            class="position-absolute end-0 top-0 text-decoration-none text-muted password-addon"
                                                             type="button" id="confirm-password-input"><i
-                                                                class="ri-eye-fill align-middle"></i></button>
+                                                                class="ri-eye-fill align-middle"></i></b-button>
                                                     </div>
                                                 </div>
 
@@ -200,7 +196,8 @@
                                                     <p id="pass-lower" class="invalid fs-12 mb-2">At <b>lowercase</b>
                                                         letter (a-z)</p>
                                                     <p id="pass-upper" class="invalid fs-12 mb-2">At least
-                                                        <b>uppercase</b> letter (A-Z)</p>
+                                                        <b>uppercase</b> letter (A-Z)
+                                                    </p>
                                                     <p id="pass-number" class="invalid fs-12 mb-0">A least <b>number</b>
                                                         (0-9)</p>
                                                 </div>
@@ -213,50 +210,40 @@
                                                 </div>
 
                                                 <div class="mt-4">
-                                                    <button class="btn btn-success w-100" @click="validatepassword"
-                                                        type="submit">Reset
-                                                        Password</button>
+                                                    <b-button variant="success" class="w-100" @click="validatepassword" type="submit">Reset Password</b-button>
                                                 </div>
 
                                             </form>
                                         </div>
 
                                         <div class="mt-5 text-center">
-                                            <p class="mb-0">Wait, I remember my password... <a href="auth-signin-cover"
+                                            <p class="mb-0">Wait, I remember my password... <b-link
+                                                    href="auth-signin-cover"
                                                     class="fw-semibold text-primary text-decoration-underline"> Click
-                                                    here </a> </p>
+                                                    here </b-link>
+                                            </p>
                                         </div>
                                     </div>
-                                </div>
-                                <!-- end col -->
-                            </div>
-                            <!-- end row -->
-                        </div>
-                        <!-- end card -->
-                    </div>
-                    <!-- end col -->
+                                </b-col>
+                            </b-row>
+                        </b-card>
+                    </b-col>
 
-                </div>
-                <!-- end row -->
-            </div>
-            <!-- end container -->
+                </b-row>
+            </b-container>
         </div>
-        <!-- end auth page content -->
 
-        <!-- footer -->
         <footer class="footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
+            <b-container>
+                <b-row>
+                    <b-col lg="12">
                         <div class="text-center">
-                            <p class="mb-0 text-muted">&copy; {{new Date().getFullYear()}} Velzon. Crafted with <i
+                            <p class="mb-0 text-muted">&copy; {{ new Date().getFullYear() }} Velzon. Crafted with <i
                                     class="mdi mdi-heart text-danger"></i> by Themesbrand</p>
                         </div>
-                    </div>
-                </div>
-            </div>
+                    </b-col>
+                </b-row>
+            </b-container>
         </footer>
-        <!-- end Footer -->
     </div>
-    <!-- end auth-page-wrapper -->
 </template>

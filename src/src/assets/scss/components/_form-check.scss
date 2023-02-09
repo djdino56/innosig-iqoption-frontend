@@ -271,8 +271,8 @@ $value in $theme-colors {
     padding: 0;
 
     .form-check-label {
-        background-color: $card-bg;
-        border: 1px solid $card-border-color;
+        background-color: var(--#{$prefix}card-bg-custom);
+        border: 1px solid var(--#{$prefix}input-check-border);
         border-radius: $border-radius;
         padding: 1rem;
         overflow: hidden;

@@ -22,7 +22,7 @@
     font-size: 16px;
     border-radius: 50%;
     color: $text-muted;
-    background-color: var(--#{$variable-prefix}light);
+    background-color: var(--#{$prefix}light);
     z-index: 1;
   }
   
@@ -47,7 +47,7 @@
     }
   
     &::-webkit-scrollbar-thumb {
-      background-color: rgba(var(--#{$variable-prefix}dark-rgb), .2);
+      background-color: rgba(var(--#{$prefix}dark-rgb), .2);
       border-radius: 10px;
       border: 2px solid $input-bg;
     }
@@ -93,6 +93,6 @@
 
   .header{
     font-weight: $font-weight-semibold;
-    color: var(--#{$variable-prefix}gray-600);
+    color: var(--#{$prefix}gray-600);
   }
 }

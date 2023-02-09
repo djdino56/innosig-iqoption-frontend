@@ -2,8 +2,6 @@
 import { ref, watch } from "vue";
 import Multiselect from "@vueform/multiselect";
 import "@vueform/multiselect/themes/default.css";
-import flatPickr from "vue-flatpickr-component";
-import "flatpickr/dist/flatpickr.css";
 
 import CKEditor from "@ckeditor/ckeditor5-vue";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
@@ -13,6 +11,9 @@ import useVuelidate from "@vuelidate/core";
 import Layout from "../../../layouts/main.vue";
 import PageHeader from "@/components/page-header";
 import appConfig from "../../../../app.config";
+
+import flatPickr from "vue-flatpickr-component";
+import "flatpickr/dist/flatpickr.css";
 
 export default {
   page: {
@@ -30,7 +31,7 @@ export default {
       dropzoneFile.value = document.querySelector(".dropzoneFile").files[0];
       files.value.push(dropzoneFile.value);
     };
-     watch(
+    watch(
       () => [...files.value],
       (currentValue) => {
         return currentValue;
@@ -65,7 +66,7 @@ export default {
   },
   methods: {
     deleteRecord(ele) {
-      ele.target.parentElement.parentElement.remove();
+      ele.target.parentElement.parentElement.parentElement.remove();
     },
   },
   components: {
@@ -74,7 +75,7 @@ export default {
     PageHeader,
     ckeditor: CKEditor.component,
     Multiselect,
-    flatPickr,
+    flatPickr
   },
 };
 </script>
@@ -82,32 +83,19 @@ export default {
 <template>
   <Layout>
     <PageHeader :title="title" :items="items" />
-    <div class="row">
-      <div class="col-lg-8">
-        <div class="card">
-          <div class="card-body">
+    <b-row>
+      <b-col lg="8">
+        <b-card no-body>
+          <b-card-body>
             <div class="mb-3">
-              <label class="form-label" for="project-title-input"
-                >Project Title</label
-              >
-              <input
-                type="text"
-                class="form-control"
-                id="project-title-input"
-                placeholder="Enter project title"
-              />
+              <label class="form-label" for="project-title-input">Project Title</label>
+              <input type="text" class="form-control" id="project-title-input" placeholder="Enter project title" />
             </div>
 
             <div class="mb-3">
-              <label class="form-label" for="project-thumbnail-img"
-                >Thumbnail Image</label
-              >
-              <input
-                class="form-control"
-                id="project-thumbnail-img"
-                type="file"
-                accept="image/png, image/gif, image/jpeg"
-              />
+              <label class="form-label" for="project-thumbnail-img">Thumbnail Image</label>
+              <input class="form-control" id="project-thumbnail-img" type="file"
+                accept="image/png, image/gif, image/jpeg" />
             </div>
 
             <div class="mb-3">
@@ -115,175 +103,115 @@ export default {
               <ckeditor v-model="editorData" :editor="editor"></ckeditor>
             </div>
 
-            <div class="row">
-              <div class="col-lg-4">
+            <b-row>
+              <b-col lg="4">
                 <div class="mb-3 mb-lg-0">
-                  <label for="choices-priority-input" class="form-label"
-                    >Priority</label
-                  >
+                  <label for="choices-priority-input" class="form-label">Priority</label>
 
-                  <Multiselect
-                    v-model="value2"
-                    :close-on-select="true"
-                    :searchable="true"
-                    :create-option="true"
+                  <Multiselect v-model="value2" :close-on-select="true" :searchable="true" :create-option="true"
                     :options="[
                       { value: 'High', label: 'High' },
                       { value: 'Medium', label: 'Medium' },
                       { value: 'Low', label: 'Low' },
-                    ]"
-                  />
+                    ]" />
                 </div>
-              </div>
-              <div class="col-lg-4">
+              </b-col>
+              <b-col lg="4">
                 <div class="mb-3 mb-lg-0">
-                  <label for="choices-status-input" class="form-label"
-                    >Status</label
-                  >
+                  <label for="choices-status-input" class="form-label">Status</label>
 
-                  <Multiselect
-                    v-model="value1"
-                    :close-on-select="true"
-                    :searchable="true"
-                    :create-option="true"
+                  <Multiselect v-model="value1" :close-on-select="true" :searchable="true" :create-option="true"
                     :options="[
                       { value: 'Inprogress', label: 'Inprogress' },
                       { value: 'Completed', label: 'Completed' },
-                    ]"
-                  />
+                    ]" />
                 </div>
-              </div>
-              <div class="col-lg-4">
+              </b-col>
+              <b-col lg="4">
                 <div>
-                  <label for="datepicker-deadline-input" class="form-label"
-                    >Deadline</label
-                  >
+                  <label for="datepicker-deadline-input" class="form-label">Deadline</label>
 
-                  <flat-pickr
-                    v-model="date"
-                    :config="config"
-                    class="form-control"
-                  ></flat-pickr>
+                  <flat-pickr v-model="date" :config="config" class="form-control flatpickr-input"></flat-pickr>
                 </div>
-              </div>
-            </div>
-          </div>
-          <!-- end card body -->
-        </div>
-        <!-- end card -->
+              </b-col>
+            </b-row>
+          </b-card-body>
+        </b-card>
 
-        <div class="card">
-          <div class="card-header">
+        <b-card no-body>
+          <b-card-header>
             <h5 class="card-title mb-0">Attached files</h5>
-          </div>
-          <div class="card-body">
+          </b-card-header>
+          <b-card-body>
             <div>
               <p class="text-muted">Add Attached files here.</p>
 
-              <DropZone @drop.prevent="drop" @change="selectedFile" />
-
-              <div
-                class="border rounded"
-                v-for="(file, index) of files"
-                :key="index"
-              >
-                <div class="d-flex p-2">
-                  <div class="flex-grow-1">
-                    <div class="pt-1">
-                      <h5 class="fs-14 mb-1" data-dz-name="">
-                        {{ file.name }}
-                      </h5>
-                      <p class="fs-13 text-muted mb-0" data-dz-size="">
-                        <strong>{{ file.size / 1024 }}</strong> KB
-                      </p>
-                      <strong
-                        class="error text-danger"
-                        data-dz-errormessage=""
-                      ></strong>
+              <DropZone @drop.prevent="drop" @change="selectedFile" class="mb-2" />
+              <div class="vstack gap-2">
+                <div class="border rounded" v-for="(file, index) of files" :key="index">
+                  <div class="d-flex align-items-center p-2">
+                    <div class="flex-grow-1">
+                      <div class="pt-1">
+                        <h5 class="fs-14 mb-1" data-dz-name="">
+                          {{ file.name }}
+                        </h5>
+                        <p class="fs-13 text-muted mb-0" data-dz-size="">
+                          <strong>{{ file.size / 1024 }}</strong> KB
+                        </p>
+                        <strong class="error text-danger" data-dz-errormessage=""></strong>
+                      </div>
                     </div>
-                  </div>
-                  <div class="flex-shrink-0 ms-3">
-                    <button
-                      data-dz-remove=""
-                      class="btn btn-sm btn-danger"
-                      @click="deleteRecord"
-                    >
-                      Delete
-                    </button>
+                    <div class="flex-shrink-0 ms-3">
+                      <b-button variant="danger" size="sm" data-dz-remove="" @click="deleteRecord">
+                        Delete
+                      </b-button>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-        <!-- end card -->
+          </b-card-body>
+        </b-card>
         <div class="text-end mb-4">
-          <button type="submit" class="btn btn-soft-secondary w-sm me-1">Delete</button>
-          <button type="submit" class="btn btn-primary w-sm me-1">
-            Draft
-          </button>
-          <button type="submit" class="btn btn-success w-sm">Create</button>
+          <b-button type="button" variant="soft-secondary " class="w-sm me-1">Delete</b-button>
+          <b-button type="submit" variant="primary" class="w-sm me-1"> Draft </b-button>
+          <b-button type="submit" variant="success" class="w-sm">Create</b-button>
         </div>
-      </div>
-      <!-- end col -->
-      <div class="col-lg-4">
-        <div class="card">
-          <div class="card-header">
+      </b-col>
+      <b-col lg="4">
+        <b-card no-body>
+          <b-card-header>
             <h5 class="card-title mb-0">Privacy</h5>
-          </div>
-          <div class="card-body">
+          </b-card-header>
+          <b-card-body>
             <div>
-              <label for="choices-privacy-status-input" class="form-label"
-                >Status</label
-              >
-              <Multiselect
-                v-model="value3"
-                :close-on-select="true"
-                :searchable="true"
-                :create-option="true"
-                :options="[
-                  { value: 'Private', label: 'Private' },
-                  { value: 'Team', label: 'Team' },
-                  { value: 'Public', label: 'Public' },
-                ]"
-              />
+              <label for="choices-privacy-status-input" class="form-label">Status</label>
+              <Multiselect v-model="value3" :close-on-select="true" :searchable="true" :create-option="true" :options="[
+                { value: 'Private', label: 'Private' },
+                { value: 'Team', label: 'Team' },
+                { value: 'Public', label: 'Public' },
+              ]" />
             </div>
-          </div>
-          <!-- end card body -->
-        </div>
-        <!-- end card -->
+          </b-card-body>
+        </b-card>
 
-        <div class="card">
-          <div class="card-header">
+        <b-card no-body>
+          <b-card-header>
             <h5 class="card-title mb-0">Tags</h5>
-          </div>
-          <div class="card-body">
+          </b-card-header>
+          <b-card-body>
             <div class="mb-3">
-              <label for="choices-categories-input" class="form-label"
-                >Categories</label
-              >
-              <Multiselect
-                v-model="value4"
-                :close-on-select="true"
-                :searchable="true"
-                :create-option="true"
-                :options="[
-                  { value: 'Designing', label: 'Designing' },
-                  { value: 'Development', label: 'Development' },
-                ]"
-              />
+              <label for="choices-categories-input" class="form-label">Categories</label>
+              <Multiselect v-model="value4" :close-on-select="true" :searchable="true" :create-option="true" :options="[
+                { value: 'Designing', label: 'Designing' },
+                { value: 'Development', label: 'Development' },
+              ]" />
             </div>
 
             <div>
               <label for="choices-text-input" class="form-label">Skills</label>
-              <Multiselect
-                class="form-control"
-                v-model="value"
-                mode="tags"
-                :close-on-select="true"
-                :searchable="true"
-                :create-option="true"
-                :options="[
+              <Multiselect class="form-control" v-model="value" mode="tags" :close-on-select="true" :searchable="true"
+                :create-option="true" :options="[
                   { value: 'UI/UX', label: 'UI/UX' },
                   { value: 'Figma', label: 'Figma' },
                   { value: 'HTML', label: 'HTML' },
@@ -291,117 +219,70 @@ export default {
                   { value: 'Javascript', label: 'Javascript' },
                   { value: 'C#', label: 'C#' },
                   { value: 'Nodejs', label: 'Nodejs' },
-                ]"
-              />
+                ]" />
             </div>
-          </div>
-          <!-- end card body -->
-        </div>
-        <!-- end card -->
+          </b-card-body>
+        </b-card>
 
-        <div class="card">
-          <div class="card-header">
+        <b-card no-body>
+          <b-card-header>
             <h5 class="card-title mb-0">Members</h5>
-          </div>
-          <div class="card-body">
+          </b-card-header>
+          <b-card-body>
             <div class="mb-3">
-              <label for="choices-lead-input" class="form-label"
-                >Team Lead</label
-              >
-              <Multiselect
-                v-model="value5"
-                :close-on-select="true"
-                :searchable="true"
-                :create-option="true"
-                :options="[
-                  { value: 'Brent Gonzalez', label: 'Brent Gonzalez' },
-                  { value: 'Darline Williams', label: 'Darline Williams' },
-                  { value: 'Sylvia Wright', label: 'Sylvia Wright' },
-                  { value: 'Ellen Smith', label: 'Ellen Smith' },
-                  { value: 'Jeffrey Salazar', label: 'Jeffrey Salazar' },
-                  { value: 'Mark Williams', label: 'Mark Williams' },
-                ]"
-              />
+              <label for="choices-lead-input" class="form-label">Team Lead</label>
+              <Multiselect v-model="value5" :close-on-select="true" :searchable="true" :create-option="true" :options="[
+                { value: 'Brent Gonzalez', label: 'Brent Gonzalez' },
+                { value: 'Darline Williams', label: 'Darline Williams' },
+                { value: 'Sylvia Wright', label: 'Sylvia Wright' },
+                { value: 'Ellen Smith', label: 'Ellen Smith' },
+                { value: 'Jeffrey Salazar', label: 'Jeffrey Salazar' },
+                { value: 'Mark Williams', label: 'Mark Williams' },
+              ]" />
             </div>
 
             <div>
               <label class="form-label">Team Members</label>
               <div class="avatar-group">
-                <a
-                  href="javascript: void(0);"
-                  class="avatar-group-item"
-                  data-bs-toggle="tooltip"
-                  data-bs-trigger="hover"
-                  data-bs-placement="top"
-                  title="Brent Gonzalez"
-                >
+                <b-link href="javascript: void(0);" class="avatar-group-item" v-b-tooltip.hover title="Brent Gonzalez">
                   <div class="avatar-xs">
-                    <img
-                      src="@/assets/images/users/avatar-3.jpg"
-                      alt=""
-                      class="rounded-circle img-fluid"
-                    />
+                    <img src="@/assets/images/users/avatar-3.jpg" alt="" class="rounded-circle img-fluid" />
                   </div>
-                </a>
-                <a
-                  href="javascript: void(0);"
-                  class="avatar-group-item"
-                  data-bs-toggle="tooltip"
-                  data-bs-trigger="hover"
-                  data-bs-placement="top"
-                  title="Sylvia Wright"
-                >
+                </b-link>
+                <b-link href="javascript: void(0);" class="avatar-group-item" v-b-tooltip.hover title="Sylvia Wright">
                   <div class="avatar-xs">
                     <div class="avatar-title rounded-circle bg-primary">
                       S
                     </div>
                   </div>
-                </a>
-                <a
-                  href="javascript: void(0);"
-                  class="avatar-group-item"
-                  data-bs-toggle="tooltip"
-                  data-bs-trigger="hover"
-                  data-bs-placement="top"
-                  title="Ellen Smith"
-                >
+                </b-link>
+                <b-link href="javascript: void(0);" class="avatar-group-item" v-b-tooltip.hover title="Ellen Smith">
                   <div class="avatar-xs">
-                    <img
-                      src="@/assets/images/users/avatar-4.jpg"
-                      alt=""
-                      class="rounded-circle img-fluid"
-                    />
+                    <img src="@/assets/images/users/avatar-4.jpg" alt="" class="rounded-circle img-fluid" />
                   </div>
-                </a>
-                <a
-                  href="javascript: void(0);"
-                  class="avatar-group-item"
-                  data-bs-toggle="tooltip"
-                  data-bs-trigger="hover"
-                  data-bs-placement="top"
-                  title="Add Members"
-                >
-                  <div
-                    class="avatar-xs"
-                    data-bs-toggle="modal"
-                    data-bs-target="#inviteMembersModal"
-                  >
-                    <div
-                      class="avatar-title fs-16 rounded-circle bg-light border-dashed border text-primary"
-                    >
+                </b-link>
+                <b-link href="javascript: void(0);" class="avatar-group-item" v-b-tooltip.hover title="Add Members">
+                  <div class="avatar-xs" data-bs-toggle="modal" data-bs-target="#inviteMembersModal">
+                    <div class="avatar-title fs-16 rounded-circle bg-light border-dashed border text-primary">
                       +
                     </div>
                   </div>
-                </a>
+                </b-link>
               </div>
             </div>
-          </div>
-          <!-- end card body -->
-        </div>
-        <!-- end card -->
-      </div>
-      <!-- end col -->
-    </div>
-    <!-- end row -->
+          </b-card-body>
+        </b-card>
+      </b-col>
+    </b-row>
   </Layout>
 </template>
+<style scoped>
+.dropzone {
+  text-align: center;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+</style>

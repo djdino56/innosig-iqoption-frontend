@@ -50,78 +50,43 @@ export default {
 <template>
   <Layout>
     <PageHeader :title="title" :items="items" />
-    <div class="row">
-      <div class="col-lg-6">
-        <div class="card">
-          <div
-            class="card-header justify-content-between d-flex align-items-center"
-          >
-            <h4 class="card-title">Basic Radar Chart</h4>
-            
-          </div>
-          <!-- end card header -->
-          <div class="card-body">
-            <apexchart
-              class="apex-charts"
-              height="350"
-              dir="ltr"
-              :series="basicRadarChart.series"
-              :options="basicRadarChart.chartOptions"
-            ></apexchart>
-          </div>
-        </div>
-        <!--end card-->
-      </div>
-      <!-- end col -->
-      <div class="col-lg-6">
-        <div class="card">
-          <div
-            class="card-header justify-content-between d-flex align-items-center"
-          >
-            <h4 class="card-title">Radar Chart - Multiple series</h4>
-            
-          </div>
-          <!-- end card header -->
-          <div class="card-body">
-            <apexchart
-              class="apex-charts"
-              height="350"
-              dir="ltr"
-              :series="radarMultiseriesChart.series"
-              :options="radarMultiseriesChart.chartOptions"
-            ></apexchart>
-          </div>
-        </div>
-        <!--end card-->
-      </div>
-      <!-- end col -->
-    </div>
-    <!-- end row -->
+    <b-row>
+      <b-col lg="6">
+        <b-card no-body>
+          <b-card-header class="justify-content-between d-flex align-items-center">
+            <b-card-title>Basic Radar Chart</b-card-title>
+          </b-card-header>
+          <b-card-body>
+            <apexchart class="apex-charts" height="350" dir="ltr" :series="basicRadarChart.series"
+              :options="basicRadarChart.chartOptions"></apexchart>
+          </b-card-body>
+        </b-card>
+      </b-col>
+      <b-col lg="6">
+        <b-card no-body>
+          <b-card-header class="justify-content-between d-flex align-items-center">
+            <b-card-title>Radar Chart - Multiple series</b-card-title>
+          </b-card-header>
+          <b-card-body>
+            <apexchart class="apex-charts" height="350" dir="ltr" :series="radarMultiseriesChart.series"
+              :options="radarMultiseriesChart.chartOptions"></apexchart>
+          </b-card-body>
+        </b-card>
+      </b-col>
+    </b-row>
 
-    <div class="row">
-      <div class="col-lg-6">
-        <div class="card">
-          <div
-            class="card-header justify-content-between d-flex align-items-center"
-          >
-            <h4 class="card-title">Radar Chart - Polygon Fill</h4>
-            
-          </div>
-          <!-- end card header -->
-          <div class="card-body">
-            <apexchart
-              class="apex-charts"
-              height="350"
-              dir="ltr"
-              :series="polygonRadarChart.series"
-              :options="polygonRadarChart.chartOptions"
-            ></apexchart>
-          </div>
-        </div>
-        <!--end card-->
-      </div>
-      <!-- end col -->
-    </div>
-    <!-- end row -->
+    <b-row>
+      <b-col lg="6">
+        <b-card no-body>
+          <b-card-header class="justify-content-between d-flex align-items-center">
+            <b-card-title>Radar Chart - Polygon Fill</b-card-title>
+          </b-card-header>
+          <b-card-body>
+            <apexchart class="apex-charts" height="350" dir="ltr" :series="polygonRadarChart.series"
+              :options="polygonRadarChart.chartOptions"></apexchart>
+          </b-card-body>
+        </b-card>
+      </b-col>
+    </b-row>
   </Layout>
 </template>

@@ -1,9 +1,40 @@
 <script>
-  export default {
-    setup() {
-      return {
-        series: [{
-          data: [{
+
+function getChartColorsArray(colors) {
+  colors = JSON.parse(colors);
+  return colors.map(function (value) {
+    var newValue = value.replace(" ", "");
+    if (newValue.indexOf(",") === -1) {
+      var color = getComputedStyle(document.documentElement).getPropertyValue(
+        newValue
+      );
+      if (color) {
+        color = color.replace(" ", "");
+        return color;
+      } else return newValue;
+    } else {
+      var val = value.split(",");
+      if (val.length == 2) {
+        var rgbaColor = getComputedStyle(
+          document.documentElement
+        ).getPropertyValue(val[0]);
+        rgbaColor = "rgba(" + rgbaColor + "," + val[1] + ")";
+        return rgbaColor;
+      } else {
+        return newValue;
+      }
+    }
+  });
+}
+
+var chartcolors = getChartColorsArray('["--vz-success-rgb, 0.75", "--vz-danger-rgb, 0.75"]');
+export default {
+  setup() {
+    return {
+      series: [
+        {
+          data: [
+            {
               x: new Date(1538778600000),
               y: [6629.81, 6650.5, 6623.04, 6633.33],
             },
@@ -244,130 +275,105 @@
               y: [6604.98, 6606, 6604.07, 6606],
             },
           ],
-        }, ],
-        chartOptions: {
-          chart: {
-            type: "candlestick",
-            height: 294,
-            toolbar: {
-              show: false,
-            },
-          },
-          plotOptions: {
-            candlestick: {
-              colors: {
-                upward: "#00bd9dbf",
-                downward: "#f06548bf",
-              },
-            },
-          },
-          xaxis: {
-            type: "datetime",
-          },
-          yaxis: {
-            tooltip: {
-              enabled: true,
-            },
-            labels: {
-              formatter: function (value) {
-                return "$" + value;
-              },
-            },
-          },
-          tooltip: {
-            shared: true,
-            y: [{
-                formatter: function (y) {
-                  if (typeof y !== "undefined") {
-                    return y.toFixed(0);
-                  }
-                  return y;
-                },
-              },
-              {
-                formatter: function (y) {
-                  if (typeof y !== "undefined") {
-                    return "$" + y.toFixed(2) + "k";
-                  }
-                  return y;
-                },
-              },
-              {
-                formatter: function (y) {
-                  if (typeof y !== "undefined") {
-                    return y.toFixed(0) + " Sales";
-                  }
-                  return y;
-                },
-              },
-            ],
+        },
+      ],
+      chartOptions: {
+        chart: {
+          type: "candlestick",
+          height: 294,
+          toolbar: {
+            show: false,
           },
         },
-      };
-    },
-  };
+        plotOptions: {
+          candlestick: {
+            colors: {
+              upward: chartcolors[0],
+              downward: chartcolors[1],
+            },
+          },
+        },
+        xaxis: {
+          type: "datetime",
+        },
+        yaxis: {
+          tooltip: {
+            enabled: true,
+          },
+          labels: {
+            formatter: function (value) {
+              return "$" + value;
+            },
+          },
+        },
+        tooltip: {
+          shared: true,
+          y: [
+            {
+              formatter: function (y) {
+                if (typeof y !== "undefined") {
+                  return y.toFixed(0);
+                }
+                return y;
+              },
+            },
+            {
+              formatter: function (y) {
+                if (typeof y !== "undefined") {
+                  return "$" + y.toFixed(2) + "k";
+                }
+                return y;
+              },
+            },
+            {
+              formatter: function (y) {
+                if (typeof y !== "undefined") {
+                  return y.toFixed(0) + " Sales";
+                }
+                return y;
+              },
+            },
+          ],
+        },
+      },
+    };
+  },
+};
 </script>
 
 <template>
-  <div class="card">
-    <div class="card-header border-0 align-items-center d-flex">
-      <h4 class="card-title mb-0 flex-grow-1">Market Graph</h4>
-      <div>
-        <button type="button" class="btn btn-soft-secondary btn-sm me-1">
-          1H
-        </button>
-        <button type="button" class="btn btn-soft-secondary btn-sm me-1">
-          7D
-        </button>
-        <button type="button" class="btn btn-soft-secondary btn-sm me-1">
-          1M
-        </button>
-        <button type="button" class="btn btn-soft-secondary btn-sm me-1">
-          1Y
-        </button>
-        <button type="button" class="btn btn-soft-primary btn-sm">ALL</button>
+  <b-card no-body>
+    <b-card-header class="border-0 align-items-center d-flex">
+      <b-card-title class="mb-0 flex-grow-1">Market Graph</b-card-title>
+      <div class="hstack gap-1">
+        <b-button type="button" variant="soft-secondary" size="sm">1H</b-button>
+        <b-button type="button" variant="soft-secondary" size="sm">7D</b-button>
+        <b-button type="button" variant="soft-secondary" size="sm">1M</b-button>
+        <b-button type="button" variant="soft-secondary" size="sm">1Y</b-button>
+        <b-button type="button" variant="soft-primary" size="sm">ALL</b-button>
       </div>
-    </div>
-    <!-- end card header -->
-    <div class="card-body p-0">
-      <div class="
-          bg-soft-light
-          border-top-dashed
-          border
-          border-start-0
-          border-end-0
-          border-bottom-dashed
-          py-3
-          px-4
-        ">
-        <div class="row align-items-center">
-          <div class="col-6">
+    </b-card-header>
+    <b-card-body class="p-0">
+      <div class="bg-soft-light border-top-dashed border border-start-0 border-end-0 border-bottom-dashed py-3 px-4">
+        <b-row class="align-items-center">
+          <b-col cols="6">
             <div class="d-flex flex-wrap gap-4 align-items-center">
               <h5 class="fs-19 mb-0">0.014756</h5>
-              <p class="fw-medium text-muted mb-0">
-                $75.69 <span class="text-success fs-11 ms-1">+1.99%</span>
+              <p class="fw-medium text-muted mb-0">$75.69 <span class="text-success fs-11 ms-1">+1.99%</span>
               </p>
-              <p class="fw-medium text-muted mb-0">
-                High <span class="text-dark fs-11 ms-1">0.014578</span>
+              <p class="fw-medium text-muted mb-0">High <span class="text-dark fs-11 ms-1">0.014578</span>
               </p>
               <p class="fw-medium text-muted mb-0">
                 Low <span class="text-dark fs-11 ms-1">0.0175489</span>
               </p>
             </div>
-          </div>
-          <!-- end col -->
-          <div class="col-6">
+          </b-col>
+          <b-col cols="6">
             <div class="d-flex">
-              <div class="
-                  d-flex
-                  justify-content-end
-                  text-end
-                  flex-wrap
-                  gap-4
-                  ms-auto
-                ">
+              <div class="d-flex justify-content-end text-end flex-wrap gap-4 ms-auto">
                 <div class="pe-3">
-                  <h6 class="mb-2 text-truncate text-muted">Total Balance</h6>
+                  <h6 class="mb-2 text-truncate text-muted">Total
+                    Balance</h6>
                   <h5 class="mb-0">$72.8k</h5>
                 </div>
                 <div class="pe-3">
@@ -380,17 +386,13 @@
                 </div>
               </div>
             </div>
-          </div>
-          <!-- end col -->
-        </div>
-        <!-- end row -->
+          </b-col>
+        </b-row>
       </div>
-    </div>
-    <!-- end cardbody -->
-    <div class="card-body p-0 pb-3">
+    </b-card-body>
+    <b-card-body class="p-0 pb-3">
       <apexchart class="apex-charts" height="294" dir="ltr" :series="series" :options="chartOptions"></apexchart>
-    </div>
-    <!-- end cardbody -->
-  </div>
-  <!-- end card -->
+
+    </b-card-body>
+  </b-card>
 </template>

@@ -98,43 +98,29 @@ export default {
 </script>
 
 <template>
-  <div class="card">
-    <div class="card-header align-items-center d-flex">
-      <h4 class="card-title mb-0 flex-grow-1">My Currencies</h4>
+  <b-card no-body class="card-height-100">
+    <b-card-header class="align-items-center d-flex">
+      <b-card-title class="mb-0 flex-grow-1">My Currencies</b-card-title>
       <div class="flex-shrink-0">
-        <button class="btn btn-soft-primary btn-sm">24H</button>
+        <b-button variant="soft-secondary" size="sm">24H</b-button>
       </div>
       <div class="flex-shrink-0 ms-2">
         <div class="dropdown card-header-dropdown">
-          <a
-            class="btn btn-soft-primary btn-sm"
-            role="button"
-            href="#"
-            data-bs-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
+          <b-link class="btn btn-soft-primary btn-sm" role="button" href="#" data-bs-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
             Get Report<i class="mdi mdi-chevron-down align-middle ms-1"></i>
-          </a>
+          </b-link>
           <div class="dropdown-menu dropdown-menu-end">
-            <a class="dropdown-item" href="#">Download Report</a>
-            <a class="dropdown-item" href="#">Export</a>
-            <a class="dropdown-item" href="#">Import</a>
+            <b-link class="dropdown-item" href="#">Download Report</b-link>
+            <b-link class="dropdown-item" href="#">Export</b-link>
+            <b-link class="dropdown-item" href="#">Import</b-link>
           </div>
         </div>
       </div>
-    </div>
-    <!-- end card header -->
-    <div class="card-body">
+    </b-card-header>
+    <b-card-body>
       <div class="table-responsive table-card">
-        <table
-          class="
-            table table-hover table-borderless table-centered
-            align-middle
-            table-nowrap
-            mb-0
-          "
-        >
+        <table class="table table-hover table-borderless table-centered align-middle table-nowrap mb-0">
           <thead class="text-muted bg-soft-light">
             <tr>
               <th>Coin Name</th>
@@ -145,7 +131,6 @@ export default {
               <th>Actions</th>
             </tr>
           </thead>
-          <!-- end thead -->
           <tbody>
             <tr v-for="(item, index) of currencies" :key="index">
               <td>
@@ -160,30 +145,20 @@ export default {
               </td>
               <td>${{ item.price }}</td>
               <td>
-                <h6 class="fs-13 mb-0" :class="'text-' + item.iconClass">
-                  <i class="align-middle me-1" :class="item.icon"></i
-                  >{{ item.change }}
+                <h6 class="fs-14 mb-0" :class="'text-' + item.iconClass">
+                  <i class="align-middle me-1" :class="item.icon"></i>{{ item.change }}
                 </h6>
               </td>
               <td>${{ item.balance }}</td>
               <td>{{ item.totalCoin }}</td>
               <td>
-                <router-link
-                  to="/crypto/buy-sell"
-                  class="btn btn-sm btn-soft-primary"
-                  >Trade</router-link
-                >
+                <router-link to="/crypto/buy-sell" class="btn btn-sm btn-soft-primary">Trade</router-link>
               </td>
             </tr>
-            <!-- end -->
+
           </tbody>
-          <!-- end tbody -->
         </table>
-        <!-- end table -->
       </div>
-      <!-- end tbody -->
-    </div>
-    <!-- end cardbody -->
-  </div>
-  <!-- end card -->
+    </b-card-body>
+  </b-card>
 </template>

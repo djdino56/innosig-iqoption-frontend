@@ -59,7 +59,7 @@ const basicColumnChart = {
             width: 2,
             colors: ["transparent"],
         },
-        colors: getChartColorsArray('["--vz-danger", "--vz-primary", "--vz-success"]'),
+        colors: getChartColorsArray('["--vz-info", "--vz-primary", "--vz-success"]'),
         xaxis: {
             categories: [
                 "Feb",
@@ -127,7 +127,7 @@ const columnDatalabelChart = {
                 colors: ["#adb5bd"],
             },
         },
-        colors: getChartColorsArray('["--vz-success"]'),
+        colors: getChartColorsArray('["--vz-primary"]'),
         grid: {
             borderColor: "#f1f1f1",
         },
@@ -278,7 +278,7 @@ const stackedColumnsChart = {
         fill: {
             opacity: 1,
         },
-        colors: getChartColorsArray('["--vz-primary", "--vz-success", "--vz-warning", "--vz-danger"]'),
+        colors: getChartColorsArray('["--vz-primary", "--vz-info", "--vz-success", "--vz-danger"]'),
     },
 };
 
@@ -442,7 +442,7 @@ const columnMarkersChart = {
                 columnWidth: "30%",
             },
         },
-        colors: getChartColorsArray('["--vz-success", "--vz-primary"]'),
+        colors: getChartColorsArray('["--vz-primary", "--vz-success"]'),
         dataLabels: {
             enabled: false,
         },
@@ -465,7 +465,7 @@ const columnRotatedLabel = {
         data: [44, 55, 41, 67, 22, 43, 21, 33, 45, 31, 87, 65, 35],
     }, ],
     chartOptions: {
-        colors:getChartColorsArray('["--vz-info"]'),
+        colors: getChartColorsArray('["--vz-primary"]'),
         annotations: {
             points: [{
                 x: "Bananas",
@@ -584,6 +584,7 @@ const columnNegativeChart = {
         ],
     }, ],
     chartOptions: {
+        colors: getChartColorsArray('["--vz-primary", "--vz-info", "--vz-success"]'),
         chart: {
             type: "bar",
             height: 350,
@@ -597,12 +598,12 @@ const columnNegativeChart = {
                     ranges: [{
                             from: -100,
                             to: -46,
-                            color: "#32ccff",
+                            color: "#f56e6e",
                         },
                         {
                             from: -45,
                             to: 0,
-                            color: "#00BD9D",
+                            color: "#f7cc53",
                         },
                     ],
                 },
@@ -727,7 +728,7 @@ const rangeColumnChart = {
         legend: {
             show: false,
         },
-        colors: getChartColorsArray('["--vz-primary", "--vz-success"]   '),
+        colors: getChartColorsArray('["--vz-primary", "--vz-info"]   '),
     },
 };
 

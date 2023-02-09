@@ -50,7 +50,7 @@ const basicPolarareaChart = {
     legend: {
       position: "bottom",
     },
-    colors: getChartColorsArray('["--vz-primary", "--vz-success", "--vz-warning","--vz-danger", "--vz-info", "--vz-success", "--vz-primary", "--vz-dark", "--vz-secondary"]'),
+    colors: getChartColorsArray('["--vz-primary", "--vz-success", "--vz-warning","--vz-gray-300", "--vz-info", "--vz-primary", "--vz-danger", "--vz-dark", "--vz-secondary"]'),
   },
 };
 

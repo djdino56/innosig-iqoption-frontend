@@ -36,13 +36,16 @@ export default {
           active: true,
         },
       ],
-      date: null,
       rangeDateconfig: {
         mode: "range",
         dateFormat: "d M, Y",
       },
+      date: null,
+      date2: null,
+      value: null,
       value2: null,
-      value1: null,
+      status: null,
+      status1: null,
       searchQuery: null,
       posts: [
         {
@@ -175,7 +178,7 @@ export default {
           id: 10,
           date: ["27 Oct, 2021", "03:36PM"],
           img: require("@/assets/images/svg/crypto-icons/neo.svg"),
-          coinName: "Neo (NEO)",
+          coinName: " (NEO)",
           type: "Sell",
           typeClass: "danger",
           quantity: "36",
@@ -232,12 +235,30 @@ export default {
             data.coinName.toLowerCase().includes(search) ||
             data.date[0].toLowerCase().includes(search) ||
             data.date[1].toLowerCase().includes(search) ||
+            data.type.toLowerCase().includes(search) ||
             data.quantity.toLowerCase().includes(search) ||
             data.orderValue.toLowerCase().includes(search) ||
             data.avgPrice.toLowerCase().includes(search) ||
             data.price.toLowerCase().includes(search) ||
             data.status.toLowerCase().includes(search)
           );
+        });
+      } else if (this.status !== null || this.value !== null) {
+        return this.displayedPosts.filter((data) => {
+          if (this.status != null && this.value != null) {
+            if (this.status === data.status) {
+              if (this.value === data.type) {
+                return data;
+              }
+            }
+          } else if (this.status === data.status) {
+            return data;
+          } else if (this.value === data.type) {
+            return data;
+          }
+          else {
+            return null;
+          }
         });
       } else {
         return this.displayedPosts;
@@ -271,6 +292,11 @@ export default {
       let to = page * perPage;
       return posts.slice(from, to);
     },
+    SearchData() {
+      this.resultQuery;
+      this.status = this.status1;
+      this.value = this.value2;
+    },
   },
 };
 </script>
@@ -278,89 +304,61 @@ export default {
 <template>
   <Layout>
     <PageHeader :title="title" :items="items" />
-    <div class="row" id="contactList">
-      <div class="col-lg-12">
-        <div class="card">
-          <div class="card-header d-flex align-items-center border-0">
+    <b-row id="contactList">
+      <b-col lg="12">
+        <b-card no-body>
+          <b-card-header class="d-flex align-items-center border-0">
             <h5 class="card-title mb-0 flex-grow-1">All Orders</h5>
             <div class="flex-shrink-0">
               <div class="flax-shrink-0 hstack gap-2">
-                <button class="btn btn-primary">Today's Orders</button>
-                <button class="btn btn-soft-secondary">Past Orders</button>
+                <b-button variant="primary">Today's Orders</b-button>
+                <b-button variant="soft-secondary">Past Orders</b-button>
               </div>
             </div>
-          </div>
-          <div
-            class="card-body border border-dashed border-end-0 border-start-0"
-          >
-            <div class="row g-2">
-              <div class="col-xl-4 col-md-6">
+          </b-card-header>
+          <b-card-body class="border border-dashed border-end-0 border-start-0">
+            <b-row class="g-2">
+              <b-col xl="4" md="6">
                 <div class="search-box">
-                  <input
-                    type="text"
-                    class="form-control search"
-                    placeholder="Search to orders..."
-                  />
+                  <input type="text" class="form-control search" placeholder="Search to orders..."
+                    v-model="searchQuery" />
                   <i class="ri-search-line search-icon"></i>
                 </div>
-              </div>
-              <!--end col-->
-              <div class="col-xl-3 col-md-6">
+              </b-col>
+              <b-col xl="3" md="6">
                 <div class="input-group">
-                  <span class="input-group-text" id="basic-addon1"
-                    ><i class="ri-calendar-2-line"></i
-                  ></span>
+                  <span class="input-group-text" id="basic-addon1"><i class="ri-calendar-2-line"></i></span>
 
-                  <flat-pickr
-                    v-model="date"
-                    :config="rangeDateconfig"
-                    class="form-control"
-                  ></flat-pickr>
+                  <flat-pickr v-model="date" :config="rangeDateconfig" class="form-control" id="range-datepicker">
+                  </flat-pickr>
                 </div>
-              </div>
-              <!--end col-->
-              <div class="col-xl-2 col-md-4">
-                <Multiselect
-                  class="form-control"
-                  v-model="value1"
-                  :close-on-select="true"
-                  :searchable="true"
-                  :create-option="true"
-                  :options="[
-                    { value: '', label: 'Select Type' },
-                    { value: 'Buy', label: 'Sell' },
-                    { value: 'Sell', label: 'Buy' },
-                  ]"
-                />
-              </div>
-              <!--end col-->
-              <div class="col-xl-2 col-md-4">
-                <Multiselect
-                  class="form-control"
-                  v-model="value2"
-                  :close-on-select="true"
-                  :searchable="true"
-                  :create-option="true"
-                  :options="[
-                    { value: '', label: 'Select Status' },
+              </b-col>
+              <b-col xl="2" md="4">
+                <Multiselect class="form-control" v-model="value2" :close-on-select="true" placeholder="Select Type"
+                  :searchable="true" :create-option="true" name="idType" id="idType" :options="[
+                    { value: 'Buy', label: 'Buy' },
+                    { value: 'Sell', label: 'Sell' },
+                  ]" />
+              </b-col>
+              <b-col xl="2" md="4">
+                <Multiselect class="form-control" v-model="status1" :close-on-select="true" placeholder="Select Status"
+                  :searchable="true" :create-option="true" name="idStatus" id="idStatus" :options="[
                     { value: 'Successful', label: 'Successful' },
                     { value: 'Cancelled', label: 'Cancelled' },
-                  ]"
-                />
-              </div>
-              <!--end col-->
-              <div class="col-xl-1 col-md-4">
-                <button class="btn btn-primary w-100">Filters</button>
-              </div>
-            </div>
-            <!--end row-->
-          </div>
-          <div class="card-body">
+                    { value: 'Pending', label: 'Pending' },
+                  ]" />
+              </b-col>
+              <b-col xl="1" md="4">
+                <b-button variant="primary" class="w-100" @click="SearchData">Filters</b-button>
+              </b-col>
+            </b-row>
+          </b-card-body>
+          <b-card-body>
             <div class="table-responsive table-card">
               <table class="table align-middle table-nowrap" id="customerTable">
                 <thead class="table-light text-muted">
                   <tr>
-                    <th class="sort" data-sort="order_date" scope="col">
+                    <th class="sort" data-sort="time" scope="col">
                       Date
                     </th>
                     <th class="sort" data-sort="currency_name" scope="col">
@@ -370,72 +368,52 @@ export default {
                     <th class="sort" data-sort="quantity_value" scope="col">
                       Quantity
                     </th>
-                    <th class="sort" data-sort="order_value" scope="col">
+                    <th class="sort" data-sort="or_value" scope="col">
                       Order Value
                     </th>
-                    <th class="sort" data-sort="avg_price" scope="col">
+                    <th class="sort" data-sort="sort-avg_price" scope="col">
                       Avg Price
                     </th>
-                    <th class="sort" data-sort="price" scope="col">Price</th>
+                    <th class="sort" data-sort="sort-price" scope="col">Price</th>
                     <th class="sort" data-sort="status" scope="col">Status</th>
                   </tr>
                 </thead>
-                <!--end thead-->
                 <tbody class="list form-check-all">
                   <tr v-for="(data, index) of resultQuery" :key="index">
-                    <td class="order_date">
+                    <td class="order_date time" data-timestamp="1641945600">
                       {{ data.date[0] }}
                       <small class="text-muted">{{ data.date[1] }}</small>
                     </td>
                     <td class="id" style="display: none">
-                      <a
-                        href="javascript:void(0);"
-                        class="fw-medium link-primary"
-                        >#VZ001</a
-                      >
+                      <b-link href="javascript:void(0);" class="fw-medium link-primary">#VZ001</b-link>
                     </td>
                     <td>
                       <div class="d-flex align-items-center">
                         <div class="flex-shrink-0">
                           <img :src="data.img" alt="" class="avatar-xxs" />
                         </div>
-                        <a
-                          href="javascript:void(0);"
-                          class="currency_name link-secondary flex-grow-1 ms-2"
-                          >{{ data.coinName }}</a
-                        >
+                        <b-link href="javascript:void(0);" class="currency_name flex-grow-1 ms-2 currency_name">{{
+                            data.coinName
+                        }}</b-link>
                       </div>
                     </td>
                     <td :class="`type text-${data.typeClass}`">
                       {{ data.type }}
                     </td>
                     <td class="quantity_value">{{ data.quantity }}</td>
-                    <td class="order_value">{{ data.orderValue }}</td>
-                    <td class="avg_price">{{ data.avgPrice }}</td>
-                    <td class="price">{{ data.price }}</td>
+                    <td class="order_value or_val" data-orderval="370683.20">{{ data.orderValue }}</td>
+                    <td class="avg_price sort-avg_price" data-av-price="46154.30">{{ data.avgPrice }}</td>
+                    <td class="price sort-price" data-price="46335.40">{{ data.price }}</td>
                     <td class="status">
-                      <span
-                        :class="`badge badge-soft-${data.statusClass} text-uppercase`"
-                        >{{ data.status }}</span
-                      >
+                      <span :class="`badge badge-soft-${data.statusClass} text-uppercase`">{{ data.status }}</span>
                     </td>
                   </tr>
-                  <!--end tr-->
                 </tbody>
               </table>
-              <div
-                class="noresult"
-                style="display: none"
-                :class="{ 'd-block': resultQuery.length == 0 }"
-              >
+              <div class="noresult" style="display: none" :class="{ 'd-block': resultQuery.length == 0 }">
                 <div class="text-center">
-                  <lottie
-                    class="avatar-xl"
-                    colors="primary:#121331,secondary:#08a88a"
-                    :options="defaultOptions"
-                    :height="75"
-                    :width="75"
-                  />
+                  <lottie class="avatar-xl" colors="primary:#121331,secondary:#08a88a" :options="defaultOptions"
+                    :height="75" :width="75" />
                   <h5 class="mt-2">Sorry! No Result Found</h5>
                   <p class="text-muted mb-0">
                     We've searched more than 150+ orders We did not find any
@@ -443,54 +421,32 @@ export default {
                   </p>
                 </div>
               </div>
-              <!--end table-->
             </div>
             <div class="d-flex justify-content-end p-3">
-              <div
-                class="pagination-wrap hstack gap-2"
-                v-if="page != 1 || resultQuery.length >= 10"
-              >
-                <a
-                  class="page-item pagination-prev disabled"
-                  href="#"
-                  v-if="page != 1"
-                  @click="page--"
-                >
+              <div class="pagination-wrap hstack gap-2" v-if="page != 1 || resultQuery.length >= 10">
+                <b-link class="page-item pagination-prev disabled" href="#" v-if="page != 1" @click="page--">
                   Previous
-                </a>
+                </b-link>
 
                 <ul class="pagination listjs-pagination mb-0">
-                  <li
-                    :class="{
-                      active: pageNumber == page,
-                      disabled: pageNumber == '...',
-                    }"
-                    v-for="(pageNumber, index) in pages.slice(
-                      page - 1,
-                      page + 5
-                    )"
-                    :key="index"
-                    @click="page = pageNumber"
-                  >
-                    <a class="page" href="#">{{ pageNumber }}</a>
+                  <li :class="{
+                    active: pageNumber == page,
+                    disabled: pageNumber == '...',
+                  }" v-for="(pageNumber, index) in pages.slice(
+  page - 1,
+  page + 5
+)" :key="index" @click="page = pageNumber">
+                    <b-link class="page" href="#">{{ pageNumber }}</b-link>
                   </li>
                 </ul>
-                <a
-                  class="page-item pagination-next"
-                  href="#"
-                  @click="page++"
-                  v-if="page < pages.length"
-                >
+                <b-link class="page-item pagination-next" href="#" @click="page++" v-if="page < pages.length">
                   Next
-                </a>
+                </b-link>
               </div>
             </div>
-          </div>
-        </div>
-        <!--end card-->
-      </div>
-      <!--end col-->
-    </div>
-    <!--end row-->
+          </b-card-body>
+        </b-card>
+      </b-col>
+    </b-row>
   </Layout>
 </template>

@@ -1,16 +1,10 @@
 <template>
-  <div
-    class="row w-100 h-100 d-flex flex-row justify-content-center align-items-center"
-  >
-    <div class="col-md-10">
+  <b-row class="w-100 h-100 d-flex flex-row justify-content-center align-items-center">
+    <b-col md="10">
       <h3>Client Side</h3>
-      <v-client-table
-        :data="tableData"
-        :columns="columns"
-        :options="options"
-      ></v-client-table>
-    </div>
-  </div>
+      <v-client-table :data="tableData" :columns="columns" :options="options"></v-client-table>
+    </b-col>
+  </b-row>
 </template>
 
 <script>
@@ -56,4 +50,6 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+
+</style>

@@ -12,11 +12,11 @@
     .choices__inner{
         padding: 0;
         border: none;
-        background-color: $card-bg;
+        background-color: var(--#{$prefix}card-bg-custom);
     }
 
     .choices__input{
-        background-color: $card-bg;
+        background-color: var(--#{$prefix}card-bg-custom);
     }
 }
 
@@ -40,8 +40,22 @@
 
         .swiper-slide-thumb-active{
             .nav-slide-item{
-                background-color: var(--#{$variable-prefix}light);
+                background-color: var(--#{$prefix}light);
             }
         }
     }
+}
+
+.filter-list{
+    a {
+        &.active {
+            .listname {
+                color: $success;
+            }
+        }   
+    }
+}
+
+#remove-actions{
+    display: none;
 }

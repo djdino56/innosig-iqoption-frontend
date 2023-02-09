@@ -11,7 +11,7 @@ import appConfig from "../../../app.config";
 export default {
   methods: {
     deleteRecord(ele) {
-      ele.target.parentElement.parentElement.remove();
+      ele.target.parentElement.parentElement.parentElement.remove();
     },
   },
   page: {
@@ -64,15 +64,14 @@ export default {
 <template>
   <Layout>
     <PageHeader :title="title" :items="items" />
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="card">
-          <div class="card-header">
-            <h4 class="card-title mb-0">Dropzone</h4>
-          </div>
-          <!-- end card header -->
+    <b-row>
+      <b-col lg="12">
+        <b-card no-body>
+          <b-card-header>
+            <b-card-title class="mb-0">Dropzone</b-card-title>
+          </b-card-header>
 
-          <div class="card-body">
+          <b-card-body>
             <p class="text-muted">
               DropzoneJS is an open source library that provides drag’n’drop
               file uploads with image previews.
@@ -80,11 +79,7 @@ export default {
 
             <DropZone @drop.prevent="drop" @change="selectedFile" />
             <ul class="list-unstyled mb-0" id="dropzone-preview">
-              <div
-                class="border rounded"
-                v-for="(file, index) of files"
-                :key="index"
-              >
+              <div class="border rounded" v-for="(file, index) of files" :key="index">
                 <div class="d-flex p-2">
                   <div class="flex-grow-1">
                     <div class="pt-1">
@@ -94,34 +89,31 @@ export default {
                       <p class="fs-13 text-muted mb-0" data-dz-size="">
                         <strong>{{ file.size / 1024 }}</strong> KB
                       </p>
-                      <strong
-                        class="error text-danger"
-                        data-dz-errormessage=""
-                      ></strong>
+                      <strong class="error text-danger" data-dz-errormessage=""></strong>
                     </div>
                   </div>
                   <div class="flex-shrink-0 ms-3">
-                    <button
-                      data-dz-remove=""
-                      class="btn btn-sm btn-danger"
-                      @click="deleteRecord"
-                    >
+                    <b-button variant="primary" size="sm" data-dz-remove="" @click="deleteRecord">
                       Delete
-                    </button>
+                    </b-button>
                   </div>
                 </div>
               </div>
             </ul>
-            <!-- end dropzon-preview -->
-          </div>
-          <!-- end card body -->
-        </div>
-        <!-- end card -->
-      </div>
-      <!-- end col -->
-    </div>
-    <!-- end row -->
+          </b-card-body>
+        </b-card>
+      </b-col>
+    </b-row>
 
-   
   </Layout>
 </template>
+<style scoped>
+.dropzone {
+  text-align: center;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+</style>

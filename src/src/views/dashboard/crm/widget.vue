@@ -10,7 +10,7 @@ export default {
           label: "Campaign Sent",
           badge: "ri-arrow-up-circle-line text-success",
           icon: "ri-space-ship-line",
-          counter: "197",
+          counter: 197,
           decimals: 0,
           suffix: "",
           prefix: "",
@@ -20,7 +20,7 @@ export default {
           label: "Annual Profit",
           badge: "ri-arrow-up-circle-line text-success",
           icon: "ri-exchange-dollar-line",
-          counter: "489.4",
+          counter: 489.4,
           decimals: 1,
           suffix: "K",
           prefix: "$",
@@ -30,7 +30,7 @@ export default {
           label: "Lead Coversation",
           badge: "ri-arrow-down-circle-line text-danger",
           icon: "ri-pulse-line",
-          counter: "32.89",
+          counter: 32.89,
           decimals: 2,
           suffix: "%",
           prefix: "",
@@ -40,7 +40,7 @@ export default {
           label: "Daily Average Income",
           badge: "ri-arrow-up-circle-line text-success",
           icon: "ri-trophy-line",
-          counter: "1596.5",
+          counter: 1596.5,
           decimals: 1,
           prefix: "$",
           separator: ",",
@@ -51,7 +51,7 @@ export default {
           label: "Annual Deals",
           badge: "ri-arrow-down-circle-line text-danger",
           icon: "ri-service-line",
-          counter: "2659",
+          counter: 2659,
           decimals: 0,
           separator: ",",
           suffix: "",
@@ -67,10 +67,10 @@ export default {
 </script>
 
 <template>
-  <div class="card crm-widget">
-    <div class="card-body p-0">
-      <div class="row row-cols-xxl-5 row-cols-md-3 row-cols-1 g-0">
-        <div class="col" v-for="(item, index) of crmWidgets" :key="index">
+  <b-card no-body class="crm-widget">
+    <b-card-body class="p-0">
+      <b-row class="row-cols-xxl-5 row-cols-md-3 row-cols-1 g-0">
+        <b-col v-for="(item, index) of crmWidgets" :key="index">
           <div class="py-4 px-3">
             <h5 class="text-muted text-uppercase fs-13">
               {{ item.label }}
@@ -82,17 +82,14 @@ export default {
               </div>
               <div class="flex-grow-1 ms-3">
                 <h2 class="mb-0">
-                  {{item.prefix}}<count-to :startVal='0' :endVal='item.counter' :duration='5000'></count-to>{{item.suffix}}
+                  {{item.prefix}}<count-to :startVal='0' :endVal='item.counter' :duration='5000'></count-to>
+                  {{item.suffix}}
                 </h2>
               </div>
             </div>
           </div>
-        </div>
-        <!-- end col -->
-      </div>
-      <!-- end row -->
-    </div>
-    <!-- end card body -->
-  </div>
-  <!-- end card -->
+        </b-col>
+      </b-row>
+    </b-card-body>
+  </b-card>
 </template>

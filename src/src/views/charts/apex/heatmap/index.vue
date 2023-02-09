@@ -24,7 +24,7 @@ export default {
     ],
   },
   components: {
-    Layout,PageHeader
+    Layout, PageHeader
   },
   data() {
     return {
@@ -51,101 +51,59 @@ export default {
 <template>
   <Layout>
     <PageHeader :title="title" :items="items" />
-    <div class="row">
-      <div class="col-lg-6">
-        <div class="card">
-          <div
-            class="card-header justify-content-between d-flex align-items-center"
-          >
-            <h4 class="card-title">Basic Heatmap Chart</h4>
-            
-          </div>
-          <!-- end card header -->
-          <div class="card-body">
-            <apexchart
-              class="apex-charts"
-              height="350"
-              dir="ltr"
-              :series="basicHeatmapChat.series"
-              :options="basicHeatmapChat.chartOptions"
-            ></apexchart>
-           
-          </div>
-        </div>
-        <!--end card-->
-      </div>
-      <!-- end col -->
-      <div class="col-lg-6">
-        <div class="card">
-          <div
-            class="card-header justify-content-between d-flex align-items-center"
-          >
-            <h4 class="card-title">Heatmap - Multiple Series</h4>
-            
-          </div>
-          <!-- end card header -->
-          <div class="card-body">
-             <apexchart
-              class="apex-charts"
-              height="350"
-              dir="ltr"
-              :series="multipleSeriesHeatmapChart.series"
-              :options="multipleSeriesHeatmapChart.chartOptions"
-            ></apexchart>
-          </div>
-        </div>
-        <!--end card-->
-      </div>
-      <!-- end col -->
-    </div>
-    <!-- end row -->
+    <b-row>
+      <b-col lg="6">
+        <b-card no-body>
+          <b-card-header class="justify-content-between d-flex align-items-center">
+            <b-card-title>Basic Heatmap Chart</b-card-title>
 
-    <div class="row">
-      <div class="col-lg-6">
-        <div class="card">
-          <div
-            class="card-header justify-content-between d-flex align-items-center"
-          >
-            <h4 class="card-title">Heatmap Color Range</h4>
-            
-          </div>
-          <!-- end card header -->
-          <div class="card-body">
-            <apexchart
-              class="apex-charts"
-              height="350"
-              dir="ltr"
-              :series="colorHeatmapChart.series"
-              :options="colorHeatmapChart.chartOptions"
-            ></apexchart>
-          </div>
-        </div>
-        <!--end card-->
-      </div>
-      <!-- end col -->
-      <div class="col-lg-6">
-        <div class="card">
-          <div
-            class="card-header justify-content-between d-flex align-items-center"
-          >
-            <h4 class="card-title">Heatmap - Range Without Shades</h4>
-            
-          </div>
-          <!-- end card header -->
-          <div class="card-body">
-            <apexchart
-              class="apex-charts"
-              height="350"
-              dir="ltr"
-              :series="shadesHeatmapChart.series"
-              :options="shadesHeatmapChart.chartOptions"
-            ></apexchart>
-          </div>
-        </div>
-        <!--end card-->
-      </div>
-      <!-- end col -->
-    </div>
-    <!-- end row -->
+          </b-card-header>
+          <b-card-body>
+            <apexchart class="apex-charts" height="350" dir="ltr" :series="basicHeatmapChat.series"
+              :options="basicHeatmapChat.chartOptions"></apexchart>
+
+          </b-card-body>
+        </b-card>
+      </b-col>
+      <b-col lg="6">
+        <b-card no-body>
+          <b-card-header class="justify-content-between d-flex align-items-center">
+            <b-card-title>Heatmap - Multiple Series</b-card-title>
+
+          </b-card-header>
+          <b-card-body>
+            <apexchart class="apex-charts" height="350" dir="ltr" :series="multipleSeriesHeatmapChart.series"
+              :options="multipleSeriesHeatmapChart.chartOptions"></apexchart>
+          </b-card-body>
+        </b-card>
+      </b-col>
+    </b-row>
+
+    <b-row>
+      <b-col lg="6">
+        <b-card no-body>
+          <b-card-header class="justify-content-between d-flex align-items-center">
+            <b-card-title>Heatmap Color Range</b-card-title>
+
+          </b-card-header>
+          <b-card-body>
+            <apexchart class="apex-charts" height="350" dir="ltr" :series="colorHeatmapChart.series"
+              :options="colorHeatmapChart.chartOptions"></apexchart>
+          </b-card-body>
+        </b-card>
+      </b-col>
+      <b-col lg="6">
+        <b-card no-body>
+          <b-card-header class="justify-content-between d-flex align-items-center">
+            <b-card-title>Heatmap - Range Without Shades</b-card-title>
+
+          </b-card-header>
+          <b-card-body>
+            <apexchart class="apex-charts" height="350" dir="ltr" :series="shadesHeatmapChart.series"
+              :options="shadesHeatmapChart.chartOptions"></apexchart>
+          </b-card-body>
+        </b-card>
+      </b-col>
+    </b-row>
   </Layout>
 </template>

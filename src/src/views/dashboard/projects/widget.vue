@@ -1,9 +1,5 @@
 <script>
-import {
-  BriefcaseIcon,
-  AwardIcon,
-  ClockIcon,
-} from "@zhuowenli/vue-feather-icons";
+import { BriefcaseIcon, AwardIcon, ClockIcon } from '@zhuowenli/vue-feather-icons';
 
 export default {
   setup() {
@@ -52,25 +48,22 @@ export default {
   components: {
     BriefcaseIcon,
     AwardIcon,
-    ClockIcon,
+    ClockIcon
   },
 };
 </script>
 
 <template>
-  <div class="col-xl-4" v-for="(item, index) of projectsWidgets" :key="index">
-    <div class="card card-animate">
-      <div class="card-body">
+  <b-col xl="4" v-for="(item, index) of projectsWidgets" :key="index">
+    <b-card no-body class="card-animate">
+      <b-card-body>
         <div class="d-flex align-items-center">
           <div class="avatar-sm flex-shrink-0">
-            <span
-              class="avatar-title rounded-2 fs-2"
-              :class="{
-                'bg-soft-primary text-primary': item.feaIconClass === 'primary',
-                'bg-soft-warning text-warning': item.feaIconClass === 'warning',
-                'bg-soft-info text-info': item.feaIconClass === 'info',
-              }"
-            >
+            <span class="avatar-title rounded-2 fs-2" :class="{
+              'bg-soft-primary text-primary': item.feaIconClass === 'primary',
+              'bg-soft-warning text-warning': item.feaIconClass === 'warning',
+              'bg-soft-info text-info': item.feaIconClass === 'info'
+            }">
               <template v-if="item.feaIcon == 'briefcase'">
                 <BriefcaseIcon size="24" class="text-primary"></BriefcaseIcon>
               </template>
@@ -90,18 +83,17 @@ export default {
             </p>
             <div class="d-flex align-items-center mb-3">
               <h4 class="fs-4 flex-grow-1 mb-0">
-                <span class="counter-value">{{ item.counter }}</span>
+                <span class="counter-value">{{
+                    item.counter
+                }}</span>
               </h4>
-              <span :class="`badge badge-soft-${item.badgeClass} fs-12`"
-                ><i :class="`${item.icon} fs-13 align-middle me-1`"></i
-                >{{ item.percentage }}</span
-              >
+              <span :class="`badge badge-soft-${item.badgeClass} fs-12`"><i :class="`${item.icon
+              } fs-13 align-middle me-1`"></i>{{ item.percentage }}</span>
             </div>
             <p class="text-muted text-truncate mb-0">{{ item.caption }}</p>
           </div>
         </div>
-      </div>
-      <!-- end card body -->
-    </div>
-  </div>
+      </b-card-body>
+    </b-card>
+  </b-col>
 </template>

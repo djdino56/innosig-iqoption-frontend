@@ -89,7 +89,7 @@ const treemapChart = {
         show: false,
       },
     },
-    colors: getChartColorsArray('["--vz-success"]'),
+    colors: getChartColorsArray('["--vz-primary"]'),
     title: {
       text: "Basic Treemap",
       style: {
@@ -165,7 +165,7 @@ const multiSeriesChart = {
         fontWeight: 500,
       },
     },
-    colors: getChartColorsArray('["--vz-primary","--vz-success"]'),
+    colors: getChartColorsArray('["--vz-primary","--vz-info"]'),
   },
 };
 
@@ -245,7 +245,7 @@ const distributedChart = {
         fontWeight: 500,
       },
     },
-    colors: getChartColorsArray('["--vz-primary", "--vz-secondary", "--vz-success", "--vz-info","--vz-warning", "--vz-danger"]'),
+    colors: getChartColorsArray('["--vz-primary", "--vz-success", "--vz-info","--vz-gray-300"]'),
     plotOptions: {
       treemap: {
         distributed: true,
@@ -349,12 +349,12 @@ const colorRangeChart = {
           ranges: [{
               from: -6,
               to: 0,
-              color: "#32ccff",
+              color: "#3577F1",
             },
             {
               from: 0.001,
               to: 6,
-              color: "#25a0e2",
+              color: "#F06548",
             },
           ],
         },

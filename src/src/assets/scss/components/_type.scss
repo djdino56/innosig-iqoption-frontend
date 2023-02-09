@@ -28,7 +28,7 @@ $value in $theme-colors {
             &.blockquote-#{$color} {
                 color: #{$value};
                 border-color: #{$value};
-                background-color: rgba($value, 0.15);
+                background-color: rgba($value, 0.15) !important;
 
                 .blockquote-footer {
                     color: #{$value};

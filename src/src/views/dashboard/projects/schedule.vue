@@ -17,29 +17,23 @@ export default {
 </script>
 
 <template>
-  <div class="card">
-    <div class="card-header border-0">
-      <h4 class="card-title mb-0">Upcoming Schedules</h4>
-    </div>
-    <!-- end cardheader -->
-    <div class="card-body pt-0">
+  <b-card no-body>
+    <b-card-header class="border-0">
+      <b-card-title class="mb-0">Upcoming Schedules</b-card-title>
+    </b-card-header>
+    <b-card-body class="pt-0">
       <div class="upcoming-scheduled">
-        <flat-pickr v-model="date" :config="config"></flat-pickr>
+        <flat-pickr
+          v-model="date"
+          :config="config"
+       
+        ></flat-pickr>
       </div>
 
       <h6 class="text-uppercase fw-semibold mt-4 mb-3 text-muted">Events:</h6>
       <div class="mini-stats-wid d-flex align-items-center mt-3">
         <div class="flex-shrink-0 avatar-sm">
-          <span
-            class="
-              mini-stat-icon
-              avatar-title
-              rounded-circle
-              text-primary
-              bg-soft-primary
-              fs-4
-            "
-          >
+          <span class="mini-stat-icon avatar-title rounded-circle text-primary bg-soft-primary fs-4">
             09
           </span>
         </div>
@@ -53,18 +47,10 @@ export default {
           </p>
         </div>
       </div>
-      <!-- end -->
       <div class="mini-stats-wid d-flex align-items-center mt-3">
         <div class="flex-shrink-0 avatar-sm">
           <span
-            class="
-              mini-stat-icon
-              avatar-title
-              rounded-circle
-              text-primary
-              bg-soft-primary
-              fs-4
-            "
+            class="mini-stat-icon avatar-title rounded-circle text-primary bg-soft-primary fs-4"
           >
             12
           </span>
@@ -79,18 +65,10 @@ export default {
           </p>
         </div>
       </div>
-      <!-- end -->
       <div class="mini-stats-wid d-flex align-items-center mt-3">
         <div class="flex-shrink-0 avatar-sm">
           <span
-            class="
-              mini-stat-icon
-              avatar-title
-              rounded-circle
-              text-primary
-              bg-soft-primary
-              fs-4
-            "
+            class="mini-stat-icon avatar-title rounded-circle text-primary bg-soft-primary fs-4"
           >
             25
           </span>
@@ -105,19 +83,9 @@ export default {
           </p>
         </div>
       </div>
-      <!-- end -->
       <div class="mini-stats-wid d-flex align-items-center mt-3">
         <div class="flex-shrink-0 avatar-sm">
-          <span
-            class="
-              mini-stat-icon
-              avatar-title
-              rounded-circle
-              text-primary
-              bg-soft-primary
-              fs-4
-            "
-          >
+          <span class="mini-stat-icon avatar-title rounded-circle text-primary bg-soft-primary fs-4">
             27
           </span>
         </div>
@@ -131,7 +99,6 @@ export default {
           </p>
         </div>
       </div>
-      <!-- end -->
 
       <div class="mt-3 text-center">
         <a
@@ -140,8 +107,6 @@ export default {
           >View all Events</a
         >
       </div>
-    </div>
-    <!-- end cardbody -->
-  </div>
-  <!-- end card -->
+    </b-card-body>
+  </b-card>
 </template>

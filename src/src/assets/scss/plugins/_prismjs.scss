@@ -60,7 +60,7 @@ pre[class*="language-"] {
 
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
-    background: var(--#{$variable-prefix}light) !important;
+    background: var(--#{$prefix}light) !important;
 }
 
 /* Inline code */
@@ -173,14 +173,14 @@ pre[class*="language-"] {
     }
 
     &::-webkit-scrollbar-thumb {
-        background-color: rgba(var(--#{$variable-prefix}dark-rgb), .1);
+        background-color: rgba(var(--#{$prefix}dark-rgb), .1);
         border-radius: 10px;
-        border: 2px solid var(--#{$variable-prefix}light)
+        border: 2px solid var(--#{$prefix}light)
     }
 
     &::-webkit-scrollbar-track {
         border-radius: 10px;
-        background-color: var(--#{$variable-prefix}light)
+        background-color: var(--#{$prefix}light)
     }
 }
 

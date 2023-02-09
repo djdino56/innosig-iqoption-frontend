@@ -389,25 +389,25 @@ const colorHeatmapChart = {
               from: -30,
               to: 5,
               name: "Low",
-              color: "#32ccff",
+              color: "#299CDB",
             },
             {
               from: 6,
               to: 20,
               name: "Medium",
-              color: "#00bd9d",
+              color: "#51d28c",
             },
             {
               from: 21,
               to: 45,
               name: "High",
-              color: "#25a0e2",
+              color: "#564ab1",
             },
             {
               from: 46,
               to: 55,
               name: "Extreme",
-              color: "#878a99",
+              color: "#f7cc53",
             },
           ],
         },
@@ -516,12 +516,12 @@ const shadesHeatmapChart = {
             {
               from: 0,
               to: 50,
-              color: "#25a0e2",
+              color: "#299CDB",
             },
             {
               from: 51,
               to: 100,
-              color: "#9dd4f2",
+              color: "#405189",
             },
           ],
         },
@@ -544,6 +544,7 @@ const shadesHeatmapChart = {
     },
   },
 };
+
 export {
   multipleSeriesHeatmapChart,
   basicHeatmapChat,

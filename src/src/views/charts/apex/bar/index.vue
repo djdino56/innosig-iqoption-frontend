@@ -64,259 +64,155 @@ export default {
 <template>
   <Layout>
     <PageHeader :title="title" :items="items" />
-    <div class="row">
-      <div class="col-lg-6">
-        <div class="card">
-          <div
-            class="
-              card-header
+    <b-row>
+      <b-col lg="6">
+        <b-card no-body>
+          <b-card-header class="
               justify-content-between
               d-flex
               align-items-center
-            "
-          >
-            <h4 class="card-title">Basic Bar Chart</h4>
-          </div>
-          <!-- end card header -->
-          <div class="card-body">
-            <apexchart
-              class="apex-charts"
-              height="350"
-              dir="ltr"
-              :series="basicBarChart.series"
-              :options="basicBarChart.chartOptions"
-            ></apexchart>
-          </div>
-        </div>
-        <!--end card-->
-      </div>
-      <!-- end col -->
-      <div class="col-lg-6">
-        <div class="card">
-          <div
-            class="
-              card-header
+            ">
+            <b-card-title>Basic Bar Chart</b-card-title>
+          </b-card-header>
+          <b-card-body>
+            <apexchart class="apex-charts" height="350" dir="ltr" :series="basicBarChart.series"
+              :options="basicBarChart.chartOptions"></apexchart>
+          </b-card-body>
+        </b-card>
+      </b-col>
+      <b-col lg="6">
+        <b-card no-body>
+          <b-card-header class="
               justify-content-between
               d-flex
               align-items-center
-            "
-          >
-            <h4 class="card-title">Custom DataLabels Bar</h4>
-          </div>
-          <!-- end card header -->
-          <div class="card-body">
-            <apexchart
-              class="apex-charts"
-              height="350"
-              dir="ltr"
-              :series="customDatalabelsChart.series"
-              :options="customDatalabelsChart.chartOptions"
-            ></apexchart>
-          </div>
-        </div>
-        <!--end card-->
-      </div>
-      <!--end col-->
-    </div>
-    <!-- end row -->
+            ">
+            <b-card-title>Custom DataLabels Bar</b-card-title>
+          </b-card-header>
+          <b-card-body>
+            <apexchart class="apex-charts" height="350" dir="ltr" :series="customDatalabelsChart.series"
+              :options="customDatalabelsChart.chartOptions"></apexchart>
+          </b-card-body>
+        </b-card>
+      </b-col>
+    </b-row>
 
-    <div class="row">
-      <div class="col-lg-6">
-        <div class="card">
-          <div
-            class="
-              card-header
+    <b-row>
+      <b-col lg="6">
+        <b-card no-body>
+          <b-card-header class="
               justify-content-between
               d-flex
               align-items-center
-            "
-          >
-            <h4 class="card-title">Stacked Bar Chart</h4>
-          </div>
-          <!-- end card header -->
-          <div class="card-body">
-            <apexchart
-              class="apex-charts"
-              height="350"
-              dir="ltr"
-              :series="stackedBarChart.series"
-              :options="stackedBarChart.chartOptions"
-            ></apexchart>
-          </div>
-        </div>
-        <!--end card-->
-      </div>
-      <!-- end col -->
-      <div class="col-lg-6">
-        <div class="card">
-          <div
-            class="
-              card-header
+            ">
+            <b-card-title>Stacked Bar Chart</b-card-title>
+          </b-card-header>
+          <b-card-body>
+            <apexchart class="apex-charts" height="350" dir="ltr" :series="stackedBarChart.series"
+              :options="stackedBarChart.chartOptions"></apexchart>
+          </b-card-body>
+        </b-card>
+      </b-col>
+      <b-col lg="6">
+        <b-card no-body>
+          <b-card-header class="
               justify-content-between
               d-flex
               align-items-center
-            "
-          >
-            <h4 class="card-title">Stacked Bars 100</h4>
-          </div>
-          <!-- end card header -->
-          <div class="card-body">
-            <apexchart
-              class="apex-charts"
-              height="350"
-              dir="ltr"
-              :series="stackedBar100Chart.series"
-              :options="stackedBar100Chart.chartOptions"
-            ></apexchart>
-          </div>
-        </div>
-        <!--end card-->
-      </div>
-      <!--end col-->
-    </div>
-    <!-- end row -->
+            ">
+            <b-card-title>Stacked Bars 100</b-card-title>
+          </b-card-header>
+          <b-card-body>
+            <apexchart class="apex-charts" height="350" dir="ltr" :series="stackedBar100Chart.series"
+              :options="stackedBar100Chart.chartOptions"></apexchart>
+          </b-card-body>
+        </b-card>
+      </b-col>
+    </b-row>
 
-    <div class="row">
-      <div class="col-lg-6">
-        <div class="card">
-          <div
-            class="
-              card-header
+    <b-row>
+      <b-col lg="6">
+        <b-card no-body>
+          <b-card-header class="
               justify-content-between
               d-flex
               align-items-center
-            "
-          >
-            <h4 class="card-title">Bar with Negative Values</h4>
-          </div>
-          <!-- end card header -->
-          <div class="card-body">
-            <apexchart
-              class="apex-charts"
-              height="350"
-              dir="ltr"
-              :series="barNegativeChart.series"
-              :options="barNegativeChart.chartOptions"
-            ></apexchart>
-          </div>
-        </div>
-        <!--end card-->
-      </div>
-      <!-- end col -->
-      <div class="col-lg-6">
-        <div class="card">
-          <div
-            class="
-              card-header
+            ">
+            <b-card-title>Bar with Negative Values</b-card-title>
+          </b-card-header>
+          <b-card-body>
+            <apexchart class="apex-charts" height="350" dir="ltr" :series="barNegativeChart.series"
+              :options="barNegativeChart.chartOptions"></apexchart>
+          </b-card-body>
+        </b-card>
+      </b-col>
+      <b-col lg="6">
+        <b-card no-body>
+          <b-card-header class="
               justify-content-between
               d-flex
               align-items-center
-            "
-          >
-            <h4 class="card-title">Bar with Marker</h4>
-          </div>
-          <!-- end card header -->
-          <div class="card-body">
-            <apexchart
-              class="apex-charts"
-              height="350"
-              dir="ltr"
-              :series="barMarkersChart.series"
-              :options="barMarkersChart.chartOptions"
-            ></apexchart>
-          </div>
-        </div>
-        <!--end card-->
-      </div>
-      <!--end col-->
-    </div>
-    <!-- end row -->
+            ">
+            <b-card-title>Bar with Marker</b-card-title>
+          </b-card-header>
+          <b-card-body>
+            <apexchart class="apex-charts" height="350" dir="ltr" :series="barMarkersChart.series"
+              :options="barMarkersChart.chartOptions"></apexchart>
+          </b-card-body>
+        </b-card>
+      </b-col>
+    </b-row>
 
-    <div class="row">
-      <div class="col-lg-6">
-        <div class="card">
-          <div
-            class="
-              card-header
+    <b-row>
+      <b-col lg="6">
+        <b-card no-body>
+          <b-card-header class="
               justify-content-between
               d-flex
               align-items-center
-            "
-          >
-            <h4 class="card-title">Reversed Bar Chart</h4>
-          </div>
-          <!-- end card header -->
-          <div class="card-body">
-            <apexchart
-              class="apex-charts"
-              height="350"
-              dir="ltr"
-              :series="reversedBarChart.series"
-              :options="reversedBarChart.chartOptions"
-            ></apexchart>
-          </div>
-        </div>
-        <!--end card-->
-      </div>
-      <!-- end col -->
-      <div class="col-lg-6">
-        <div class="card">
-          <div
-            class="
-              card-header
+            ">
+            <b-card-title>Reversed Bar Chart</b-card-title>
+          </b-card-header>
+          <b-card-body>
+            <apexchart class="apex-charts" height="350" dir="ltr" :series="reversedBarChart.series"
+              :options="reversedBarChart.chartOptions"></apexchart>
+          </b-card-body>
+        </b-card>
+      </b-col>
+      <b-col lg="6">
+        <b-card no-body>
+          <b-card-header class="
               justify-content-between
               d-flex
               align-items-center
-            "
-          >
-            <h4 class="card-title">Patterned Chart</h4>
-          </div>
-          <!-- end card header -->
-          <div class="card-body">
-            <apexchart
-              class="apex-charts"
-              height="350"
-              dir="ltr"
-              :series="patternedBarChart.series"
-              :options="patternedBarChart.chartOptions"
-            ></apexchart>
-          </div>
-        </div>
-        <!--end card-->
-      </div>
-      <!-- end col -->
-    </div>
-    <!-- end row -->
+            ">
+            <b-card-title>Patterned Chart</b-card-title>
+          </b-card-header>
+          <b-card-body>
+            <apexchart class="apex-charts" height="350" dir="ltr" :series="patternedBarChart.series"
+              :options="patternedBarChart.chartOptions"></apexchart>
+          </b-card-body>
+        </b-card>
+      </b-col>
+    </b-row>
 
-    <div class="row">
-      <div class="col-lg-6">
-        <div class="card">
-          <div
-            class="
-              card-header
+    <b-row>
+      <b-col lg="6">
+        <b-card no-body>
+          <b-card-header class="
               justify-content-between
               d-flex
               align-items-center
-            "
-          >
-            <h4 class="card-title">Grouped Bar Chart</h4>
-          </div>
-          <!-- end card header -->
-          <div class="card-body">
-            <apexchart
-              class="apex-charts"
-              height="350"
-              dir="ltr"
-              :series="groupedBarChart.series"
-              :options="groupedBarChart.chartOptions"
-            ></apexchart>
-          </div>
-        </div>
-        <!--end card-->
-      </div>
-      <!--end col-->
-   
-    </div>
-    <!-- end row -->
+            ">
+            <b-card-title>Grouped Bar Chart</b-card-title>
+          </b-card-header>
+          <b-card-body>
+            <apexchart class="apex-charts" height="350" dir="ltr" :series="groupedBarChart.series"
+              :options="groupedBarChart.chartOptions"></apexchart>
+          </b-card-body>
+        </b-card>
+      </b-col>
+
+    </b-row>
   </Layout>
 </template>

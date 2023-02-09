@@ -10,7 +10,7 @@ class FirebaseAuthBackend {
             firebase.initializeApp(firebaseConfig);
             firebase.auth().onAuthStateChanged((user) => {
                 if (user) {
-                    sessionStorage.setItem("authUser", JSON.stringify(user));
+                    // sessionStorage.setItem("authUser", JSON.stringify(user));
                 } else {
                     sessionStorage.removeItem('authUser');
                 }
@@ -21,13 +21,13 @@ class FirebaseAuthBackend {
     /**
      * Registers the user with given details
      */
-    registerUser = (username, email, password) => {
+    registerUser(username, email, password){
         return new Promise((resolve, reject) => {
             // eslint-disable-next-line no-unused-vars
             firebase.auth().createUserWithEmailAndPassword(email, password).then((res) => {
                 let user = firebase.auth().currentUser.updateProfile({
-                     displayName: username
-                   });
+                    displayName: username
+                });
                 resolve(user);
             }, (error) => {
                 reject(this._handleError(error));
@@ -38,10 +38,11 @@ class FirebaseAuthBackend {
     /**
      * Login user with given details
      */
-    loginUser = (email, password) => {
+    loginUser(email, password){
         return new Promise((resolve, reject) => {
             firebase.auth().signInWithEmailAndPassword(email, password).then(() => {
                 var user = firebase.auth().currentUser;
+                sessionStorage.setItem("authUser", JSON.stringify(user));
                 resolve(user);
             }, (error) => {
                 reject(this._handleError(error));
@@ -52,37 +53,38 @@ class FirebaseAuthBackend {
     /**
      * forget Password user with given details
      */
-    forgetPassword = (email) => {
+    forgetPassword(email){
         return new Promise((resolve, reject) => {
             firebase.auth().sendPasswordResetEmail(email, { url: window.location.protocol + "//" + window.location.host + "/login" }).then(() => {
                 resolve(true);
             }).catch((error) => {
                 reject(this._handleError(error));
-            })
+            });
         });
     }
 
     /**
      * Logout the user
      */
-    logout = () => {
+    logout(){
         return new Promise((resolve, reject) => {
             firebase.auth().signOut().then(() => {
+                alert("logout");
                 resolve(true);
             }).catch((error) => {
                 reject(this._handleError(error));
-            })
+            });
         });
     }
 
-    setLoggeedInUser = (user) => {
+    setLoggeedInUser(user){
         sessionStorage.setItem("authUser", JSON.stringify(user));
     }
 
     /**
      * Returns the authenticated user
      */
-    getAuthenticatedUser = () => {
+    getAuthenticatedUser(){
         if (!sessionStorage.getItem('authUser'))
             return null;
         return JSON.parse(sessionStorage.getItem('authUser'));
@@ -109,13 +111,13 @@ const initFirebaseBackend = (config) => {
         _fireBaseBackend = new FirebaseAuthBackend(config);
     }
     return _fireBaseBackend;
-}
+};
 
 /**
  * Returns the firebase backend
  */
 const getFirebaseBackend = () => {
     return _fireBaseBackend;
-}
+};
 
 export { initFirebaseBackend, getFirebaseBackend };

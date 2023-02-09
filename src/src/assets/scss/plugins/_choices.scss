@@ -18,7 +18,7 @@
     &.is-disabled{
         .choices__inner,
         .choices__input {
-            background-color: rgba(var(--#{$variable-prefix}light-rgb), 0.75);
+            background-color: rgba(var(--#{$prefix}light-rgb), 0.75);
             cursor: not-allowed;
             user-select: none;
         }
@@ -151,7 +151,7 @@
 //Select Light
 .input-light {
     .choices__inner { 
-        background-color: var(--#{$variable-prefix}light);
+        background-color: var(--#{$prefix}light);
         border: none;
     }
 }
@@ -237,8 +237,8 @@
     z-index: 1;
     position: absolute;
     width: 100%;
-    background-color: $dropdown-bg;
-    border: 1px solid $dropdown-border-color;
+    background-color: var(--#{$prefix}choices-bg);
+    border: 1px solid var(--#{$prefix}border-color);
     box-shadow: $dropdown-box-shadow;
     top: 100%;
     margin-top: 0;
@@ -257,7 +257,7 @@
     }
 
     .choices__item--selectable.is-highlighted {
-        background-color: $dropdown-link-hover-bg;
+        background-color: var(--#{$prefix}choices-link-hover-bg);
     }
 
     .choices__list {

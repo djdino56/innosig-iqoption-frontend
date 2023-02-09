@@ -1,5 +1,5 @@
 <script>
-import { AlertTriangleIcon } from "@zhuowenli/vue-feather-icons";
+import { AlertTriangleIcon } from '@zhuowenli/vue-feather-icons';
 
 import Layout from "../../../layouts/main.vue";
 import PageHeader from "@/components/page-header";
@@ -53,103 +53,77 @@ export default {
 <template>
   <Layout>
     <PageHeader :title="title" :items="items" />
-    <div class="row">
-      <div class="col-xxl-5">
-        <div class="row">
-          <div class="col-12">
-            <div class="card">
-              <div class="card-body p-0">
-                <div
-                  class="
-                    alert alert-primary
-                    border-0
-                    rounded-0
-                    m-0
-                    d-flex
-                    align-items-center
-                  "
-                  role="alert"
-                >
-                  <alert-triangle-icon
-                    class="text-primary me-2 icon-sm"
-                  ></alert-triangle-icon>
+    <b-row>
+      <b-col xxl="5">
+        <b-row>
+          <b-col cols="12">
+            <b-card no-body>
+              <b-card-body class="p-0">
+                <b-alert variant="primary" class="border-0 rounded-0 m-0 d-flex align-items-center" show>
+                  <alert-triangle-icon class="text-primary me-2 icon-sm"></alert-triangle-icon>
                   <div class="flex-grow-1 text-truncate">
                     Your free trial expired in <b>17</b> days.
                   </div>
                   <div class="flex-shrink-0">
-                    <router-link
-                      to="/pages/pricing"
-                      class="text-reset text-decoration-underline"
-                      ><b>Upgrade</b></router-link
-                    >
+                    <router-link to="/pages/pricing" class="text-reset text-decoration-underline"><b>Upgrade</b>
+                    </router-link>
                   </div>
-                </div>
+                </b-alert>
 
-                <div class="row align-items-end">
-                  <div class="col-sm-8">
+                <b-row class="align-items-end">
+                  <b-col sm="8">
                     <div class="p-3">
-                      <p class="fs-16 lh-base">
-                        Upgrade your plan from a
-                        <span class="fw-semibold">Free trial</span>, to ‘Premium
-                        Plan’ <i class="mdi mdi-arrow-right"></i>
-                      </p>
+                      <p class="fs-16 lh-base">Upgrade your plan from a <span class="fw-semibold">Free
+                          trial</span>, to ‘Premium Plan’ <i class="mdi mdi-arrow-right"></i></p>
                       <div class="mt-3">
-                        <router-link to="/pages/pricing" class="btn btn-primary"
-                          >Upgrade Account!</router-link
-                        >
+                        <router-link to="/pages/pricing" class="btn btn-primary">Upgrade
+                           Account!</router-link>
                       </div>
                     </div>
-                  </div>
-                  <div class="col-sm-4">
+                  </b-col>
+                  <b-col sm="4">
                     <div class="px-3">
-                      <img
-                        src="@/assets/images/user-illustarator-2.png"
-                        class="img-fluid"
-                        alt=""
-                      />
+                      <img src="@/assets/images/user-illustarator-2.png" class="img-fluid" alt="">
                     </div>
-                  </div>
-                </div>
-              </div>
-              <!-- end card-body-->
-            </div>
-          </div>
-          <!-- end col-->
-        </div>
-        <!-- end row-->
+                  </b-col>
+                </b-row>
+              </b-card-body>
+            </b-card>
+          </b-col>
+        </b-row>
         <Widget />
-      </div>
-      <div class="col-xxl-7">
-        <div class="row h-100">
-          <div class="col-xl-6">
+      </b-col>
+      <b-col xxl="7">
+        <b-row class="h-100">
+          <b-col xl="6">
             <Country />
-          </div>
-          <div class="col-xl-6">
+          </b-col>
+          <b-col xl="6">
             <SessionsCounties />
-          </div>
-        </div>
-      </div>
-    </div>
+          </b-col>
+        </b-row>
+      </b-col>
+    </b-row>
 
-    <div class="row h-100">
-      <div class="col-xl-6">
+    <b-row class="h-100">
+      <b-col xl="6">
         <AudiencesMetrics />
-      </div>
-      <div class="col-xl-6">
+      </b-col>
+      <b-col xl="6">
         <AudiencesSessions />
-      </div>
-    </div>
+      </b-col>
+    </b-row>
 
-    <div class="row">
-      <div class="col-xl-4">
+    <b-row>
+      <b-col xl="4">
         <Users />
-      </div>
-      <div class="col-xl-4 col-md-6">
+      </b-col>
+      <b-col xl="4" md="6">
         <Referrals />
-      </div>
-      <div class="col-xl-4 col-md-6">
+      </b-col>
+      <b-col xl="4" md="6">
         <TopPages />
-      </div>
-    </div>
+      </b-col>
+    </b-row>
   </Layout>
 </template>

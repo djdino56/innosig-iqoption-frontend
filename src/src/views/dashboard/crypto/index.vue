@@ -35,6 +35,9 @@ export default {
           active: true,
         },
       ],
+      chartcolors: {
+        colors: ["#f17171"],
+      },
       cyptoWidgets: [
         {
           id: 1,
@@ -73,11 +76,42 @@ export default {
           change: "+13.11%",
           changeClass: "success",
           coinName: "btc",
-          chartsColor: "#0AB39C",
+          chartsColor: "#0ab39c",
+          chartOptions: {
+            chart: {
+              width: "100%",
+              height: 46,
+              type: "area",
+              sparkline: {
+                enabled: true,
+              },
+              toolbar: {
+                show: false,
+              },
+            },
+            dataLabels: {
+              enabled: false,
+            },
+            stroke: {
+              curve: "smooth",
+              width: 1.5,
+            },
+            fill: {
+              type: "gradient",
+              gradient: {
+                shadeIntensity: 1,
+                inverseColors: false,
+                opacityFrom: 0.45,
+                opacityTo: 0.05,
+                stops: [50, 100, 100, 100],
+              },
+            },
+            colors: ["#0ab39c"],
+          },
           series: [
             {
               name: "Bitcoin",
-              data: [10, 68, 35, 90, 8, 11, 26, 54],
+              data: [85, 68, 35, 90, 8, 11, 26, 54],
             },
           ],
         },
@@ -89,7 +123,38 @@ export default {
           change: "+15.08%",
           changeClass: "success",
           coinName: "ltc",
-          chartsColor: "#0AB39C",
+          chartsColor: "#0ab39c",
+          chartOptions: {
+            chart: {
+              width: "100%",
+              height: 46,
+              type: "area",
+              sparkline: {
+                enabled: true,
+              },
+              toolbar: {
+                show: false,
+              },
+            },
+            dataLabels: {
+              enabled: false,
+            },
+            stroke: {
+              curve: "smooth",
+              width: 1.5,
+            },
+            fill: {
+              type: "gradient",
+              gradient: {
+                shadeIntensity: 1,
+                inverseColors: false,
+                opacityFrom: 0.45,
+                opacityTo: 0.05,
+                stops: [50, 100, 100, 100],
+              },
+            },
+            colors: ["#0ab39c"],
+          },
           series: [
             {
               name: "Litecoin",
@@ -105,7 +170,38 @@ export default {
           change: "+08.57%",
           changeClass: "success",
           coinName: "etc",
-          chartsColor: "#0AB39C",
+          chartsColor: "#0ab39c",
+          chartOptions: {
+            chart: {
+              width: "100%",
+              height: 46,
+              type: "area",
+              sparkline: {
+                enabled: true,
+              },
+              toolbar: {
+                show: false,
+              },
+            },
+            dataLabels: {
+              enabled: false,
+            },
+            stroke: {
+              curve: "smooth",
+              width: 1.5,
+            },
+            fill: {
+              type: "gradient",
+              gradient: {
+                shadeIntensity: 1,
+                inverseColors: false,
+                opacityFrom: 0.45,
+                opacityTo: 0.05,
+                stops: [50, 100, 100, 100],
+              },
+            },
+            colors: ["#0ab39c"],
+          },
           series: [
             {
               name: "Eathereum",
@@ -122,6 +218,37 @@ export default {
           changeClass: "danger",
           coinName: "bnb",
           chartsColor: "#F06548",
+          chartOptions: {
+            chart: {
+              width: "100%",
+              height: 46,
+              type: "area",
+              sparkline: {
+                enabled: true,
+              },
+              toolbar: {
+                show: false,
+              },
+            },
+            dataLabels: {
+              enabled: false,
+            },
+            stroke: {
+              curve: "smooth",
+              width: 1.5,
+            },
+            fill: {
+              type: "gradient",
+              gradient: {
+                shadeIntensity: 1,
+                inverseColors: false,
+                opacityFrom: 0.45,
+                opacityTo: 0.05,
+                stops: [50, 100, 100, 100],
+              },
+            },
+            colors: ["#F06548"],
+          },
           series: [
             {
               name: "Binance",
@@ -137,7 +264,38 @@ export default {
           change: "+12.07%",
           changeClass: "success",
           coinName: "dash",
-          chartsColor: "#0AB39C",
+          chartsColor: "#0ab39c",
+          chartOptions: {
+            chart: {
+              width: "100%",
+              height: 46,
+              type: "area",
+              sparkline: {
+                enabled: true,
+              },
+              toolbar: {
+                show: false,
+              },
+            },
+            dataLabels: {
+              enabled: false,
+            },
+            stroke: {
+              curve: "smooth",
+              width: 1.5,
+            },
+            fill: {
+              type: "gradient",
+              gradient: {
+                shadeIntensity: 1,
+                inverseColors: false,
+                opacityFrom: 0.45,
+                opacityTo: 0.05,
+                stops: [50, 100, 100, 100],
+              },
+            },
+            colors: ["#0ab39c"],
+          },
           series: [
             {
               name: "Dash",
@@ -153,7 +311,38 @@ export default {
           change: "+14.99%",
           changeClass: "success",
           coinName: "usdt",
-          chartsColor: "#0AB39C",
+          chartsColor: "#0ab39c",
+          chartOptions: {
+            chart: {
+              width: "100%",
+              height: 46,
+              type: "area",
+              sparkline: {
+                enabled: true,
+              },
+              toolbar: {
+                show: false,
+              },
+            },
+            dataLabels: {
+              enabled: false,
+            },
+            stroke: {
+              curve: "smooth",
+              width: 1.5,
+            },
+            fill: {
+              type: "gradient",
+              gradient: {
+                shadeIntensity: 1,
+                inverseColors: false,
+                opacityFrom: 0.45,
+                opacityTo: 0.05,
+                stops: [50, 100, 100, 100],
+              },
+            },
+            colors: ["#0ab39c"],
+          },
           series: [
             {
               name: "Dash",
@@ -170,6 +359,37 @@ export default {
           changeClass: "danger",
           coinName: "neo",
           chartsColor: "#F06548",
+          chartOptions: {
+            chart: {
+              width: "100%",
+              height: 46,
+              type: "area",
+              sparkline: {
+                enabled: true,
+              },
+              toolbar: {
+                show: false,
+              },
+            },
+            dataLabels: {
+              enabled: false,
+            },
+            stroke: {
+              curve: "smooth",
+              width: 1.5,
+            },
+            fill: {
+              type: "gradient",
+              gradient: {
+                shadeIntensity: 1,
+                inverseColors: false,
+                opacityFrom: 0.45,
+                opacityTo: 0.05,
+                stops: [50, 100, 100, 100],
+              },
+            },
+            colors: ["#F06548"],
+          },
           series: [
             {
               name: "Neo",
@@ -207,7 +427,7 @@ export default {
             stops: [50, 100, 100, 100],
           },
         },
-        colors: ["#405189"],
+        colors: ["#67b173"],
       },
     };
   },
@@ -231,32 +451,19 @@ export default {
   <Layout>
     <PageHeader :title="title" :items="items" />
 
-    <div class="row">
-      <div class="col-xxl-3">
+    <b-row>
+      <b-col xxl="3">
         <Portfolio />
-      </div>
-      <!-- end col -->
+      </b-col>
 
-      <div class="col-xxl-9 order-xxl-0 order-first">
-        <div class="row">
-          <div
-            class="col-lg-4 col-md-6"
-            v-for="(item, index) of cyptoWidgets"
-            :key="index"
-          >
-            <div class="card">
-              <div class="card-body">
+      <b-col xxl="9" class="order-xxl-0 order-first">
+        <b-row>
+          <b-col lg="4" md="6" v-for="(item, index) of cyptoWidgets" :key="index">
+            <b-card no-body>
+              <b-card-body>
                 <div class="d-flex align-items-center">
                   <div class="avatar-sm flex-shrink-0">
-                    <span
-                      class="
-                        avatar-title
-                        bg-light
-                        text-primary
-                        rounded-circle
-                        fs-3
-                      "
-                    >
+                    <span class="avatar-title bg-light text-primary rounded-circle fs-3">
                       <i :class="`${item.icon} align-middle`"></i>
                     </span>
                   </div>
@@ -279,145 +486,100 @@ export default {
                     </span>
                   </div>
                 </div>
-              </div>
-              <!-- end card body -->
-            </div>
-            <!-- end card -->
-          </div>
-          <!-- end col -->
-        </div>
-        <!-- end row -->
+              </b-card-body>
+            </b-card>
+          </b-col>
+        </b-row>
 
-        <div class="row">
-          <div class="col-xl-12">
+        <b-row>
+          <b-col xl="12">
             <MarketGraph />
-            <!-- end card -->
-          </div>
-          <!-- end col -->
-        </div>
-        <!-- end row -->
-      </div>
-      <!-- end col -->
-    </div>
-    <!-- end row -->
+          </b-col>
+        </b-row>
+      </b-col>
+    </b-row>
 
-    <div class="row">
-      <div class="col-lg-12">
-        <swiper
-          class="cryptoSlider"
-          :slidesPerView="1"
-          :loop="false"
-          :spaceBetween="24"
-          :navigation="{
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-          }"
-          :autoplay="{
-            delay: 2500,
-            disableOnInteraction: false,
-          }"
-          :breakpoints="{
-            640: {
-              slidesPerView: 2,
-            },
-            768: {
-              slidesPerView: 2.5,
-            },
-            1024: {
-              slidesPerView: 3,
-            },
-            1200: {
-              slidesPerView: 5,
-            },
-          }"
-        >
+    <b-row>
+      <b-col lg="12">
+        <swiper class="cryptoSlider" :slidesPerView="1" :loop="false" :spaceBetween="24" :navigation="{
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        }" :autoplay="{
+  delay: 2500,
+  disableOnInteraction: false,
+}" :breakpoints="{
+  640: {
+    slidesPerView: 2,
+  },
+  768: {
+    slidesPerView: 2.5,
+  },
+  1024: {
+    slidesPerView: 3,
+  },
+  1200: {
+    slidesPerView: 5,
+  },
+}">
           <template v-for="(item, index) of cryptoSlider" :key="index">
             <swiper-slide>
-              <div class="card">
-                <div class="card-body">
+              <b-card no-body>
+                <b-card-body>
                   <div class="float-end">
                     <div class="dropdown">
-                      <a
-                        class="text-reset"
-                        href="#"
-                        data-bs-toggle="dropdown"
-                        aria-haspopup="true"
-                        aria-expanded="false"
-                      >
-                        <span class="text-muted fs-18">
-                          <i class="mdi mdi-dots-horizontal"></i>
-                        </span>
-                      </a>
+                      <b-link class="text-reset" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="text-muted fs-18"> <i class="mdi mdi-dots-horizontal"></i></span>
+                      </b-link>
                       <div class="dropdown-menu dropdown-menu-end">
-                        <a class="dropdown-item" href="#">Details</a>
-                        <a class="dropdown-item" href="#">Cancel</a>
+                        <b-link class="dropdown-item" href="#">Details</b-link>
+                        <b-link class="dropdown-item" href="#">Cancel</b-link>
                       </div>
                     </div>
                   </div>
                   <div class="d-flex align-items-center">
-                    <img
-                      :src="item.img"
-                      class="bg-light rounded-circle p-1 avatar-xs img-fluid"
-                      alt
-                    />
+                    <img :src="item.img" class="bg-light rounded-circle p-1 avatar-xs img-fluid" alt />
                     <h6 class="ms-2 mb-0 fs-14">{{ item.label }}</h6>
                   </div>
-                  <div class="row align-items-end g-0">
-                    <div class="col-6">
+                  <b-row class="align-items-end g-0">
+                    <b-col cols="6">
                       <h5 class="mb-1 mt-4">{{ item.price }}</h5>
                       <p class="text-success fs-13 fw-medium mb-0">
                         {{ item.change }}
-                        <span class="text-muted ms-2 fs-10 text-uppercase"
-                          >({{ itemcoinName }})</span
-                        >
+                        <span class="text-muted ms-2 fs-10 text-uppercase">({{ item.coinName }})</span>
                       </p>
-                    </div>
-                    <!-- end col -->
-                    <div class="col-6">
-                      <apexchart
-                        class="apex-charts"
-                        height="46"
-                        dir="ltr"
-                        :series="item.series"
-                        :options="chartOptions"
-                      ></apexchart>
-                    </div>
-                    <!-- end col -->
-                  </div>
-                  <!-- end row -->
-                </div>
-                <!-- end card body -->
-              </div>
-              <!-- end card -->
+                    </b-col>
+                    <b-col cols="6">
+                      <apexchart class="apex-charts" :options="item.chartOptions" height="50" dir="ltr"
+                        :series="item.series.length > 0 ? item.series : []" :key="item.id"></apexchart>
+                    </b-col>
+                  </b-row>
+                </b-card-body>
+              </b-card>
             </swiper-slide>
-            <!-- end -->
           </template>
         </swiper>
-        <!-- end swiper -->
-      </div>
-      <!-- end col -->
-    </div>
-    <!-- end row -->
+      </b-col>
+    </b-row>
 
-    <div class="row">
-      <div class="col-xl-8">
+    <b-row>
+      <b-col xl="8">
         <Currencies />
-      </div>
-      <div class="col-xl-4">
+      </b-col>
+      <b-col xl="4">
         <Trading />
-      </div>
-    </div>
+      </b-col>
+    </b-row>
 
-    <div class="row">
-      <div class="col-xxl-4 col-lg-6">
+    <b-row>
+      <b-col xxl="4" lg="6">
         <RecentActivity />
-      </div>
-      <div class="col-xxl-4 col-lg-6">
+      </b-col>
+      <b-col xxl="4" lg="6">
         <TopProgram />
-      </div>
-      <div class="col-xxl-4 col-lg-6">
+      </b-col>
+      <b-col xxl="4" lg="6">
         <News />
-      </div>
-    </div>
+      </b-col>
+    </b-row>
   </Layout>
 </template>

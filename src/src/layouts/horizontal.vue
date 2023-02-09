@@ -3,53 +3,54 @@
   import RightBar from "@/components/right-bar";
   import Footer from "@/components/footer";
   import {
-    GridIcon, StarIcon, Navigation2Icon,AwardIcon, UserIcon, ActivityIcon, BellIcon
+    StarIcon, Navigation2Icon,AwardIcon, UserIcon, ActivityIcon, BellIcon
   } from "@zhuowenli/vue-feather-icons";
 
-  export default {
-    watch: {
-      $route: {
-        handler: "onRoutechange",
-        immediate: true,
-        deep: true,
-      },
-    },
-    methods: {
-      onRoutechange(ele) {
-        this.initActiveMenu(ele.path);
-      },
-      initActiveMenu(ele) {
-        setTimeout(() => {
-          if (document.querySelector("#navbar-nav")) {
-            let a = document
-              .querySelector("#navbar-nav")
-              .querySelector('[href="' + ele + '"]');
 
-            if (a) {
-              a.classList.add("active");
-              let parentCollapseDiv = a.closest(".collapse.menu-dropdown");
-              if (parentCollapseDiv) {
-                parentCollapseDiv.classList.add("show");
-                parentCollapseDiv.parentElement.children[0].classList.add(
-                  "active"
-                );
-                parentCollapseDiv.parentElement.children[0].setAttribute(
-                  "aria-expanded",
-                  "true"
-                );
+export default {
+  watch: {
+    $route: {
+      handler: "onRoutechange",
+      immediate: true,
+      deep: true,
+    },
+  },
+  methods: {
+    onRoutechange(ele) {
+      this.initActiveMenu(ele.path);
+    },
+    initActiveMenu(ele) {
+      setTimeout(() => {
+        if (document.querySelector("#navbar-nav")) {
+          let a = document
+            .querySelector("#navbar-nav")
+            .querySelector('[href="' + ele + '"]');
+
+          if (a) {
+            a.classList.add("active");
+            let parentCollapseDiv = a.closest(".collapse.menu-dropdown");
+            if (parentCollapseDiv) {
+              parentCollapseDiv.classList.add("show");
+              parentCollapseDiv.parentElement.children[0].classList.add(
+                "active"
+              );
+              parentCollapseDiv.parentElement.children[0].setAttribute(
+                "aria-expanded",
+                "true"
+              );
+              if (
+                parentCollapseDiv.parentElement.closest(
+                  ".collapse.menu-dropdown"
+                )
+              ) {
+                parentCollapseDiv.parentElement
+                  .closest(".collapse")
+                  .classList.add("show");
                 if (
-                  parentCollapseDiv.parentElement.closest(
-                    ".collapse.menu-dropdown"
-                  )
-                ) {
-                  parentCollapseDiv.parentElement
-                    .closest(".collapse")
-                    .classList.add("show");
-                  if (
-                    parentCollapseDiv.parentElement.closest(".collapse")
+                  parentCollapseDiv.parentElement.closest(".collapse")
                     .previousElementSibling
-                  )
-                    parentCollapseDiv.parentElement
+                )
+                  parentCollapseDiv.parentElement
                     .closest(".collapse")
                     .previousElementSibling.classList.add("active");
                 }
@@ -63,7 +64,6 @@
       NavBar,
       RightBar,
       Footer,
-      GridIcon,
       StarIcon,
       Navigation2Icon,
       AwardIcon,
@@ -112,34 +112,11 @@
           </button>
         </div>
         <div id="scrollbar">
-          <div class="container-fluid">
+          <b-container fluid>
             <ul class="navbar-nav h-100" id="navbar-nav">
               <li class="menu-title">
                 <span data-key="t-menu"> {{ $t("t-menu") }}</span>
               </li>
-
-              <li class="nav-item">
-                <a class="nav-link menu-link" href="#sidebarDashboards" data-bs-toggle="collapse" role="button"
-                   aria-expanded="false" aria-controls="sidebarDashboards">
-                  <GridIcon></GridIcon>
-                  <span data-key="t-dashboards"> Results </span>
-                </a>
-                <div class="collapse menu-dropdown" id="sidebarDashboards">
-                  <ul class="nav nav-sm flex-column">
-                    <li class="nav-item">
-                      <router-link to="/" class="nav-link custom-abc" data-key="t-analytics">
-                        Intervals
-                      </router-link>
-                    </li>
-                    <li class="nav-item">
-                      <router-link to="/requests/coins" class="nav-link" data-key="t-crm">
-                        Coins
-                      </router-link>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <!-- end Dashboard Menu -->
 
               <li class="nav-item">
                 <a class="nav-link menu-link" href="/bots">
@@ -184,6 +161,7 @@
               </li>
 
             </ul>
+          </b-container>
           </div>
           <!-- Sidebar -->
         </div>
@@ -198,13 +176,13 @@
       <div class="main-content">
         <div class="page-content">
           <!-- Start Content-->
-          <div class="container-fluid">
+          <b-container fluid>
             <slot />
-          </div>
+          </b-container>
         </div>
         <Footer />
       </div>
       <RightBar />
     </div>
-  </div>
+
 </template>

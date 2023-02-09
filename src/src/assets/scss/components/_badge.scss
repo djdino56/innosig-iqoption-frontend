@@ -73,19 +73,6 @@ $value in $theme-colors {
     }
 }
 
-[data-layout-mode="dark"] {
-    .badge {
-        &.bg-dark {
-            background-color: var(--#{$variable-prefix}light) !important;
-        }
-
-        &.bg-light {
-            background-color: var(--#{$variable-prefix}dark) !important;
-            color: var(--#{$variable-prefix}light) !important;
-        }
-    }
-}
-
 //Badge Gradient Style
 $gradients: ();
 $gradients: map-merge((primary: linear-gradient(135deg, $primary 0%, $success 100%),

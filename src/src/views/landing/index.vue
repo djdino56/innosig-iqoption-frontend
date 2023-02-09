@@ -1,137 +1,165 @@
 <script>
-    import appConfig from "../../../app.config";
-    import SwiperCore, {
-        Thumbs,
-        Navigation,
-        Pagination
-    } from "swiper";
-    import {
-        Swiper,
-        SwiperSlide
-    } from "swiper/vue";
-    import "swiper/swiper-bundle.css";
-    import {
-        CountTo
-    } from "vue3-count-to";
+import appConfig from "../../../app.config";
+import SwiperCore, {
+    Thumbs,
+    Navigation,
+    Pagination
+} from "swiper";
+import {
+    Swiper,
+    SwiperSlide
+} from "swiper/vue";
+import "swiper/swiper-bundle.css";
+import {
+    CountTo
+} from "vue3-count-to";
 
-    SwiperCore.use([Thumbs, Navigation, Pagination]);
-    export default {
-        page: {
+import Img1 from "@/assets/images/demos/default.png";
+import Img2 from "@/assets/images/demos/saas.png";
+import Img3 from "@/assets/images/demos/material.png";
+import Img4 from "@/assets/images/demos/minimal.png";
+import Img5 from "@/assets/images/demos/creative.png";
+import Img6 from "@/assets/images/demos/modern.png";
+import Img7 from "@/assets/images/demos/interactive.png";
+
+
+SwiperCore.use([Thumbs, Navigation, Pagination]);
+export default {
+    page: {
+        title: "Starter",
+        meta: [{
+            name: "description",
+            content: appConfig.description
+        }],
+    },
+    data() {
+        return {
             title: "Starter",
-            meta: [{
-                name: "description",
-                content: appConfig.description
-            }],
+            Img1, Img2, Img3, Img4, Img5, Img6, Img7,
+            items: [{
+                text: "Pages",
+                href: "/",
+            },
+            {
+                text: "Starter",
+                active: true,
+            },
+            ],
+        };
+    },
+    components: {
+        Swiper,
+        SwiperSlide,
+        CountTo,
+    },
+    methods: {
+
+        topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
         },
-        data() {
-            return {
-                title: "Starter",
-                items: [{
-                        text: "Pages",
-                        href: "/",
-                    },
-                    {
-                        text: "Starter",
-                        active: true,
-                    },
-                ],
+
+        monthly() {
+            const highlightedItems = document.querySelectorAll(".month");
+
+            highlightedItems.forEach(function (userItem) {
+                userItem.style.display = "block";
+            });
+            const highlightedItems2 = document.querySelectorAll(".annual");
+
+            highlightedItems2.forEach(function (userItem) {
+                userItem.style.display = "none";
+            });
+        },
+        anually() {
+            const highlightedItems = document.querySelectorAll(".month");
+
+            highlightedItems.forEach(function (userItem) {
+                userItem.style.display = "none";
+            });
+            const highlightedItems2 = document.querySelectorAll(".annual");
+
+            highlightedItems2.forEach(function (userItem) {
+                userItem.style.display = "block";
+            });
+        },
+    },
+    mounted() {
+
+        let backtoTop = document.getElementById("back-to-top");
+
+        if (backtoTop) {
+            backtoTop = document.getElementById("back-to-top");
+            window.onscroll = function () {
+                if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                    backtoTop.style.display = "block";
+                } else {
+                    backtoTop.style.display = "none";
+                }
             };
-        },
-        components: {
-            Swiper,
-            SwiperSlide,
-            CountTo,
-        },
-        methods: {
-            monthly() {
-                const highlightedItems = document.querySelectorAll(".month");
+        }
 
-                highlightedItems.forEach(function (userItem) {
-                    userItem.style.display = "block";
-                });
-                const highlightedItems2 = document.querySelectorAll(".annual");
-
-                highlightedItems2.forEach(function (userItem) {
-                    userItem.style.display = "none";
-                });
-            },
-            anually() {
-                const highlightedItems = document.querySelectorAll(".month");
-
-                highlightedItems.forEach(function (userItem) {
-                    userItem.style.display = "none";
-                });
-                const highlightedItems2 = document.querySelectorAll(".annual");
-
-                highlightedItems2.forEach(function (userItem) {
-                    userItem.style.display = "block";
-                });
-            },
-        },
-        mounted() {
-            this.monthly();
-            document.getElementById("plan-switch").addEventListener('change', () => {
-                if (document.getElementById("plan-switch").checked == true) {
-                    this.anually();
-                } else if (document.getElementById("plan-switch").checked == false) {
-                    this.monthly();
+        this.monthly();
+        document.getElementById("plan-switch").addEventListener('change', () => {
+            if (document.getElementById("plan-switch").checked == true) {
+                this.anually();
+            } else if (document.getElementById("plan-switch").checked == false) {
+                this.monthly();
+            }
+        });
+        window.addEventListener('scroll', function (ev) {
+            ev.preventDefault();
+            var navbar = document.getElementById("navbar");
+            if (navbar) {
+                if (document.body.scrollTop >= 50 || document.documentElement.scrollTop >= 50) {
+                    navbar.classList.add("is-sticky");
+                } else {
+                    navbar.classList.remove("is-sticky");
                 }
-            });
-            window.addEventListener('scroll', function (ev) {
-                ev.preventDefault();
-                var navbar = document.getElementById("navbar");
-                if (navbar) {
-                    if (document.body.scrollTop >= 50 || document.documentElement.scrollTop >= 50) {
-                        navbar.classList.add("is-sticky");
-                    } else {
-                        navbar.classList.remove("is-sticky");
-                    }
-                }
-            });
+            }
+        });
 
-            document.querySelector('.currentyear').innerHTML = new Date().getFullYear() + " © Velzon - Themesbrand";
-        },
-    };
+        document.querySelector('.currentyear').innerHTML = new Date().getFullYear() + " © Velzon - Themesbrand";
+    },
+};
 </script>
 
 <template>
     <div class="layout-wrapper landing">
         <nav class="navbar navbar-expand-lg navbar-landing fixed-top" id="navbar">
-            <div class="container">
-                <a class="navbar-brand" href="index.html">
+            <b-container>
+                <b-link class="navbar-brand" href="/">
                     <img src="@/assets/images/logo-dark.png" class="card-logo card-logo-dark" alt="logo dark"
                         height="17">
                     <img src="@/assets/images/logo-light.png" class="card-logo card-logo-light" alt="logo light"
                         height="17">
-                </a>
-                <button class="navbar-toggler py-0 fs-20 text-body" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
+                </b-link>
+                <button class="navbar-toggler py-0 fs-20 text-body" type="button" v-b-toggle.navbarSupportedContent>
                     <i class="mdi mdi-menu"></i>
                 </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <b-collapse class="navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mx-auto mt-2 mt-lg-0" id="navbar-example">
                         <li class="nav-item">
-                            <a class="nav-link active" href="#hero">Home</a>
+                            <b-link class="nav-link fs-15 active" href="#hero">Home</b-link>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#services">Services</a>
+                            <b-link class="nav-link fs-15" href="#services">Services</b-link>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#features">Features</a>
+                            <b-link class="nav-link fs-15" href="#features">Features</b-link>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#plans">Plans</a>
+                            <b-link class="nav-link fs-15" href="#plans">Plans</b-link>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#reviews">Reviews</a>
+                            <b-link class="nav-link fs-15" href="#reviews">Reviews</b-link>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#team">Team</a>
+                            <b-link class="nav-link fs-15" href="#team">Team</b-link>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#contact">Contact</a>
+                            <b-link class="nav-link fs-15" href="#contact">Contact</b-link>
                         </li>
                     </ul>
 
@@ -141,27 +169,25 @@
                             in</router-link>
                         <router-link to="/auth/signup-basic" class="btn btn-primary">Sign Up</router-link>
                     </div>
-                </div>
-
-            </div>
+                </b-collapse>
+            </b-container>
         </nav>
-        <!-- end navbar -->
-
-        <!-- start hero section -->
+        <div class="vertical-overlay" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent.show"></div>
         <section class="section pb-0 hero-section" id="hero">
             <div class="bg-overlay bg-overlay-pattern"></div>
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8 col-sm-10">
+            <b-container>
+                <b-row class="justify-content-center">
+                    <b-col lg="8" sm="10">
                         <div class="text-center mt-lg-5 pt-5">
                             <h1 class="display-6 fw-semibold mb-3 lh-base">The better way to manage your website with
-                                <span class="text-success">Velzon </span></h1>
+                                <span class="text-success">Velzon </span>
+                            </h1>
                             <p class="lead text-muted lh-base">Velzon is a fully responsive, multipurpose and premium
                                 Bootstrap 5 Admin & Dashboard Template built in multiple frameworks.</p>
 
                             <div class="d-flex gap-2 justify-content-center mt-4">
-                                <a href="auth-signup-basic.html" class="btn btn-primary">Get Started <i
-                                        class="ri-arrow-right-line align-middle ms-1"></i></a>
+                                <b-link href="/auth/signin-basic" class="btn btn-primary">Get Started <i
+                                        class="ri-arrow-right-line align-middle ms-1"></i></b-link>
                                 <router-link to="/pages/pricing" class="btn btn-danger">View Plans <i
                                         class="ri-eye-line align-middle ms-1"></i></router-link>
                             </div>
@@ -174,38 +200,22 @@
                             <div class="demo-img-patten-bottom d-none d-sm-block">
                                 <img src="@/assets/images/landing/img-pattern.png" class="d-block img-fluid" alt="...">
                             </div>
-                            <div class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+                            <b-carousel :interval="2000" class="carousel slide carousel-fade">
                                 <div class="carousel-inner shadow-lg p-2 bg-white rounded">
-                                    <div class="carousel-item active" data-bs-interval="2000">
-                                        <img src="@/assets/images/demos/default.png" class="d-block w-100" alt="...">
-                                    </div>
-                                    <div class="carousel-item" data-bs-interval="2000">
-                                        <img src="@/assets/images/demos/saas.png" class="d-block w-100" alt="...">
-                                    </div>
-                                    <div class="carousel-item" data-bs-interval="2000">
-                                        <img src="@/assets/images/demos/material.png" class="d-block w-100" alt="...">
-                                    </div>
-                                    <div class="carousel-item" data-bs-interval="2000">
-                                        <img src="@/assets/images/demos/minimal.png" class="d-block w-100" alt="...">
-                                    </div>
-                                    <div class="carousel-item" data-bs-interval="2000">
-                                        <img src="@/assets/images/demos/creative.png" class="d-block w-100" alt="...">
-                                    </div>
-                                    <div class="carousel-item" data-bs-interval="2000">
-                                        <img src="@/assets/images/demos/modern.png" class="d-block w-100" alt="...">
-                                    </div>
-                                    <div class="carousel-item" data-bs-interval="2000">
-                                        <img src="@/assets/images/demos/interactive.png" class="d-block w-100"
-                                            alt="...">
-                                    </div>
+                                    <b-carousel-slide active :img-src="Img1" />
+                                    <b-carousel-slide :img-src="Img2" />
+                                    <b-carousel-slide :img-src="Img3" />
+                                    <b-carousel-slide :img-src="Img4" />
+                                    <b-carousel-slide :img-src="Img5" />
+                                    <b-carousel-slide :img-src="Img6" />
+                                    <b-carousel-slide :img-src="Img7" />
                                 </div>
-                            </div>
+                            </b-carousel>
                         </div>
-                    </div>
-                </div>
-                <!-- end row -->
-            </div>
-            <!-- end container -->
+                    </b-col>
+                </b-row>
+            </b-container>
             <div class="position-absolute start-0 end-0 bottom-0 hero-shape-svg">
                 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
                     viewBox="0 0 1440 120">
@@ -215,15 +225,12 @@
                     </g>
                 </svg>
             </div>
-            <!-- end shape -->
         </section>
-        <!-- end hero section -->
 
-        <!-- start client section -->
         <div class="pt-5 mt-5">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
+            <b-container>
+                <b-row>
+                    <b-col lg="12">
 
                         <div class="text-center mt-5">
                             <h5 class="fs-20">Trusted <span class="text-primary text-decoration-underline">by</span> the
@@ -231,22 +238,22 @@
                             <div class="trusted-client-slider mt-sm-5 mt-4 mb-sm-5 mb-4">
                                 <swiper class="swiper responsive-swiper rounded gallery-light pb-4" :loop="true"
                                     :slidesPerView="1" :spaceBetween="10" :pagination="{
-                                            el: '.swiper-pagination',
-                                            clickable: true,
-                                        }" :breakpoints="{
-                                            640: {
-                                            slidesPerView: 2,
-                                            spaceBetween: 20,
-                                            },
-                                            768: {
-                                            slidesPerView: 3,
-                                            spaceBetween: 40,
-                                            },
-                                            1200: {
-                                            slidesPerView: 4,
-                                            spaceBetween: 50,
-                                            },
-                                        }">
+                                        el: '.swiper-pagination',
+                                        clickable: true,
+                                    }" :breakpoints="{
+    640: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+    },
+    768: {
+        slidesPerView: 3,
+        spaceBetween: 40,
+    },
+    1200: {
+        slidesPerView: 4,
+        spaceBetween: 50,
+    },
+}">
                                     <swiper-slide>
                                         <div class="swiper-slide">
                                             <div class="client-images">
@@ -255,7 +262,7 @@
                                             </div>
                                         </div>
                                     </swiper-slide>
-                                    <!-- end slide item -->
+                                    
                                     <swiper-slide>
                                         <div class="swiper-slide">
                                             <div class="client-images">
@@ -264,7 +271,7 @@
                                             </div>
                                         </div>
                                     </swiper-slide>
-                                    <!-- end slide item -->
+                                    
                                     <swiper-slide>
                                         <div class="swiper-slide">
                                             <div class="client-images">
@@ -297,37 +304,33 @@
                                             </div>
                                         </div>
                                     </swiper-slide>
-                                    <!-- end slide item -->
+                                    
                                 </swiper>
                             </div>
                         </div>
 
-                    </div>
-                </div>
-                <!-- end row -->
-            </div>
-            <!-- end container -->
+                    </b-col>
+                </b-row>
+            </b-container>
         </div>
-        <!-- end client section -->
+        
 
-        <!-- start services -->
+        
         <section class="section" id="services">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8">
+            <b-container>
+                <b-row class="justify-content-center">
+                    <b-col lg="8">
                         <div class="text-center mb-5">
                             <h1 class="mb-3 ff-secondary fw-semibold lh-base">A Digital web design studio creating
                                 modern & engaging online</h1>
                             <p class="text-muted">To achieve this, it would be necessary to have uniform grammar,
                                 pronunciation and more common words. If several languages coalesce the grammar</p>
                         </div>
-                    </div>
-                    <!-- end col -->
-                </div>
-                <!-- end row -->
+                    </b-col>
+                </b-row>
 
-                <div class="row g-3">
-                    <div class="col-lg-4">
+                <b-row class="g-3">
+                    <b-col lg="4">
                         <div class="d-flex p-3">
                             <div class="flex-shrink-0 me-3">
                                 <div class="avatar-sm icon-effect">
@@ -341,14 +344,13 @@
                                 <p class="text-muted my-3 ff-secondary">The creative design includes designs that are
                                     unique, effective and memorable.</p>
                                 <div>
-                                    <a href="#" class="fs-13 fw-medium">Learn More <i
-                                            class="ri-arrow-right-s-line align-bottom"></i></a>
+                                    <b-link href="#" class="fs-13 fw-medium">Learn More <i
+                                            class="ri-arrow-right-s-line align-bottom"></i></b-link>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- end col -->
-                    <div class="col-lg-4">
+                    </b-col>
+                    <b-col lg="4">
                         <div class="d-flex p-3">
                             <div class="flex-shrink-0 me-3">
                                 <div class="avatar-sm icon-effect">
@@ -362,14 +364,13 @@
                                 <p class="text-muted my-3 ff-secondary">The collection of rules and guidelines which
                                     designers use to communicate with users through appealing.</p>
                                 <div>
-                                    <a href="#" class="fs-13 fw-medium">Learn More <i
-                                            class="ri-arrow-right-s-line align-bottom"></i></a>
+                                    <b-link href="#" class="fs-13 fw-medium">Learn More <i
+                                            class="ri-arrow-right-s-line align-bottom"></i></b-link>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- end col -->
-                    <div class="col-lg-4">
+                    </b-col>
+                    <b-col lg="4">
                         <div class="d-flex p-3">
                             <div class="flex-shrink-0 me-3">
                                 <div class="avatar-sm icon-effect">
@@ -383,14 +384,13 @@
                                 <p class="text-muted my-3 ff-secondary">Business development firm that provides
                                     strategic planning, market research services and project.</p>
                                 <div>
-                                    <a href="#" class="fs-13 fw-medium">Learn More <i
-                                            class="ri-arrow-right-s-line align-bottom"></i></a>
+                                    <b-link href="#" class="fs-13 fw-medium">Learn More <i
+                                            class="ri-arrow-right-s-line align-bottom"></i></b-link>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- end col -->
-                    <div class="col-lg-4">
+                    </b-col>
+                    <b-col lg="4">
                         <div class="d-flex p-3">
                             <div class="flex-shrink-0 me-3">
                                 <div class="avatar-sm icon-effect">
@@ -404,14 +404,13 @@
                                 <p class="text-muted my-3 ff-secondary">Awesome Support is the most versatile and
                                     feature-rich support plugin for all version.</p>
                                 <div>
-                                    <a href="#" class="fs-13 fw-medium">Learn More <i
-                                            class="ri-arrow-right-s-line align-bottom"></i></a>
+                                    <b-link href="#" class="fs-13 fw-medium">Learn More <i
+                                            class="ri-arrow-right-s-line align-bottom"></i></b-link>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- end col -->
-                    <div class="col-lg-4">
+                    </b-col>
+                    <b-col lg="4">
                         <div class="d-flex p-3">
                             <div class="flex-shrink-0 me-3">
                                 <div class="avatar-sm icon-effect">
@@ -425,14 +424,13 @@
                                 <p class="text-muted my-3 ff-secondary">You usually get a broad range of options to play
                                     with. This enables you to use a single theme across multiple.</p>
                                 <div>
-                                    <a href="#" class="fs-13 fw-medium">Learn More <i
-                                            class="ri-arrow-right-s-line align-bottom"></i></a>
+                                    <b-link href="#" class="fs-13 fw-medium">Learn More <i
+                                            class="ri-arrow-right-s-line align-bottom"></i></b-link>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- end col -->
-                    <div class="col-lg-4">
+                    </b-col>
+                    <b-col lg="4">
                         <div class="d-flex p-3">
                             <div class="flex-shrink-0 me-3">
                                 <div class="avatar-sm icon-effect">
@@ -446,15 +444,14 @@
                                 <p class="text-muted my-3 ff-secondary">Personalise your own website, no matter what
                                     theme and what customization options.</p>
                                 <div>
-                                    <a href="#" class="fs-13 fw-medium">Learn More <i
-                                            class="ri-arrow-right-s-line align-bottom"></i></a>
+                                    <b-link href="#" class="fs-13 fw-medium">Learn More <i
+                                            class="ri-arrow-right-s-line align-bottom"></i></b-link>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- end col -->
+                    </b-col>
 
-                    <div class="col-lg-4">
+                    <b-col lg="4">
                         <div class="d-flex p-3">
                             <div class="flex-shrink-0 me-3">
                                 <div class="avatar-sm icon-effect">
@@ -468,14 +465,13 @@
                                 <p class="text-muted my-3 ff-secondary">Responsive design is a graphic user interface
                                     (GUI) design approach used to create content.</p>
                                 <div>
-                                    <a href="#" class="fs-13 fw-medium">Learn More <i
-                                            class="ri-arrow-right-s-line align-bottom"></i></a>
+                                    <b-link href="#" class="fs-13 fw-medium">Learn More <i
+                                            class="ri-arrow-right-s-line align-bottom"></i></b-link>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- end col -->
-                    <div class="col-lg-4">
+                    </b-col>
+                    <b-col lg="4">
                         <div class="d-flex p-3">
                             <div class="flex-shrink-0 me-3">
                                 <div class="avatar-sm icon-effect">
@@ -489,14 +485,13 @@
                                 <p class="text-muted my-3 ff-secondary">Google Fonts is a collection of 915 fonts, all
                                     available to use for free on your website.</p>
                                 <div>
-                                    <a href="#" class="fs-13 fw-medium">Learn More <i
-                                            class="ri-arrow-right-s-line align-bottom"></i></a>
+                                    <b-link href="#" class="fs-13 fw-medium">Learn More <i
+                                            class="ri-arrow-right-s-line align-bottom"></i></b-link>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- end col -->
-                    <div class="col-lg-4">
+                    </b-col>
+                    <b-col lg="4">
                         <div class="d-flex p-3">
                             <div class="flex-shrink-0 me-3">
                                 <div class="avatar-sm icon-effect">
@@ -510,30 +505,27 @@
                                 <p class="text-muted my-3 ff-secondary">An industrial specialist works with industrial
                                     operations to ensure that manufacturing facilities work.</p>
                                 <div>
-                                    <a href="#" class="fs-13 fw-medium">Learn More <i
-                                            class="ri-arrow-right-s-line align-bottom"></i></a>
+                                    <b-link href="#" class="fs-13 fw-medium">Learn More <i
+                                            class="ri-arrow-right-s-line align-bottom"></i></b-link>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- end col -->
-                </div>
-                <!-- end row -->
-            </div>
-            <!-- end container -->
+                    </b-col>
+                </b-row>
+            </b-container>
         </section>
-        <!-- end services -->
+        
 
-        <!-- start features -->
+        
         <section class="section bg-light py-5" id="features">
-            <div class="container">
-                <div class="row align-items-center gy-4">
-                    <div class="col-lg-6 col-sm-7 mx-auto">
+            <b-container>
+                <b-row class="align-items-center gy-4">
+                    <b-col lg="6" sm="7" class="mx-auto">
                         <div>
                             <img src="@/assets/images/landing/features/img-1.png" alt="" class="img-fluid mx-auto">
                         </div>
-                    </div>
-                    <div class="col-lg-6">
+                    </b-col>
+                    <b-col lg="6">
                         <div class="text-muted">
                             <div class="avatar-sm icon-effect mb-4">
                                 <div class="avatar-title bg-transparent rounded-circle text-success h1">
@@ -545,76 +537,67 @@
                                 of the same type, such as a collection of pictures from a collection of articles from a
                                 news app or a collection of messages from a communication app.</p>
 
-                            <div class="row pt-3">
-                                <div class="col-3">
+                            <b-row class="pt-3">
+                                <b-col cols="3">
                                     <div class="text-center">
                                         <h4>5</h4>
                                         <p>Dashboards</p>
                                     </div>
-                                </div>
-                                <div class="col-3">
+                                </b-col>
+                                <b-col cols="3">
                                     <div class="text-center">
                                         <h4>150+</h4>
                                         <p>Pages</p>
                                     </div>
-                                </div>
-                                <div class="col-4">
+                                </b-col>
+                                <b-col cols="4">
                                     <div class="text-center">
                                         <h4>7+</h4>
                                         <p>Functional Apps</p>
                                     </div>
-                                </div>
-                            </div>
+                                </b-col>
+                            </b-row>
                         </div>
-                    </div>
-                    <!-- end col -->
-                </div>
-                <!-- end row -->
-            </div>
-            <!-- end container -->
+                    </b-col>
+                </b-row>
+            </b-container>
         </section>
-        <!-- end features -->
+        
 
-        <!-- start cta -->
+        
         <section class="py-5 bg-primary position-relative">
             <div class="bg-overlay bg-overlay-pattern opacity-50"></div>
-            <div class="container">
-                <div class="row align-items-center gy-4">
-                    <div class="col-sm">
+            <b-container>
+                <b-row class="align-items-center gy-4">
+                    <b-col sm>
                         <div>
                             <h4 class="text-white mb-0 fw-semibold">Build your web App/SaaS with Velzon dashboard</h4>
                         </div>
-                    </div>
-                    <!-- end col -->
-                    <div class="col-sm-auto">
+                    </b-col>
+                    <b-col sm="auto">
                         <div>
-                            <a href="https://1.envato.market/velzon-admin" target="_blank"
+                            <b-link href="https://1.envato.market/velzon-admin" target="_blank"
                                 class="btn bg-gradient btn-danger"><i
-                                    class="ri-shopping-cart-2-line align-middle me-1"></i> Buy Now</a>
+                                    class="ri-shopping-cart-2-line align-middle me-1"></i>
+                                Buy Now</b-link>
                         </div>
-                    </div>
-                    <!-- end col -->
-                </div>
-                <!-- end row -->
-            </div>
-            <!-- end container -->
+                    </b-col>
+                </b-row>
+            </b-container>
         </section>
-        <!-- end cta -->
 
-        <!-- start features -->
+        
         <section class="section">
-            <div class="container">
-                <div class="row align-items-center gy-4">
-                    <div class="col-lg-6 order-2 order-lg-1">
+            <b-container>
+                <b-row class="align-items-center gy-4">
+                    <b-col lg="6" class="order-2 order-lg-1">
                         <div class="text-muted">
                             <h5 class="fs-12 text-uppercase text-success">Design</h5>
                             <h4 class="mb-3">Well Designed Dashboards</h4>
-                            <p class="mb-4 ff-secondary">Quality Dashboards (QD) is a condition-specific, actionable
-                                web-based application for quality reporting and population
-                                management that is integrated into the Electronic Health Record (EHR).</p>
-
-                            <div class="row">
-                                <div class="col-sm-5">
+                            <p class="mb-4 ff-secondary">Quality Dashboards (QD) is a condition-specific, actionableweb-based application for quality reporting and
+                                 populationmanagement that is integrated into the Electronic Health Record (EHR).</p>
+                            <b-row>
+                                <b-col sm="5">
                                     <div class="vstack gap-2">
                                         <div class="d-flex align-items-center">
                                             <div class="flex-shrink-0 me-2">
@@ -656,8 +639,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-sm-5">
+                                </b-col>
+                                <b-col sm="5">
                                     <div class="vstack gap-2">
                                         <div class="d-flex align-items-center">
                                             <div class="flex-shrink-0 me-2">
@@ -686,38 +669,34 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
+                                </b-col>
+                            </b-row>
 
                             <div class="mt-4">
-                                <a href="index.html" class="btn btn-primary">Learn More <i
-                                        class="ri-arrow-right-line align-middle ms-1"></i></a>
+                                <b-link href="/" class="btn btn-primary">Learn More <i
+                                        class="ri-arrow-right-line align-middle ms-1"></i></b-link>
                             </div>
                         </div>
-                    </div>
-                    <!-- end col -->
-                    <div class="col-lg-6 col-sm-7 col-10 ms-auto order-1 order-lg-2">
+                    </b-col>
+                    <b-col lg="6" sm="7" cols="10" order="1" order-lg="2" class="ms-auto">
                         <div>
                             <img src="@/assets/images/landing/features/img-2.png" alt="" class="img-fluid">
                         </div>
-                    </div>
-                </div>
-                <!-- end row -->
+                    </b-col>
+                </b-row>
 
-                <div class="row align-items-center mt-5 pt-lg-5 gy-4">
-                    <div class="col-lg-6 col-sm-7 col-10 mx-auto">
+                <b-row class="align-items-center mt-5 pt-lg-5 gy-4">
+                    <b-col lg="6" sm="7" cols="10" class="mx-auto">
                         <div>
                             <img src="@/assets/images/landing/features/img-3.png" alt="" class="img-fluid">
                         </div>
-                    </div>
-                    <div class="col-lg-6">
+                    </b-col>
+                    <b-col lg="6">
                         <div class="text-muted ps-lg-5">
                             <h5 class="fs-12 text-uppercase text-success">structure</h5>
                             <h4 class="mb-3">Well Documented</h4>
-                            <p class="mb-4">used to describe something that is known about or known to be true because
-                                there are many documents that describe it,
+                            <p class="mb-4">used to describe something that is known about or known to be true becausethere are many documents that describe it,
                                 prove it, etc.</p>
-
                             <div class="vstack gap-2">
                                 <div class="d-flex align-items-center">
                                     <div class="flex-shrink-0 me-2">
@@ -757,21 +736,18 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- end col -->
-                </div>
-                <!-- end row -->
-            </div>
-            <!-- end container -->
+                    </b-col>
+                </b-row>
+            </b-container>
         </section>
-        <!-- end features -->
+        
 
-        <!-- start plan -->
+        
         <section class="section bg-light" id="plans">
             <div class="bg-overlay bg-overlay-pattern"></div>
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8">
+            <b-container>
+                <b-row class="justify-content-center">
+                    <b-col lg="8">
                         <div class="text-center mb-5">
                             <h3 class="mb-3 fw-semibold">Choose the plan that's right for you</h3>
                             <p class="text-muted mb-4">Simple pricing. No hidden fees. Advanced features for you
@@ -786,20 +762,19 @@
                                     <label class="form-check-label" for="plan-switch"></label>
                                 </div>
                                 <div>
-                                    <h5 class="fs-14 mb-0">Annual <span class="badge badge-soft-success">Save 20%</span>
+                                    <h5 class="fs-14 mb-0">Annual <b-badge variant="soft-success"
+                                            class="badge-soft-success">Save 20%</b-badge>
                                     </h5>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- end col -->
-                </div>
-                <!-- end row -->
+                    </b-col>
+                </b-row>
 
-                <div class="row gy-4">
-                    <div class="col-lg-4">
-                        <div class="card plan-box mb-0">
-                            <div class="card-body p-4 m-2">
+                <b-row class="gy-4">
+                    <b-col lg="4">
+                        <b-card no-body class="plan-box mb-0">
+                            <b-card-body class="p-4 m-2">
                                 <div class="d-flex align-items-center">
                                     <div class="flex-grow-1">
                                         <h5 class="mb-1 fw-semibold">Basic Plan</h5>
@@ -816,8 +791,9 @@
                                             class="ff-secondary fw-bold">19</span> <span
                                             class="fs-13 text-muted">/Month</span></h1>
                                     <h1 class="annual"><sup><small>$</small></sup><span
-                                            class="ff-secondary fw-bold ">171</span> <span
-                                            class="fs-13 text-muted">/Year</span></h1>
+                                            class="ff-secondary fw-bold ">171</span>
+                                        <span class="fs-13 text-muted">/Year</span>
+                                    </h1>
                                 </div>
 
                                 <div>
@@ -894,17 +870,16 @@
                                         </li>
                                     </ul>
                                     <div class="mt-4">
-                                        <a href="javascript:void(0);" class="btn btn-soft-success w-100">Get
-                                            Started</a>
+                                        <b-link href="javascript:void(0);" class="btn btn-soft-success w-100">Get
+                                            Started</b-link>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--end col-->
-                    <div class="col-lg-4">
-                        <div class="card plan-box mb-0 ribbon-box right">
-                            <div class="card-body p-4 m-2">
+                            </b-card-body>
+                        </b-card>
+                    </b-col>
+                    <b-col lg="4">
+                        <b-card no-body class="plan-box mb-0 ribbon-box right">
+                            <b-card-body class="p-4 m-2">
                                 <div class="ribbon-two ribbon-two-danger"><span>Popular</span></div>
                                 <div class="d-flex align-items-center">
                                     <div class="flex-grow-1">
@@ -922,8 +897,9 @@
                                             class="ff-secondary fw-bold">29</span> <span
                                             class="fs-13 text-muted">/Month</span></h1>
                                     <h1 class="annual"><sup><small>$</small></sup><span
-                                            class="ff-secondary fw-bold">261</span> <span
-                                            class="fs-13 text-muted">/Year</span></h1>
+                                            class="ff-secondary fw-bold">261</span>
+                                        <span class="fs-13 text-muted">/Year</span>
+                                    </h1>
                                 </div>
 
                                 <div>
@@ -1000,17 +976,16 @@
                                         </li>
                                     </ul>
                                     <div class="mt-4">
-                                        <a href="javascript:void(0);" class="btn btn-soft-success w-100">Get
-                                            Started</a>
+                                        <b-link href="javascript:void(0);" class="btn btn-soft-success w-100">Get
+                                            Started</b-link>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--end col-->
-                    <div class="col-lg-4">
-                        <div class="card plan-box mb-0">
-                            <div class="card-body p-4 m-2">
+                            </b-card-body>
+                        </b-card>
+                    </b-col>
+                    <b-col lg="4">
+                        <b-card no-body class="plan-box mb-0">
+                            <b-card-body class="p-4 m-2">
                                 <div class="d-flex align-items-center">
                                     <div class="flex-grow-1">
                                         <h5 class="mb-1 fw-semibold">Platinum Plan</h5>
@@ -1027,8 +1002,9 @@
                                             class="ff-secondary fw-bold">39</span> <span
                                             class="fs-13 text-muted">/Month</span></h1>
                                     <h1 class="annual"><sup><small>$</small></sup><span
-                                            class="ff-secondary fw-bold">351</span> <span
-                                            class="fs-13 text-muted">/Year</span></h1>
+                                            class="ff-secondary fw-bold">351</span>
+                                        <span class="fs-13 text-muted">/Year</span>
+                                    </h1>
                                 </div>
 
                                 <div>
@@ -1105,47 +1081,43 @@
                                         </li>
                                     </ul>
                                     <div class="mt-4">
-                                        <a href="javascript:void(0);" class="btn btn-soft-success w-100">Get
-                                            Started</a>
+                                        <b-link href="javascript:void(0);" class="btn btn-soft-success w-100">Get
+                                            Started</b-link>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--end col-->
-                </div>
-                <!--end row-->
-            </div>
-            <!-- end container -->
+                            </b-card-body>
+                        </b-card>
+                    </b-col>
+                </b-row>
+                
+            </b-container>
         </section>
-        <!-- end plan -->
+        
 
-        <!-- start faqs -->
+        
         <section class="section">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8">
+            <b-container>
+                <b-row class="justify-content-center">
+                    <b-col lg="8">
                         <div class="text-center mb-5">
                             <h3 class="mb-3 fw-semibold">Frequently Asked Questions</h3>
-                            <p class="text-muted mb-4 ff-secondary">If you can not find answer to your question in our
-                                FAQ, you can
+                            <p class="text-muted mb-4 ff-secondary">If you can not find answer to your question in ourFAQ, you can
                                 always contact us or email us. We will answer you shortly!</p>
 
                             <div class="">
-                                <button type="button" class="btn btn-primary btn-label rounded-pill"><i
+                                <b-button type="button" pill variant="primary" class="btn-label"><i
                                         class="ri-mail-line label-icon align-middle rounded-pill fs-16 me-2"></i> Email
-                                    Us</button>
-                                <button type="button" class="btn btn-info btn-label rounded-pill"><i
+                                    Us</b-button>
+                                <b-button type="button" pill variant="info" class="btn-label"><i
                                         class="ri-twitter-line label-icon align-middle rounded-pill fs-16 me-2"></i>
-                                    Send Us Tweet</button>
+                                    Send Us Tweet</b-button>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <!-- end row -->
+                    </b-col>
+                </b-row>
 
-                <div class="row g-lg-5 g-4">
-                    <div class="col-lg-6">
+                <b-row class="g-lg-5 g-4">
+                    <b-col lg="6">
                         <div class="d-flex align-items-center mb-2">
                             <div class="flex-shrink-0 me-1">
                                 <i class="ri-question-line fs-24 align-middle text-success me-1"></i>
@@ -1154,89 +1126,42 @@
                                 <h5 class="mb-0 fw-semibold">General Questions</h5>
                             </div>
                         </div>
-                        <div class="accordion custom-accordionwithicon custom-accordion-border accordion-border-box"
+                        <b-accordion class="custom-accordionwithicon custom-accordion-border accordion-border-box"
                             id="genques-accordion">
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="genques-headingOne">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#genques-collapseOne" aria-expanded="true"
-                                        aria-controls="genques-collapseOne">
-                                        What is the purpose of using themes ?
-                                    </button>
-                                </h2>
-                                <div id="genques-collapseOne" class="accordion-collapse collapse show"
-                                    aria-labelledby="genques-headingOne" data-bs-parent="#genques-accordion">
-                                    <div class="accordion-body ff-secondary">
-                                        A theme is a set of colors, fonts, effects, and more that can be applied to your
-                                        entire presentation to give it a
-                                        consistent, professional look. You've already been using a theme, even if you
-                                        didn't know it: the default Office theme,
-                                        which consists.
-                                    </div>
+                            <b-accordion-item title="What is the purpose of using themes ?" visible>
+                                <div class="ff-secondary">
+                                    A theme is a set of colors, fonts, effects, and more that can be applied to your entire presentation to give it a
+                                    consistent, professional look. You've already been using a theme, even if youdidn't know it: the default Office theme,
+                                    which consists.
                                 </div>
-                            </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="genques-headingTwo">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#genques-collapseTwo" aria-expanded="false"
-                                        aria-controls="genques-collapseTwo">
-                                        Can a theme have more than one theme?
-                                    </button>
-                                </h2>
-                                <div id="genques-collapseTwo" class="accordion-collapse collapse"
-                                    aria-labelledby="genques-headingTwo" data-bs-parent="#genques-accordion">
-                                    <div class="accordion-body ff-secondary">
-                                        A story can have as many themes as the reader can identify based on recurring
-                                        patterns and parallels within the story
-                                        itself. In looking at ways to separate themes into a hierarchy, we might find it
-                                        useful to follow the example of a
-                                        single book.
-                                    </div>
+                            </b-accordion-item>
+                            <b-accordion-item title="Can a theme have more than one theme?">
+                                <div class="ff-secondary">
+                                    A story can have as many themes as the reader can identify based on recurring patterns and parallels within the story
+                                    itself. In looking at ways to separate themes into a hierarchy, we might find it useful to follow the example of a
+                                    single book.
                                 </div>
-                            </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="genques-headingThree">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#genques-collapseThree" aria-expanded="false"
-                                        aria-controls="genques-collapseThree">
-                                        What are theme features?
-                                    </button>
-                                </h2>
-                                <div id="genques-collapseThree" class="accordion-collapse collapse"
-                                    aria-labelledby="genques-headingThree" data-bs-parent="#genques-accordion">
-                                    <div class="accordion-body ff-secondary">
-                                        Theme features is a set of specific functionality that may be enabled by theme
-                                        authors. Themes must register each
-                                        individual Theme Feature that the author wishes to support. Theme support
-                                        functions should be called in the theme's
-                                        functions.
-                                    </div>
+                            </b-accordion-item>
+                            <b-accordion-item title="What are theme features?">
+                                <div class="ff-secondary">
+                                    Theme features is a set of specific functionality that may be enabled by theme authors. Themes must register each
+                                    individual Theme Feature that the author wishes to support. Theme supportfunctions should be called in the theme's
+                                    functions.
                                 </div>
-                            </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="genques-headingFour">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#genques-collapseFour" aria-expanded="false"
-                                        aria-controls="genques-collapseFour">
-                                        What is simple theme?
-                                    </button>
-                                </h2>
-                                <div id="genques-collapseFour" class="accordion-collapse collapse"
-                                    aria-labelledby="genques-headingFour" data-bs-parent="#genques-accordion">
-                                    <div class="accordion-body ff-secondary">
-                                        Simple is a free WordPress theme, by Themify, built exactly what it is named
-                                        for: simplicity. Immediately upgrade the
-                                        quality of your WordPress site with the simple theme To use the built-in Chrome
-                                        theme editor.
-                                    </div>
+                            </b-accordion-item>
+                            <b-accordion-item title="What is simple theme?">
+                                <div class="ff-secondary">
+                                    Simple is a free WordPress theme, by Themify, built exactly what it is named
+                                    for: simplicity. Immediately upgrade the
+                                    quality of your WordPress site with the simple theme To use the built-in Chrome
+                                    theme editor.
                                 </div>
-                            </div>
-                        </div>
-                        <!--end accordion-->
+                            </b-accordion-item>
+                        </b-accordion>
+                        
 
-                    </div>
-                    <!-- end col -->
-                    <div class="col-lg-6">
+                    </b-col>
+                    <b-col lg="6">
                         <div class="d-flex align-items-center mb-2">
                             <div class="flex-shrink-0 me-1">
                                 <i class="ri-shield-keyhole-line fs-24 align-middle text-success me-1"></i>
@@ -1246,99 +1171,56 @@
                             </div>
                         </div>
 
-                        <div class="accordion custom-accordionwithicon custom-accordion-border accordion-border-box"
+                        <b-accordion class="custom-accordionwithicon custom-accordion-border accordion-border-box"
                             id="privacy-accordion">
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="privacy-headingOne">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#privacy-collapseOne" aria-expanded="false"
-                                        aria-controls="privacy-collapseOne">
-                                        Does Word have night mode?
-                                    </button>
-                                </h2>
-                                <div id="privacy-collapseOne" class="accordion-collapse collapse"
-                                    aria-labelledby="privacy-headingOne" data-bs-parent="#privacy-accordion">
-                                    <div class="accordion-body ff-secondary">
-                                        You can run Microsoft Word in dark mode, which uses a dark color palette to help
-                                        reduce eye strain in low light
-                                        settings. You can choose to make the document white or black using the Switch
-                                        Modes button in the ribbon's View tab.
-                                    </div>
+                            <b-accordion-item title="Does Word have night mode?">
+                                <div class="ff-secondary">
+                                    You can run Microsoft Word in dark mode, which uses a dark color palette to help
+                                    reduce eye strain in low light
+                                    settings. You can choose to make the document white or black using the Switch
+                                    Modes button in the ribbon's View tab.
                                 </div>
-                            </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="privacy-headingTwo">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#privacy-collapseTwo" aria-expanded="true"
-                                        aria-controls="privacy-collapseTwo">
-                                        Is theme an opinion?
-                                    </button>
-                                </h2>
-                                <div id="privacy-collapseTwo" class="accordion-collapse collapse show"
-                                    aria-labelledby="privacy-headingTwo" data-bs-parent="#privacy-accordion">
-                                    <div class="accordion-body ff-secondary">
-                                        A theme is an opinion the author expresses on the subject, for instance, the
-                                        author's dissatisfaction with the narrow
-                                        confines of French bourgeois marriage during that period theme is an idea that a
-                                        writer repeats.
-                                    </div>
+                            </b-accordion-item>
+                            <b-accordion-item title="Is theme an opinion?" visible>
+                                <div class="ff-secondary">
+                                    A theme is an opinion the author expresses on the subject, for instance, the
+                                    author's dissatisfaction with the narrow
+                                    confines of French bourgeois marriage during that period theme is an idea that a
+                                    writer repeats.
                                 </div>
-                            </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="privacy-headingThree">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#privacy-collapseThree" aria-expanded="false"
-                                        aria-controls="privacy-collapseThree">
-                                        How do you develop a theme?
-                                    </button>
-                                </h2>
-                                <div id="privacy-collapseThree" class="accordion-collapse collapse"
-                                    aria-labelledby="privacy-headingThree" data-bs-parent="#privacy-accordion">
-                                    <div class="accordion-body ff-secondary">
-                                        A short story, novella, or novel presents a narrative to its reader. Perhaps
-                                        that narrative involves mystery, terror,
-                                        romance, comedy, or all of the above. These works of fiction may also contain
-                                        memorable characters, vivid
-                                        world-building, literary devices.
-                                    </div>
+                            </b-accordion-item>
+                            <b-accordion-item title="How do you develop a theme?">
+                                <div class="ff-secondary">
+                                    A short story, novella, or novel presents a narrative to its reader. Perhaps
+                                    that narrative involves mystery, terror,
+                                    romance, comedy, or all of the above. These works of fiction may also contain
+                                    memorable characters, vivid
+                                    world-building, literary devices.
                                 </div>
-                            </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="privacy-headingFour">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#privacy-collapseFour" aria-expanded="false"
-                                        aria-controls="privacy-collapseFour">
-                                        Do stories need themes?
-                                    </button>
-                                </h2>
-                                <div id="privacy-collapseFour" class="accordion-collapse collapse"
-                                    aria-labelledby="privacy-headingFour" data-bs-parent="#privacy-accordion">
-                                    <div class="accordion-body ff-secondary">
-                                        A story can have as many themes as the reader can identify based on recurring
-                                        patterns and parallels within the story
-                                        itself. In looking at ways to separate themes into a hierarchy, we might find it
-                                        useful to follow the example of a
-                                        single book.
-                                    </div>
+                            </b-accordion-item>
+                            <b-accordion-item title="Do stories need themes?">
+                                <div class="ff-secondary">
+                                    A story can have as many themes as the reader can identify based on recurring
+                                    patterns and parallels within the story
+                                    itself. In looking at ways to separate themes into a hierarchy, we might find it
+                                    useful to follow the example of a
+                                    single book.
                                 </div>
-                            </div>
-                        </div>
-                        <!--end accordion-->
-                    </div>
-                    <!-- end col -->
-                </div>
-                <!-- end row -->
-            </div>
-            <!-- end container -->
+                            </b-accordion-item>
+                        </b-accordion>
+                        
+                    </b-col>
+                </b-row>
+            </b-container>
         </section>
-        <!-- end faqs -->
+        
 
-        <!-- start review -->
+        
         <section class="section bg-primary" id="reviews">
             <div class="bg-overlay bg-overlay-pattern"></div>
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-10">
+            <b-container>
+                <b-row class="justify-content-center">
+                    <b-col lg="10">
                         <div class="text-center">
                             <div>
                                 <i class="ri-double-quotes-l text-success display-3"></i>
@@ -1347,19 +1229,19 @@
 
                             <div class="client-review-swiper rounded">
                                 <swiper class="navigation-swiper rounded" :loop="true" :autoplay="{
-                                            delay: 2500,
-                                            disableOnInteraction: false,
-                                        }" :navigation="{
-                                            nextEl: '.swiper-button-next',
-                                            prevEl: '.swiper-button-prev',
-                                        }" :pagination="{
-                                            clickable: true,
-                                            el: '.swiper-pagination',
-                                        }">
+                                    delay: 2500,
+                                    disableOnInteraction: false,
+                                }" :navigation="{
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+}" :pagination="{
+    clickable: true,
+    el: '.swiper-pagination',
+}">
                                     <swiper-slide>
                                         <div class="swiper-slide">
-                                            <div class="row justify-content-center">
-                                                <div class="col-10">
+                                            <b-row class="justify-content-center">
+                                                <b-col cols="10">
                                                     <div class="text-white-50">
                                                         <p class="fs-20 ff-secondary mb-4">" I am givng 5 stars. Theme
                                                             is great and everyone one stuff everything in theme. Future
@@ -1371,19 +1253,18 @@
                                                             <p>- Skote User</p>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </div>
+                                                </b-col>
+                                            </b-row>
                                         </div>
                                     </swiper-slide>
-                                    <!-- end slide item -->
+                                    
                                     <swiper-slide>
                                         <div class="swiper-slide">
-                                            <div class="row justify-content-center">
-                                                <div class="col-10">
+                                            <b-row class="justify-content-center">
+                                                <b-col cols="10">
                                                     <div class="text-white-50">
                                                         <p class="fs-20 ff-secondary mb-4">" Awesome support. Had few
-                                                            issues while setting up because of my device, the support
-                                                            team helped me fix them up in a day.
+                                                            issues while setting up because of my device, the support team helped me fix them up in a day.
                                                             Everything looks clean and good. Highly recommended! "</p>
 
                                                         <div>
@@ -1391,117 +1272,103 @@
                                                             <p>- Skote User</p>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </div>
+                                                </b-col>
+                                            </b-row>
                                         </div>
                                     </swiper-slide>
-                                    <!-- end slide item -->
+                                    
                                     <swiper-slide>
                                         <div class="swiper-slide">
-                                            <div class="row justify-content-center">
-                                                <div class="col-10">
+                                            <b-row class="justify-content-center">
+                                                <b-col cols="10">
                                                     <div class="text-white-50">
-                                                        <p class="fs-20 ff-secondary mb-4">" Amazing template, Redux
-                                                            store and components is nicely designed.
-                                                            It's a great start point for an admin based project. Clean
-                                                            Code and good documentation. Template is
-                                                            completely in React and absolutely no usage of jQuery "</p>
-
+                                                        <p class="fs-20 ff-secondary mb-4">" Amazing template, Redux store and components is nicely designed.
+                                                            It's a great start point for an admin based project. Clean Code and good documentation. Template is
+                                                            completely in React and absolutely no usage of jQuery "</p>s
                                                         <div>
                                                             <h5 class="text-white">sreeks456</h5>
                                                             <p>- Veltrix User</p>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </div>
+                                                </b-col>
+                                            </b-row>
                                         </div>
                                     </swiper-slide>
                                     <div class="swiper-button-next bg-white rounded-circle"></div>
                                     <div class="swiper-button-prev bg-white rounded-circle"></div>
                                     <div class="swiper-pagination position-relative mt-2"></div>
-                                    <!-- end slide item -->
+                                    
                                 </swiper>
                             </div>
 
 
 
                         </div>
-                    </div>
-                    <!-- end col -->
-                </div>
-                <!-- end row -->
-            </div>
-            <!-- end container -->
+                    </b-col>
+                </b-row>
+            </b-container>
         </section>
-        <!-- end review -->
+        
 
-        <!-- start counter -->
+        
         <section class="py-5 position-relative bg-light">
-            <div class="container">
-                <div class="row text-center gy-4">
-                    <div class="col-lg-3 col-6">
+            <b-container>
+                <b-row class="text-center gy-4">
+                    <b-col lg="3" cols="6">
                         <div>
                             <h2 class="mb-2">
                                 <count-to :startVal='0' :endVal='100' :duration='5000'>0</count-to>+
                             </h2>
                             <div class="text-muted">Projects Completed</div>
                         </div>
-                    </div>
-                    <!-- end col -->
+                    </b-col>
 
-                    <div class="col-lg-3 col-6">
+                    <b-col lg="3" cols="6">
                         <div>
                             <h2 class="mb-2">
                                 <count-to :startVal='0' :endVal='24' :duration='5000'>0</count-to>
                             </h2>
                             <div class="text-muted">Win Awards</div>
                         </div>
-                    </div>
-                    <!-- end col -->
+                    </b-col>
 
-                    <div class="col-lg-3 col-6">
+                    <b-col lg="3" cols="6">
                         <div>
                             <h2 class="mb-2">
                                 <count-to :startVal='0' :endVal='20' :duration='5000'>0</count-to>k
                             </h2>
                             <div class="text-muted">Satisfied Clients</div>
                         </div>
-                    </div>
-                    <!-- end col -->
-                    <div class="col-lg-3 col-6">
+                    </b-col>
+                    <b-col lg="3" cols="6">
                         <div>
                             <h2 class="mb-2">
                                 <count-to :startVal='0' :endVal='50' :duration='5000'>0</count-to>
                             </h2>
                             <div class="text-muted">Employees</div>
                         </div>
-                    </div>
-                    <!-- end col -->
-                </div>
-                <!-- end row -->
-            </div>
-            <!-- end container -->
+                    </b-col>
+                </b-row>
+            </b-container>
         </section>
-        <!-- end counter -->
+        
 
-        <!-- start Work Process -->
+        
         <section class="section">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8">
+            <b-container>
+                <b-row class="justify-content-center">
+                    <b-col lg="8">
                         <div class="text-center mb-5">
                             <h3 class="mb-3 fw-semibold">Our Work Process</h3>
-                            <p class="text-muted mb-4 ff-secondary">In an ideal world this website wouldn’t exist, a
-                                client would
+                            <p class="text-muted mb-4 ff-secondary">In an ideal world this website wouldn’t exist, a client would
                                 acknowledge the importance of having web copy before the Proin vitae ipsum vel ex
                                 finibus semper design starts.</p>
                         </div>
-                    </div>
-                </div>
-                <!-- end row -->
+                    </b-col>
+                </b-row>
 
-                <div class="row text-center">
-                    <div class="col-lg-4">
+                <b-row class="text-center">
+                    <b-col lg="4">
                         <div class="process-card mt-4">
                             <div class="process-arrow-img d-none d-lg-block">
                                 <img src="@/assets/images/landing/process-arrow-img.png" alt="" class="img-fluid">
@@ -1516,9 +1383,8 @@
                             <p class="text-muted ff-secondary">The profession and the employer and your desire to make
                                 your mark.</p>
                         </div>
-                    </div>
-                    <!-- end col -->
-                    <div class="col-lg-4">
+                    </b-col>
+                    <b-col lg="4">
                         <div class="process-card mt-4">
                             <div class="process-arrow-img d-none d-lg-block">
                                 <img src="@/assets/images/landing/process-arrow-img.png" alt="" class="img-fluid">
@@ -1533,9 +1399,8 @@
                             <p class="text-muted ff-secondary">The most important aspect of beauty was, therefore, an
                                 inherent part.</p>
                         </div>
-                    </div>
-                    <!-- end col -->
-                    <div class="col-lg-4">
+                    </b-col>
+                    <b-col lg="4">
                         <div class="process-card mt-4">
                             <div class="avatar-sm icon-effect mx-auto mb-4">
                                 <div class="avatar-title bg-transparent text-success rounded-circle h1">
@@ -1547,236 +1412,213 @@
                             <p class="text-muted ff-secondary">We quickly learn to fear and thus automatically avoid
                                 potentially.</p>
                         </div>
-                    </div>
-                    <!-- end col -->
-                </div>
-                <!-- end row -->
-            </div>
-            <!-- end container -->
+                    </b-col>
+                </b-row>
+            </b-container>
         </section>
-        <!-- end Work Process -->
 
-        <!-- start team -->
         <section class="section bg-light" id="team">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8">
+            <b-container>
+                <b-row class="justify-content-center">
+                    <b-col lg="8">
                         <div class="text-center mb-5">
                             <h3 class="mb-3 fw-semibold">Our <span class="text-danger">Team</span></h3>
-                            <p class="text-muted mb-4 ff-secondary">To achieve this, it would be necessary to have
-                                uniform grammar,
+                            <p class="text-muted mb-4 ff-secondary">To achieve this, it would be necessary to have uniform grammar,
                                 pronunciation and more common words. If several languages coalesce the grammar.</p>
                         </div>
-                    </div>
-                </div>
-                <!-- end row -->
-                <div class="row">
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="card">
-                            <div class="card-body text-center p-4">
+                    </b-col>
+                </b-row>
+                <b-row>
+                    <b-col lg="3" sm="6">
+                        <b-card n-body>
+                            <b-card-body class="text-center p-4">
                                 <div class="avatar-xl mx-auto mb-4 position-relative">
                                     <img src="@/assets/images/users/avatar-2.jpg" alt=""
                                         class="img-fluid rounded-circle">
-                                    <a href="apps-mailbox.html"
+                                    <b-link href="/mailbox"
                                         class="btn btn-success btn-sm position-absolute bottom-0 end-0 rounded-circle avatar-xs">
                                         <div class="avatar-title bg-transparent">
                                             <i class="ri-mail-fill align-bottom"></i>
                                         </div>
-                                    </a>
+                                    </b-link>
                                 </div>
-                                <!-- end card body -->
-                                <h5 class="mb-1"><a href="pages-profile.html" class="text-body">Nancy Martino</a></h5>
+                                <h5 class="mb-1">
+                                    <b-link href="/pages/profile" class="text-body">Nancy Martino</b-link>
+                                </h5>
                                 <p class="text-muted mb-0 ff-secondary">Team Leader</p>
-                            </div>
-                        </div>
-                        <!-- end card -->
-                    </div>
-                    <!-- end col -->
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="card">
-                            <div class="card-body text-center p-4">
+                            </b-card-body>
+                        </b-card>
+                    </b-col>
+                    <b-col lg="3" sm="6">
+                        <b-card n-body>
+                            <b-card-body class="text-center p-4">
                                 <div class="avatar-xl mx-auto mb-4 position-relative">
                                     <img src="@/assets/images/users/avatar-10.jpg" alt=""
                                         class="img-fluid rounded-circle">
-                                    <a href="apps-mailbox.html"
+                                    <b-link href="/mailbox"
                                         class="btn btn-success btn-sm position-absolute bottom-0 end-0 rounded-circle avatar-xs">
                                         <div class="avatar-title bg-transparent">
                                             <i class="ri-mail-fill align-bottom"></i>
                                         </div>
-                                    </a>
+                                    </b-link>
                                 </div>
-                                <!-- end card body -->
-                                <h5 class="mb-1"><a href="pages-profile.html" class="text-body">Henry Baird</a></h5>
+                                <h5 class="mb-1">
+                                    <b-link href="/pages/profile" class="text-body">Henry Baird</b-link>
+                                </h5>
                                 <p class="text-muted mb-0 ff-secondary">Full Stack Developer</p>
-                            </div>
-                        </div>
-                        <!-- end card -->
-                    </div>
-                    <!-- end col -->
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="card">
-                            <div class="card-body text-center p-4">
+                            </b-card-body>
+                        </b-card>
+                    </b-col>
+                    <b-col lg="3" sm="6">
+                        <b-card n-body>
+                            <b-card-body class="text-center p-4">
                                 <div class="avatar-xl mx-auto mb-4 position-relative">
                                     <img src="@/assets/images/users/avatar-3.jpg" alt=""
                                         class="img-fluid rounded-circle">
-                                    <a href="apps-mailbox.html"
+                                    <b-link href="/mailbox"
                                         class="btn btn-success btn-sm position-absolute bottom-0 end-0 rounded-circle avatar-xs">
                                         <div class="avatar-title bg-transparent">
                                             <i class="ri-mail-fill align-bottom"></i>
                                         </div>
-                                    </a>
+                                    </b-link>
                                 </div>
-                                <!-- end card body -->
-                                <h5 class="mb-1"><a href="pages-profile.html" class="text-body">Frank Hook</a></h5>
+                                <h5 class="mb-1">
+                                    <b-link href="/pages/profile" class="text-body">Frank Hook</b-link>
+                                </h5>
                                 <p class="text-muted mb-0 ff-secondary">Project Manager</p>
-                            </div>
-                        </div>
-                        <!-- end card -->
-                    </div>
-                    <!-- end col -->
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="card">
-                            <div class="card-body text-center p-4">
+                            </b-card-body>
+                        </b-card>
+                    </b-col>
+                    <b-col lg="3" sm="6">
+                        <b-card n-body>
+                            <b-card-body class="text-center p-4">
                                 <div class="avatar-xl mx-auto mb-4 position-relative">
                                     <img src="@/assets/images/users/avatar-8.jpg" alt=""
                                         class="img-fluid rounded-circle">
-                                    <a href="apps-mailbox.html"
+                                    <b-link href="/mailbox"
                                         class="btn btn-success btn-sm position-absolute bottom-0 end-0 rounded-circle avatar-xs">
                                         <div class="avatar-title bg-transparent">
                                             <i class="ri-mail-fill align-bottom"></i>
                                         </div>
-                                    </a>
+                                    </b-link>
                                 </div>
-                                <!-- end card body -->
-                                <h5 class="mb-1"><a href="pages-profile.html" class="text-body">Donald Palmer</a></h5>
+                                <h5 class="mb-1">
+                                    <b-link href="/pages/profile" class="text-body">Donald Palmer</b-link>
+                                </h5>
                                 <p class="text-muted mb-0 ff-secondary">UI/UX Designer</p>
-                            </div>
-                        </div>
-                        <!-- end card -->
-                    </div>
-                    <!-- end col -->
-                </div>
-                <!-- end row -->
-                <div class="row">
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="card">
-                            <div class="card-body text-center p-4">
+                            </b-card-body>
+                        </b-card>
+                    </b-col>
+                </b-row>
+                <b-row>
+                    <b-col lg="3" sm="6">
+                        <b-card n-body>
+                            <b-card-body class="text-center p-4">
                                 <div class="avatar-xl mx-auto mb-4 position-relative">
                                     <img src="@/assets/images/users/avatar-5.jpg" alt=""
                                         class="img-fluid rounded-circle">
-                                    <a href="apps-mailbox.html"
+                                    <b-link href="/mailbox"
                                         class="btn btn-success btn-sm position-absolute bottom-0 end-0 rounded-circle avatar-xs">
                                         <div class="avatar-title bg-transparent">
                                             <i class="ri-mail-fill align-bottom"></i>
                                         </div>
-                                    </a>
+                                    </b-link>
                                 </div>
-                                <!-- end card body -->
-                                <h5 class="mb-1"><a href="pages-profile.html" class="text-body">Erica Kernan</a></h5>
+                                <h5 class="mb-1">
+                                    <b-link href="/pages/profile" class="text-body">Erica Kernan</b-link>
+                                </h5>
                                 <p class="text-muted mb-0 ff-secondary">Web Designer</p>
-                            </div>
-                        </div>
-                        <!-- end card -->
-                    </div>
-                    <!-- end col -->
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="card">
-                            <div class="card-body text-center p-4">
+                            </b-card-body>
+                        </b-card>
+                    </b-col>
+                    <b-col lg="3" sm="6">
+                        <b-card n-body>
+                            <b-card-body class="text-center p-4">
                                 <div class="avatar-xl mx-auto mb-4 position-relative">
                                     <img src="@/assets/images/users/avatar-4.jpg" alt=""
                                         class="img-fluid rounded-circle">
-                                    <a href="apps-mailbox.html"
+                                    <b-link href="/mailbox"
                                         class="btn btn-success btn-sm position-absolute bottom-0 end-0 rounded-circle avatar-xs">
                                         <div class="avatar-title bg-transparent">
                                             <i class="ri-mail-fill align-bottom"></i>
                                         </div>
-                                    </a>
+                                    </b-link>
                                 </div>
-                                <!-- end card body -->
-                                <h5 class="mb-1"><a href="pages-profile.html" class="text-body">Alexis Clarke</a></h5>
+                                <h5 class="mb-1">
+                                    <b-link href="/pages/profile" class="text-body">Alexis Clarke</b-link>
+                                </h5>
                                 <p class="text-muted mb-0 ff-secondary">Backend Developer</p>
-                            </div>
-                        </div>
-                        <!-- end card -->
-                    </div>
-                    <!-- end col -->
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="card">
-                            <div class="card-body text-center p-4">
+                            </b-card-body>
+                        </b-card>
+                    </b-col>
+                    <b-col lg="3" sm="6">
+                        <b-card n-body>
+                            <b-card-body class="text-center p-4">
                                 <div class="avatar-xl mx-auto mb-4 position-relative">
                                     <img src="@/assets/images/users/avatar-6.jpg" alt=""
                                         class="img-fluid rounded-circle">
-                                    <a href="apps-mailbox.html"
+                                    <b-link href="/mailbox"
                                         class="btn btn-success btn-sm position-absolute bottom-0 end-0 rounded-circle avatar-xs">
                                         <div class="avatar-title bg-transparent">
                                             <i class="ri-mail-fill align-bottom"></i>
                                         </div>
-                                    </a>
+                                    </b-link>
                                 </div>
-                                <!-- end card body -->
-                                <h5 class="mb-1"><a href="pages-profile.html" class="text-body">Marie Ward</a></h5>
+                                <h5 class="mb-1">
+                                    <b-link href="/pages/profile" class="text-body">Marie Ward</b-link>
+                                </h5>
                                 <p class="text-muted mb-0 ff-secondary">Full Stack Developer</p>
-                            </div>
-                        </div>
-                        <!-- end card -->
-                    </div>
-                    <!-- end col -->
+                            </b-card-body>
+                        </b-card>
+                    </b-col>
 
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="card">
-                            <div class="card-body text-center p-4">
+                    <b-col lg="3" sm="6">
+                        <b-card n-body>
+                            <b-card-body class="text-center p-4">
                                 <div class="avatar-xl mx-auto mb-4 position-relative">
                                     <img src="@/assets/images/users/avatar-7.jpg" alt=""
                                         class="img-fluid rounded-circle">
-                                    <a href="apps-mailbox.html"
+                                    <b-link href="/mailbox"
                                         class="btn btn-success btn-sm position-absolute bottom-0 end-0 rounded-circle avatar-xs">
                                         <div class="avatar-title bg-transparent">
                                             <i class="ri-mail-fill align-bottom"></i>
                                         </div>
-                                    </a>
+                                    </b-link>
                                 </div>
-                                <!-- end card body -->
-                                <h5 class="mb-1"><a href="pages-profile.html" class="text-body">Jack Gough</a></h5>
+                                <h5 class="mb-1">
+                                    <b-link href="/pages/profile" class="text-body">Jack Gough</b-link>
+                                </h5>
                                 <p class="text-muted mb-0 ff-secondary">React Js Developer</p>
-                            </div>
-                        </div>
-                        <!-- end card -->
-                    </div>
-                    <!-- end col -->
-                </div>
-                <!-- end row -->
-                <div class="row">
-                    <div class="col-lg-12">
+                            </b-card-body>
+                        </b-card>
+                    </b-col>
+                </b-row>
+                <b-row>
+                    <b-col lg="12">
                         <div class="text-center mt-2">
-                            <a href="pages-team.html" class="btn btn-primary">View All Members <i
-                                    class="ri-arrow-right-line ms-1 align-bottom"></i></a>
+                            <b-link href="/pages/team" class="btn btn-primary">View All Members <i
+                                    class="ri-arrow-right-line ms-1 align-bottom"></i></b-link>
                         </div>
-                    </div>
-                </div>
-                <!-- end row -->
-            </div>
-            <!-- end container -->
+                    </b-col>
+                </b-row>
+            </b-container>
         </section>
-        <!-- end team -->
 
-        <!-- start contact -->
         <section class="section" id="contact">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8">
+            <b-container>
+                <b-row class="justify-content-center">
+                    <b-col lg="8">
                         <div class="text-center mb-5">
                             <h3 class="mb-3 fw-semibold">Get In Touch</h3>
-                            <p class="text-muted mb-4 ff-secondary">We thrive when coming up with innovative ideas but
-                                also
+                            <p class="text-muted mb-4 ff-secondary">We thrive when coming up with innovative ideas but also
                                 understand that a smart concept should be supported with faucibus sapien odio measurable
                                 results.</p>
                         </div>
-                    </div>
-                </div>
-                <!-- end row -->
+                    </b-col>
+                </b-row>
 
-                <div class="row gy-4">
-                    <div class="col-lg-4">
+                <b-row class="gy-4">
+                    <b-col lg="4">
                         <div>
                             <div class="mt-4">
                                 <h5 class="fs-13 text-muted text-uppercase">Office Address 1:</h5>
@@ -1791,112 +1633,101 @@
                                 <div class="ff-secondary fw-semibold">9:00am to 6:00pm</div>
                             </div>
                         </div>
-                    </div>
-                    <!-- end col -->
-                    <div class="col-lg-8">
+                    </b-col>
+                    <b-col lg="8">
                         <div>
                             <form>
-                                <div class="row">
-                                    <div class="col-lg-6">
+                                <b-row>
+                                    <b-col lg="6">
                                         <div class="mb-4">
                                             <label for="name" class="form-label fs-13">Name</label>
                                             <input name="name" id="name" type="text"
                                                 class="form-control bg-light border-light" placeholder="Your name*">
                                         </div>
-                                    </div>
-                                    <div class="col-lg-6">
+                                    </b-col>
+                                    <b-col lg="6">
                                         <div class="mb-4">
                                             <label for="email" class="form-label fs-13">Email</label>
                                             <input name="email" id="email" type="email"
                                                 class="form-control bg-light border-light" placeholder="Your email*">
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-12">
+                                    </b-col>
+                                </b-row>
+                                <b-row>
+                                    <b-col lg="12">
                                         <div class="mb-4">
                                             <label for="subject" class="form-label fs-13">Subject</label>
                                             <input type="text" class="form-control bg-light border-light" id="subject"
                                                 name="subject" placeholder="Your Subject.." />
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-12">
+                                    </b-col>
+                                </b-row>
+                                <b-row>
+                                    <b-col lg="12">
                                         <div class="mb-3">
                                             <label for="comments" class="form-label fs-13">Message</label>
                                             <textarea name="comments" id="comments" rows="3"
                                                 class="form-control bg-light border-light"
                                                 placeholder="Your message..."></textarea>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-12 text-end">
+                                    </b-col>
+                                </b-row>
+                                <b-row>
+                                    <b-col lg="12" class="text-end">
                                         <input type="submit" id="submit" name="send" class="submitBnt btn btn-primary"
                                             value="Send Message">
-                                    </div>
-                                </div>
+                                    </b-col>
+                                </b-row>
                             </form>
                         </div>
-                    </div>
-                </div>
-                <!-- end row -->
-            </div>
-            <!-- end container -->
+                    </b-col>
+                </b-row>
+            </b-container>
         </section>
-        <!-- end contact -->
 
-        <!-- start cta -->
         <section class="py-5 bg-primary position-relative">
             <div class="bg-overlay bg-overlay-pattern opacity-50"></div>
-            <div class="container">
-                <div class="row align-items-center gy-4">
-                    <div class="col-sm">
+            <b-container>
+                <b-row class="align-items-center gy-4">
+                    <b-col sm>
                         <div>
                             <h4 class="text-white mb-0 fw-semibold">Build your web App/SaaS with Velzon dashboard</h4>
                         </div>
-                    </div>
-                    <!-- end col -->
-                    <div class="col-sm-auto">
+                    </b-col>
+                    <b-col sm="auto">
                         <div>
-                            <a href="https://1.envato.market/velzon-admin" target="_blank"
+                            <b-link href="https://1.envato.market/velzon-admin" target="_blank"
                                 class="btn bg-gradient btn-danger"><i
-                                    class="ri-shopping-cart-2-line align-middle me-1"></i> Buy Now</a>
+                                    class="ri-shopping-cart-2-line align-middle me-1"></i>
+                                Buy Now</b-link>
                         </div>
-                    </div>
-                    <!-- end col -->
-                </div>
-                <!-- end row -->
-            </div>
-            <!-- end container -->
+                    </b-col>
+                </b-row>
+            </b-container>
         </section>
-        <!-- end cta -->
 
-        <!-- Start footer -->
         <footer class="custom-footer bg-dark py-5 position-relative">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4 mt-4">
+            <b-container>
+                <b-row>
+                    <b-col lg="4" class="mt-4">
                         <div>
                             <div>
                                 <img src="@/assets/images/logo-light.png" alt="logo light" height="17">
                             </div>
                             <div class="mt-4 fs-13">
                                 <p>Premium Multipurpose Admin & Dashboard Template</p>
-                                <p class="ff-secondary">You can build any type of web application like eCommerce, CRM,
-                                    CMS, Project
+                                <p class="ff-secondary">You can build any type of web application like eCommerce, CRM, CMS, Project
                                     management apps, Admin Panels, etc using Velzon.</p>
                             </div>
                         </div>
-                    </div>
+                    </b-col>
 
-                    <div class="col-lg-7 ms-lg-auto">
-                        <div class="row">
-                            <div class="col-sm-4 mt-4">
+                    <b-col lg="7" class="ms-lg-auto">
+                        <b-row>
+                            <b-col sm="4" class="mt-4">
                                 <h5 class="text-white mb-0">Company</h5>
                                 <div class="text-muted mt-3">
-                                    <ul class="list-unstyled ff-secondary footer-list">
+                                    <ul class="list-unstyled ff-secondary footer-list fs-14">
                                         <li>
                                             <router-link to="/pages/profile">About US</router-link>
                                         </li>
@@ -1907,15 +1738,15 @@
                                             <router-link to="/apps/projects-list">Projects</router-link>
                                         </li>
                                         <li>
-                                            <router-link to="">Timeline</router-link>
+                                            <router-link to="/pages/timeline">Timeline</router-link>
                                         </li>
                                     </ul>
                                 </div>
-                            </div>
-                            <div class="col-sm-4 mt-4">
+                            </b-col>
+                            <b-col sm="4" class="mt-4">
                                 <h5 class="text-white mb-0">Apps Pages</h5>
                                 <div class="text-muted mt-3">
-                                    <ul class="list-unstyled ff-secondary footer-list">
+                                    <ul class="list-unstyled ff-secondary footer-list fs-14">
                                         <li>
                                             <router-link to="/calendar">Calendar</router-link>
                                         </li>
@@ -1933,11 +1764,11 @@
                                         </li>
                                     </ul>
                                 </div>
-                            </div>
-                            <div class="col-sm-4 mt-4">
+                            </b-col>
+                            <b-col sm="4" class="mt-4">
                                 <h5 class="text-white mb-0">Support</h5>
                                 <div class="text-muted mt-3">
-                                    <ul class="list-unstyled ff-secondary footer-list">
+                                    <ul class="list-unstyled ff-secondary footer-list fs-14">
                                         <li>
                                             <router-link to="/pages/faqs">FAQ's</router-link>
                                         </li>
@@ -1946,64 +1777,66 @@
                                         </li>
                                     </ul>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
+                            </b-col>
+                        </b-row>
+                    </b-col>
+                </b-row>
 
-                </div>
-
-                <div class="row text-center text-sm-start align-items-center mt-5">
-                    <div class="col-sm-6">
+                <b-row class="text-center text-sm-start align-items-center mt-5">
+                    <b-col sm="6">
 
                         <div>
-                            <p class="copy-rights mb-0 currentyear"></p>
+                            <p class="copy-rights mb-0 currentyear">
+                                {{ new Date().getFullYear() }} © Velzon - Themesbrand
+                            </p>
                         </div>
-                    </div>
-                    <div class="col-sm-6">
+                    </b-col>
+                    <b-col sm="6">
                         <div class="text-sm-end mt-3 mt-sm-0">
                             <ul class="list-inline mb-0 footer-social-link">
                                 <li class="list-inline-item">
-                                    <a href="javascript: void(0);" class="avatar-xs d-block">
+                                    <b-link href="javascript: void(0);" class="avatar-xs d-block">
                                         <div class="avatar-title rounded-circle">
                                             <i class="ri-facebook-fill"></i>
                                         </div>
-                                    </a>
+                                    </b-link>
                                 </li>
                                 <li class="list-inline-item">
-                                    <a href="javascript: void(0);" class="avatar-xs d-block">
+                                    <b-link href="javascript: void(0);" class="avatar-xs d-block">
                                         <div class="avatar-title rounded-circle">
                                             <i class="ri-github-fill"></i>
                                         </div>
-                                    </a>
+                                    </b-link>
                                 </li>
                                 <li class="list-inline-item">
-                                    <a href="javascript: void(0);" class="avatar-xs d-block">
+                                    <b-link href="javascript: void(0);" class="avatar-xs d-block">
                                         <div class="avatar-title rounded-circle">
                                             <i class="ri-linkedin-fill"></i>
                                         </div>
-                                    </a>
+                                    </b-link>
                                 </li>
                                 <li class="list-inline-item">
-                                    <a href="javascript: void(0);" class="avatar-xs d-block">
+                                    <b-link href="javascript: void(0);" class="avatar-xs d-block">
                                         <div class="avatar-title rounded-circle">
                                             <i class="ri-google-fill"></i>
                                         </div>
-                                    </a>
+                                    </b-link>
                                 </li>
                                 <li class="list-inline-item">
-                                    <a href="javascript: void(0);" class="avatar-xs d-block">
+                                    <b-link href="javascript: void(0);" class="avatar-xs d-block">
                                         <div class="avatar-title rounded-circle">
                                             <i class="ri-dribbble-line"></i>
                                         </div>
-                                    </a>
+                                    </b-link>
                                 </li>
                             </ul>
                         </div>
-                    </div>
-                </div>
-            </div>
+                    </b-col>
+                </b-row>
+            </b-container>
         </footer>
-        <!-- end footer -->
-
+        <b-button variant="danger" @click="topFunction" class="btn-icon" id="back-to-top">
+            <i class="ri-arrow-up-line"></i>
+        </b-button>
     </div>
 </template>

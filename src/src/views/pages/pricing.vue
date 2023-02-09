@@ -25,6 +25,8 @@ export default {
   },
   methods: {
     monthly() {
+      document.getElementById('month-tab').classList.add('active');
+      document.getElementById('annual-tab').classList.remove('active');
       const highlightedItems = document.querySelectorAll(".month");
 
       highlightedItems.forEach(function (userItem) {
@@ -37,6 +39,8 @@ export default {
       });
     },
     anually() {
+      document.getElementById('month-tab').classList.remove('active');
+      document.getElementById('annual-tab').classList.add('active');
       const highlightedItems = document.querySelectorAll(".month");
 
       highlightedItems.forEach(function (userItem) {
@@ -56,7 +60,6 @@ export default {
       userItem.style.display = "none";
     });
   },
-  
   components: {
     Layout,
     PageHeader,
@@ -67,8 +70,8 @@ export default {
 <template>
   <Layout>
     <PageHeader :title="title" :items="items" />
-    <div class="row justify-content-center mt-4">
-      <div class="col-lg-5">
+    <b-row class="justify-content-center mt-4">
+      <b-col lg="5">
         <div class="text-center mb-4">
           <h4 class="fw-semibold fs-22">Plans & Pricing</h4>
           <p class="text-muted mb-4 fs-15">
@@ -76,51 +79,29 @@ export default {
           </p>
 
           <div class="d-inline-flex">
-            <ul
-              class="nav nav-pills arrow-navtabs plan-nav rounded mb-3 p-1"
-              id="pills-tab"
-              role="tablist"
-            >
+            <ul class="nav nav-pills arrow-navtabs plan-nav rounded mb-3 p-1" id="pills-tab" role="tablist">
               <li class="nav-item" role="presentation">
-                <button
-                  class="nav-link fw-semibold active"
-                  id="month-tab"
-                  data-bs-toggle="pill"
-                  data-bs-target="#month"
-                  type="button"
-                  role="tab"
-                  aria-selected="true"
-                  @click="monthly"
-                >
+                <b-button variant="link" class="nav-link fw-semibold active" id="month-tab" data-bs-toggle="pill" data-bs-target="#month"
+                  type="button" role="tab" aria-selected="true" @click="monthly">
                   Monthly
-                </button>
+                </b-button>
               </li>
               <li class="nav-item" role="presentation">
-                <button
-                  class="nav-link fw-semibold"
-                  id="annual-tab"
-                  data-bs-toggle="pill"
-                  data-bs-target="#annual"
-                  type="button"
-                  role="tab"
-                  aria-selected="false"
-                  @click="anually"
-                >
-                  Annually <span class="badge bg-success">25% Off</span>
-                </button>
+                <b-button variant="link" class="nav-link fw-semibold" id="annual-tab" data-bs-toggle="pill" data-bs-target="#annual"
+                  type="button" role="tab" aria-selected="false" @click="anually">
+                  Annually <b-badge variant="success">25% Off</b-badge>
+                </b-button>
               </li>
             </ul>
           </div>
         </div>
-      </div>
-      <!--end col-->
-    </div>
-    <!--end row-->
+      </b-col>
+    </b-row>
 
-    <div class="row">
-      <div class="col-xxl-3 col-lg-6">
-        <div class="card pricing-box">
-          <div class="card-body bg-light m-2 p-4">
+    <b-row>
+      <b-col xxl="3" lg="6">
+        <b-card no-body class="pricing-box">
+          <b-card-body class="bg-light m-2 p-4">
             <div class="d-flex align-items-center mb-3">
               <div class="flex-grow-1">
                 <h5 class="mb-0 fw-semibold">Starter</h5>
@@ -198,20 +179,15 @@ export default {
               </li>
             </ul>
             <div class="mt-3 pt-2">
-              <a
-                href="javascript:void(0);"
-                class="btn btn-success disabled w-100"
-                >Your Current Plan</a
-              >
+              <b-link href="javascript:void(0);" class="btn btn-success disabled w-100">Your Current Plan</b-link>
             </div>
-          </div>
-        </div>
-      </div>
-      <!--end col-->
+          </b-card-body>
+        </b-card>
+      </b-col>
 
-      <div class="col-xxl-3 col-lg-6">
-        <div class="card pricing-box">
-          <div class="card-body bg-light m-2 p-4">
+      <b-col xxl="3" lg="6">
+        <b-card no-body class="pricing-box">
+          <b-card-body class="bg-light m-2 p-4">
             <div class="d-flex align-items-center mb-3">
               <div class="flex-grow-1">
                 <h5 class="mb-0 fw-semibold">Professional</h5>
@@ -289,18 +265,15 @@ export default {
               </li>
             </ul>
             <div class="mt-3 pt-2">
-              <a href="javascript:void(0);" class="btn btn-primary w-100"
-                >Change Plan</a
-              >
+              <b-link href="javascript:void(0);" class="btn btn-primary w-100">Change Plan</b-link>
             </div>
-          </div>
-        </div>
-      </div>
-      <!--end col-->
+          </b-card-body>
+        </b-card>
+      </b-col>
 
-      <div class="col-xxl-3 col-lg-6">
-        <div class="card pricing-box ribbon-box right">
-          <div class="card-body bg-light m-2 p-4">
+      <b-col xxl="3" lg="6">
+        <b-card no-body class="pricing-box ribbon-box right">
+          <b-card-body class="bg-light m-2 p-4">
             <div class="ribbon-two ribbon-two-success"><span>Popular</span></div>
             <div class="d-flex align-items-center mb-3">
               <div class="flex-grow-1">
@@ -379,18 +352,15 @@ export default {
               </li>
             </ul>
             <div class="mt-3 pt-2">
-              <a href="javascript:void(0);" class="btn btn-primary w-100"
-                >Change Plan</a
-              >
+              <b-link href="javascript:void(0);" class="btn btn-primary w-100">Change Plan</b-link>
             </div>
-          </div>
-        </div>
-      </div>
-      <!--end col-->
+          </b-card-body>
+        </b-card>
+      </b-col>
 
-      <div class="col-xxl-3 col-lg-6">
-        <div class="card pricing-box">
-          <div class="card-body bg-light m-2 p-4">
+      <b-col xxl="3" lg="6">
+        <b-card no-body class="pricing-box">
+          <b-card-body class="bg-light m-2 p-4">
             <div class="d-flex align-items-center mb-3">
               <div class="flex-grow-1">
                 <h5 class="mb-0 fw-semibold">Unlimited</h5>
@@ -467,19 +437,15 @@ export default {
               </li>
             </ul>
             <div class="mt-3 pt-2">
-              <a href="javascript:void(0);" class="btn btn-primary w-100"
-                >Change Plan</a
-              >
+              <b-link href="javascript:void(0);" class="btn btn-primary w-100">Change Plan</b-link>
             </div>
-          </div>
-        </div>
-      </div>
-      <!--end col-->
-    </div>
-    <!--end row-->
+          </b-card-body>
+        </b-card>
+      </b-col>
+    </b-row>
 
-    <div class="row justify-content-center mt-5">
-      <div class="col-lg-5">
+    <b-row class="justify-content-center mt-5">
+      <b-col lg="5">
         <div class="text-center mb-4 pb-2">
           <h4 class="fw-semibold fs-22">
             Choose the plan that's right for you
@@ -488,34 +454,29 @@ export default {
             Simple pricing. No hidden fees. Advanced features for you business.
           </p>
         </div>
-      </div>
-      <!--end col-->
-    </div>
-    <!--end row-->
+      </b-col>
+    </b-row>
 
-    <div class="row justify-content-center">
-      <div class="col-xl-9">
-        <div class="row">
-          <div class="col-lg-4">
-            <div class="card pricing-box">
-              <div class="card-body p-4 m-2">
+    <b-row class="justify-content-center">
+      <b-col xl="9">
+        <b-row>
+          <b-col lg="4">
+            <b-card no-body class="pricing-box">
+              <b-card-body class="p-4 m-2">
                 <div class="d-flex align-items-center">
                   <div class="flex-grow-1">
                     <h5 class="mb-1 fw-semibold">Basic Plan</h5>
                     <p class="text-muted mb-0">For Startup</p>
                   </div>
                   <div class="avatar-sm">
-                    <div
-                      class="avatar-title bg-light rounded-circle text-primary"
-                    >
+                    <div class="avatar-title bg-light rounded-circle text-primary">
                       <i class="ri-book-mark-line fs-20"></i>
                     </div>
                   </div>
                 </div>
                 <div class="pt-4">
                   <h2>
-                    <sup><small>$</small></sup
-                    >19 <span class="fs-13 text-muted">/Month</span>
+                    <sup><small>$</small></sup>19 <span class="fs-13 text-muted">/Month</span>
                   </h2>
                 </div>
                 <hr class="my-4 text-muted" />
@@ -524,9 +485,7 @@ export default {
                     <li>
                       <div class="d-flex">
                         <div class="flex-shrink-0 text-success me-1">
-                          <i
-                            class="ri-checkbox-circle-fill fs-15 align-middle"
-                          ></i>
+                          <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
                         </div>
                         <div class="flex-grow-1">Upto <b>3</b> Projects</div>
                       </div>
@@ -534,9 +493,7 @@ export default {
                     <li>
                       <div class="d-flex">
                         <div class="flex-shrink-0 text-success me-1">
-                          <i
-                            class="ri-checkbox-circle-fill fs-15 align-middle"
-                          ></i>
+                          <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
                         </div>
                         <div class="flex-grow-1">Upto <b>299</b> Customers</div>
                       </div>
@@ -544,9 +501,7 @@ export default {
                     <li>
                       <div class="d-flex">
                         <div class="flex-shrink-0 text-success me-1">
-                          <i
-                            class="ri-checkbox-circle-fill fs-15 align-middle"
-                          ></i>
+                          <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
                         </div>
                         <div class="flex-grow-1">Scalable Bandwidth</div>
                       </div>
@@ -554,9 +509,7 @@ export default {
                     <li>
                       <div class="d-flex">
                         <div class="flex-shrink-0 text-success me-1">
-                          <i
-                            class="ri-checkbox-circle-fill fs-15 align-middle"
-                          ></i>
+                          <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
                         </div>
                         <div class="flex-grow-1"><b>5</b> FTP Login</div>
                       </div>
@@ -564,9 +517,7 @@ export default {
                     <li>
                       <div class="d-flex">
                         <div class="flex-shrink-0 text-danger me-1">
-                          <i
-                            class="ri-close-circle-fill fs-15 align-middle"
-                          ></i>
+                          <i class="ri-close-circle-fill fs-15 align-middle"></i>
                         </div>
                         <div class="flex-grow-1"><b>24/7</b> Support</div>
                       </div>
@@ -574,9 +525,7 @@ export default {
                     <li>
                       <div class="d-flex">
                         <div class="flex-shrink-0 text-danger me-1">
-                          <i
-                            class="ri-close-circle-fill fs-15 align-middle"
-                          ></i>
+                          <i class="ri-close-circle-fill fs-15 align-middle"></i>
                         </div>
                         <div class="flex-grow-1"><b>Unlimited</b> Storage</div>
                       </div>
@@ -584,33 +533,26 @@ export default {
                     <li>
                       <div class="d-flex">
                         <div class="flex-shrink-0 text-danger me-1">
-                          <i
-                            class="ri-close-circle-fill fs-15 align-middle"
-                          ></i>
+                          <i class="ri-close-circle-fill fs-15 align-middle"></i>
                         </div>
                         <div class="flex-grow-1">Domain</div>
                       </div>
                     </li>
                   </ul>
                   <div class="mt-4">
-                    <a
-                      href="javascript:void(0);"
-                      class="
+                    <b-link href="javascript:void(0);" class="
                         btn btn-soft-primary
                         w-100
                         waves-effect waves-light
-                      "
-                      >Sign up free</a
-                    >
+                      ">Sign up free</b-link>
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
-          <!--end col-->
-          <div class="col-lg-4">
-            <div class="card pricing-box ribbon-box right">
-              <div class="card-body p-4 m-2">
+              </b-card-body>
+            </b-card>
+          </b-col>
+          <b-col lg="4">
+            <b-card no-body class="pricing-box ribbon-box right">
+              <b-card-body class="p-4 m-2">
                 <div class="ribbon-two ribbon-two-success">
                   <span>Popular</span>
                 </div>
@@ -621,14 +563,12 @@ export default {
                       <p class="text-muted mb-0">Professional plans</p>
                     </div>
                     <div class="avatar-sm">
-                      <div
-                        class="
+                      <div class="
                           avatar-title
                           bg-light
                           rounded-circle
                           text-primary
-                        "
-                      >
+                        ">
                         <i class="ri-medal-line fs-20"></i>
                       </div>
                     </div>
@@ -636,10 +576,7 @@ export default {
 
                   <div class="pt-4">
                     <h2>
-                      <sup><small>$</small></sup> 29<span
-                        class="fs-13 text-muted"
-                        >/Month</span
-                      >
+                      <sup><small>$</small></sup> 29<span class="fs-13 text-muted">/Month</span>
                     </h2>
                   </div>
                 </div>
@@ -649,9 +586,7 @@ export default {
                     <li>
                       <div class="d-flex">
                         <div class="flex-shrink-0 text-success me-1">
-                          <i
-                            class="ri-checkbox-circle-fill fs-15 align-middle"
-                          ></i>
+                          <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
                         </div>
                         <div class="flex-grow-1">Upto <b>15</b> Projects</div>
                       </div>
@@ -659,9 +594,7 @@ export default {
                     <li>
                       <div class="d-flex">
                         <div class="flex-shrink-0 text-success me-1">
-                          <i
-                            class="ri-checkbox-circle-fill fs-15 align-middle"
-                          ></i>
+                          <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
                         </div>
                         <div class="flex-grow-1">
                           <b>Unlimited</b> Customers
@@ -671,9 +604,7 @@ export default {
                     <li>
                       <div class="d-flex">
                         <div class="flex-shrink-0 text-success me-1">
-                          <i
-                            class="ri-checkbox-circle-fill fs-15 align-middle"
-                          ></i>
+                          <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
                         </div>
                         <div class="flex-grow-1">Scalable Bandwidth</div>
                       </div>
@@ -681,9 +612,7 @@ export default {
                     <li>
                       <div class="d-flex">
                         <div class="flex-shrink-0 text-success me-1">
-                          <i
-                            class="ri-checkbox-circle-fill fs-15 align-middle"
-                          ></i>
+                          <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
                         </div>
                         <div class="flex-grow-1"><b>12</b> FTP Login</div>
                       </div>
@@ -691,9 +620,7 @@ export default {
                     <li>
                       <div class="d-flex">
                         <div class="flex-shrink-0 text-success me-1">
-                          <i
-                            class="ri-checkbox-circle-fill fs-15 align-middle"
-                          ></i>
+                          <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
                         </div>
                         <div class="flex-grow-1"><b>24/7</b> Support</div>
                       </div>
@@ -701,9 +628,7 @@ export default {
                     <li>
                       <div class="d-flex">
                         <div class="flex-shrink-0 text-danger me-1">
-                          <i
-                            class="ri-close-circle-fill fs-15 align-middle"
-                          ></i>
+                          <i class="ri-close-circle-fill fs-15 align-middle"></i>
                         </div>
                         <div class="flex-grow-1"><b>Unlimited</b> Storage</div>
                       </div>
@@ -711,29 +636,23 @@ export default {
                     <li>
                       <div class="d-flex">
                         <div class="flex-shrink-0 text-danger me-1">
-                          <i
-                            class="ri-close-circle-fill fs-15 align-middle"
-                          ></i>
+                          <i class="ri-close-circle-fill fs-15 align-middle"></i>
                         </div>
                         <div class="flex-grow-1">Domain</div>
                       </div>
                     </li>
                   </ul>
                   <div class="mt-4">
-                    <a
-                      href="javascript:void(0);"
-                      class="btn btn-primary w-100 waves-effect waves-light"
-                      >Get started</a
-                    >
+                    <b-link href="javascript:void(0);" class="btn btn-success w-100 waves-effect waves-light">Get
+                      started</b-link>
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
-          <!--end col-->
-          <div class="col-lg-4">
-            <div class="card pricing-box">
-              <div class="card-body p-4 m-2">
+              </b-card-body>
+            </b-card>
+          </b-col>
+          <b-col lg="4">
+            <b-card no-body class="pricing-box">
+              <b-card-body class="p-4 m-2">
                 <div>
                   <div class="d-flex align-items-center">
                     <div class="flex-grow-1">
@@ -741,14 +660,12 @@ export default {
                       <p class="text-muted mb-0">Enterprise Businesses</p>
                     </div>
                     <div class="avatar-sm">
-                      <div
-                        class="
+                      <div class="
                           avatar-title
                           bg-light
                           rounded-circle
                           text-primary
-                        "
-                      >
+                        ">
                         <i class="ri-stack-line fs-20"></i>
                       </div>
                     </div>
@@ -756,10 +673,7 @@ export default {
 
                   <div class="pt-4">
                     <h2>
-                      <sup><small>$</small></sup> 39<span
-                        class="fs-13 text-muted"
-                        >/Month</span
-                      >
+                      <sup><small>$</small></sup> 39<span class="fs-13 text-muted">/Month</span>
                     </h2>
                   </div>
                 </div>
@@ -769,9 +683,7 @@ export default {
                     <li>
                       <div class="d-flex">
                         <div class="flex-shrink-0 text-success me-1">
-                          <i
-                            class="ri-checkbox-circle-fill fs-15 align-middle"
-                          ></i>
+                          <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
                         </div>
                         <div class="flex-grow-1"><b>Unlimited</b> Projects</div>
                       </div>
@@ -779,9 +691,7 @@ export default {
                     <li>
                       <div class="d-flex">
                         <div class="flex-shrink-0 text-success me-1">
-                          <i
-                            class="ri-checkbox-circle-fill fs-15 align-middle"
-                          ></i>
+                          <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
                         </div>
                         <div class="flex-grow-1">
                           <b>Unlimited</b> Customers
@@ -791,9 +701,7 @@ export default {
                     <li>
                       <div class="d-flex">
                         <div class="flex-shrink-0 text-success me-1">
-                          <i
-                            class="ri-checkbox-circle-fill fs-15 align-middle"
-                          ></i>
+                          <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
                         </div>
                         <div class="flex-grow-1">Scalable Bandwidth</div>
                       </div>
@@ -801,9 +709,7 @@ export default {
                     <li>
                       <div class="d-flex">
                         <div class="flex-shrink-0 text-success me-1">
-                          <i
-                            class="ri-checkbox-circle-fill fs-15 align-middle"
-                          ></i>
+                          <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
                         </div>
                         <div class="flex-grow-1">
                           <b>Unlimited</b> FTP Login
@@ -813,9 +719,7 @@ export default {
                     <li>
                       <div class="d-flex">
                         <div class="flex-shrink-0 text-success me-1">
-                          <i
-                            class="ri-checkbox-circle-fill fs-15 align-middle"
-                          ></i>
+                          <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
                         </div>
                         <div class="flex-grow-1"><b>24/7</b> Support</div>
                       </div>
@@ -823,9 +727,7 @@ export default {
                     <li>
                       <div class="d-flex">
                         <div class="flex-shrink-0 text-success me-1">
-                          <i
-                            class="ri-checkbox-circle-fill fs-15 align-middle"
-                          ></i>
+                          <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
                         </div>
                         <div class="flex-grow-1"><b>Unlimited</b> Storage</div>
                       </div>
@@ -833,56 +735,44 @@ export default {
                     <li>
                       <div class="d-flex">
                         <div class="flex-shrink-0 text-success me-1">
-                          <i
-                            class="ri-checkbox-circle-fill fs-15 align-middle"
-                          ></i>
+                          <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
                         </div>
                         <div class="flex-grow-1">Domain</div>
                       </div>
                     </li>
                   </ul>
                   <div class="mt-4">
-                    <a
-                      href="javascript:void(0);"
-                      class="
+                    <b-link href="javascript:void(0);" class="
                         btn btn-soft-primary
                         w-100
                         waves-effect waves-light
-                      "
-                      >Get started</a
-                    >
+                      ">Get started</b-link>
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
-          <!--end col-->
-        </div>
-        <!--end row-->
-      </div>
-      <!--end col-->
-    </div>
-    <!--end row-->
+              </b-card-body>
+            </b-card>
+          </b-col>
+        </b-row>
+      </b-col>
+    </b-row>
 
-    <div class="row justify-content-center mt-5">
-      <div class="col-lg-4">
+    <b-row class="justify-content-center mt-5">
+      <b-col lg="4">
         <div class="text-center mb-4 pb-2">
           <h4 class="fw-semibold fs-22">Simple Pricing Plan</h4>
           <p class="text-muted mb-4 fs-15">
             Simple pricing. No hidden fees. Advanced features for you business.
           </p>
         </div>
-      </div>
-      <!--end col-->
-    </div>
-    <!--end row-->
+      </b-col>
+    </b-row>
 
-    <div class="row">
-      <div class="col-lg-6">
-        <div class="card pricing-box text-center">
-          <div class="row g-0">
-            <div class="col-lg-6">
-              <div class="card-body h-100">
+    <b-row>
+      <b-col lg="6">
+        <b-card no-body class="pricing-box text-center">
+          <b-row class="g-0">
+            <b-col lg="6">
+              <b-card-body class="h-100">
                 <div>
                   <h5 class="mb-1">Starter</h5>
                   <p class="text-muted">Starter plans</p>
@@ -890,27 +780,22 @@ export default {
 
                 <div class="py-4">
                   <h2>
-                    <sup><small>$</small></sup
-                    >22 <span class="fs-13 text-muted"> /Per month</span>
+                    <sup><small>$</small></sup>22 <span class="fs-13 text-muted"> /Per month</span>
                   </h2>
                 </div>
 
                 <div class="text-center plan-btn mt-2">
-                  <a
-                    href="javascript:void(0);"
-                    class="btn btn-primary w-sm waves-effect waves-light"
-                    >Sign up</a
-                  >
+                  <b-link href="javascript:void(0);" class="btn btn-success w-sm waves-effect waves-light">Sign up
+                  </b-link>
                 </div>
-              </div>
-            </div>
-            <!--end col-->
-            <div class="col-lg-6">
-              <div class="card-body border-start mt-4 mt-lg-0">
-                <div class="card-header bg-light">
+              </b-card-body>
+            </b-col>
+            <b-col lg="6">
+              <b-card-body class="border-start mt-4 mt-lg-0">
+                <b-card-header class="bg-light">
                   <h5 class="fs-15 mb-0">Plan Features:</h5>
-                </div>
-                <div class="card-body pb-0">
+                </b-card-header>
+                <b-card-body class="pb-0">
                   <ul class="list-unstyled vstack gap-3 mb-0">
                     <li>
                       Users: <span class="text-success fw-semibold">1</span>
@@ -926,22 +811,19 @@ export default {
                       Support: <span class="text-success fw-semibold">No</span>
                     </li>
                   </ul>
-                </div>
-              </div>
-            </div>
-            <!--end col-->
-          </div>
-          <!--end row-->
-        </div>
-      </div>
-      <!--end row-->
+                </b-card-body>
+              </b-card-body>
+            </b-col>
+          </b-row>
+        </b-card>
+      </b-col>
 
-      <div class="col-lg-6">
-        <div class="card pricing-box ribbon-box ribbon-fill text-center">
+      <b-col lg="6">
+        <b-card no-body class="pricing-box ribbon-box ribbon-fill text-center">
           <div class="ribbon ribbon-success shadow-none">New</div>
-          <div class="row g-0">
-            <div class="col-lg-6">
-              <div class="card-body h-100">
+          <b-row class="g-0">
+            <b-col lg="6">
+              <b-card-body class="h-100">
                 <div>
                   <h5 class="mb-1">Professional</h5>
                   <p class="text-muted">Professional plans</p>
@@ -949,27 +831,22 @@ export default {
 
                 <div class="py-4">
                   <h2>
-                    <sup><small>$</small></sup
-                    >29 <span class="fs-13 text-muted">/Per month</span>
+                    <sup><small>$</small></sup>29 <span class="fs-13 text-muted">/Per month</span>
                   </h2>
                 </div>
 
                 <div class="text-center plan-btn mt-2">
-                  <a
-                    href="javascript:void(0);"
-                    class="btn btn-primary w-sm waves-effect waves-light"
-                    >Sign up</a
-                  >
+                  <b-link href="javascript:void(0);" class="btn btn-success w-sm waves-effect waves-light">Sign up
+                  </b-link>
                 </div>
-              </div>
-            </div>
-            <!--end col-->
-            <div class="col-lg-6">
-              <div class="card-body border-start mt-4 mt-lg-0">
-                <div class="card-header bg-light">
+              </b-card-body>
+            </b-col>
+            <b-col lg="6">
+              <b-card-body class="border-start mt-4 mt-lg-0">
+                <b-card-header class="bg-light">
                   <h5 class="fs-15 mb-0">Plan Features:</h5>
-                </div>
-                <div class="card-body pb-0">
+                </b-card-header>
+                <b-card-body class="pb-0">
                   <ul class="list-unstyled vstack gap-3 mb-0">
                     <li>
                       Users: <span class="text-success fw-semibold">3</span>
@@ -985,22 +862,19 @@ export default {
                       Support: <span class="text-success fw-semibold">No</span>
                     </li>
                   </ul>
-                </div>
-              </div>
-            </div>
-            <!--end col-->
-          </div>
-          <!--end row-->
-        </div>
-      </div>
-      <!--end row-->
+                </b-card-body>
+              </b-card-body>
+            </b-col>
+          </b-row>
+        </b-card>
+      </b-col>
 
-      <div class="col-lg-6">
-        <div class="card pricing-box ribbon-box ribbon-fill text-center">
+      <b-col lg="6">
+        <b-card no-body class="pricing-box ribbon-box ribbon-fill text-center">
           <div class="ribbon ribbon-success shadow-none">New</div>
-          <div class="row g-0">
-            <div class="col-lg-6">
-              <div class="card-body h-100">
+          <b-row class="g-0">
+            <b-col lg="6">
+              <b-card-body class="h-100">
                 <div>
                   <h5 class="mb-1">Enterprise</h5>
                   <p class="text-muted">Enterprise plans</p>
@@ -1008,27 +882,22 @@ export default {
 
                 <div class="py-4">
                   <h2>
-                    <sup><small>$</small></sup
-                    >39 <span class="fs-13 text-muted">/Per month</span>
+                    <sup><small>$</small></sup>39 <span class="fs-13 text-muted">/Per month</span>
                   </h2>
                 </div>
 
                 <div class="text-center plan-btn mt-2">
-                  <a
-                    href="javascript:void(0);"
-                    class="btn btn-primary w-sm waves-effect waves-light"
-                    >Sign up</a
-                  >
+                  <b-link href="javascript:void(0);" class="btn btn-primary w-sm waves-effect waves-light">Sign up
+                  </b-link>
                 </div>
-              </div>
-            </div>
-            <!--end col-->
-            <div class="col-lg-6">
-              <div class="card-body border-start mt-4 mt-lg-0">
-                <div class="card-header bg-light">
+              </b-card-body>
+            </b-col>
+            <b-col lg="6">
+              <b-card-body class="border-start mt-4 mt-lg-0">
+                <b-card-header class="bg-light">
                   <h5 class="fs-15 mb-0">Plan Features:</h5>
-                </div>
-                <div class="card-body pb-0">
+                </b-card-header>
+                <b-card-body class="pb-0">
                   <ul class="list-unstyled vstack gap-3 mb-0">
                     <li>
                       Users: <span class="text-success fw-semibold">3</span>
@@ -1044,48 +913,40 @@ export default {
                       Support: <span class="text-success fw-semibold">Yes</span>
                     </li>
                   </ul>
-                </div>
-              </div>
-            </div>
-            <!--end col-->
-          </div>
-          <!--end row-->
-        </div>
-      </div>
-      <!--end col-->
+                </b-card-body>
+              </b-card-body>
+            </b-col>
+          </b-row>
+        </b-card>
+      </b-col>
 
-      <div class="col-lg-6">
-        <div class="card pricing-box text-center">
-          <div class="row g-0">
-            <div class="col-lg-6">
-              <div class="card-body h-100">
+      <b-col lg="6">
+        <b-card no-body class="pricing-box text-center">
+          <b-row class="g-0">
+            <b-col lg="6">
+              <b-card-body class="h-100">
                 <div>
                   <h5 class="mb-1">Unlimited</h5>
                   <p class="text-muted">Unlimited plans</p>
                 </div>
                 <div class="py-4">
                   <h2>
-                    <sup><small>$</small></sup
-                    >49 <span class="fs-13 text-muted">/Per month</span>
+                    <sup><small>$</small></sup>49 <span class="fs-13 text-muted">/Per month</span>
                   </h2>
                 </div>
 
                 <div class="text-center plan-btn mt-2">
-                  <a
-                    href="javascript:void(0);"
-                    class="btn btn-primary w-sm waves-effect waves-light"
-                    >Sign up</a
-                  >
+                  <b-link href="javascript:void(0);" class="btn btn-primary w-sm waves-effect waves-light">Sign up
+                  </b-link>
                 </div>
-              </div>
-            </div>
-            <!--end col-->
-            <div class="col-lg-6">
-              <div class="card-body border-start mt-4 mt-lg-0">
-                <div class="card-header bg-light">
+              </b-card-body>
+            </b-col>
+            <b-col lg="6">
+              <b-card-body class="border-start mt-4 mt-lg-0">
+                <b-card-header class="bg-light">
                   <h5 class="fs-15 mb-0">Plan Features:</h5>
-                </div>
-                <div class="card-body pb-0">
+                </b-card-header>
+                <b-card-body class="pb-0">
                   <ul class="list-unstyled vstack gap-3 mb-0">
                     <li>
                       Users: <span class="text-success fw-semibold">5</span>
@@ -1101,16 +962,12 @@ export default {
                       Support: <span class="text-success fw-semibold">Yes</span>
                     </li>
                   </ul>
-                </div>
-              </div>
-            </div>
-            <!--end col-->
-          </div>
-          <!--end row-->
-        </div>
-      </div>
-      <!--end col-->
-    </div>
-    <!--end row-->
+                </b-card-body>
+              </b-card-body>
+            </b-col>
+          </b-row>
+        </b-card>
+      </b-col>
+    </b-row>
   </Layout>
 </template>

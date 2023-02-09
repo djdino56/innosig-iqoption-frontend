@@ -51,82 +51,79 @@ export default {
 <template>
     <Layout>
         <PageHeader :title="title" :items="items" />
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card">
-                    <div class="card-header align-items-center d-flex">
-                        <h4 class="card-title mb-0 flex-grow-1">Rounded Ribbon</h4>
+        <b-row>
+            <b-col lg="12">
+                <b-card no-body>
+                    <b-card-header class="align-items-center d-flex">
+                        <b-card-title class="mb-0 flex-grow-1">Rounded Ribbon</b-card-title>
                         <div class="flex-shrink-0">
                             <div class="form-check form-switch form-switch-right form-switch-md">
-                                <label
-                                    for="rounded-ribbon-showcode"
-                                    class="form-label text-muted"
-                                >Show Code</label>
-                                <input
-                                    class="form-check-input code-switcher"
-                                    type="checkbox"
-                                    id="rounded-ribbon-showcode"
-                                />
+                                <label for="rounded-ribbon-showcode" class="form-label text-muted">Show Code</label>
+                                <input class="form-check-input code-switcher" type="checkbox"
+                                    id="rounded-ribbon-showcode" />
                             </div>
                         </div>
-                    </div>
-                    <!-- end card header -->
+                    </b-card-header>
 
-                    <div class="card-body">
+                    <b-card-body>
                         <div class="live-preview">
-                            <div class="row g-3">
+                            <b-row class="g-3">
                                 <p class="text-muted">
                                     Use
                                     <code>round-shape</code> class to show round-shaped ribbon.
                                 </p>
-                                <div class="col-xxl-4">
-                                    <div class="card ribbon-box border shadow-none mb-lg-0">
-                                        <div class="card-body">
+                                <b-col xxl="4">
+                                    <b-card no-body class="ribbon-box border shadow-none mb-lg-0">
+                                        <b-card-body>
                                             <div class="ribbon ribbon-primary round-shape">Primary</div>
                                             <h5 class="fs-14 text-end">Rounded Ribbon</h5>
 
                                             <div class="ribbon-content mt-4 text-muted">
                                                 <p class="mb-0">
-                                                    Quisque nec turpis at urna dictum luctus. Suspendisse convallis dignissim eros at volutpat. In egestas
-                                                    mattis dui. Aliquam mattis dictum aliquet. Nulla sapien mauris, eleifend et sem ac, commodo dapibus odio.
+                                                    Quisque nec turpis at urna dictum luctus. Suspendisse convallis
+                                                    dignissim eros at volutpat. In egestas
+                                                    mattis dui. Aliquam mattis dictum aliquet. Nulla sapien mauris,
+                                                    eleifend et sem ac, commodo dapibus odio.
                                                 </p>
                                             </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                        </b-card-body>
+                                    </b-card>
+                                </b-col>
 
-                                <div class="col-xxl-4">
-                                    <div class="card ribbon-box border shadow-none mb-lg-0">
-                                        <div class="card-body">
+                                <b-col xxl="4">
+                                    <b-card no-body class="ribbon-box border shadow-none mb-lg-0">
+                                        <b-card-body>
                                             <div class="ribbon ribbon-success round-shape">Success</div>
                                             <h5 class="fs-14 text-end">Rounded Ribbon</h5>
                                             <div class="ribbon-content mt-4 text-muted">
                                                 <p class="mb-0">
-                                                    Quisque nec turpis at urna dictum luctus. Suspendisse convallis dignissim eros at volutpat. In egestas
-                                                    mattis dui. Aliquam mattis dictum aliquet. Nulla sapien mauris, eleifend et sem ac, commodo dapibus odio.
+                                                    Quisque nec turpis at urna dictum luctus. Suspendisse convallis
+                                                    dignissim eros at volutpat. In egestas
+                                                    mattis dui. Aliquam mattis dictum aliquet. Nulla sapien mauris,
+                                                    eleifend et sem ac, commodo dapibus odio.
                                                 </p>
                                             </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                        </b-card-body>
+                                    </b-card>
+                                </b-col>
 
-                                <div class="col-xxl-4">
-                                    <!-- Right Ribbon -->
-                                    <div class="card ribbon-box border shadow-none right mb-lg-0">
-                                        <div class="card-body">
+                                <b-col xxl="4">
+                                    <b-card no-body class="ribbon-box border shadow-none right mb-lg-0">
+                                        <b-card-body>
                                             <div class="ribbon ribbon-info round-shape">Info</div>
                                             <h5 class="fs-14 text-start">Rounded Ribbon Right</h5>
                                             <div class="ribbon-content mt-4 text-muted">
                                                 <p class="mb-0">
-                                                    Quisque nec turpis at urna dictum luctus. Suspendisse convallis dignissim eros at volutpat. In egestas
-                                                    mattis dui. Aliquam mattis dictum aliquet. Nulla sapien mauris, eleifend et sem ac, commodo dapibus odio.
+                                                    Quisque nec turpis at urna dictum luctus. Suspendisse convallis
+                                                    dignissim eros at volutpat. In egestas
+                                                    mattis dui. Aliquam mattis dictum aliquet. Nulla sapien mauris,
+                                                    eleifend et sem ac, commodo dapibus odio.
                                                 </p>
                                             </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- end row -->
+                                        </b-card-body>
+                                    </b-card>
+                                </b-col>
+                            </b-row>
                         </div>
 
                         <div class="d-none code-view">
@@ -165,89 +162,83 @@ export default {
     &lt;/b-card&gt;
 &lt;/b-card&gt;</code></pre>
                         </div>
-                    </div>
-                    <!-- end card-body -->
-                </div>
-                <!-- end card -->
-            </div>
-            <!-- end col -->
-        </div>
-        <!-- end row -->
+                    </b-card-body>
+                </b-card>
+            </b-col>
+        </b-row>
 
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card">
-                    <div class="card-header align-items-center d-flex">
-                        <h4 class="card-title mb-0 flex-grow-1">Ribbon Shape</h4>
+        <b-row>
+            <b-col lg="12">
+                <b-card no-body>
+                    <b-card-header class="align-items-center d-flex">
+                        <b-card-title class="mb-0 flex-grow-1">Ribbon Shape</b-card-title>
                         <div class="flex-shrink-0">
                             <div class="form-check form-switch form-switch-right form-switch-md">
-                                <label
-                                    for="shape-ribbon-showcode"
-                                    class="form-label text-muted"
-                                >Show Code</label>
-                                <input
-                                    class="form-check-input code-switcher"
-                                    type="checkbox"
-                                    id="shape-ribbon-showcode"
-                                />
+                                <label for="shape-ribbon-showcode" class="form-label text-muted">Show Code</label>
+                                <input class="form-check-input code-switcher" type="checkbox"
+                                    id="shape-ribbon-showcode" />
                             </div>
                         </div>
-                    </div>
-                    <!-- end card header -->
+                    </b-card-header>
 
-                    <div class="card-body">
+                    <b-card-body>
                         <div class="live-preview">
-                            <div class="row g-3">
+                            <b-row class="g-3">
                                 <p class="text-muted">
                                     Use
                                     <code>ribbon-shape</code> class to show ribbon shaped ribbon.
                                 </p>
-                                <div class="col-xxl-4">
-                                    <div class="card ribbon-box border shadow-none mb-lg-0">
-                                        <div class="card-body">
+                                <b-col xxl="4">
+                                    <b-card no-body class="ribbon-box border shadow-none mb-lg-0">
+                                        <b-card-body>
                                             <div class="ribbon ribbon-primary ribbon-shape">Primary</div>
                                             <h5 class="fs-14 text-end">Ribbon Shape</h5>
                                             <div class="ribbon-content text-muted mt-4">
                                                 <p class="mb-0">
-                                                    Quisque nec turpis at urna dictum luctus. Suspendisse convallis dignissim eros at volutpat. In egestas
-                                                    mattis dui. Aliquam mattis dictum aliquet. Nulla sapien mauris, eleifend et sem ac, commodo dapibus odio.
+                                                    Quisque nec turpis at urna dictum luctus. Suspendisse convallis
+                                                    dignissim eros at volutpat. In egestas
+                                                    mattis dui. Aliquam mattis dictum aliquet. Nulla sapien mauris,
+                                                    eleifend et sem ac, commodo dapibus odio.
                                                 </p>
                                             </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                        </b-card-body>
+                                    </b-card>
+                                </b-col>
 
-                                <div class="col-xxl-4">
-                                    <div class="card ribbon-box border shadow-none mb-lg-0">
-                                        <div class="card-body">
+                                <b-col xxl="4">
+                                    <b-card no-body class="ribbon-box border shadow-none mb-lg-0">
+                                        <b-card-body>
                                             <div class="ribbon ribbon-success ribbon-shape">Success</div>
                                             <h5 class="fs-14 text-end">Ribbon Shape</h5>
                                             <div class="ribbon-content text-muted mt-4">
                                                 <p class="mb-0">
-                                                    Quisque nec turpis at urna dictum luctus. Suspendisse convallis dignissim eros at volutpat. In egestas
-                                                    mattis dui. Aliquam mattis dictum aliquet. Nulla sapien mauris, eleifend et sem ac, commodo dapibus odio.
+                                                    Quisque nec turpis at urna dictum luctus. Suspendisse convallis
+                                                    dignissim eros at volutpat. In egestas
+                                                    mattis dui. Aliquam mattis dictum aliquet. Nulla sapien mauris,
+                                                    eleifend et sem ac, commodo dapibus odio.
                                                 </p>
                                             </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                        </b-card-body>
+                                    </b-card>
+                                </b-col>
 
-                                <div class="col-xxl-4">
-                                    <div class="card ribbon-box border shadow-none mb-lg-0 right">
-                                        <div class="card-body">
+                                <b-col xxl="4">
+                                    <b-card no-body class="ribbon-box border shadow-none mb-lg-0 right">
+                                        <b-card-body>
                                             <div class="ribbon ribbon-info ribbon-shape">Info</div>
                                             <h5 class="fs-14 text-start">Ribbon Shape Right</h5>
                                             <div class="ribbon-content text-muted mt-4">
                                                 <p class="mb-0">
-                                                    Quisque nec turpis at urna dictum luctus. Suspendisse convallis dignissim eros at volutpat. In egestas
-                                                    mattis dui. Aliquam mattis dictum aliquet. Nulla sapien mauris, eleifend et sem ac, commodo dapibus odio.
+                                                    Quisque nec turpis at urna dictum luctus. Suspendisse convallis
+                                                    dignissim eros at volutpat. In egestas
+                                                    mattis dui. Aliquam mattis dictum aliquet. Nulla sapien mauris,
+                                                    eleifend et sem ac, commodo dapibus odio.
                                                 </p>
                                             </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- end row -->
+                                        </b-card-body>
+                                    </b-card>
+                                </b-col>
+                            </b-row>
                         </div>
 
                         <div class="d-none code-view">
@@ -285,99 +276,82 @@ export default {
     &lt;/b-card&gt;
 &lt;/b-card&gt;</code></pre>
                         </div>
-                    </div>
-                    <!-- end card-body -->
-                </div>
-                <!-- end card -->
-            </div>
-            <!-- end col -->
-        </div>
-        <!-- end row -->
+                    </b-card-body>
+                </b-card>
+            </b-col>
+        </b-row>
 
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card">
-                    <div class="card-header align-items-center d-flex">
-                        <h4 class="card-title mb-0 flex-grow-1">Filled Ribbons</h4>
+        <b-row>
+            <b-col lg="12">
+                <b-card no-body>
+                    <b-card-header class="align-items-center d-flex">
+                        <b-card-title class="mb-0 flex-grow-1">Filled Ribbons</b-card-title>
                         <div class="flex-shrink-0">
                             <div class="form-check form-switch form-switch-right form-switch-md">
-                                <label
-                                    for="ribbons01-showcode"
-                                    class="form-label text-muted"
-                                >Show Code</label>
-                                <input
-                                    class="form-check-input code-switcher"
-                                    type="checkbox"
-                                    id="ribbons01-showcode"
-                                />
+                                <label for="ribbons01-showcode" class="form-label text-muted">Show Code</label>
+                                <input class="form-check-input code-switcher" type="checkbox" id="ribbons01-showcode" />
                             </div>
                         </div>
-                    </div>
-                    <!-- end card header -->
+                    </b-card-header>
 
-                    <div class="card-body">
+                    <b-card-body>
                         <div class="live-preview">
-                            <div class="row g-3">
+                            <b-row class="g-3">
                                 <p class="text-muted">
                                     Use
                                     <code>ribbon-fill</code> class to show fill-shaped ribbon.
                                 </p>
-                                <div class="col-xxl-4">
-                                    <div
-                                        class="card ribbon-box border ribbon-fill shadow-none mb-lg-0"
-                                    >
-                                        <div class="card-body">
+                                <b-col xxl="4">
+                                    <b-card no-body class="ribbon-box border ribbon-fill shadow-none mb-lg-0">
+                                        <b-card-body>
                                             <div class="ribbon ribbon-primary">New</div>
                                             <h5 class="fs-14 text-end">Fill Ribbon</h5>
                                             <div class="ribbon-content mt-3 text-muted">
                                                 <p class="mb-0">
-                                                    Quisque nec turpis at urna dictum luctus. Suspendisse convallis dignissim eros at volutpat. In egestas
-                                                    mattis dui. Aliquam mattis dictum aliquet. Nulla sapien mauris, eleifend et sem ac, commodo dapibus odio.
+                                                    Quisque nec turpis at urna dictum luctus. Suspendisse convallis
+                                                    dignissim eros at volutpat. In egestas
+                                                    mattis dui. Aliquam mattis dictum aliquet. Nulla sapien mauris,
+                                                    eleifend et sem ac, commodo dapibus odio.
                                                 </p>
                                             </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--end col-->
+                                        </b-card-body>
+                                    </b-card>
+                                </b-col>
 
-                                <div class="col-xxl-4">
-                                    <div
-                                        class="card ribbon-box border ribbon-fill shadow-none mb-lg-0"
-                                    >
-                                        <div class="card-body">
+                                <b-col xxl="4">
+                                    <b-card no-body class="ribbon-box border ribbon-fill shadow-none mb-lg-0">
+                                        <b-card-body>
                                             <div class="ribbon ribbon-success">Sale</div>
                                             <h5 class="fs-14 text-end">Fill Ribbon</h5>
                                             <div class="ribbon-content mt-3 text-muted">
                                                 <p class="mb-0">
-                                                    Quisque nec turpis at urna dictum luctus. Suspendisse convallis dignissim eros at volutpat. In egestas
-                                                    mattis dui. Aliquam mattis dictum aliquet. Nulla sapien mauris, eleifend et sem ac, commodo dapibus odio.
+                                                    Quisque nec turpis at urna dictum luctus. Suspendisse convallis
+                                                    dignissim eros at volutpat. In egestas
+                                                    mattis dui. Aliquam mattis dictum aliquet. Nulla sapien mauris,
+                                                    eleifend et sem ac, commodo dapibus odio.
                                                 </p>
                                             </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--end col-->
+                                        </b-card-body>
+                                    </b-card>
+                                </b-col>
 
-                                <div class="col-xxl-4">
-                                    <!-- Right Ribbon -->
-                                    <div
-                                        class="card ribbon-box border ribbon-fill shadow-none right mb-lg-0"
-                                    >
-                                        <div class="card-body">
+                                <b-col xxl="4">
+                                    <b-card no-body class="ribbon-box border ribbon-fill shadow-none right mb-lg-0">
+                                        <b-card-body>
                                             <div class="ribbon ribbon-info">New</div>
                                             <h5 class="fs-14 text-start">Fill Ribbon Right</h5>
                                             <div class="ribbon-content mt-3 text-muted">
                                                 <p class="mb-0">
-                                                    Quisque nec turpis at urna dictum luctus. Suspendisse convallis dignissim eros at volutpat. In egestas
-                                                    mattis dui. Aliquam mattis dictum aliquet. Nulla sapien mauris, eleifend et sem ac, commodo dapibus odio.
+                                                    Quisque nec turpis at urna dictum luctus. Suspendisse convallis
+                                                    dignissim eros at volutpat. In egestas
+                                                    mattis dui. Aliquam mattis dictum aliquet. Nulla sapien mauris,
+                                                    eleifend et sem ac, commodo dapibus odio.
                                                 </p>
                                             </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--end col-->
-                            </div>
-                            <!-- end row -->
+                                        </b-card-body>
+                                    </b-card>
+                                </b-col>
+                            </b-row>
                         </div>
 
                         <div class="d-none code-view">
@@ -415,88 +389,79 @@ export default {
     &lt;/b-card &gt;
 &lt;/b-card &gt;</code></pre>
                         </div>
-                    </div>
-                    <!-- end card-body -->
-                </div>
-                <!-- end card -->
-            </div>
-            <!-- end col -->
-        </div>
-        <!-- end row -->
+                    </b-card-body>
+                </b-card>
+            </b-col>
+        </b-row>
 
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card">
-                    <div class="card-header align-items-center d-flex">
-                        <h4 class="card-title mb-0 flex-grow-1">Boxed Ribbons</h4>
+        <b-row>
+            <b-col lg="12">
+                <b-card no-body>
+                    <b-card-header class="align-items-center d-flex">
+                        <b-card-title class="mb-0 flex-grow-1">Boxed Ribbons</b-card-title>
                         <div class="flex-shrink-0">
                             <div class="form-check form-switch form-switch-right form-switch-md">
-                                <label
-                                    for="ribbon-example-showcode"
-                                    class="form-label text-muted"
-                                >Show Code</label>
-                                <input
-                                    class="form-check-input code-switcher"
-                                    type="checkbox"
-                                    id="ribbon-example-showcode"
-                                />
+                                <label for="ribbon-example-showcode" class="form-label text-muted">Show Code</label>
+                                <input class="form-check-input code-switcher" type="checkbox"
+                                    id="ribbon-example-showcode" />
                             </div>
                         </div>
-                    </div>
-                    <!-- end card header -->
+                    </b-card-header>
 
-                    <div class="card-body">
+                    <b-card-body>
                         <div class="live-preview">
-                            <div class="row g-3">
+                            <b-row class="g-3">
                                 <p class="text-muted">
                                     Use
                                     <code>ribbon-box</code> class with
-                                    <code>ribbon-two</code> class at child element to show below-mentioned shaped ribbon.
+                                    <code>ribbon-two</code> class at child element to show below-mentioned shaped
+                                    ribbon.
                                 </p>
-                                <div class="col-xxl-4">
-                                    <div class="card ribbon-box border shadow-none mb-lg-0">
-                                        <div class="card-body text-muted">
+                                <b-col xxl="4">
+                                    <b-card no-body class="ribbon-box border shadow-none mb-lg-0">
+                                        <b-card-body class="text-muted">
                                             <div class="ribbon-two ribbon-two-primary">
                                                 <span>Basic</span>
                                             </div>
                                             <h5 class="fs-14 text-end mb-3">Box Ribbon</h5>
-                                            <p
-                                                class="mb-0"
-                                            >Quisque nec turpis at urna dictum luctus. Suspendisse convallis dignissim eros at volutpat. In egestas mattis dui. Aliquam mattis dictum aliquet. Nulla sapien mauris, eleifend et sem ac, commodo dapibus odio. Vivamus pretium nec odio cursus.</p>
-                                        </div>
-                                    </div>
-                                </div>
+                                            <p class="mb-0">Quisque nec turpis at urna dictum luctus. Suspendisse
+                                                convallis dignissim eros at volutpat. In egestas mattis dui. Aliquam
+                                                mattis dictum aliquet. Nulla sapien mauris, eleifend et sem ac, commodo
+                                                dapibus odio. Vivamus pretium nec odio cursus.</p>
+                                        </b-card-body>
+                                    </b-card>
+                                </b-col>
 
-                                <div class="col-xxl-4">
-                                    <div class="card ribbon-box border shadow-none mb-lg-0">
-                                        <div class="card-body text-muted">
+                                <b-col xxl="4">
+                                    <b-card no-body class="ribbon-box border shadow-none mb-lg-0">
+                                        <b-card-body class="text-muted">
                                             <div class="ribbon-two ribbon-two-success">
                                                 <span>Standard</span>
                                             </div>
                                             <h5 class="fs-14 text-end mb-3">Box Ribbon</h5>
-                                            <p
-                                                class="mb-0"
-                                            >Quisque nec turpis at urna dictum luctus. Suspendisse convallis dignissim eros at volutpat. In egestas mattis dui. Aliquam mattis dictum aliquet. Nulla sapien mauris, eleifend et sem ac, commodo dapibus odio. Vivamus pretium nec odio cursus.</p>
-                                        </div>
-                                    </div>
-                                </div>
+                                            <p class="mb-0">Quisque nec turpis at urna dictum luctus. Suspendisse
+                                                convallis dignissim eros at volutpat. In egestas mattis dui. Aliquam
+                                                mattis dictum aliquet. Nulla sapien mauris, eleifend et sem ac, commodo
+                                                dapibus odio. Vivamus pretium nec odio cursus.</p>
+                                        </b-card-body>
+                                    </b-card>
+                                </b-col>
 
-                                <div class="col-xxl-4">
-                                    <!-- Right Ribbon -->
-                                    <div class="card ribbon-box border shadow-none mb-lg-0 right">
-                                        <div class="card-body text-muted">
+                                <b-col xxl="4">
+                                    <b-card no-body class="ribbon-box border shadow-none mb-lg-0 right">
+                                        <b-card-body class="text-muted">
                                             <div class="ribbon-two ribbon-two-info">
                                                 <span>Premium</span>
                                             </div>
                                             <h5 class="fs-14 mb-3">Box Ribbon Right</h5>
-                                            <p
-                                                class="mb-0"
-                                            >Quisque nec turpis at urna dictum luctus. Suspendisse convallis dignissim eros at volutpat. In egestas mattis dui. Aliquam mattis dictum aliquet. Nulla sapien mauris, eleifend et sem ac, commodo dapibus odio. Vivamus pretium nec odio cursus elementum ornare.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- end row -->
+                                            <p class="mb-0">Quisque nec turpis at urna dictum luctus. Suspendisse
+                                                convallis dignissim eros at volutpat. In egestas mattis dui. Aliquam
+                                                mattis dictum aliquet. Nulla sapien mauris, eleifend et sem ac, commodo
+                                                dapibus odio. Vivamus pretium nec odio cursus elementum ornare.</p>
+                                        </b-card-body>
+                                    </b-card>
+                                </b-col>
+                            </b-row>
                         </div>
 
                         <div class="d-none code-view">
@@ -521,90 +486,79 @@ export default {
     &lt;/b-card&gt;
 &lt;/b-card&gt;</code></pre>
                         </div>
-                    </div>
-                    <!-- end card-body -->
-                </div>
-                <!-- end card -->
-            </div>
-            <!-- end col -->
-        </div>
-        <!-- end row -->
+                    </b-card-body>
+                </b-card>
+            </b-col>
+        </b-row>
 
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card">
-                    <div class="card-header align-items-center d-flex">
-                        <h4 class="card-title mb-0 flex-grow-1">Ribbons</h4>
+        <b-row>
+            <b-col lg="12">
+                <b-card no-body>
+                    <b-card-header class="align-items-center d-flex">
+                        <b-card-title class="mb-0 flex-grow-1">Ribbons</b-card-title>
                         <div class="flex-shrink-0">
                             <div class="form-check form-switch form-switch-right form-switch-md">
-                                <label
-                                    for="ribbon-three-showcode"
-                                    class="form-label text-muted"
-                                >Show Code</label>
-                                <input
-                                    class="form-check-input code-switcher"
-                                    type="checkbox"
-                                    id="ribbon-three-showcode"
-                                />
+                                <label for="ribbon-three-showcode" class="form-label text-muted">Show Code</label>
+                                <input class="form-check-input code-switcher" type="checkbox"
+                                    id="ribbon-three-showcode" />
                             </div>
                         </div>
-                    </div>
-                    <!-- end card header -->
+                    </b-card-header>
 
-                    <div class="card-body">
+                    <b-card-body>
                         <div class="live-preview">
-                            <div class="row g-3">
+                            <b-row class="g-3">
                                 <p class="text-muted">
                                     Use
                                     <code>ribbon-box</code> class with
-                                    <code>ribbon-three</code> class at child element to show below-mentioned shaped ribbon.
+                                    <code>ribbon-three</code> class at child element to show below-mentioned shaped
+                                    ribbon.
                                 </p>
-                                <div class="col-xxl-4">
-                                    <div class="card ribbon-box border shadow-none mb-lg-0">
-                                        <div class="card-body text-muted">
+                                <b-col xxl="4">
+                                    <b-card no-body class="ribbon-box border shadow-none mb-lg-0">
+                                        <b-card-body class="text-muted">
                                             <span class="ribbon-three ribbon-three-primary">
                                                 <span>Featured</span>
                                             </span>
                                             <h5 class="fs-14 text-end mb-3">Ribbon Shape</h5>
-                                            <p
-                                                class="mb-0"
-                                            >Quisque nec turpis at urna dictum luctus. Suspendisse convallis dignissim eros at volutpat. In egestas mattis dui. Aliquam mattis dictum aliquet. Nulla sapien mauris, eleifend et sem ac, commodo dapibus odio. Vivamus pretium nec odio cursus.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--end col-->
+                                            <p class="mb-0">Quisque nec turpis at urna dictum luctus. Suspendisse
+                                                convallis dignissim eros at volutpat. In egestas mattis dui. Aliquam
+                                                mattis dictum aliquet. Nulla sapien mauris, eleifend et sem ac, commodo
+                                                dapibus odio. Vivamus pretium nec odio cursus.</p>
+                                        </b-card-body>
+                                    </b-card>
+                                </b-col>
 
-                                <div class="col-xxl-4">
-                                    <div class="card ribbon-box border shadow-none mb-lg-0">
-                                        <div class="card-body text-muted">
+                                <b-col xxl="4">
+                                    <b-card no-body class="ribbon-box border shadow-none mb-lg-0">
+                                        <b-card-body class="text-muted">
                                             <span class="ribbon-three ribbon-three-success">
                                                 <span>Featured</span>
                                             </span>
                                             <h5 class="fs-14 text-end mb-3">Ribbon Shape</h5>
-                                            <p
-                                                class="mb-0"
-                                            >Quisque nec turpis at urna dictum luctus. Suspendisse convallis dignissim eros at volutpat. In egestas mattis dui. Aliquam mattis dictum aliquet. Nulla sapien mauris, eleifend et sem ac, commodo dapibus odio. Vivamus pretium nec odio cursus.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--end col-->
+                                            <p class="mb-0">Quisque nec turpis at urna dictum luctus. Suspendisse
+                                                convallis dignissim eros at volutpat. In egestas mattis dui. Aliquam
+                                                mattis dictum aliquet. Nulla sapien mauris, eleifend et sem ac, commodo
+                                                dapibus odio. Vivamus pretium nec odio cursus.</p>
+                                        </b-card-body>
+                                    </b-card>
+                                </b-col>
 
-                                <div class="col-xxl-4">
-                                    <div class="card ribbon-box border shadow-none mb-lg-0 right">
-                                        <div class="card-body text-muted">
+                                <b-col xxl="4">
+                                    <b-card no-body class="ribbon-box border shadow-none mb-lg-0 right">
+                                        <b-card-body class="text-muted">
                                             <span class="ribbon-three ribbon-three-info">
                                                 <span>Featured</span>
                                             </span>
                                             <h5 class="fs-14 mb-3">Ribbon Right Shape</h5>
-                                            <p
-                                                class="mb-0"
-                                            >Quisque nec turpis at urna dictum luctus. Suspendisse convallis dignissim eros at volutpat. In egestas mattis dui. Aliquam mattis dictum aliquet. Nulla sapien mauris, eleifend et sem ac, commodo dapibus odio. Vivamus pretium nec odio cursus.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--end col-->
-                            </div>
-                            <!-- end row -->
+                                            <p class="mb-0">Quisque nec turpis at urna dictum luctus. Suspendisse
+                                                convallis dignissim eros at volutpat. In egestas mattis dui. Aliquam
+                                                mattis dictum aliquet. Nulla sapien mauris, eleifend et sem ac, commodo
+                                                dapibus odio. Vivamus pretium nec odio cursus.</p>
+                                        </b-card-body>
+                                    </b-card>
+                                </b-col>
+                            </b-row>
                         </div>
 
                         <div class="d-none code-view">
@@ -629,110 +583,83 @@ export default {
     &lt;/b-card&gt;
 &lt;/b-card&gt;</code></pre>
                         </div>
-                    </div>
-                    <!-- end card-body -->
-                </div>
-                <!-- end card -->
-            </div>
-            <!-- end col -->
-        </div>
-        <!-- end row -->
+                    </b-card-body>
+                </b-card>
+            </b-col>
+        </b-row>
 
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card">
-                    <div class="card-header align-items-center d-flex">
-                        <h4 class="card-title mb-0 flex-grow-1">Ribbons Hover</h4>
+        <b-row>
+            <b-col lg="12">
+                <b-card no-body>
+                    <b-card-header class="align-items-center d-flex">
+                        <b-card-title class="mb-0 flex-grow-1">Ribbons Hover</b-card-title>
                         <div class="flex-shrink-0">
                             <div class="form-check form-switch form-switch-right form-switch-md">
-                                <label
-                                    for="ribbon-hover-showcode"
-                                    class="form-label text-muted"
-                                >Show Code</label>
-                                <input
-                                    class="form-check-input code-switcher"
-                                    type="checkbox"
-                                    id="ribbon-hover-showcode"
-                                />
+                                <label for="ribbon-hover-showcode" class="form-label text-muted">Show Code</label>
+                                <input class="form-check-input code-switcher" type="checkbox"
+                                    id="ribbon-hover-showcode" />
                             </div>
                         </div>
-                    </div>
-                    <!-- end card header -->
+                    </b-card-header>
 
-                    <div class="card-body">
+                    <b-card-body>
                         <div class="live-preview">
-                            <div class="row g-3">
+                            <b-row class="g-3">
                                 <p class="text-muted">
                                     Use
                                     <code>trending-ribbon</code> class to show ribbon with hovering effect.
                                 </p>
-                                <div class="col-xxl-4">
-                                    <div
-                                        class="card ribbon-box border shadow-none overflow-hidden mb-lg-0"
-                                    >
-                                        <div class="card-body text-muted">
-                                            <div
-                                                class="ribbon ribbon-primary ribbon-shape trending-ribbon"
-                                            >
+                                <b-col xxl="4">
+                                    <b-card no-body class="ribbon-box border shadow-none overflow-hidden mb-lg-0">
+                                        <b-card-body class="text-muted">
+                                            <div class="ribbon ribbon-primary ribbon-shape trending-ribbon">
                                                 <span class="trending-ribbon-text">Trending</span>
                                                 <i
-                                                    class="ri-flashlight-fill text-white align-bottom float-end ms-1"
-                                                ></i>
+                                                    class="ri-flashlight-fill text-white align-bottom float-end ms-1"></i>
                                             </div>
                                             <h5 class="fs-14 text-end mb-3">Ribbon Shape</h5>
-                                            <p
-                                                class="mb-0"
-                                            >Quisque nec turpis at urna dictum luctus. Suspendisse convallis dignissim eros at volutpat. In egestas mattis dui. Aliquam mattis dictum aliquet. Nulla sapien mauris, eleifend et sem ac, commodo dapibus odio. Vivamus pretium nec odio cursus.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--end col-->
+                                            <p class="mb-0">Quisque nec turpis at urna dictum luctus. Suspendisse
+                                                convallis dignissim eros at volutpat. In egestas mattis dui. Aliquam
+                                                mattis dictum aliquet. Nulla sapien mauris, eleifend et sem ac, commodo
+                                                dapibus odio. Vivamus pretium nec odio cursus.</p>
+                                        </b-card-body>
+                                    </b-card>
+                                </b-col>
 
-                                <div class="col-xxl-4">
-                                    <div
-                                        class="card ribbon-box border shadow-none overflow-hidden mb-lg-0"
-                                    >
-                                        <div class="card-body text-muted">
-                                            <div
-                                                class="ribbon ribbon-success ribbon-shape trending-ribbon"
-                                            >
+                                <b-col xxl="4">
+                                    <b-card no-body class="ribbon-box border shadow-none overflow-hidden mb-lg-0">
+                                        <b-card-body class="text-muted">
+                                            <div class="ribbon ribbon-success ribbon-shape trending-ribbon">
                                                 <span class="trending-ribbon-text">Trending</span>
                                                 <i
-                                                    class="ri-flashlight-fill text-white align-bottom float-end ms-1"
-                                                ></i>
+                                                    class="ri-flashlight-fill text-white align-bottom float-end ms-1"></i>
                                             </div>
                                             <h5 class="fs-14 text-end mb-3">Ribbon Shape</h5>
-                                            <p
-                                                class="mb-0"
-                                            >Quisque nec turpis at urna dictum luctus. Suspendisse convallis dignissim eros at volutpat. In egestas mattis dui. Aliquam mattis dictum aliquet. Nulla sapien mauris, eleifend et sem ac, commodo dapibus odio. Vivamus pretium nec odio cursus.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--end col-->
+                                            <p class="mb-0">Quisque nec turpis at urna dictum luctus. Suspendisse
+                                                convallis dignissim eros at volutpat. In egestas mattis dui. Aliquam
+                                                mattis dictum aliquet. Nulla sapien mauris, eleifend et sem ac, commodo
+                                                dapibus odio. Vivamus pretium nec odio cursus.</p>
+                                        </b-card-body>
+                                    </b-card>
+                                </b-col>
 
-                                <div class="col-xxl-4">
-                                    <div
-                                        class="card ribbon-box right border shadow-none overflow-hidden mb-lg-0"
-                                    >
-                                        <div class="card-body text-muted">
-                                            <div
-                                                class="ribbon ribbon-info ribbon-shape trending-ribbon"
-                                            >
+                                <b-col xxl="4">
+                                    <b-card no-body class="ribbon-box right border shadow-none overflow-hidden mb-lg-0">
+                                        <b-card-body class="text-muted">
+                                            <div class="ribbon ribbon-info ribbon-shape trending-ribbon">
                                                 <i
-                                                    class="ri-flashlight-fill text-white align-bottom float-start me-1"
-                                                ></i>
+                                                    class="ri-flashlight-fill text-white align-bottom float-start me-1"></i>
                                                 <span class="trending-ribbon-text">Trending</span>
                                             </div>
                                             <h5 class="fs-14 mb-3">Ribbon Right Shape</h5>
-                                            <p
-                                                class="mb-0"
-                                            >Quisque nec turpis at urna dictum luctus. Suspendisse convallis dignissim eros at volutpat. In egestas mattis dui. Aliquam mattis dictum aliquet. Nulla sapien mauris, eleifend et sem ac, commodo dapibus odio. Vivamus pretium nec odio cursus.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--end col-->
-                            </div>
-                            <!-- end row -->
+                                            <p class="mb-0">Quisque nec turpis at urna dictum luctus. Suspendisse
+                                                convallis dignissim eros at volutpat. In egestas mattis dui. Aliquam
+                                                mattis dictum aliquet. Nulla sapien mauris, eleifend et sem ac, commodo
+                                                dapibus odio. Vivamus pretium nec odio cursus.</p>
+                                        </b-card-body>
+                                    </b-card>
+                                </b-col>
+                            </b-row>
                         </div>
                         <div class="d-none code-view">
                             <pre class="language-markup" style="height: 275px;"><code>&lt;b-card class=&quot;ribbon-box border shadow-none overflow-hidden&quot;&gt;
@@ -765,13 +692,9 @@ export default {
     &lt;/b-card&gt;
 &lt;/b-card&gt;</code></pre>
                         </div>
-                    </div>
-                    <!-- end card-body -->
-                </div>
-                <!-- end card -->
-            </div>
-            <!-- end col -->
-        </div>
-        <!-- end row -->
+                    </b-card-body>
+                </b-card>
+            </b-col>
+        </b-row>
     </Layout>
 </template>

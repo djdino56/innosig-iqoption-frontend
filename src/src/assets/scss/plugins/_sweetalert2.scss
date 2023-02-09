@@ -14,21 +14,21 @@
 .swal2-popup{
   padding-bottom: 24px;
   border-radius: $modal-content-border-radius;
-  background-color: $modal-content-bg;
-  color: var(--#{$variable-prefix}body-color);
+  background-color: var(--#{$prefix}card-bg-custom) !important;
+  color: var(--#{$prefix}body-color);
 
   .swal2-title{
-    color: var(--#{$variable-prefix}heading-color);
+    color: var(--#{$prefix}heading-color);
   }
 
   .swal2-html-container{
-    color: var(--#{$variable-prefix}body-color);
+    color: var(--#{$prefix}body-color);
   }
 }
 
 .swal2-footer{
-  border-top: 1px solid var(--#{$variable-prefix}border-color);
-  color: var(--#{$variable-prefix}body-color);
+  border-top: 1px solid var(--#{$prefix}border-color);
+  color: var(--#{$prefix}body-color);
 }
 
 .swal2-html-container{

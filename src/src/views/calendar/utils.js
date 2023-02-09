@@ -124,26 +124,26 @@ export function createEventId() {
 export const categories = [
   {
       name: 'Danger',
-      value: 'bg-danger'
+      value: 'bg-soft-danger'
   },
   {
       name: 'Success',
-      value: 'bg-success'
+      value: 'bg-soft-success'
   },
   {
       name: 'Primary',
-      value: 'bg-primary'
+      value: 'bg-soft-primary'
   },
   {
       name: 'Info',
-      value: 'bg-info'
+      value: 'bg-soft-info'
   },
   {
       name: 'Dark',
-      value: 'bg-dark'
+      value: 'bg-soft-dark'
   },
   {
       name: 'Warning',
-      value: 'bg-warning'
+      value: 'bg-soft-warning'
   },
 ];

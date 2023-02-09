@@ -12,14 +12,14 @@ export default {
   },
   data() {
     return {
-      title: "Sweetalert",
+      title: "Sweet Alert",
       items: [
         {
           text: "Advance UI",
           href: "/",
         },
         {
-          text: "Sweetalert",
+          text: "Sweet Alert",
           active: true,
         },
       ],
@@ -302,24 +302,21 @@ export default {
 <template>
   <Layout>
     <PageHeader :title="title" :items="items" />
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="card">
-          <div class="card-header">
-            <h4 class="card-title mb-0">Examples</h4>
-          </div>
-          <!-- end card header -->
+    <b-row>
+      <b-col lg="12">
+        <b-card no-body>
+          <b-card-header>
+            <b-card-title class="mb-0">Examples</b-card-title>
+          </b-card-header>
 
-          <div class="card-body">
+          <b-card-body>
             <p class="text-muted">
               Here are the various types of beautiful, responsive, customizable,
               and accessible sweet alerts.
             </p>
 
             <div class="table-responsive">
-              <table
-                class="table table-nowrap align-middle justify-content-center mb-0"
-              >
+              <table class="table table-nowrap align-middle justify-content-center mb-0">
                 <thead>
                   <tr>
                     <th scope="col" style="width: 50%">Sweet Alert Type</th>
@@ -332,42 +329,27 @@ export default {
                   <tr>
                     <td>A Basic Message</td>
                     <td class="text-center">
-                      <button
-                        type="button"
-                        class="btn btn-primary btn-sm"
-                        id="sa-basic"
-                        @click="showAlert"
-                      >
+                      <b-button variant="primary" size="sm" type="button" id="sa-basic" @click="showAlert">
                         Click me
-                      </button>
+                      </b-button>
                     </td>
                   </tr>
 
                   <tr>
                     <td>A Title with a Text Under</td>
                     <td class="text-center">
-                      <button
-                        type="button"
-                        class="btn btn-primary btn-sm"
-                        id="sa-title"
-                        @click="titleText"
-                      >
+                      <b-button variant="primary" size="sm" type="button" id="sa-title" @click="titleText">
                         Click me
-                      </button>
+                      </b-button>
                     </td>
                   </tr>
 
                   <tr>
                     <td>A success message!</td>
                     <td class="text-center">
-                      <button
-                        type="button"
-                        class="btn btn-primary btn-sm"
-                        id="sa-success"
-                        @click="successmsg"
-                      >
+                      <b-button variant="primary" size="sm" type="button" id="sa-success" @click="successmsg">
                         Click me
-                      </button>
+                      </b-button>
                     </td>
                   </tr>
 
@@ -376,27 +358,17 @@ export default {
                       A modal with a title, an error icon, a text, and a footer
                     </td>
                     <td class="text-center">
-                      <button
-                        type="button"
-                        class="btn btn-primary btn-sm"
-                        id="sa-error"
-                        @click="saError"
-                      >
+                      <b-button variant="primary" size="sm" type="button" id="sa-error" @click="saError">
                         Click me
-                      </button>
+                      </b-button>
                     </td>
                   </tr>
                   <tr>
                     <td>A modal window with a long content inside</td>
                     <td class="text-center">
-                      <button
-                        type="button"
-                        class="btn btn-primary btn-sm"
-                        id="sa-longcontent"
-                        @click="content"
-                      >
+                      <b-button variant="primary" size="sm" type="button" id="sa-longcontent" @click="content">
                         Click me
-                      </button>
+                      </b-button>
                     </td>
                   </tr>
 
@@ -406,14 +378,9 @@ export default {
                       "Confirm"-button...
                     </td>
                     <td class="text-center">
-                      <button
-                        type="button"
-                        class="btn btn-primary btn-sm"
-                        id="sa-warning"
-                        @click="confirm"
-                      >
+                      <b-button variant="primary" size="sm" type="button" id="sa-warning" @click="confirm">
                         Click me
-                      </button>
+                      </b-button>
                     </td>
                   </tr>
 
@@ -423,126 +390,79 @@ export default {
                       "Cancel".
                     </td>
                     <td class="text-center">
-                      <button
-                        type="button"
-                        class="btn btn-primary btn-sm"
-                        id="sa-params"
-                        @click="cancel"
-                      >
+                      <b-button variant="primary" size="sm" type="button" id="sa-params" @click="cancel">
                         Click me
-                      </button>
+                      </b-button>
                     </td>
                   </tr>
 
                   <tr>
                     <td>A message with custom Image Header</td>
                     <td class="text-center">
-                      <button
-                        type="button"
-                        class="btn btn-primary btn-sm"
-                        id="sa-image"
-                        @click="imageHeader"
-                      >
+                      <b-button variant="primary" size="sm" type="button" id="sa-image" @click="imageHeader">
                         Click me
-                      </button>
+                      </b-button>
                     </td>
                   </tr>
 
                   <tr>
                     <td>A message with auto close timer</td>
                     <td class="text-center">
-                      <button
-                        type="button"
-                        class="btn btn-primary btn-sm"
-                        id="sa-close"
-                        @click="timer"
-                      >
+                      <b-button variant="primary" size="sm" type="button" id="sa-close" @click="timer">
                         Click me
-                      </button>
+                      </b-button>
                     </td>
                   </tr>
 
                   <tr>
                     <td>Custom HTML description and buttons</td>
                     <td class="text-center">
-                      <button
-                        type="button"
-                        class="btn btn-primary btn-sm"
-                        id="custom-html-alert"
-                        @click="custom"
-                      >
+                      <b-button variant="primary" size="sm" type="button" id="custom-html-alert" @click="custom">
                         Click me
-                      </button>
+                      </b-button>
                     </td>
                   </tr>
                   <tr>
                     <td>A dialog with three buttons</td>
                     <td class="text-center">
-                      <button
-                        type="button"
-                        class="btn btn-primary btn-sm"
-                        id="sa-dialog-three-btn"
-                        @click="threeButton"
-                      >
+                      <b-button variant="primary" size="sm" type="button" id="sa-dialog-three-btn" @click="threeButton">
                         Click me
-                      </button>
+                      </b-button>
                     </td>
                   </tr>
                   <tr>
                     <td>A custom positioned dialog</td>
                     <td class="text-center">
-                      <button
-                        type="button"
-                        class="btn btn-primary btn-sm"
-                        id="sa-position"
-                        @click="position"
-                      >
+                      <b-button variant="primary" size="sm" type="button" id="sa-position" @click="position">
                         Click me
-                      </button>
+                      </b-button>
                     </td>
                   </tr>
 
                   <tr>
                     <td>A message with custom width, padding and background</td>
                     <td class="text-center">
-                      <button
-                        type="button"
-                        class="btn btn-primary btn-sm"
-                        id="custom-padding-width-alert"
-                        @click="customBackground"
-                      >
+                      <b-button variant="primary" size="sm" type="button" id="custom-padding-width-alert"
+                        @click="customBackground">
                         Click me
-                      </button>
+                      </b-button>
                     </td>
                   </tr>
 
                   <tr>
                     <td>Ajax request example</td>
                     <td class="text-center">
-                      <button
-                        type="button"
-                        class="btn btn-primary btn-sm"
-                        id="ajax-alert"
-                        @click="ajax"
-                      >
+                      <b-button variant="primary" size="sm" type="button" id="ajax-alert" @click="ajax">
                         Click me
-                      </button>
+                      </b-button>
                     </td>
                   </tr>
                 </tbody>
               </table>
-              <!-- end table -->
             </div>
-            <!-- end table responsive -->
-          </div>
-          <!-- end card-body -->
-        </div>
-        <!-- end card -->
-      </div>
-      <!-- end col -->
-    </div>
-    <!-- end row -->
-
- 
+          </b-card-body>
+        </b-card>
+      </b-col>
+    </b-row>
   </Layout>
 </template>

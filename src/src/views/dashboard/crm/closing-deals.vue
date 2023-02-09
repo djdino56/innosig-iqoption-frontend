@@ -50,24 +50,20 @@ export default {
 </script>
 
 <template>
-  <div class="card card-height-100">
-    <div class="card-header align-items-center d-flex">
-      <h4 class="card-title mb-0 flex-grow-1">Closing Deals</h4>
+  <b-card no-body class="card-height-100">
+    <b-card-header class="align-items-center d-flex">
+      <b-card-title class="mb-0 flex-grow-1">Closing Deals</b-card-title>
       <div class="flex-shrink-0">
-        <select
-          class="form-select form-select-sm"
-          aria-label=".form-select-sm example"
-        >
+        <select class="form-select form-select-sm" aria-label=".form-select-sm example">
           <option selected="">Closed Deals</option>
           <option value="1">Active Deals</option>
           <option value="2">Paused Deals</option>
           <option value="3">Canceled Deals</option>
         </select>
       </div>
-    </div>
-    <!-- end card header -->
+    </b-card-header>
 
-    <div class="card-body">
+    <b-card-body>
       <div class="table-responsive">
         <table class="table table-bordered table-nowrap align-middle mb-0">
           <thead>
@@ -81,28 +77,17 @@ export default {
 
           <tbody>
             <tr v-for="(item, index) of closingDeals" :key="index">
-              <td>{{item.dealName}}</td>
+              <td>{{ item.dealName }}</td>
               <td>
-                <img
-                  :src="item.img"
-                  alt=""
-                  class="avatar-xs rounded-circle me-2"
-                />
-                <a href="#javascript: void(0);" class="text-body fw-medium"
-                  >{{item.salesRep}}</a
-                >
+                <img :src="item.img" alt="" class="avatar-xs rounded-circle me-2" />
+                <a href="#javascript: void(0);" class="text-body fw-medium">{{ item.salesRep }}</a>
               </td>
-              <td>${{item.amount}}</td>
-              <td>{{item.closeDate}}</td>
+              <td>${{ item.amount }}</td>
+              <td>{{ item.closeDate }}</td>
             </tr>
           </tbody>
-          <!-- end tbody -->
         </table>
-        <!-- end table -->
       </div>
-      <!-- end table responsive -->
-    </div>
-    <!-- end card body -->
-  </div>
-  <!-- end card -->
+    </b-card-body>
+  </b-card>
 </template>

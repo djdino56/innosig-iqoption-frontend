@@ -1,10 +1,9 @@
 <script>
-  export default {};
+export default {};
 </script>
 
 <template>
   <div class="auth-page-wrapper pt-5">
-    <!-- auth page bg -->
     <div class="auth-one-bg-position auth-one-bg" id="auth-particles">
       <div class="bg-overlay"></div>
 
@@ -16,128 +15,127 @@
         </svg>
       </div>
       <Particles id="tsparticles" :options="{
-    particles: {
-      number: {
-        value: 90,
-        density: {
-          enable: true,
-          value_area: 800,
-        },
-      },
-      color: {
-        value: '#ffffff',
-      },
-      shape: {
-        type: 'circle',
-        stroke: {
-          width: 0,
-          color: '#000000',
-        },
-        polygon: {
-          nb_sides: 5,
-        },
-        image: {
-          src: 'img/github.svg',
-          width: 100,
-          height: 100,
-        },
-      },
-      opacity: {
-        value: 0.8,
-        random: true,
-        anim: {
-          enable: true,
-          speed: 1,
-          opacity_min: 0,
-          sync: false,
-        },
-      },
-      size: {
-        value: 4,
-        random: true,
-        anim: {
-          enable: false,
-          speed: 4,
-          size_min: 0.2,
-          sync: false,
-        },
-      },
-      line_linked: {
-        enable: false,
-        distance: 150,
-        color: '#ffffff',
-        opacity: 0.4,
-        width: 1,
-      },
-      move: {
-        enable: true,
-        speed: 2,
-        direction: 'none',
-        random: false,
-        straight: false,
-        out_mode: 'out',
-        attract: {
-          enable: false,
-          rotateX: 600,
-          rotateY: 1200,
-        },
-      },
-    },
-    interactivity: {
-      detect_on: 'canvas',
-      events: {
-        onhover: {
-          enable: true,
-          mode: 'bubble',
-        },
-        onclick: {
-          enable: true,
-          mode: 'repulse',
-        },
-        resize: true,
-      },
-      modes: {
-        grab: {
-          distance: 400,
+        particles: {
+          number: {
+            value: 90,
+            density: {
+              enable: true,
+              value_area: 800,
+            },
+          },
+          color: {
+            value: '#ffffff',
+          },
+          shape: {
+            type: 'circle',
+            stroke: {
+              width: 0,
+              color: '#000000',
+            },
+            polygon: {
+              nb_sides: 5,
+            },
+            image: {
+              src: 'img/github.svg',
+              width: 100,
+              height: 100,
+            },
+          },
+          opacity: {
+            value: 0.8,
+            random: true,
+            anim: {
+              enable: true,
+              speed: 1,
+              opacity_min: 0,
+              sync: false,
+            },
+          },
+          size: {
+            value: 4,
+            random: true,
+            anim: {
+              enable: false,
+              speed: 4,
+              size_min: 0.2,
+              sync: false,
+            },
+          },
           line_linked: {
-            opacity: 1,
+            enable: false,
+            distance: 150,
+            color: '#ffffff',
+            opacity: 0.4,
+            width: 1,
+          },
+          move: {
+            enable: true,
+            speed: 2,
+            direction: 'none',
+            random: false,
+            straight: false,
+            out_mode: 'out',
+            attract: {
+              enable: false,
+              rotateX: 600,
+              rotateY: 1200,
+            },
           },
         },
-        bubble: {
-          distance: 400,
-          size: 4,
-          duration: 2,
-          opacity: 0.8,
-          speed: 3,
+        interactivity: {
+          detect_on: 'canvas',
+          events: {
+            onhover: {
+              enable: true,
+              mode: 'bubble',
+            },
+            onclick: {
+              enable: true,
+              mode: 'repulse',
+            },
+            resize: true,
+          },
+          modes: {
+            grab: {
+              distance: 400,
+              line_linked: {
+                opacity: 1,
+              },
+            },
+            bubble: {
+              distance: 400,
+              size: 4,
+              duration: 2,
+              opacity: 0.8,
+              speed: 3,
+            },
+            repulse: {
+              distance: 200,
+            },
+            push: {
+              particles_nb: 4,
+            },
+            remove: {
+              particles_nb: 2,
+            },
+          },
         },
-        repulse: {
-          distance: 200,
+        retina_detect: true,
+        config_demo: {
+          hide_card: false,
+          background_color: '#b61924',
+          background_image: '',
+          background_position: '50% 50%',
+          background_repeat: 'no-repeat',
+          background_size: 'cover',
         },
-        push: {
-          particles_nb: 4,
-        },
-        remove: {
-          particles_nb: 2,
-        },
-      },
-    },
-    retina_detect: true,
-    config_demo: {
-      hide_card: false,
-      background_color: '#b61924',
-      background_image: '',
-      background_position: '50% 50%',
-      background_repeat: 'no-repeat',
-      background_size: 'cover',
-    },
-  }" />
+      }" />
     </div>
 
-    <!-- auth page content -->
     <div class="auth-page-content">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
+      <b-container>
+        <b-row>
+          <b-col lg="12">
             <div class="text-center mt-sm-5 mb-4 text-white-50">
               <div>
                 <router-link to="/" class="d-inline-block auth-logo">
@@ -148,14 +146,13 @@
                 Premium Admin & Dashboard Template
               </p>
             </div>
-          </div>
-        </div>
-        <!-- end row -->
+          </b-col>
+        </b-row>
 
-        <div class="row justify-content-center">
-          <div class="col-md-8 col-lg-6 col-xl-5">
-            <div class="card mt-4">
-              <div class="card-body p-4 text-center">
+        <b-row class="justify-content-center">
+          <b-col md="8" lg="6" xl="5">
+            <b-card no-body class="mt-4">
+              <b-card-body class="p-4 text-center">
                 <div class="avatar-lg mx-auto mt-2">
                   <div class="
                       avatar-title
@@ -177,34 +174,26 @@
                     </router-link>
                   </div>
                 </div>
-              </div>
-              <!-- end card body -->
-            </div>
-            <!-- end card -->
-          </div>
-        </div>
-        <!-- end row -->
-      </div>
-      <!-- end container -->
+              </b-card-body>
+            </b-card>
+          </b-col>
+        </b-row>
+      </b-container>
     </div>
-    <!-- end auth page content -->
 
-    <!-- footer -->
     <footer class="footer">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
+      <b-container>
+        <b-row>
+          <b-col lg="12">
             <div class="text-center">
               <p class="mb-0 text-muted">
                 &copy; {{ new Date().getFullYear() }} Velzon. Crafted with
                 <i class="mdi mdi-heart text-danger"></i> by Themesbrand
               </p>
             </div>
-          </div>
-        </div>
-      </div>
+          </b-col>
+        </b-row>
+      </b-container>
     </footer>
-    <!-- end Footer -->
   </div>
-  <!-- end auth-page-wrapper -->
 </template>

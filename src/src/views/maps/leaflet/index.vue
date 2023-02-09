@@ -47,51 +47,51 @@ export default {
 <template>
   <Layout>
     <PageHeader :title="title" :items="items" />
-    <div class="row">
-      <div class="col-lg-6">
-        <div class="card">
-          <div class="card-body">
-            <h4 class="card-title mb-4">Example</h4>
-            <Basic class="leaflet-map"/>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-6">
-        <div class="card">
-          <div class="card-body">
-            <h4 class="card-title mb-4">Fixed Bounds</h4>
-            <Boundary class="leaflet-map"/>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-lg-6">
-        <div class="card">
-          <div class="card-body">
-            <h4 class="card-title mb-4">Custom Icon Example</h4>
-            <Icons class="leaflet-map"/>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-6">
-        <div class="card">
-          <div class="card-body">
-            <h4 class="card-title mb-4">Geometry Example</h4>
-            <Geometry class="leaflet-map"/>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-lg-6">
-        <div class="card">
-          <div class="card-body">
-            <h4 class="card-title mb-4">Draggable marker</h4>
-            <Markers class="leaflet-map"/>
-          </div>
-        </div>
-      </div>
-    </div>
+    <b-row>
+      <b-col lg="6">
+        <b-card no-body>
+          <b-card-body>
+            <b-card-title class="mb-4">Example</b-card-title>
+            <Basic class="leaflet-map" />
+          </b-card-body>
+        </b-card>
+      </b-col>
+      <b-col lg="6">
+        <b-card no-body>
+          <b-card-body>
+            <b-card-title class="mb-4">Fixed Bounds</b-card-title>
+            <Boundary class="leaflet-map" />
+          </b-card-body>
+        </b-card>
+      </b-col>
+    </b-row>
+    <b-row>
+      <b-col lg="6">
+        <b-card no-body>
+          <b-card-body>
+            <b-card-title class="mb-4">Custom Icon Example</b-card-title>
+            <Icons class="leaflet-map" />
+          </b-card-body>
+        </b-card>
+      </b-col>
+      <b-col lg="6">
+        <b-card no-body>
+          <b-card-body>
+            <b-card-title class="mb-4">Geometry Example</b-card-title>
+            <Geometry class="leaflet-map" />
+          </b-card-body>
+        </b-card>
+      </b-col>
+    </b-row>
+    <b-row>
+      <b-col lg="6">
+        <b-card no-body>
+          <b-card-body>
+            <b-card-title class="mb-4">Draggable marker</b-card-title>
+            <Markers class="leaflet-map" />
+          </b-card-body>
+        </b-card>
+      </b-col>
+    </b-row>
   </Layout>
 </template>

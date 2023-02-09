@@ -1,110 +1,123 @@
 <script>
-    import Layout from "../../layouts/main.vue";
-    import PageHeader from "@/components/page-header";
-    import appConfig from "../../../app.config";
+import Layout from "../../layouts/main.vue";
+import PageHeader from "@/components/page-header";
+import appConfig from "../../../app.config";
 
-    export default {
-        page: {
+export default {
+    page: {
+        title: "Basic Elements",
+        meta: [{
+            name: "description",
+            content: appConfig.description
+        }],
+    },
+    data() {
+        return {
             title: "Basic Elements",
-            meta: [{
-                name: "description",
-                content: appConfig.description
-            }],
-        },
-        data() {
-            return {
-                title: "Basic Elements",
-                items: [{
-                        text: "Forms",
-                        href: "/",
-                    },
-                    {
-                        text: "Basic Elements",
-                        active: true,
-                    },
-                ],
-            };
-        },
-        components: {
-            Layout,
-            PageHeader,
-        },
-    };
+            items: [{
+                text: "Forms",
+                href: "/",
+            },
+            {
+                text: "Basic Elements",
+                active: true,
+            },
+            ],
+        };
+    },
+    components: {
+        Layout,
+        PageHeader,
+    },
+    mounted() {
+        const checkbox = document.getElementsByClassName("code-switcher");
+        Array.from(checkbox).forEach((check) => {
+            check.addEventListener("change", () => {
+                const card = check.closest(".card");
+                const preview = card.querySelector(".live-preview");
+                const code = card.querySelector(".code-view");
+                if (check.checked) {
+                    // do this
+                    preview.classList.add("d-none");
+                    code.classList.remove("d-none");
+                } else {
+                    // do that
+                    preview.classList.remove("d-none");
+                    code.classList.add("d-none");
+                }
+            });
+        });
+    },
+};
 </script>
 
 <template>
     <Layout>
         <PageHeader :title="title" :items="items" />
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card">
-                    <div class="card-header align-items-center d-flex">
-                        <h4 class="card-title mb-0 flex-grow-1">Input Example</h4>
+        <b-row>
+            <b-col lg="12">
+                <b-card no-body>
+                    <b-card-header class="align-items-center d-flex">
+                        <b-card-title class="mb-0 flex-grow-1">Input Example</b-card-title>
                         <div class="flex-shrink-0">
                             <div class="form-check form-switch form-switch-right form-switch-md">
                                 <label for="form-grid-showcode" class="form-label text-muted">Show Code</label>
                                 <input class="form-check-input code-switcher" type="checkbox" id="form-grid-showcode">
                             </div>
                         </div>
-                    </div><!-- end card header -->
-                    <div class="card-body">
+                    </b-card-header>
+                    <b-card-body>
                         <div class="live-preview">
-                            <div class="row gy-4">
-                                <div class="col-xxl-3 col-md-6">
+                            <b-row class="gy-4">
+                                <b-col xxl="3" md="6">
                                     <div>
                                         <label for="basiInput" class="form-label">Basic Input</label>
                                         <input type="password" class="form-control" id="basiInput">
                                     </div>
-                                </div>
-                                <!--end col-->
-                                <div class="col-xxl-3 col-md-6">
+                                </b-col>
+                                <b-col xxl="3" md="6">
                                     <div>
                                         <label for="labelInput" class="form-label">Input with Label</label>
                                         <input type="password" class="form-control" id="labelInput">
                                     </div>
-                                </div>
-                                <!--end col-->
-                                <div class="col-xxl-3 col-md-6">
+                                </b-col>
+                                <b-col xxl="3" md="6">
                                     <div>
-                                        <label for="placeholderInput" class="form-label">Input with Placeholder</label>
+                                        <label for="placeholderInput" class="form-label">Input with 
+                                            Placeholder</label>
                                         <input type="password" class="form-control" id="placeholderInput"
                                             placeholder="Placeholder">
                                     </div>
-                                </div>
-                                <!--end col-->
-                                <div class="col-xxl-3 col-md-6">
+                                </b-col>
+                                <b-col xxl="3" md="6">
                                     <div>
                                         <label for="valueInput" class="form-label">Input with Value</label>
                                         <input type="text" class="form-control" id="valueInput" value="Input value">
                                     </div>
-                                </div>
-                                <!--end col-->
-                                <div class="col-xxl-3 col-md-6">
+                                </b-col>
+                                <b-col xxl="3" md="6">
                                     <div>
-                                        <label for="readonlyPlaintext" class="form-label">Readonly Plain Text
-                                            Input</label>
+                                        <label for="readonlyPlaintext" class="form-label">Readonly Plain 
+                                            Text Input</label>
                                         <input type="text" class="form-control-plaintext" id="readonlyPlaintext"
                                             value="Readonly input" readonly>
                                     </div>
-                                </div>
-                                <!--end col-->
-                                <div class="col-xxl-3 col-md-6">
+                                </b-col>
+                                <b-col xxl="3" md="6">
                                     <div>
                                         <label for="readonlyInput" class="form-label">Readonly Input</label>
                                         <input type="text" class="form-control" id="readonlyInput"
                                             value="Readonly input" readonly>
                                     </div>
-                                </div>
-                                <!--end col-->
-                                <div class="col-xxl-3 col-md-6">
+                                </b-col>
+                                <b-col xxl="3" md="6">
                                     <div>
                                         <label for="disabledInput" class="form-label">Disabled Input</label>
                                         <input type="text" class="form-control" id="disabledInput"
                                             value="Disabled input" disabled>
                                     </div>
-                                </div>
-                                <!--end col-->
-                                <div class="col-xxl-3 col-md-6">
+                                </b-col>
+                                <b-col xxl="3" md="6">
                                     <div>
                                         <label for="iconInput" class="form-label">Input with Icon</label>
                                         <div class="form-icon">
@@ -113,51 +126,47 @@
                                             <i class="ri-mail-unread-line"></i>
                                         </div>
                                     </div>
-                                </div>
-                                <!--end col-->
-                                <div class="col-xxl-3 col-md-6">
+                                </b-col>
+                                <b-col xxl="3" md="6">
                                     <div>
-                                        <label for="iconrightInput" class="form-label">Input with Icon Right</label>
+                                        <label for="iconrightInput" class="form-label">Input with Icon 
+                                            Right</label>
                                         <div class="form-icon right">
                                             <input type="email" class="form-control form-control-icon"
                                                 id="iconrightInput" placeholder="example@gmail.com">
                                             <i class="ri-mail-unread-line"></i>
                                         </div>
                                     </div>
-                                </div>
-                                <!--end col-->
-                                <div class="col-xxl-3 col-md-6">
+                                </b-col>
+                                <b-col xxl="3" md="6">
                                     <div>
                                         <label for="exampleInputdate" class="form-label">Input Date</label>
                                         <input type="date" class="form-control" id="exampleInputdate">
                                     </div>
-                                </div>
-                                <!--end col-->
-                                <div class="col-xxl-3 col-md-6">
+                                </b-col>
+                                <b-col xxl="3" md="6">
                                     <div>
                                         <label for="exampleInputtime" class="form-label">Input Time</label>
                                         <input type="time" class="form-control" id="exampleInputtime">
                                     </div>
-                                </div>
-                                <!--end col-->
-                                <div class="col-xxl-3 col-md-6">
+                                </b-col>
+                                <b-col xxl="3" md="6">
                                     <div>
-                                        <label for="exampleInputpassword" class="form-label">Input Password</label>
+                                        <label for="exampleInputpassword" class="form-label">Input 
+                                            Password</label>
                                         <input type="password" class="form-control" id="exampleInputpassword"
                                             value="44512465">
                                     </div>
-                                </div>
-                                <!--end col-->
-                                <div class="col-xxl-3 col-md-6">
+                                </b-col>
+                                <b-col xxl="3" md="6">
                                     <div>
                                         <label for="exampleFormControlTextarea5" class="form-label">Example
                                             Textarea</label>
                                         <textarea class="form-control" id="exampleFormControlTextarea5"
                                             rows="3"></textarea>
                                     </div>
-                                </div>
-                                <!--end col-->
-                                <div class="col-xxl-3 col-md-6">
+                                </b-col>
+                                <b-col xxl="3" md="6">
                                     <div>
                                         <label for="formtextInput" class="form-label">Form Text</label>
                                         <input type="password" class="form-control" id="formtextInput">
@@ -165,25 +174,23 @@
                                             Must be 8-20 characters long.
                                         </div>
                                     </div>
-                                </div>
-                                <!--end col-->
-                                <div class="col-xxl-3 col-md-6">
+                                </b-col>
+                                <b-col xxl="3" md="6">
                                     <div>
                                         <label for="colorPicker" class="form-label">Color Picker</label>
                                         <input type="color" class="form-control form-control-color w-100"
-                                            id="colorPicker" value="#25a0e2">
+                                            id="colorPicker" value="#364574">
                                     </div>
-                                </div>
-                                <!--end col-->
-                                <div class="col-xxl-3 col-md-6">
+                                </b-col>
+                                <b-col xxl="3" md="6">
                                     <div>
-                                        <label for="borderInput" class="form-label">Input Border Style</label>
+                                        <label for="borderInput" class="form-label">Input Border 
+                                            Style</label>
                                         <input type="text" class="form-control border-dashed" id="borderInput"
                                             placeholder="Enter your name">
                                     </div>
-                                </div>
-                                <!--end col-->
-                                <div class="col-xxl-3 col-md-6">
+                                </b-col>
+                                <b-col xxl="3" md="6">
                                     <label for="exampleDataList" class="form-label">Datalist example</label>
                                     <input class="form-control" list="datalistOptions" id="exampleDataList"
                                         placeholder="Search your country...">
@@ -196,25 +203,23 @@
                                         <option value="Bulgaria" />
                                         <option value="Hong Kong" />
                                     </datalist>
-                                </div>
-                                <!--end col-->
-                                <div class="col-xxl-3 col-md-6">
+                                </b-col>
+                                <b-col xxl="3" md="6">
                                     <div>
-                                        <label for="exampleInputrounded" class="form-label">Rounded Input</label>
+                                        <label for="exampleInputrounded" class="form-label">Rounded 
+                                            Input</label>
                                         <input type="text" class="form-control rounded-pill" id="exampleInputrounded"
                                             placeholder="Enter your name">
                                     </div>
-                                </div>
-                                <!--end col-->
-                                <div class="col-xxl-3 col-md-6">
+                                </b-col>
+                                <b-col xxl="3" md="6">
                                     <div class="form-floating">
                                         <input type="text" class="form-control" id="firstnamefloatingInput"
                                             placeholder="Enter your firstname">
                                         <label for="firstnamefloatingInput">Floating Input</label>
                                     </div>
-                                </div>
-                            </div>
-                            <!--end row-->
+                                </b-col>
+                            </b-row>
                         </div>
                         <div class="d-none code-view">
                             <pre class="language-markup" style="height: 450px;"><code>&lt;!-- Basic Input --&gt;
@@ -313,7 +318,7 @@
 <code>&lt;!-- Color Picker --&gt;
 &lt;div&gt;
     &lt;label for=&quot;colorPicker&quot; class=&quot;form-label&quot;&gt;Color Picker&lt;/label&gt;
-    &lt;input type=&quot;color&quot; class=&quot;form-control form-control-color w-100&quot; id=&quot;colorPicker&quot; value=&quot;#364574&quot;&gt;
+    &lt;input type=&quot;color&quot; class=&quot;form-control form-control-color w-100&quot; id=&quot;colorPicker&quot; value=&quot;#25a0e2&quot;&gt;
 &lt;/div&gt;</code>
 
 <code>&lt;!-- Input Border Style --&gt;
@@ -341,48 +346,43 @@
     &lt;input type=&quot;text&quot; class=&quot;form-control rounded-pill&quot; id=&quot;exampleInputrounded&quot; placeholder=&quot;Enter your name&quot;&gt;
 &lt;/div&gt;</code></pre>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <!--end col-->
-        </div>
-        <!--end row-->
+                    </b-card-body>
+                </b-card>
+            </b-col>
+        </b-row>
 
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card">
-                    <div class="card-header align-items-center d-flex">
-                        <h4 class="card-title mb-0 flex-grow-1">Input Sizing</h4>
+        <b-row>
+            <b-col lg="12">
+                <b-card no-body>
+                    <b-card-header class="align-items-center d-flex">
+                        <b-card-title class="mb-0 flex-grow-1">Input Sizing</b-card-title>
                         <div class="flex-shrink-0">
                             <div class="form-check form-switch form-switch-right form-switch-md">
-                                <label for="sizing-input-showcode" class="form-label text-muted">Show Code</label>
+                                <label for="sizing-input-showcode" class="form-label text-muted">Show 
+                                    Code</label>
                                 <input class="form-check-input code-switcher" type="checkbox"
                                     id="sizing-input-showcode">
                             </div>
                         </div>
-                    </div><!-- end card header -->
-                    <div class="card-body">
-                        <p class="text-muted">Use <code>form-control-lg</code> class to set large size input and Use
-                            <code>form-control-sm</code>
-                            class to set small size input. No class is needed for default size input.</p>
+                    </b-card-header>
+                    <b-card-body>
+                        <p class="text-muted">Use <code>form-control-lg</code> class to set large size input 
+                            and Use <code>form-control-sm</code>
+                            class to set small size input. No class is needed for default size input. </p>
                         <div class="live-preview">
-                            <div class="row align-items-center g-3">
-                                <div class="col-lg-4">
+                            <b-row class="align-items-center g-3">
+                                <b-col lg="4">
                                     <input class="form-control form-control-sm" type="text"
                                         placeholder=".form-control-sm">
-                                </div>
-                                <!--end col-->
-                                <div class="col-lg-4">
+                                </b-col>
+                                <b-col lg="4">
                                     <input class="form-control" type="text" placeholder=".form-control">
-                                </div>
-                                <!--end col-->
-                                <div class="col-lg-4">
+                                </b-col>
+                                <b-col lg="4">
                                     <input class="form-control form-control-lg" type="text"
                                         placeholder=".form-control-lg">
-                                </div>
-                                <!--end col-->
-                            </div>
-                            <!--end row-->
+                                </b-col>
+                            </b-row>
                         </div>
                         <div class="d-none code-view">
                             <pre
@@ -395,61 +395,59 @@
 <code>&lt;!-- Form Control Lg --&gt;
 &lt;input class=&quot;form-control form-control-lg&quot; type=&quot;text&quot; placeholder=&quot;.form-control-sm&quot;&gt;</code></pre>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <!--end col-->
-        </div>
-        <!--end row-->
+                    </b-card-body>
+                </b-card>
+            </b-col>
+        </b-row>
 
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card">
-                    <div class="card-header align-items-center d-flex">
-                        <h4 class="card-title mb-0 flex-grow-1">File Input</h4>
+        <b-row>
+            <b-col lg="12">
+                <b-card no-body>
+                    <b-card-header class="align-items-center d-flex">
+                        <b-card-title class="mb-0 flex-grow-1">File Input</b-card-title>
                         <div class="flex-shrink-0">
                             <div class="form-check form-switch form-switch-right form-switch-md">
-                                <label for="file-input-showcode" class="form-label text-muted">Show Code</label>
+                                <label for="file-input-showcode" class="form-label text-muted">Show 
+                                    Code</label>
                                 <input class="form-check-input code-switcher" type="checkbox" id="file-input-showcode">
                             </div>
                         </div>
-                    </div><!-- end card header -->
-                    <div class="card-body">
+                    </b-card-header>
+                    <b-card-body>
                         <div class="live-preview">
-                            <div class="row align-items-center g-3">
-                                <div class="col-lg-4">
+                            <b-row class="align-items-center g-3">
+                                <b-col lg="4">
                                     <div>
-                                        <label for="formFile" class="form-label">Default File Input Example</label>
+                                        <label for="formFile" class="form-label">Default File Input 
+                                            Example</label>
                                         <p class="text-muted">Use <code>input</code> attribute with
-                                            <code>type="file"</code> tag for default file input.</p>
+                                            <code>type="file"</code> tag for default file input.
+                                        </p>
                                         <input class="form-control" type="file" id="formFile">
                                     </div>
-                                </div>
-                                <!--end col-->
-                                <div class="col-lg-4">
+                                </b-col>
+                                <b-col lg="4">
                                     <div>
-                                        <label for="formFileMultiple" class="form-label">Multiple Files Input
-                                            Example</label>
-                                        <p class="text-muted">Use <code>multiple</code> attribute within the input
-                                            attribute to select multiple files.</p>
+                                        <label for="formFileMultiple" class="form-label">Multiple Files 
+                                            Input Example</label>
+                                        <p class="text-muted">Use <code>multiple</code> attribute within the 
+                                            input attribute to select multiple files.</p>
                                         <input class="form-control" type="file" id="formFileMultiple" multiple>
                                     </div>
-                                </div>
-                                <!--end col-->
-                                <div class="col-lg-4">
+                                </b-col>
+                                <b-col lg="4">
                                     <div>
                                         <label for="formFileDisabled" class="form-label">Disabled File Input
                                             Example</label>
-                                        <p class="text-muted">Use <code>disabled</code> attribute within the input
-                                            attribute to disable the file input.</p>
+                                        <p class="text-muted">Use <code>disabled</code> attribute within the 
+                                            input attribute to disable the file input.</p>
                                         <input class="form-control" type="file" id="formFileDisabled" disabled>
                                     </div>
-                                </div>
-                            </div>
-                            <!--end row-->
-                            <div class="row mt-4 align-items-center g-3">
+                                </b-col>
+                            </b-row>
+                            <b-row class="mt-4 align-items-center g-3">
                                 <h5 class="fs-14">File Input Sizing</h5>
-                                <div class="col-lg-4">
+                                <b-col lg="4">
                                     <div>
                                         <label for="formSizeSmall" class="form-label">Small Size File Input
                                             Example</label>
@@ -457,18 +455,19 @@
                                             form-control class to set a small size file input.</p>
                                         <input class="form-control form-control-sm" id="formSizeSmall" type="file">
                                     </div>
-                                </div>
-                                <div class="col-lg-4">
+                                </b-col>
+                                <b-col lg="4">
                                     <div>
                                         <label for="formSizeDefault" class="form-label">Default Size File Input
                                             Example</label>
                                         <p class="text-muted">Use <code>form-control </code>class and
-                                            <code>type="file"</code> attribute within the input attribute to set a
-                                            default size file input.</p>
+                                            <code>type="file"</code> attribute within the input attribute to 
+                                            set a default size file input. 
+                                        </p>
                                         <input class="form-control" id="formSizeDefault" type="file">
                                     </div>
-                                </div>
-                                <div class="col-lg-4">
+                                </b-col>
+                                <b-col lg="4">
                                     <div>
                                         <label for="formSizeLarge" class="form-label">Large Size File Input
                                             Example</label>
@@ -477,10 +476,8 @@
 
                                         <input class="form-control form-control-lg" id="formSizeLarge" type="file">
                                     </div>
-                                </div>
-                                <!--end col-->
-                            </div>
-                            <!--end row-->
+                                </b-col>
+                            </b-row>
                         </div>
                         <div class="d-none code-view">
                             <pre class="language-markup" style="height: 275px;"><code>&lt;!-- Default File Input Example --&gt;
@@ -516,55 +513,54 @@
     &lt;input class=&quot;form-control form-control-lg&quot; id=&quot;formFileSm&quot; type=&quot;file&quot;&gt;
 &lt;/div&gt;</code></pre>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <!--end col-->
-        </div>
-        <!--end row-->
+                    </b-card-body>
+                </b-card>
+            </b-col>
+        </b-row>
 
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card">
-                    <div class="card-header align-items-center d-flex">
-                        <h4 class="card-title mb-0 flex-grow-1">Input Group</h4>
+        <b-row>
+            <b-col lg="12">
+                <b-card no-body>
+                    <b-card-header class="align-items-center d-flex">
+                        <b-card-title class="mb-0 flex-grow-1">Input Group</b-card-title>
                         <div class="flex-shrink-0">
                             <div class="form-check form-switch form-switch-right form-switch-md">
-                                <label for="input-group-showcode" class="form-label text-muted">Show Code</label>
+                                <label for="input-group-showcode" class="form-label text-muted">Show 
+                                    Code</label>
                                 <input class="form-check-input code-switcher" type="checkbox" id="input-group-showcode">
                             </div>
                         </div>
-                    </div><!-- end card header -->
-                    <div class="card-body">
+                    </b-card-header>
+                    <b-card-body>
                         <div class="live-preview">
                             <div>
                                 <h5 class="fs-15">Basic example</h5>
-                                <p class="text-muted">Use <code>input-group</code> class to div element which contains
-                                    input attribute to wrap a default input in the group.</p>
-                                <div class="row g-3">
-                                    <div class="col-lg-6">
+                                <p class="text-muted">Use <code>input-group</code> class to div element 
+                                    which contains input attribute to wrap a default input in the group.</p>
+                                <b-row class="g-3">
+                                    <b-col lg="6">
                                         <div class="input-group">
                                             <span class="input-group-text" id="basic-addon1">@</span>
                                             <input type="text" class="form-control" placeholder="Username"
                                                 aria-label="Username" aria-describedby="basic-addon1">
                                         </div>
-                                    </div>
-                                    <div class="col-lg-6">
+                                    </b-col>
+                                    <b-col lg="6">
                                         <div class="input-group">
                                             <input type="text" class="form-control" placeholder="Recipient's username"
                                                 aria-label="Recipient's username" aria-describedby="basic-addon2">
                                             <span class="input-group-text" id="basic-addon2">@example.com</span>
                                         </div>
-                                    </div>
-                                    <div class="col-lg-12">
+                                    </b-col>
+                                    <b-col lg="12">
                                         <div class="input-group">
                                             <span class="input-group-text">$</span>
                                             <input type="text" class="form-control"
                                                 aria-label="Amount (to the nearest dollar)">
                                             <span class="input-group-text">.00</span>
                                         </div>
-                                    </div>
-                                    <div class="col-lg-12">
+                                    </b-col>
+                                    <b-col lg="12">
                                         <div class="input-group">
                                             <input type="text" class="form-control" placeholder="Username"
                                                 aria-label="Username">
@@ -572,15 +568,15 @@
                                             <input type="text" class="form-control" placeholder="Server"
                                                 aria-label="Server">
                                         </div>
-                                    </div>
-                                    <div class="col-lg-6">
+                                    </b-col>
+                                    <b-col lg="6">
                                         <div class="input-group">
                                             <span class="input-group-text">With textarea</span>
                                             <textarea class="form-control" aria-label="With textarea"
                                                 rows="2"></textarea>
                                         </div>
-                                    </div>
-                                    <div class="col-lg-6">
+                                    </b-col>
+                                    <b-col lg="6">
                                         <label for="basic-url" class="form-label">Your vanity URL</label>
                                         <div class="input-group">
                                             <span class="input-group-text"
@@ -588,15 +584,17 @@
                                             <input type="text" class="form-control" id="basic-url"
                                                 aria-describedby="basic-addon3">
                                         </div>
-                                    </div>
-                                </div>
+                                    </b-col>
+                                </b-row>
                             </div>
 
                             <div class="mt-4">
                                 <h5 class="fs-15">Wrapping</h5>
-                                <p class="text-muted">Input groups wrap by default via <code>flex-wrap: wrap</code> in
-                                    order to accommodate custom form field validation within an input group. You may
-                                    disable this with <code>flex-nowrap</code> class.</p>
+                                <p class="text-muted">Input groups wrap by default via 
+                                    <code>flex-wrap: wrap</code> in order to accommodate custom form field 
+                                    validation within an input group. You may disable this with 
+                                    <code>flex-nowrap</code> class.
+                                </p>
                                 <div class="input-group flex-nowrap">
                                     <span class="input-group-text" id="addon-wrapping">@</span>
                                     <input type="text" class="form-control" placeholder="Username" aria-label="Username"
@@ -640,85 +638,82 @@
     &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;Username&quot; aria-label=&quot;Username&quot; aria-describedby=&quot;addon-wrapping&quot;&gt;
 &lt;/div&gt;</code></pre>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <!--end col-->
-        </div>
-        <!--end row-->
+                    </b-card-body>
+                </b-card>
+            </b-col>
+        </b-row>
 
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card">
-                    <div class="card-header align-items-center d-flex">
-                        <h4 class="card-title mb-0 flex-grow-1">Input Group Sizing</h4>
+        <b-row>
+            <b-col lg="12">
+                <b-card no-body>
+                    <b-card-header class="align-items-center d-flex">
+                        <b-card-title class="mb-0 flex-grow-1">Input Group Sizing</b-card-title>
                         <div class="flex-shrink-0">
                             <div class="form-check form-switch form-switch-right form-switch-md">
-                                <label for="input-group-sizing-showcode" class="form-label text-muted">Show Code</label>
+                                <label for="input-group-sizing-showcode" class="form-label text-muted">Show 
+                                    Code</label>
                                 <input class="form-check-input code-switcher" type="checkbox"
                                     id="input-group-sizing-showcode">
                             </div>
                         </div>
-                    </div><!-- end card header -->
-                    <div class="card-body">
+                    </b-card-header>
+                    <b-card-body>
                         <p class="text-muted">Use <code>input-group-sm</code> class to set a small size input group and
-                            <code>input-group-lg</code> class to input-group class to set
-                            a large size input group respectively. no such class is required for a default size input
-                            group.</p>
+                            <code>input-group-lg</code> class to input-group class to set a large size input group
+                            respectively. no such class is required for a default size input group.
+                        </p>
                         <div class="live-preview">
-                            <div class="row align-items-center g-3">
-                                <div class="col-lg-4">
+                            <b-row class="align-items-center g-3">
+                                <b-col lg="4">
                                     <div class="input-group input-group-sm">
                                         <span class="input-group-text" id="inputGroup-sizing-sm">Small</span>
                                         <input type="text" class="form-control" aria-label="Sizing example input"
                                             aria-describedby="inputGroup-sizing-sm">
                                     </div>
-                                </div>
-                                <div class="col-lg-4">
+                                </b-col>
+                                <b-col lg="4">
                                     <div class="input-group">
                                         <span class="input-group-text" id="inputGroup-sizing-default">Default</span>
                                         <input type="text" class="form-control" aria-label="Sizing example input"
                                             aria-describedby="inputGroup-sizing-default">
                                     </div>
-                                </div>
-                                <div class="col-lg-4">
+                                </b-col>
+                                <b-col lg="4">
                                     <div class="input-group input-group-lg">
                                         <span class="input-group-text" id="inputGroup-sizing-lg">Large</span>
                                         <input type="text" class="form-control" aria-label="Sizing example input"
                                             aria-describedby="inputGroup-sizing-lg">
                                     </div>
-                                </div>
-                            </div>
+                                </b-col>
+                            </b-row>
                         </div>
                         <div class="d-none code-view">
                             <pre class="language-markup" style="height: 275px;"><code>&lt;!-- Input Group Sizing --&gt;
 &lt;div class=&quot;input-group input-group-sm&quot;&gt;
-    &lt;span class=&quot;input-group-text&quot; id=&quot;inputGroup-sizing-sm&quot;&gt;Small&lt;/span&gt;
-    &lt;input type=&quot;text&quot; class=&quot;form-control&quot; aria-label=&quot;Sizing example input&quot; aria-describedby=&quot;inputGroup-sizing-sm&quot;&gt;
+&lt;span class=&quot;input-group-text&quot; id=&quot;inputGroup-sizing-sm&quot;&gt;Small&lt;/span&gt;
+&lt;input type=&quot;text&quot; class=&quot;form-control&quot; aria-label=&quot;Sizing example input&quot; aria-describedby=&quot;inputGroup-sizing-sm&quot;&gt;
 &lt;/div&gt;</code>
 
 <code>&lt;div class=&quot;input-group&quot;&gt;
-    &lt;span class=&quot;input-group-text&quot; id=&quot;inputGroup-sizing-default&quot;&gt;Default&lt;/span&gt;
-    &lt;input type=&quot;text&quot; class=&quot;form-control&quot; aria-label=&quot;Sizing example input&quot; aria-describedby=&quot;inputGroup-sizing-default&quot;&gt;
+&lt;span class=&quot;input-group-text&quot; id=&quot;inputGroup-sizing-default&quot;&gt;Default&lt;/span&gt;
+&lt;input type=&quot;text&quot; class=&quot;form-control&quot; aria-label=&quot;Sizing example input&quot; aria-describedby=&quot;inputGroup-sizing-default&quot;&gt;
 &lt;/div&gt;</code>
 
 <code>&lt;div class=&quot;input-group input-group-lg&quot;&gt;
-    &lt;span class=&quot;input-group-text&quot; id=&quot;inputGroup-sizing-lg&quot;&gt;Large&lt;/span&gt;
-    &lt;input type=&quot;text&quot; class=&quot;form-control&quot; aria-label=&quot;Sizing example input&quot; aria-describedby=&quot;inputGroup-sizing-lg&quot;&gt;
+&lt;span class=&quot;input-group-text&quot; id=&quot;inputGroup-sizing-lg&quot;&gt;Large&lt;/span&gt;
+&lt;input type=&quot;text&quot; class=&quot;form-control&quot; aria-label=&quot;Sizing example input&quot; aria-describedby=&quot;inputGroup-sizing-lg&quot;&gt;
 &lt;/div&gt;</code></pre>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <!--end col-->
-        </div>
-        <!--end row-->
+                    </b-card-body>
+                </b-card>
+            </b-col>
+        </b-row>
 
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card">
-                    <div class="card-header align-items-center d-flex">
-                        <h4 class="card-title mb-0 flex-grow-1">Multiple Inputs</h4>
+        <b-row>
+            <b-col lg="12">
+                <b-card no-body>
+                    <b-card-header class="align-items-center d-flex">
+                        <b-card-title class="mb-0 flex-grow-1">Multiple Inputs</b-card-title>
                         <div class="flex-shrink-0">
                             <div class="form-check form-switch form-switch-right form-switch-md">
                                 <label for="input-group-multiple-showcode" class="form-label text-muted">Show
@@ -727,11 +722,12 @@
                                     id="input-group-multiple-showcode">
                             </div>
                         </div>
-                    </div><!-- end card header -->
-                    <div class="card-body">
+                    </b-card-header>
+                    <b-card-body>
                         <p class="text-muted">While multiple <code>&lt;input&gt;</code>s are supported visually,
                             validation styles are only available for input groups with a single
-                            <code>&lt;input&gt;</code>.</p>
+                            <code>&lt;input&gt;</code>.
+                        </p>
                         <div class="live-preview">
                             <div class="input-group mb-3">
                                 <span class="input-group-text">First and last name</span>
@@ -773,18 +769,16 @@
     &lt;span class=&quot;input-group-text&quot;&gt;0.00&lt;/span&gt;
 &lt;/div&gt;</code></pre>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <!--end col-->
-        </div>
-        <!--end row-->
+                    </b-card-body>
+                </b-card>
+            </b-col>
+        </b-row>
 
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card">
-                    <div class="card-header align-items-center d-flex">
-                        <h4 class="card-title mb-0 flex-grow-1">Buttons, Checkboxs and Radios Group</h4>
+        <b-row>
+            <b-col lg="12">
+                <b-card no-body>
+                    <b-card-header class="align-items-center d-flex">
+                        <b-card-title class="mb-0 flex-grow-1">Buttons, Checkboxs and Radios Group</b-card-title>
                         <div class="flex-shrink-0">
                             <div class="form-check form-switch form-switch-right form-switch-md">
                                 <label for="input-group-btncheck-showcode" class="form-label text-muted">Show
@@ -793,15 +787,16 @@
                                     id="input-group-btncheck-showcode">
                             </div>
                         </div>
-                    </div><!-- end card header -->
-                    <div class="card-body">
+                    </b-card-header>
+                    <b-card-body>
                         <div class="live-preview">
                             <div>
                                 <p class="text-muted">Use any checkbox, radio, or button option within an input group’s
                                     addon instead of text. We recommend adding <code>mt-0</code> class to the
-                                    <code>form-check-input</code> when there’s no visible text next to the input.</p>
-                                <div class="row g-3">
-                                    <div class="col-lg-6">
+                                    <code>form-check-input</code> when there’s no visible text next to the input.
+                                </p>
+                                <b-row class="g-3">
+                                    <b-col lg="6">
                                         <div class="input-group">
                                             <div class="input-group-text">
                                                 <input class="form-check-input mt-0" type="checkbox" value=""
@@ -810,8 +805,8 @@
                                             <input type="text" class="form-control"
                                                 aria-label="Text input with checkbox">
                                         </div>
-                                    </div>
-                                    <div class="col-lg-6">
+                                    </b-col>
+                                    <b-col lg="6">
                                         <div class="input-group">
                                             <div class="input-group-text">
                                                 <input class="form-check-input mt-0" type="radio" value=""
@@ -820,41 +815,41 @@
                                             <input type="text" class="form-control"
                                                 aria-label="Text input with radio button">
                                         </div>
-                                    </div>
-                                    <div class="col-lg-6">
+                                    </b-col>
+                                    <b-col lg="6">
                                         <div class="input-group">
-                                            <button class="btn btn-outline-primary" type="button"
-                                                id="button-addon1">Button</button>
+                                            <b-button variant="outline-primary" type="button"
+                                                id="button-addon1">Button</b-button>
                                             <input type="text" class="form-control" placeholder=""
                                                 aria-label="Example text with button addon"
                                                 aria-describedby="button-addon1">
                                         </div>
-                                    </div>
-                                    <div class="col-lg-6">
+                                    </b-col>
+                                    <b-col lg="6">
                                         <div class="input-group">
                                             <input type="text" class="form-control" aria-label="Recipient's username"
                                                 aria-describedby="button-addon2">
-                                            <button class="btn btn-outline-success" type="button"
-                                                id="button-addon2">Button</button>
+                                            <b-button variant="outline-success" type="button"
+                                                id="button-addon2">Button</b-button>
                                         </div>
-                                    </div>
-                                    <div class="col-lg-6">
+                                    </b-col>
+                                    <b-col lg="6">
                                         <div class="input-group">
-                                            <button class="btn btn-primary" type="button">Button</button>
-                                            <button class="btn btn-success" type="button">Button</button>
+                                            <b-button variant="primary" type="button">Button</b-button>
+                                            <b-button variant="success" type="button">Button</b-button>
                                             <input type="text" class="form-control" placeholder=""
                                                 aria-label="Example text with two button addons">
                                         </div>
-                                    </div>
-                                    <div class="col-lg-6">
+                                    </b-col>
+                                    <b-col lg="6">
                                         <div class="input-group">
                                             <input type="text" class="form-control"
                                                 aria-label="Recipient's username with two button addons">
-                                            <button class="btn btn-primary" type="button">Button</button>
-                                            <button class="btn btn-success" type="button">Button</button>
+                                            <b-button variant="primary" type="button">Button</b-button>
+                                            <b-button variant="success" type="button">Button</b-button>
                                         </div>
-                                    </div>
-                                </div>
+                                    </b-col>
+                                </b-row>
                             </div>
                         </div>
                         <div class="d-none code-view">
@@ -894,18 +889,16 @@
     &lt;button class=&quot;btn btn-success&quot; type=&quot;button&quot;&gt;Button&lt;/button&gt;
 &lt;/div&gt;</code></pre>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <!--end col-->
-        </div>
-        <!--end row-->
+                    </b-card-body>
+                </b-card>
+            </b-col>
+        </b-row>
 
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card">
-                    <div class="card-header align-items-center d-flex">
-                        <h4 class="card-title mb-0 flex-grow-1">Buttons with dropdowns</h4>
+        <b-row>
+            <b-col lg="12">
+                <b-card no-body>
+                    <b-card-header class="align-items-center d-flex">
+                        <b-card-title class="mb-0 flex-grow-1">Buttons with dropdowns</b-card-title>
                         <div class="flex-shrink-0">
                             <div class="form-check form-switch form-switch-right form-switch-md">
                                 <label for="input-group-dropdown-showcode" class="form-label text-muted">Show
@@ -914,76 +907,63 @@
                                     id="input-group-dropdown-showcode">
                             </div>
                         </div>
-                    </div><!-- end card header -->
-                    <div class="card-body">
+                    </b-card-header>
+                    <b-card-body>
                         <div class="live-preview">
                             <div>
                                 <p class="text-muted">You can use a button with the dropdown toggle to set the file
                                     input group.</p>
-                                <div class="row g-3">
-                                    <div class="col-lg-6">
+                                <b-row class="g-3">
+                                    <b-col lg="6">
                                         <div class="input-group">
-                                            <button class="btn btn-primary dropdown-toggle" type="button"
-                                                data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button>
-                                            <ul class="dropdown-menu">
-                                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                                <li>
-                                                    <hr class="dropdown-divider">
-                                                </li>
-                                                <li><a class="dropdown-item" href="#">Separated link</a></li>
-                                            </ul>
+                                            <b-dropdown variant="primary" text="Dropdown">
+                                                <b-dropdown-item>Action</b-dropdown-item>
+                                                <b-dropdown-item>Another action</b-dropdown-item>
+                                                <b-dropdown-item>Something else 
+                                                    here</b-dropdown-item>
+                                                <b-dropdown-divider></b-dropdown-divider>
+                                                <b-dropdown-item>Separated link</b-dropdown-item>
+                                            </b-dropdown>
                                             <input type="text" class="form-control"
                                                 aria-label="Text input with dropdown button">
                                         </div>
-                                    </div>
-                                    <div class="col-lg-6">
+                                    </b-col>
+                                    <b-col lg="6">
                                         <div class="input-group">
                                             <input type="text" class="form-control"
                                                 aria-label="Text input with dropdown button">
-                                            <button class="btn btn-success dropdown-toggle" type="button"
-                                                data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button>
-                                            <ul class="dropdown-menu dropdown-menu-end">
-                                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                                <li>
-                                                    <hr class="dropdown-divider">
-                                                </li>
-                                                <li><a class="dropdown-item" href="#">Separated link</a></li>
-                                            </ul>
+                                            <b-dropdown variant="success" text="Dropdown" right>
+                                                <b-dropdown-item>Action</b-dropdown-item>
+                                                <b-dropdown-item>Another action</b-dropdown-item>
+                                                <b-dropdown-item>Something else 
+                                                    here</b-dropdown-item>
+                                                <b-dropdown-divider></b-dropdown-divider>
+                                                <b-dropdown-item>Separated link</b-dropdown-item>
+                                            </b-dropdown>
                                         </div>
-                                    </div>
-                                    <div class="col-lg-12">
+                                    </b-col>
+                                    <b-col lg="12">
                                         <div class="input-group">
-                                            <button class="btn btn-outline-secondary dropdown-toggle" type="button"
-                                                data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button>
-                                            <ul class="dropdown-menu">
-                                                <li><a class="dropdown-item" href="#">Action before</a></li>
-                                                <li><a class="dropdown-item" href="#">Another action before</a></li>
-                                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                                <li>
-                                                    <hr class="dropdown-divider">
-                                                </li>
-                                                <li><a class="dropdown-item" href="#">Separated link</a></li>
-                                            </ul>
+                                            <b-dropdown variant="outline-secondary" text="Dropdown">
+                                                <b-dropdown-item>Action</b-dropdown-item>
+                                                <b-dropdown-item>Another action</b-dropdown-item>
+                                                <b-dropdown-item>Something else here</b-dropdown-item>
+                                                <b-dropdown-divider></b-dropdown-divider>
+                                                <b-dropdown-item>Separated link</b-dropdown-item>
+                                            </b-dropdown>
+
                                             <input type="text" class="form-control"
                                                 aria-label="Text input with 2 dropdown buttons">
-                                            <button class="btn btn-outline-secondary dropdown-toggle" type="button"
-                                                data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button>
-                                            <ul class="dropdown-menu dropdown-menu-end">
-                                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                                <li>
-                                                    <hr class="dropdown-divider">
-                                                </li>
-                                                <li><a class="dropdown-item" href="#">Separated link</a></li>
-                                            </ul>
+                                            <b-dropdown variant="outline-secondary" text="Dropdown" right>
+                                                <b-dropdown-item>Action</b-dropdown-item>
+                                                <b-dropdown-item>Another action</b-dropdown-item>
+                                                <b-dropdown-item>Something else here</b-dropdown-item>
+                                                <b-dropdown-divider></b-dropdown-divider>
+                                                <b-dropdown-item>Separated link</b-dropdown-item>
+                                            </b-dropdown>
                                         </div>
-                                    </div>
-                                </div>
+                                    </b-col>
+                                </b-row>
                             </div>
                         </div>
                         <div class="d-none code-view">
@@ -1032,34 +1012,33 @@
     &lt;/ul&gt;
 &lt;/div&gt;</code></pre>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <!--end col-->
-        </div>
-        <!--end row-->
+                    </b-card-body>
+                </b-card>
+            </b-col>
+        </b-row>
 
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card">
-                    <div class="card-header align-items-center d-flex">
-                        <h4 class="card-title mb-0 flex-grow-1">Custom Forms</h4>
+        <b-row>
+            <b-col lg="12">
+                <b-card no-body>
+                    <b-card-header class="align-items-center d-flex">
+                        <b-card-title class="mb-0 flex-grow-1">Custom Forms</b-card-title>
                         <div class="flex-shrink-0">
                             <div class="form-check form-switch form-switch-right form-switch-md">
-                                <label for="input-group-custom-showcode" class="form-label text-muted">Show Code</label>
+                                <label for="input-group-custom-showcode" class="form-label text-muted">Show 
+                                    Code</label>
                                 <input class="form-check-input code-switcher" type="checkbox"
                                     id="input-group-custom-showcode">
                             </div>
                         </div>
-                    </div><!-- end card header -->
-                    <div class="card-body">
+                    </b-card-header>
+                    <b-card-body>
                         <p class="text-muted">Input groups include support for custom selects and custom file inputs.
                             Browser default versions of these are not supported.</p>
                         <div class="live-preview">
                             <div>
                                 <h5 class="fs-15 mb-3">Select</h5>
-                                <div class="row g-3">
-                                    <div class="col-lg-6">
+                                <b-row class="g-3">
+                                    <b-col lg="6">
                                         <div class="input-group">
                                             <label class="input-group-text" for="inputGroupSelect01">Options</label>
                                             <select class="form-select" id="inputGroupSelect01">
@@ -1069,8 +1048,8 @@
                                                 <option value="3">Three</option>
                                             </select>
                                         </div>
-                                    </div>
-                                    <div class="col-lg-6">
+                                    </b-col>
+                                    <b-col lg="6">
                                         <div class="input-group">
                                             <select class="form-select" id="inputGroupSelect02">
                                                 <option selected>Choose...</option>
@@ -1080,10 +1059,10 @@
                                             </select>
                                             <label class="input-group-text" for="inputGroupSelect02">Options</label>
                                         </div>
-                                    </div>
-                                    <div class="col-lg-6">
+                                    </b-col>
+                                    <b-col lg="6">
                                         <div class="input-group">
-                                            <button class="btn btn-outline-primary" type="button">Button</button>
+                                            <b-button variant="outline-primary" type="button">Button</b-button>
                                             <select class="form-select" id="inputGroupSelect03"
                                                 aria-label="Example select with button addon">
                                                 <option selected>Choose...</option>
@@ -1092,8 +1071,8 @@
                                                 <option value="3">Three</option>
                                             </select>
                                         </div>
-                                    </div>
-                                    <div class="col-lg-6">
+                                    </b-col>
+                                    <b-col lg="6">
                                         <div class="input-group">
                                             <select class="form-select" id="inputGroupSelect04"
                                                 aria-label="Example select with button addon">
@@ -1102,44 +1081,44 @@
                                                 <option value="2">Two</option>
                                                 <option value="3">Three</option>
                                             </select>
-                                            <button class="btn btn-outline-secondary" type="button">Button</button>
+                                            <b-button variant="outline-secondary" type="button">Button</b-button>
                                         </div>
-                                    </div>
-                                </div>
+                                    </b-col>
+                                </b-row>
                             </div>
 
                             <div class="mt-4">
                                 <h5 class="fs-15 mb-3">File Input</h5>
-                                <div class="row g-3">
-                                    <div class="col-lg-6">
+                                <b-row class="g-3">
+                                    <b-col lg="6">
                                         <div class="input-group">
                                             <label class="input-group-text" for="inputGroupFile01">Upload</label>
                                             <input type="file" class="form-control" id="inputGroupFile01">
                                         </div>
-                                    </div>
-                                    <div class="col-lg-6">
+                                    </b-col>
+                                    <b-col lg="6">
                                         <div class="input-group">
                                             <input type="file" class="form-control" id="inputGroupFile02">
                                             <label class="input-group-text" for="inputGroupFile02">Upload</label>
                                         </div>
-                                    </div>
-                                    <div class="col-lg-6">
+                                    </b-col>
+                                    <b-col lg="6">
                                         <div class="input-group">
-                                            <button class="btn btn-outline-primary" type="button"
-                                                id="inputGroupFileAddon03">Button</button>
+                                            <b-button variant="outline-primary" type="button"
+                                                id="inputGroupFileAddon03">Button</b-button>
                                             <input type="file" class="form-control" id="inputGroupFile03"
                                                 aria-describedby="inputGroupFileAddon03" aria-label="Upload">
                                         </div>
-                                    </div>
-                                    <div class="col-lg-6">
+                                    </b-col>
+                                    <b-col lg="6">
                                         <div class="input-group">
                                             <input type="file" class="form-control" id="inputGroupFile04"
                                                 aria-describedby="inputGroupFileAddon04" aria-label="Upload">
-                                            <button class="btn btn-outline-success" type="button"
-                                                id="inputGroupFileAddon04">Button</button>
+                                            <b-button variant="outline-success" type="button"
+                                                id="inputGroupFileAddon04">Button</b-button>
                                         </div>
-                                    </div>
-                                </div>
+                                    </b-col>
+                                </b-row>
                             </div>
                         </div>
                         <div class="d-none code-view">
@@ -1199,11 +1178,9 @@
     &lt;button class=&quot;btn btn-outline-success&quot; type=&quot;button&quot; id=&quot;inputGroupFileAddon04&quot;&gt;Button&lt;/button&gt;
 &lt;/div&gt;</code></pre>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <!--end col-->
-        </div>
-        <!--end row-->
+                    </b-card-body>
+                </b-card>
+            </b-col>
+        </b-row>
     </Layout>
 </template>

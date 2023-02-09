@@ -7,97 +7,104 @@ import "prismjs";
 import "prismjs/themes/prism.css";
 
 export default {
-  page: {
-    title: "Scrollspy",
-    meta: [{ name: "description", content: appConfig.description }],
-  },
-   mounted() {
-    const checkbox = document.getElementsByClassName("code-switcher");
-    Array.from(checkbox).forEach((check) => {
-      check.addEventListener("change", () => {
-        const card = check.closest(".card");
-        const preview = card.querySelector(".live-preview");
-        const code = card.querySelector(".code-view");
-        if (check.checked) {
-          // do this
-          preview.classList.add("d-none");
-          code.classList.remove("d-none");
-        } else {
-          // do that
-          preview.classList.remove("d-none");
-          code.classList.add("d-none");
-        }
-      });
-    });
-  },
-  data() {
-    return {
-      title: "Scrollspy",
-      items: [
-        {
-          text: "Advance UI",
-          href: "/",
-        },
-        {
-          text: "Scrollspy",
-          active: true,
-        },
-      ],
-    };
-  },
-  components: {
-    Layout,
-    PageHeader,
-  },
+    page: {
+        title: "Scrollspy",
+        meta: [{ name: "description", content: appConfig.description }],
+    },
+    mounted() {
+        const checkbox = document.getElementsByClassName("code-switcher");
+        Array.from(checkbox).forEach((check) => {
+            check.addEventListener("change", () => {
+                const card = check.closest(".card");
+                const preview = card.querySelector(".live-preview");
+                const code = card.querySelector(".code-view");
+                if (check.checked) {
+                    // do this
+                    preview.classList.add("d-none");
+                    code.classList.remove("d-none");
+                } else {
+                    // do that
+                    preview.classList.remove("d-none");
+                    code.classList.add("d-none");
+                }
+            });
+        });
+    },
+    data() {
+        return {
+            title: "Scrollspy",
+            items: [
+                {
+                    text: "Advance UI",
+                    href: "/",
+                },
+                {
+                    text: "Scrollspy",
+                    active: true,
+                },
+            ],
+        };
+    },
+    components: {
+        Layout,
+        PageHeader,
+    },
 };
 </script>
 
 <template>
-  <Layout>
-    <PageHeader :title="title" :items="items" />
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="card">
-                <div class="card-header align-items-center d-flex">
-                    <h4 class="card-title mb-0 flex-grow-1">Scrollspy in Navbar</h4>
-                    <div class="flex-shrink-0">
-                        <div class="form-check form-switch form-switch-right form-switch-md">
-                            <label for="navbarscrollspy-showcode" class="form-label text-muted">Show Code</label>
-                            <input class="form-check-input code-switcher" type="checkbox" id="navbarscrollspy-showcode">
+    <Layout>
+        <PageHeader :title="title" :items="items" />
+        <b-row>
+            <b-col lg="12">
+                <b-card no-body>
+                    <b-card-header class="align-items-center d-flex">
+                        <b-card-title class="mb-0 flex-grow-1">Scrollspy in Navbar</b-card-title>
+                        <div class="flex-shrink-0">
+                            <div class="form-check form-switch form-switch-right form-switch-md">
+                                <label for="navbarscrollspy-showcode" class="form-label text-muted">Show Code</label>
+                                <input class="form-check-input code-switcher" type="checkbox"
+                                    id="navbarscrollspy-showcode">
+                            </div>
                         </div>
-                    </div>
-                </div><!-- end card header -->
+                    </b-card-header>
 
-                <div class="card-body">
-                    <p class="text-muted">Use <code>data-bs-spy="scroll"</code> attribute to update links in a navigation list based on the current scroll position. Scroll the area below the navbar and watch the active class
-                        change.</p>
-                        
+                    <b-card-body>
+                        <p class="text-muted">Use <code>data-bs-spy="scroll"</code> attribute to update links in a
+                            navigation list based on the current scroll position. Scroll the area below the navbar and
+                            watch the active class
+                            change.</p>
+
                         <div class="live-preview">
-                            <nav id="navbar-example" class="navbar navbar-light bg-light px-3">
-                                <a class="navbar-brand" href="#">
-                                    <img src="@/assets/images/logo-dark.png" class="card-logo card-logo-dark" alt="logo dark" height="14">
-                                    <img src="@/assets/images/logo-light.png" class="card-logo card-logo-light" alt="logo light" height="14">
-                                </a>
+
+                            <nav id="navbar-example" class="navbar navbar-dark bg-light px-3">
+                                <b-link class="navbar-brand" href="#">
+                                    <img src="@/assets/images/logo-dark.png" class="card-logo card-logo-dark"
+                                        alt="logo dark" height="14">
+                                    <img src="@/assets/images/logo-light.png" class="card-logo card-logo-light"
+                                        alt="logo light" height="14">
+                                </b-link>
                                 <ul class="nav nav-pills">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#fat">@fat</a>
+                                        <b-link class="nav-link active" href="#fat">@fat</b-link>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#mdo">@mdo</a>
+                                        <b-link class="nav-link" href="#mdo">@mdo</b-link>
                                     </li>
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                                        <b-link class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"
+                                            role="button" aria-haspopup="true" aria-expanded="false">Dropdown</b-link>
                                         <div class="dropdown-menu dropdown-menu-end">
-                                            <a class="dropdown-item" href="#one">one</a>
-                                            <a class="dropdown-item" href="#two">two</a>
+                                            <b-link class="dropdown-item" href="#one">one</b-link>
+                                            <b-link class="dropdown-item" href="#two">two</b-link>
                                             <div role="separator" class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#three">three</a>
+                                            <b-link class="dropdown-item" href="#three">three</b-link>
                                         </div>
                                     </li>
                                 </ul>
                             </nav>
-                            <div data-bs-spy="scroll" data-bs-target="#navbar-example"
-                                class="scrollspy-example p-2" data-bs-offset="8">
+                            <div data-bs-spy="scroll" data-bs-target="#navbar-example" class="scrollspy-example p-2"
+                                data-bs-offset="8">
                                 <div class="text-muted">
                                     <h5 id="fat">@fat</h5>
                                     <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
@@ -139,11 +146,11 @@ export default {
                                 </div>
                             </div>
                         </div>
-                        <!-- end live preview -->
+
 
                         <div class="d-none code-view">
                             <pre>
-<code class="language-markup">&lt;nav id=&quot;navbar-example&quot; class=&quot;navbar navbar-light bg-light px-3&quot;&gt;
+<code class="language-markup">&lt;nav id=&quot;navbar-example&quot; class=&quot;navbar-dark bg-light px-3&quot;&gt;
 &lt;a class=&quot;navbar-brand&quot; href=&quot;#&quot;&gt;
 &lt;img src=&quot;...&quot; alt=&quot;...&quot;&gt;
 &lt;/a&gt;
@@ -184,134 +191,160 @@ export default {
 &lt;/div&gt;
 &lt;/div&gt;</code></pre>
                         </div>
-                </div><!-- end card-body -->
-            </div><!-- end card -->
-        </div>
-        <!-- end col -->
-    </div>
-    <!-- end row -->
+                    </b-card-body>
+                </b-card>
+            </b-col>
 
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="card">
-                <div class="card-header align-items-center d-flex">
-                    <h4 class="card-title mb-0 flex-grow-1">Scrollspy with nested nav</h4>
-                    <div class="flex-shrink-0">
-                        <div class="form-check form-switch form-switch-right form-switch-md">
-                            <label for="nestednavscrollspy-showcode" class="form-label text-muted">Show Code</label>
-                            <input class="form-check-input code-switcher" type="checkbox" id="nestednavscrollspy-showcode">
+        </b-row>
+
+
+        <b-row>
+            <b-col lg="12">
+                <b-card no-body>
+                    <b-card-header class="align-items-center d-flex">
+                        <b-card-title class="mb-0 flex-grow-1">Scrollspy with nested nav</b-card-title>
+                        <div class="flex-shrink-0">
+                            <div class="form-check form-switch form-switch-right form-switch-md">
+                                <label for="nestednavscrollspy-showcode" class="form-label text-muted">Show Code</label>
+                                <input class="form-check-input code-switcher" type="checkbox"
+                                    id="nestednavscrollspy-showcode">
+                            </div>
                         </div>
-                    </div>
-                </div><!-- end card header -->
+                    </b-card-header>
 
-                <div class="card-body">
-                    <p class="text-muted">Use <code>data-bs-spy="scroll"</code> attribute. Scrollspy also works with nested nav. If a nested nav is active, its parents will also be active. Scroll the area next to the navbar and watch the active class change.</p>
-                    <div class="live-preview">
-                        <div class="row gy-4">
-                            <div class="col-xxl-3">
-                                <nav id="navbar-examplenested" class="navbar navbar-light bg-light flex-column">
-                                    <a class="navbar-brand mb-2" href="#">
-                                        <img src="@/assets/images/logo-dark.png" class="card-logo card-logo-dark" alt="logo dark" height="15">
-                                        <img src="@/assets/images/logo-light.png" class="card-logo card-logo-light" alt="logo light" height="15">
-                                    </a>
-                                    <nav class="nav nav-pills flex-column p-3 w-100">
-                                        <a class="nav-link" href="#item-1"><i class="ri-dashboard-2-line align-middle me-2 fs-16"></i> <span>Dashboards</span></a>
-                                        <nav class="nav nav-pills flex-column">
-                                            <a class="nav-link" href="#item-1-1"><i class="ri-subtract-fill align-middle me-2 fs-15"></i> <span>Ecommerce</span></a>
-                                            <a class="nav-link" href="#item-1-2"><i class="ri-subtract-fill align-middle me-2 fs-15"></i> <span>Analytics</span></a>
-                                        </nav>
-                                        <a class="nav-link active" href="#item-2"><i class="ri-pencil-ruler-2-line align-middle me-2 fs-16"></i> <span>Base UI</span></a>
-                                        <a class="nav-link" href="#item-3"><i class="ri-apps-2-line align-middle me-2 fs-16"></i> <span>Apps</span></a>
-                                        <nav class="nav nav-pills flex-column">
-                                            <a class="nav-link" href="#item-3-1"><i class="ri-subtract-fill align-middle me-2 fs-15"></i> <span>Chat</span></a>
-                                            <a class="nav-link" href="#item-3-2"><i class="ri-subtract-fill align-middle me-2 fs-15"></i> <span>Email</span></a>
+                    <b-card-body>
+                        <p class="text-muted">Use <code>data-bs-spy="scroll"</code> attribute. Scrollspy also works with
+                            nested nav. If a nested nav is active, its parents will also be active. Scroll the area next
+                            to the navbar and watch the active class change.</p>
+                        <div class="live-preview">
+                            <b-row class="gy-4">
+                                <b-col xxl="3">
+                                    <nav id="navbar-examplenested" class="navbar navbar-dark bg-light flex-column">
+                                        <b-link class="navbar-brand mb-2" href="#">
+                                            <img src="@/assets/images/logo-dark.png" class="card-logo card-logo-dark"
+                                                alt="logo dark" height="15">
+                                            <img src="@/assets/images/logo-light.png" class="card-logo card-logo-light"
+                                                alt="logo light" height="15">
+                                        </b-link>
+                                        <nav class="nav nav-pills flex-column p-3 w-100">
+                                            <b-link class="nav-link active" href="#item-1"><i
+                                                    class="ri-dashboard-2-line align-middle me-2 fs-16"></i>
+                                                <span>Dashboards</span>
+                                            </b-link>
+                                            <nav class="nav nav-pills flex-column">
+                                                <b-link class="nav-link" href="#item-1-1"><i
+                                                        class="ri-subtract-fill align-middle me-2 fs-15"></i>
+                                                    <span>Ecommerce</span>
+                                                </b-link>
+                                                <b-link class="nav-link" href="#item-1-2"><i
+                                                        class="ri-subtract-fill align-middle me-2 fs-15"></i>
+                                                    <span>Analytics</span>
+                                                </b-link>
+                                            </nav>
+                                            <b-link class="nav-link" href="#item-2"><i
+                                                    class="ri-pencil-ruler-2-line align-middle me-2 fs-16"></i>
+                                                <span>Base UI</span>
+                                            </b-link>
+                                            <b-link class="nav-link" href="#item-3"><i
+                                                    class="ri-apps-2-line align-middle me-2 fs-16"></i>
+                                                <span>Apps</span>
+                                            </b-link>
+                                            <nav class="nav nav-pills flex-column">
+                                                <b-link class="nav-link" href="#item-3-1"><i
+                                                        class="ri-subtract-fill align-middle me-2 fs-15"></i>
+                                                    <span>Chat</span>
+                                                </b-link>
+                                                <b-link class="nav-link" href="#item-3-2"><i
+                                                        class="ri-subtract-fill align-middle me-2 fs-15"></i>
+                                                    <span>Email</span>
+                                                </b-link>
+                                            </nav>
                                         </nav>
                                     </nav>
-                                </nav>
-                            </div>
-                            <!-- end col -->
-                            <div class="col-xxl-9">
-                                <div data-bs-spy="scroll" data-bs-target="#navbar-examplenested" data-bs-offset="0"
-                                    class="scrollspy-example-2">
-                                    <div class="text-muted">
-                                        <h5 id="item-1">Item 1</h5>
-                                        <p>Ex consequat commodo adipisicing exercitation aute excepteur occaecat
-                                            ullamco duis aliqua id magna ullamco eu. Do aute ipsum ipsum ullamco
-                                            cillum consectetur ut et aute consectetur labore. Fugiat laborum
-                                            incididunt tempor eu consequat enim dolore proident. Qui laborum do
-                                            non excepteur nulla magna eiusmod consectetur in. Aliqua et aliqua
-                                            officia quis et incididunt voluptate non anim reprehenderit
-                                            adipisicing dolore ut consequat deserunt mollit dolore. Aliquip
-                                            nulla enim veniam non fugiat id cupidatat nulla elit cupidatat
-                                            commodo velit ut eiusmod cupidatat elit dolore.</p>
-                                        <h5 id="item-1-1">Item 1-1</h5>
-                                        <p>Amet tempor mollit aliquip pariatur excepteur commodo do ea cillum
-                                            commodo Lorem et occaecat elit qui et. Aliquip labore ex ex esse
-                                            voluptate occaecat Lorem ullamco deserunt. Aliqua cillum excepteur
-                                            irure consequat id quis ea. Sit proident ullamco aute magna pariatur
-                                            nostrud labore. Reprehenderit aliqua commodo eiusmod aliquip est do
-                                            duis amet proident magna consectetur consequat eu commodo fugiat non
-                                            quis. Enim aliquip exercitation ullamco adipisicing voluptate
-                                            excepteur minim exercitation minim minim commodo adipisicing
-                                            exercitation officia nisi adipisicing. Anim id duis qui consequat
-                                            labore adipisicing sint dolor elit cillum anim et fugiat.</p>
-                                        <h5 id="item-1-2">Item 1-2</h5>
-                                        <p>Cillum nisi deserunt magna eiusmod qui eiusmod velit voluptate
-                                            pariatur laborum sunt enim. Irure laboris mollit consequat
-                                            incididunt sint et culpa culpa incididunt adipisicing magna magna
-                                            occaecat. Nulla ipsum cillum eiusmod sint elit excepteur ea labore
-                                            enim consectetur in labore anim. Proident ullamco ipsum esse elit ut
-                                            Lorem eiusmod dolor et eiusmod. Anim occaecat nulla in non consequat
-                                            eiusmod velit incididunt.</p>
-                                        <h5 id="item-2">Item 2</h5>
-                                        <p>Quis magna Lorem anim amet ipsum do mollit sit cillum voluptate ex
-                                            nulla tempor. Laborum consequat non elit enim exercitation cillum
-                                            aliqua consequat id aliqua. Esse ex consectetur mollit voluptate est
-                                            in duis laboris ad sit ipsum anim Lorem. Incididunt veniam velit
-                                            elit elit veniam Lorem aliqua quis ullamco deserunt sit enim elit
-                                            aliqua esse irure. Laborum nisi sit est tempor laborum mollit labore
-                                            officia laborum excepteur commodo non commodo dolor excepteur
-                                            commodo. Ipsum fugiat ex est consectetur ipsum commodo tempor sunt
-                                            in proident.</p>
-                                        <h5 id="item-3">Item 3</h5>
-                                        <p>Quis anim sit do amet fugiat dolor velit sit ea ea do reprehenderit
-                                            culpa duis. Nostrud aliqua ipsum fugiat minim proident occaecat
-                                            excepteur aliquip culpa aute tempor reprehenderit. Deserunt tempor
-                                            mollit elit ex pariatur dolore velit fugiat mollit culpa irure
-                                            ullamco est ex ullamco excepteur.</p>
-                                        <h5 id="item-3-1">Item 3-1</h5>
-                                        <p>Deserunt quis elit Lorem eiusmod amet enim enim amet minim Lorem
-                                            proident nostrud. Ea id dolore anim exercitation aute fugiat labore
-                                            voluptate cillum do laboris labore. Ex velit exercitation nisi enim
-                                            labore reprehenderit labore nostrud ut ut. Esse officia sunt duis
-                                            aliquip ullamco tempor eiusmod deserunt irure nostrud irure. Ullamco
-                                            proident veniam laboris ea consectetur magna sunt ex exercitation
-                                            aliquip minim enim culpa occaecat exercitation. Est tempor excepteur
-                                            aliquip laborum consequat do deserunt laborum esse eiusmod irure
-                                            proident ipsum esse qui.</p>
-                                        <h5 id="item-3-2">Item 3-2</h5>
-                                        <p>Labore sit culpa commodo elit adipisicing sit aliquip elit proident
-                                            voluptate minim mollit nostrud aute reprehenderit do. Mollit
-                                            excepteur eu Lorem ipsum anim commodo sint labore Lorem in
-                                            exercitation velit incididunt. Occaecat consectetur nisi in occaecat
-                                            proident minim enim sunt reprehenderit exercitation cupidatat et do
-                                            officia. Aliquip consequat ad labore labore mollit ut amet. Sit
-                                            pariatur tempor proident in veniam culpa aliqua excepteur elit magna
-                                            fugiat eiusmod amet officia.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- end col -->
-                        </div>
-                        <!-- end row -->
-                    </div>
-                    <!-- end live preview -->
+                                </b-col>
 
-                    <div class="d-none code-view">
-                        <pre>
+                                <b-col xxl="9">
+                                    <div data-bs-spy="scroll" data-bs-target="#navbar-examplenested" data-bs-offset="0"
+                                        class="scrollspy-example-2">
+                                        <div class="text-muted">
+                                            <h5 id="item-1">Item 1</h5>
+                                            <p>Ex consequat commodo adipisicing exercitation aute excepteur occaecat
+                                                ullamco duis aliqua id magna ullamco eu. Do aute ipsum ipsum ullamco
+                                                cillum consectetur ut et aute consectetur labore. Fugiat laborum
+                                                incididunt tempor eu consequat enim dolore proident. Qui laborum do
+                                                non excepteur nulla magna eiusmod consectetur in. Aliqua et aliqua
+                                                officia quis et incididunt voluptate non anim reprehenderit
+                                                adipisicing dolore ut consequat deserunt mollit dolore. Aliquip
+                                                nulla enim veniam non fugiat id cupidatat nulla elit cupidatat
+                                                commodo velit ut eiusmod cupidatat elit dolore.</p>
+                                            <h5 id="item-1-1">Item 1-1</h5>
+                                            <p>Amet tempor mollit aliquip pariatur excepteur commodo do ea cillum
+                                                commodo Lorem et occaecat elit qui et. Aliquip labore ex ex esse
+                                                voluptate occaecat Lorem ullamco deserunt. Aliqua cillum excepteur
+                                                irure consequat id quis ea. Sit proident ullamco aute magna pariatur
+                                                nostrud labore. Reprehenderit aliqua commodo eiusmod aliquip est do
+                                                duis amet proident magna consectetur consequat eu commodo fugiat non
+                                                quis. Enim aliquip exercitation ullamco adipisicing voluptate
+                                                excepteur minim exercitation minim minim commodo adipisicing
+                                                exercitation officia nisi adipisicing. Anim id duis qui consequat
+                                                labore adipisicing sint dolor elit cillum anim et fugiat.</p>
+                                            <h5 id="item-1-2">Item 1-2</h5>
+                                            <p>Cillum nisi deserunt magna eiusmod qui eiusmod velit voluptate
+                                                pariatur laborum sunt enim. Irure laboris mollit consequat
+                                                incididunt sint et culpa culpa incididunt adipisicing magna magna
+                                                occaecat. Nulla ipsum cillum eiusmod sint elit excepteur ea labore
+                                                enim consectetur in labore anim. Proident ullamco ipsum esse elit ut
+                                                Lorem eiusmod dolor et eiusmod. Anim occaecat nulla in non consequat
+                                                eiusmod velit incididunt.</p>
+                                            <h5 id="item-2">Item 2</h5>
+                                            <p>Quis magna Lorem anim amet ipsum do mollit sit cillum voluptate ex
+                                                nulla tempor. Laborum consequat non elit enim exercitation cillum
+                                                aliqua consequat id aliqua. Esse ex consectetur mollit voluptate est
+                                                in duis laboris ad sit ipsum anim Lorem. Incididunt veniam velit
+                                                elit elit veniam Lorem aliqua quis ullamco deserunt sit enim elit
+                                                aliqua esse irure. Laborum nisi sit est tempor laborum mollit labore
+                                                officia laborum excepteur commodo non commodo dolor excepteur
+                                                commodo. Ipsum fugiat ex est consectetur ipsum commodo tempor sunt
+                                                in proident.</p>
+                                            <h5 id="item-3">Item 3</h5>
+                                            <p>Quis anim sit do amet fugiat dolor velit sit ea ea do reprehenderit
+                                                culpa duis. Nostrud aliqua ipsum fugiat minim proident occaecat
+                                                excepteur aliquip culpa aute tempor reprehenderit. Deserunt tempor
+                                                mollit elit ex pariatur dolore velit fugiat mollit culpa irure
+                                                ullamco est ex ullamco excepteur.</p>
+                                            <h5 id="item-3-1">Item 3-1</h5>
+                                            <p>Deserunt quis elit Lorem eiusmod amet enim enim amet minim Lorem
+                                                proident nostrud. Ea id dolore anim exercitation aute fugiat labore
+                                                voluptate cillum do laboris labore. Ex velit exercitation nisi enim
+                                                labore reprehenderit labore nostrud ut ut. Esse officia sunt duis
+                                                aliquip ullamco tempor eiusmod deserunt irure nostrud irure. Ullamco
+                                                proident veniam laboris ea consectetur magna sunt ex exercitation
+                                                aliquip minim enim culpa occaecat exercitation. Est tempor excepteur
+                                                aliquip laborum consequat do deserunt laborum esse eiusmod irure
+                                                proident ipsum esse qui.</p>
+                                            <h5 id="item-3-2">Item 3-2</h5>
+                                            <p>Labore sit culpa commodo elit adipisicing sit aliquip elit proident
+                                                voluptate minim mollit nostrud aute reprehenderit do. Mollit
+                                                excepteur eu Lorem ipsum anim commodo sint labore Lorem in
+                                                exercitation velit incididunt. Occaecat consectetur nisi in occaecat
+                                                proident minim enim sunt reprehenderit exercitation cupidatat et do
+                                                officia. Aliquip consequat ad labore labore mollit ut amet. Sit
+                                                pariatur tempor proident in veniam culpa aliqua excepteur elit magna
+                                                fugiat eiusmod amet officia.</p>
+                                        </div>
+                                    </div>
+                                </b-col>
+
+                            </b-row>
+
+                        </div>
+
+
+                        <div class="d-none code-view">
+                            <pre>
 <code class="language-markup">&lt;div class=&quot;row&quot;&gt;
 &lt;div class=&quot;col-xxl-3&quot;&gt;
-&lt;nav id=&quot;navbar-examplenested&quot; class=&quot;navbar navbar-light bg-light flex-column&quot;&gt;
+&lt;nav id=&quot;navbar-examplenested&quot; class=&quot;navbar-dark bg-light flex-column&quot;&gt;
 &lt;a class=&quot;navbar-brand mb-2&quot; href=&quot;#&quot;&gt;
 &lt;img src=&quot;...&quot; alt=&quot;...&quot;&gt;
 &lt;/a&gt;
@@ -360,59 +393,90 @@ export default {
 &lt;!-- end col --&gt;
 &lt;/div&gt;
 &lt;!-- end row --&gt;</code></pre>
-                    </div>
-                </div><!-- end card-body -->
-            </div><!-- end card -->
-        </div>
-        <!-- end col -->
-    </div>
-    <!-- end row -->
-
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="card">
-                <div class="card-header align-items-center d-flex">
-                    <h4 class="card-title mb-0 flex-grow-1">Scrollspy with list-group</h4>
-                    <div class="flex-shrink-0">
-                        <div class="form-check form-switch form-switch-right form-switch-md">
-                            <label for="listgroupscrollspy-showcode" class="form-label text-muted">Show Code</label>
-                            <input class="form-check-input code-switcher" type="checkbox" id="listgroupscrollspy-showcode">
                         </div>
-                    </div>
-                </div><!-- end card header -->
+                    </b-card-body>
+                </b-card>
+            </b-col>
 
-                <div class="card-body">
-                    <p class="text-muted">Use <code>data-bs-spy="scroll"</code> attribute. Scrollspy also works with the list-group. Scroll the area next to the list group and watch the active class change.</p>
-                    <div class="live-preview">
-                        <div class="row gy-4">
-                            <div class="col-xxl-3">
-                                <div id="list-example" class="list-group">
-                                    <a class="list-group-item list-group-item-action" href="#list-item-1">Item 1</a>
-                                    <a class="list-group-item list-group-item-action active" href="#list-item-2">Item 2</a>
-                                    <a class="list-group-item list-group-item-action" href="#list-item-3">Item 3</a>
-                                    <a class="list-group-item list-group-item-action" href="#list-item-4">Item 4</a>
-                                </div>
+        </b-row>
+
+
+        <b-row>
+            <b-col lg="12">
+                <b-card no-body>
+                    <b-card-header class="align-items-center d-flex">
+                        <b-card-title class="mb-0 flex-grow-1">Scrollspy with list-group</b-card-title>
+                        <div class="flex-shrink-0">
+                            <div class="form-check form-switch form-switch-right form-switch-md">
+                                <label for="listgroupscrollspy-showcode" class="form-label text-muted">Show Code</label>
+                                <input class="form-check-input code-switcher" type="checkbox"
+                                    id="listgroupscrollspy-showcode">
                             </div>
-                            <div class="col-xxl-9">
-                                <div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-offset="0" class="scrollspy-example mt-0">
-                                    <div class="text-muted">
-                                        <h5 id="list-item-1">Item 1</h5>
-                                        <p>Ex consequat commodo adipisicing exercitation aute excepteur occaecat ullamco duis aliqua id magna ullamco eu. Do aute ipsum ipsum ullamco cillum consectetur ut et aute consectetur labore. Fugiat laborum incididunt tempor eu consequat enim dolore proident. Qui laborum do non excepteur nulla magna eiusmod consectetur in. Aliqua et aliqua officia quis et incididunt voluptate non anim reprehenderit adipisicing dolore ut consequat deserunt mollit dolore. Aliquip nulla enim veniam non fugiat id cupidatat nulla elit cupidatat commodo velit ut eiusmod cupidatat elit dolore.</p>
-                                        <h5 id="list-item-2">Item 2</h5>
-                                        <p>Quis magna Lorem anim amet ipsum do mollit sit cillum voluptate ex nulla tempor. Laborum consequat non elit enim exercitation cillum aliqua consequat id aliqua. Esse ex consectetur mollit voluptate est in duis laboris ad sit ipsum anim Lorem. Incididunt veniam velit elit elit veniam Lorem aliqua quis ullamco deserunt sit enim elit aliqua esse irure. Laborum nisi sit est tempor laborum mollit labore officia laborum excepteur commodo non commodo dolor excepteur commodo. Ipsum fugiat ex est consectetur ipsum commodo tempor sunt in proident.</p>
-                                        <h5 id="list-item-3">Item 3</h5>
-                                        <p>Quis anim sit do amet fugiat dolor velit sit ea ea do reprehenderit culpa duis. Nostrud aliqua ipsum fugiat minim proident occaecat excepteur aliquip culpa aute tempor reprehenderit. Deserunt tempor mollit elit ex pariatur dolore velit fugiat mollit culpa irure ullamco est ex ullamco excepteur.</p>
-                                        <h5 id="list-item-4">Item 4</h5>
-                                        <p>Quis anim sit do amet fugiat dolor velit sit ea ea do reprehenderit culpa duis. Nostrud aliqua ipsum fugiat minim proident occaecat excepteur aliquip culpa aute tempor reprehenderit. Deserunt tempor mollit elit ex pariatur dolore velit fugiat mollit culpa irure ullamco est ex ullamco excepteur.</p>
+                        </div>
+                    </b-card-header>
+
+                    <b-card-body>
+                        <p class="text-muted">Use <code>data-bs-spy="scroll"</code> attribute. Scrollspy also works with
+                            the list-group. Scroll the area next to the list group and watch the active class change.
+                        </p>
+                        <div class="live-preview">
+                            <b-row class="gy-4">
+                                <b-col xxl="3">
+                                    <div id="list-example" class="list-group">
+                                        <b-link class="list-group-item list-group-item-action" href="#list-item-1">Item
+                                            1</b-link>
+                                        <b-link class="list-group-item list-group-item-action active"
+                                            href="#list-item-2">Item 2</b-link>
+                                        <b-link class="list-group-item list-group-item-action" href="#list-item-3">Item
+                                            3</b-link>
+                                        <b-link class="list-group-item list-group-item-action" href="#list-item-4">Item
+                                            4</b-link>
                                     </div>
-                                </div>
-                            </div>
+                                </b-col>
+                                <b-col xxl="9">
+                                    <div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-offset="0"
+                                        class="scrollspy-example mt-0">
+                                        <div class="text-muted">
+                                            <h5 id="list-item-1">Item 1</h5>
+                                            <p>Ex consequat commodo adipisicing exercitation aute excepteur occaecat
+                                                ullamco duis aliqua id magna ullamco eu. Do aute ipsum ipsum ullamco
+                                                cillum consectetur ut et aute consectetur labore. Fugiat laborum
+                                                incididunt tempor eu consequat enim dolore proident. Qui laborum do non
+                                                excepteur nulla magna eiusmod consectetur in. Aliqua et aliqua officia
+                                                quis et incididunt voluptate non anim reprehenderit adipisicing dolore
+                                                ut consequat deserunt mollit dolore. Aliquip nulla enim veniam non
+                                                fugiat id cupidatat nulla elit cupidatat commodo velit ut eiusmod
+                                                cupidatat elit dolore.</p>
+                                            <h5 id="list-item-2">Item 2</h5>
+                                            <p>Quis magna Lorem anim amet ipsum do mollit sit cillum voluptate ex nulla
+                                                tempor. Laborum consequat non elit enim exercitation cillum aliqua
+                                                consequat id aliqua. Esse ex consectetur mollit voluptate est in duis
+                                                laboris ad sit ipsum anim Lorem. Incididunt veniam velit elit elit
+                                                veniam Lorem aliqua quis ullamco deserunt sit enim elit aliqua esse
+                                                irure. Laborum nisi sit est tempor laborum mollit labore officia laborum
+                                                excepteur commodo non commodo dolor excepteur commodo. Ipsum fugiat ex
+                                                est consectetur ipsum commodo tempor sunt in proident.</p>
+                                            <h5 id="list-item-3">Item 3</h5>
+                                            <p>Quis anim sit do amet fugiat dolor velit sit ea ea do reprehenderit culpa
+                                                duis. Nostrud aliqua ipsum fugiat minim proident occaecat excepteur
+                                                aliquip culpa aute tempor reprehenderit. Deserunt tempor mollit elit ex
+                                                pariatur dolore velit fugiat mollit culpa irure ullamco est ex ullamco
+                                                excepteur.</p>
+                                            <h5 id="list-item-4">Item 4</h5>
+                                            <p>Quis anim sit do amet fugiat dolor velit sit ea ea do reprehenderit culpa
+                                                duis. Nostrud aliqua ipsum fugiat minim proident occaecat excepteur
+                                                aliquip culpa aute tempor reprehenderit. Deserunt tempor mollit elit ex
+                                                pariatur dolore velit fugiat mollit culpa irure ullamco est ex ullamco
+                                                excepteur.</p>
+                                        </div>
+                                    </div>
+                                </b-col>
+                            </b-row>
                         </div>
-                    </div>
-                    <!-- end live preview -->
 
-                    <div class="d-none code-view">
-                        <pre>
+
+                        <div class="d-none code-view">
+                            <pre>
 <code class="language-markup">&lt;div class=&quot;row&quot;&gt;
 &lt;div class=&quot;col-xxl-3&quot;&gt;
 &lt;div id=&quot;list-example&quot; class=&quot;list-group&quot;&gt;
@@ -440,12 +504,12 @@ export default {
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;</code></pre>
-                    </div>
-                </div><!-- end card-body -->
-            </div><!-- end card -->
-        </div>
-        <!-- end col -->
-    </div>
-    <!-- end row -->
+                        </div>
+                    </b-card-body>
+                </b-card>
+            </b-col>
+
+        </b-row>
+
     </Layout>
 </template>

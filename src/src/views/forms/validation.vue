@@ -4,120 +4,128 @@ import PageHeader from "@/components/page-header";
 import appConfig from "../../../app.config";
 
 export default {
-  page: {
-    title: "Validation",
-    meta: [{ name: "description", content: appConfig.description }],
-  },
-  data() {
-    return {
-      title: "Form Validation",
-      items: [
-        {
-          text: "Forms",
-          href: "/",
-        },
-        {
-          text: "Form Validation",
-          active: true,
-        },
-      ],
-    };
-  },
-  components: {
-    Layout,
-    PageHeader,
-  },
-   mounted() {
-    const checkbox = document.getElementsByClassName("code-switcher");
-    Array.from(checkbox).forEach((check) => {
-      check.addEventListener("change", () => {
-        const card = check.closest(".card");
-        const preview = card.querySelector(".live-preview");
-        const code = card.querySelector(".code-view");
-        if (check.checked) {
-          // do this
-          preview.classList.add("d-none");
-          code.classList.remove("d-none");
-        } else {
-          // do that
-          preview.classList.remove("d-none");
-          code.classList.add("d-none");
-        }
-      });
-    });
-  },
-};
-</script>
+    page: {
+        title: "Validation",
+        meta: [{ name: "description", content: appConfig.description }],
+    },
+    data() {
+        return {
+            title: "Forms Validation",
+            items: [
+                {
+                    text: "Forms",
+                    href: "/",
+                },
+                {
+                    text: "Forms Validation",
+                    active: true,
+                },
+            ],
+        };
+    },
+    components: {
+        Layout,
+        PageHeader,
+    },
+    mounted() {
+        const checkbox = document.getElementsByClassName("code-switcher");
+        Array.from(checkbox).forEach((check) => {
+            check.addEventListener("change", () => {
+                const card = check.closest(".card");
+                const preview = card.querySelector(".live-preview");
+                const code = card.querySelector(".code-view");
+                if (check.checked) {
+                    // do this                                     
+                    preview.classList.add("d-none");
+                    code.classList.remove("d-none");
+                } else {
+                    // do that                       
+                    preview.classList.remove("d-none");
+                    code.classList.add("d-none");
+                }
+            });
+        });
+    },
+};                                     
+</script>                              
 
 <template>
-  <Layout>
-    <PageHeader :title="title" :items="items" />
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="card">
-                <div class="card-header align-items-center d-flex">
-                    <h4 class="card-title mb-0 flex-grow-1">Browser defaults</h4>
-                    <div class="flex-shrink-0">
-                        <div class="form-check form-switch form-switch-right form-switch-md">
-                            <label for="FormValidationDefault" class="form-label text-muted">Show Code</label>
-                            <input class="form-check-input code-switcher" type="checkbox" id="FormValidationDefault">
+    <Layout>
+        <PageHeader :title="title" :items="items" />
+        <b-row>
+            <b-col lg="12">
+                <b-card no-body>
+                    <b-card-header class="align-items-center d-flex">
+                        <b-card-title class="mb-0 flex-grow-1">Browser defaults</b-card-title>
+                        <div class="flex-shrink-0">
+                            <div class="form-check form-switch form-switch-right form-switch-md">
+                                <label for="FormValidationDefault" class="form-label text-muted">Show Code</label>
+                                <input class="form-check-input code-switcher" type="checkbox"
+                                    id="FormValidationDefault">
+                            </div>
                         </div>
-                    </div>
-                </div><!-- end card header -->
+                    </b-card-header>
 
-                <div class="card-body">
-                    <p class="text-muted">Not interested in custom validation feedback messages or writing JavaScript to change form behaviors? All good, you can use the browser defaults. Try submitting the form below. Depending on your browser and OS, you’ll see a slightly different style of feedback.While these feedback styles cannot be styled with CSS, you can still customize the feedback text through JavaScript.</p>
+                    <b-card-body>
+                        <p class="text-muted">Not interested in custom validation feedback messages or writing
+                            JavaScript to change form behaviors? All good, you can use the browser defaults. Try
+                            submitting the form below. Depending on your browser and OS, you’ll see a slightly different
+                            style of feedback.While these feedback styles cannot be styled with CSS, you can still
+                            customize the feedback text through JavaScript.</p>
 
-                    <div class="live-preview">
-                        <form class="row g-3">
-                            <div class="col-md-4">
-                                <label for="validationDefault01" class="form-label">First name</label>
-                                <input type="text" class="form-control" id="validationDefault01" value="Mark" required>
-                            </div>
-                            <div class="col-md-4">
-                                <label for="validationDefault02" class="form-label">Last name</label>
-                                <input type="text" class="form-control" id="validationDefault02" value="Otto" required>
-                            </div>
-                            <div class="col-md-4">
-                                <label for="validationDefaultUsername" class="form-label">Username</label>
-                                <div class="input-group">
-                                    <span class="input-group-text" id="inputGroupPrepend2">@</span>
-                                    <input type="text" class="form-control" id="validationDefaultUsername" aria-describedby="inputGroupPrepend2"
+                        <div class="live-preview">
+                            <form class="row g-3">
+                                <b-col md="4">
+                                    <label for="validationDefault01" class="form-label">First name</label>
+                                    <input type="text" class="form-control" id="validationDefault01" value="Mark"
                                         required>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="validationDefault03" class="form-label">City</label>
-                                <input type="text" class="form-control" id="validationDefault03" required>
-                            </div>
-                            <div class="col-md-3">
-                                <label for="validationDefault04" class="form-label">State</label>
-                                <select class="form-select" id="validationDefault04" required>
-                                    <option selected disabled value="">Choose...</option>
-                                    <option>...</option>
-                                </select>
-                            </div>
-                            <div class="col-md-3">
-                                <label for="validationDefault05" class="form-label">Zip</label>
-                                <input type="text" class="form-control" id="validationDefault05" required>
-                            </div>
-                            <div class="col-12">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-                                    <label class="form-check-label" for="invalidCheck2">
-                                        Agree to terms and conditions
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <button class="btn btn-primary" type="submit">Submit form</button>
-                            </div>
-                        </form>
-                    </div>
+                                </b-col>
+                                <b-col md="4">
+                                    <label for="validationDefault02" class="form-label">Last name</label>
+                                    <input type="text" class="form-control" id="validationDefault02" value="Otto"
+                                        required>
+                                </b-col>
+                                <b-col md="4">
+                                    <label for="validationDefaultUsername" class="form-label">Username</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text" id="inputGroupPrepend2">@</span>
+                                        <input type="text" class="form-control" id="validationDefaultUsername"
+                                            aria-describedby="inputGroupPrepend2" required>
+                                    </div>
+                                </b-col>
+                                <b-col md="6">
+                                    <label for="validationDefault03" class="form-label">City</label>
+                                    <input type="text" class="form-control" id="validationDefault03" required>
+                                </b-col>
+                                <b-col md="3">
+                                    <label for="validationDefault04" class="form-label">State</label>
+                                    <select class="form-select" id="validationDefault04" required>
+                                        <option selected disabled value="">Choose...</option>
+                                        <option>...</option>
+                                    </select>
+                                </b-col>
+                                <b-col md="3">
+                                    <label for="validationDefault05" class="form-label">Zip</label>
+                                    <input type="text" class="form-control" id="validationDefault05" required>
+                                </b-col>
+                                <b-col cols="12">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2"
+                                            required>
+                                        <label class="form-check-label" for="invalidCheck2">
+                                            Agree to terms and conditions
+                                        </label>
+                                    </div>
+                                </b-col>
+                                <b-col cols="12">
+                                    <b-button variant="primary" type="submit">Submit form</b-button>
+                                </b-col>
+                            </form>
+                        </div>
 
 
-<div class="d-none code-view">
-<pre class="language-markup" style="height: 352px">
+                        <div class="d-none code-view">
+                            <pre class="language-markup" style="height: 352px">
 <code>&lt;form class=&quot;row g-3&quot;&gt;
 &lt;div class=&quot;col-md-4&quot;&gt;
 &lt;label for=&quot;validationDefault01&quot; class=&quot;form-label&quot;&gt;First name&lt;/label&gt;
@@ -162,101 +170,108 @@ Agree to terms and conditions
 &lt;button class=&quot;btn btn-primary&quot; type=&quot;submit&quot;&gt;Submit form&lt;/button&gt;
 &lt;/div&gt;
 &lt;/form&gt;</code></pre>
-</div>
-                    
-                </div>
-            </div>
-        </div> <!-- end col -->
-    </div>
-    <!-- end row -->
-
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="card">
-                <div class="card-header align-items-center d-flex">
-                    <h4 class="card-title mb-0 flex-grow-1">Custom Styles</h4>
-                    <div class="flex-shrink-0">
-                        <div class="form-check form-switch form-switch-right form-switch-md">
-                            <label for="FormVaidationCustom" class="form-label text-muted">Show Code</label>
-                            <input class="form-check-input code-switcher" type="checkbox" id="FormVaidationCustom">
                         </div>
-                    </div>
-                </div><!-- end card header -->
 
-                <div class="card-body">
-                    <p class="text-muted">For custom Bootstrap form validation messages, you’ll need to add the <code>novalidate</code> boolean attribute to your <code>&lt;form&gt;</code>. This disables the browser default feedback tooltips, but still provides access to the form validation APIs in JavaScript. Try to submit the form below; our JavaScript will intercept the submit button and relay feedback to you. When attempting to submit, you’ll see the <code>:invalid</code> and <code>:valid</code> styles applied to your form controls.</p>
+                    </b-card-body>
+                </b-card>
+            </b-col>
+        </b-row>
 
-                    <div class="live-preview">
-                        <form class="row g-3 needs-validation" novalidate>
-                            <div class="col-md-4">
-                                <label for="validationCustom01" class="form-label">First name</label>
-                                <input type="text" class="form-control" id="validationCustom01" value="Mark" required>
-                                <div class="valid-feedback">
-                                    Looks good!
-                                </div>
+        <b-row>
+            <b-col lg="12">
+                <b-card no-body>
+                    <b-card-header class="align-items-center d-flex">
+                        <b-card-title class="mb-0 flex-grow-1">Custom Styles</b-card-title>
+                        <div class="flex-shrink-0">
+                            <div class="form-check form-switch form-switch-right form-switch-md">
+                                <label for="FormVaidationCustom" class="form-label text-muted">Show Code</label>
+                                <input class="form-check-input code-switcher" type="checkbox" id="FormVaidationCustom">
                             </div>
-                            <div class="col-md-4">
-                                <label for="validationCustom02" class="form-label">Last name</label>
-                                <input type="text" class="form-control" id="validationCustom02" value="Otto" required>
-                                <div class="valid-feedback">
-                                    Looks good!
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <label for="validationCustomUsername" class="form-label">Username</label>
-                                <div class="input-group has-validation">
-                                    <span class="input-group-text" id="inputGroupPrepend">@</span>
-                                    <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend"
+                        </div>
+                    </b-card-header>
+
+                    <b-card-body>
+                        <p class="text-muted">For custom Bootstrap form validation messages, you’ll need to add the
+                            <code>novalidate</code> boolean attribute to your <code>&lt;form&gt;</code>. This disables
+                            the browser default feedback tooltips, but still provides access to the form validation APIs
+                            in JavaScript. Try to submit the form below; our JavaScript will intercept the submit button
+                            and relay feedback to you. When attempting to submit, you’ll see the <code>:invalid</code>
+                            and <code>:valid</code> styles applied to your form controls.
+                        </p>
+
+                        <div class="live-preview">
+                            <form class="row g-3 needs-validation" novalidate>
+                                <b-col md="4">
+                                    <label for="validationCustom01" class="form-label">First name</label>
+                                    <input type="text" class="form-control" id="validationCustom01" value="Mark"
                                         required>
-                                    <div class="invalid-feedback">
-                                        Please choose a username.
+                                    <div class="valid-feedback">
+                                        Looks good!
                                     </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="validationCustom03" class="form-label">City</label>
-                                <input type="text" class="form-control" id="validationCustom03" required>
-                                <div class="invalid-feedback">
-                                    Please provide a valid city.
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <label for="validationCustom04" class="form-label">State</label>
-                                <select class="form-select" id="validationCustom04" required>
-                                    <option selected disabled value="">Choose...</option>
-                                    <option>...</option>
-                                </select>
-                                <div class="invalid-feedback">
-                                    Please select a valid state.
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <label for="validationCustom05" class="form-label">Zip</label>
-                                <input type="text" class="form-control" id="validationCustom05" required>
-                                <div class="invalid-feedback">
-                                    Please provide a valid zip.
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-                                    <label class="form-check-label" for="invalidCheck">
-                                        Agree to terms and conditions
-                                    </label>
-                                    <div class="invalid-feedback">
-                                        You must agree before submitting.
+                                </b-col>
+                                <b-col md="4">
+                                    <label for="validationCustom02" class="form-label">Last name</label>
+                                    <input type="text" class="form-control" id="validationCustom02" value="Otto"
+                                        required>
+                                    <div class="valid-feedback">
+                                        Looks good!
                                     </div>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <button class="btn btn-primary" type="button">Submit form</button>
-                            </div>
-                        </form>
-                    </div>
+                                </b-col>
+                                <b-col md="4">
+                                    <label for="validationCustomUsername" class="form-label">Username</label>
+                                    <div class="input-group has-validation">
+                                        <span class="input-group-text" id="inputGroupPrepend">@</span>
+                                        <input type="text" class="form-control" id="validationCustomUsername"
+                                            aria-describedby="inputGroupPrepend" required>
+                                        <div class="invalid-feedback">
+                                            Please choose a username.
+                                        </div>
+                                    </div>
+                                </b-col>
+                                <b-col md="6">
+                                    <label for="validationCustom03" class="form-label">City</label>
+                                    <input type="text" class="form-control" id="validationCustom03" required>
+                                    <div class="invalid-feedback">
+                                        Please provide a valid city.
+                                    </div>
+                                </b-col>
+                                <b-col md="3">
+                                    <label for="validationCustom04" class="form-label">State</label>
+                                    <select class="form-select" id="validationCustom04" required>
+                                        <option selected disabled value="">Choose...</option>
+                                        <option>...</option>
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        Please select a valid state.
+                                    </div>
+                                </b-col>
+                                <b-col md="3">
+                                    <label for="validationCustom05" class="form-label">Zip</label>
+                                    <input type="text" class="form-control" id="validationCustom05" required>
+                                    <div class="invalid-feedback">
+                                        Please provide a valid zip.
+                                    </div>
+                                </b-col>
+                                <b-col cols="12">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck"
+                                            required>
+                                        <label class="form-check-label" for="invalidCheck">
+                                            Agree to terms and conditions
+                                        </label>
+                                        <div class="invalid-feedback">
+                                            You must agree before submitting.
+                                        </div>
+                                    </div>
+                                </b-col>
+                                <b-col cols="12">
+                                    <b-button variant="primary" @click.prevent type="submit">Submit formaa</b-button>
+                                </b-col>
+                            </form>
+                        </div>
 
-
-<div class="d-none code-view">
-<pre class="language-markup">
+                        <div class="d-none code-view">
+                            <pre class="language-markup">
 <code>&lt;form class=&quot;row g-3 needs-validation&quot; novalidate&gt;
 &lt;div class=&quot;col-md-4&quot;&gt;
 &lt;label for=&quot;validationCustom01&quot; class=&quot;form-label&quot;&gt;First name&lt;/label&gt;
@@ -322,83 +337,92 @@ You must agree before submitting.
 &lt;button class=&quot;btn btn-primary&quot; type=&quot;submit&quot;&gt;Submit form&lt;/button&gt;
 &lt;/div&gt;
 &lt;/form&gt;</code></pre>
-</div>
-                    
-                </div>
-            </div>
-        </div> <!-- end col -->
+                        </div>
 
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card">
-                    <div class="card-header align-items-center d-flex">
-                        <h4 class="card-title mb-0 flex-grow-1">Supported Elements</h4>
-                        <div class="flex-shrink-0">
-                            <div class="form-check form-switch form-switch-right form-switch-md">
-                                <label for="FormVaidationSupported" class="form-label text-muted">Show Code</label>
-                                <input class="form-check-input code-switcher" type="checkbox" id="FormVaidationSupported">
+                    </b-card-body>
+                </b-card>
+            </b-col>
+
+            <b-row>
+                <b-col lg="12">
+                    <b-card no-body>
+                        <b-card-header class="align-items-center d-flex">
+                            <b-card-title class="mb-0 flex-grow-1">Supported Elements</b-card-title>
+                            <div class="flex-shrink-0">
+                                <div class="form-check form-switch form-switch-right form-switch-md">
+                                    <label for="FormVaidationSupported" class="form-label text-muted">Show Code</label>
+                                    <input class="form-check-input code-switcher" type="checkbox"
+                                        id="FormVaidationSupported">
+                                </div>
                             </div>
-                        </div>
-                    </div><!-- end card header -->
+                        </b-card-header>
 
-                    <div class="card-body">
-                        <p class="text-muted">Block-level or inline-level form text can be created using <code>.form-text</code>.</p>
+                        <b-card-body>
+                            <p class="text-muted">Block-level or inline-level form text can be created using
+                                <code>.form-text</code>.
+                            </p>
 
-                        <div class="live-preview">
-                            <form class="was-validated">
-                                <div class="mb-3">
-                                    <label for="validationTextarea" class="form-label">Textarea</label>
-                                    <textarea class="form-control is-invalid" id="validationTextarea" placeholder="Required example textarea"
-                                        required></textarea>
-                                    <div class="invalid-feedback">
-                                        Please enter a message in the textarea.
+                            <div class="live-preview">
+                                <form class="was-validated">
+                                    <div class="mb-3">
+                                        <label for="validationTextarea" class="form-label">Textarea</label>
+                                        <textarea class="form-control" id="validationTextarea"
+                                            placeholder="Required example textarea" required></textarea>
+                                        <div class="invalid-feedback">
+                                            Please enter a message in the textarea.
+                                        </div>
                                     </div>
-                                </div>
-                            
-                                <div class="form-check mb-3">
-                                    <input type="checkbox" class="form-check-input" id="validationFormCheck1" required>
-                                    <label class="form-check-label" for="validationFormCheck1">Check this checkbox</label>
-                                    <div class="invalid-feedback">Example invalid feedback text</div>
-                                </div>
-                            
-                                <div class="form-check">
-                                    <input type="radio" class="form-check-input" id="validationFormCheck2" name="radio-stacked" required>
-                                    <label class="form-check-label" for="validationFormCheck2">Toggle this radio</label>
-                                </div>
-                                <div class="form-check mb-3">
-                                    <input type="radio" class="form-check-input" id="validationFormCheck3" name="radio-stacked" required>
-                                    <label class="form-check-label" for="validationFormCheck3">Or toggle this other radio</label>
-                                    <div class="invalid-feedback">More example invalid feedback text</div>
-                                </div>
-                            
-                                <div class="mb-3">
-                                    <select class="form-select" required aria-label="select example">
-                                        <option value="">Open this select menu</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
-                                    </select>
-                                    <div class="invalid-feedback">Example invalid select feedback</div>
-                                </div>
-                            
-                                <div class="mb-3">
-                                    <input type="file" class="form-control" aria-label="file example" required>
-                                    <div class="invalid-feedback">Example invalid form file feedback</div>
-                                </div>
-                            
-                                <div class="mb-0">
-                                    <button class="btn btn-primary" type="submit" disabled>Submit form</button>
-                                </div>
-                            </form>
-                        </div>
+
+                                    <div class="form-check mb-3">
+                                        <input type="checkbox" class="form-check-input" id="validationFormCheck1"
+                                            required>
+                                        <label class="form-check-label" for="validationFormCheck1">Check this
+                                            checkbox</label>
+                                        <div class="invalid-feedback">Example invalid feedback text</div>
+                                    </div>
+
+                                    <div class="form-check">
+                                        <input type="radio" class="form-check-input" id="validationFormCheck2"
+                                            name="radio-stacked" required>
+                                        <label class="form-check-label" for="validationFormCheck2">Toggle this
+                                            radio</label>
+                                    </div>
+                                    <div class="form-check mb-3">
+                                        <input type="radio" class="form-check-input" id="validationFormCheck3"
+                                            name="radio-stacked" required>
+                                        <label class="form-check-label" for="validationFormCheck3">Or toggle this other
+                                            radio</label>
+                                        <div class="invalid-feedback">More example invalid feedback text</div>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <select class="form-select" required aria-label="select example">
+                                            <option value="">Open this select menu</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                        </select>
+                                        <div class="invalid-feedback">Example invalid select feedback</div>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <input type="file" class="form-control" aria-label="file example" required>
+                                        <div class="invalid-feedback">Example invalid form file feedback</div>
+                                    </div>
+
+                                    <div class="mb-0">
+                                        <b-button variant="primary" type="submit" disabled>Submit form</b-button>
+                                    </div>
+                                </form>
+                            </div>
 
 
-<div class="d-none code-view">
-<pre class="language-markup" style="height: 352px">
+                            <div class="d-none code-view">
+                                <pre class="language-markup" style="height: 352px">
 <code>&lt;form class=&quot;was-validated&quot;&gt;
 &lt;div class=&quot;mb-3&quot;&gt;
 &lt;label for=&quot;validationTextarea&quot; class=&quot;form-label&quot;&gt;Textarea&lt;/label&gt;
-&lt;textarea class=&quot;form-control is-invalid&quot; id=&quot;validationTextarea&quot; placeholder=&quot;Required example textarea&quot;
+&lt;textarea class=&quot;form-control&quot; id=&quot;validationTextarea&quot; placeholder=&quot;Required example textarea&quot;
 required&gt;&lt;/textarea&gt;
 &lt;div class=&quot;invalid-feedback&quot;&gt;
 Please enter a message in the textarea.
@@ -440,88 +464,97 @@ Please enter a message in the textarea.
 &lt;button class=&quot;btn btn-primary&quot; type=&quot;submit&quot; disabled&gt;Submit form&lt;/button&gt;
 &lt;/div&gt;
 &lt;/form&gt;</code></pre>
-</div>
-                        
-                    </div>
-                </div>
-            </div> <!-- end col -->
-        </div>
-        <!-- end row -->
-
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card">
-                    <div class="card-header align-items-center d-flex">
-                        <h4 class="card-title mb-0 flex-grow-1">Tooltips</h4>
-                        <div class="flex-shrink-0">
-                            <div class="form-check form-switch form-switch-right form-switch-md">
-                                <label for="FormVaidationTooltip" class="form-label text-muted">Show Code</label>
-                                <input class="form-check-input code-switcher" type="checkbox" id="FormVaidationTooltip">
                             </div>
-                        </div>
-                    </div><!-- end card header -->
 
-                    <div class="card-body">
-                        <p class="text-muted">If your form layout allows it, you can swap the <code>.{valid|invalid}-feedback</code> classes for <code>.{valid|invalid}-tooltip</code> classes to display validation feedback in a styled tooltip. Be sure to have a parent with <code>position: relative</code> on it for tooltip positioning. In the example below, our column classes have this already, but your project may require an alternative setup.</p>
+                        </b-card-body>
+                    </b-card>
+                </b-col>
+            </b-row>
 
-                        <div class="live-preview">
-                            <form class="row g-3 needs-validation" novalidate>
-                                <div class="col-md-4 position-relative">
-                                    <label for="validationTooltip01" class="form-label">First name</label>
-                                    <input type="text" class="form-control" id="validationTooltip01" value="Mark" required>
-                                    <div class="valid-tooltip">
-                                        Looks good!
-                                    </div>
+            <b-row>
+                <b-col lg="12">
+                    <b-card no-body>
+                        <b-card-header class="align-items-center d-flex">
+                            <b-card-title class="mb-0 flex-grow-1">Tooltips</b-card-title>
+                            <div class="flex-shrink-0">
+                                <div class="form-check form-switch form-switch-right form-switch-md">
+                                    <label for="FormVaidationTooltip" class="form-label text-muted">Show Code</label>
+                                    <input class="form-check-input code-switcher" type="checkbox"
+                                        id="FormVaidationTooltip">
                                 </div>
-                                <div class="col-md-4 position-relative">
-                                    <label for="validationTooltip02" class="form-label">Last name</label>
-                                    <input type="text" class="form-control" id="validationTooltip02" value="Otto" required>
-                                    <div class="valid-tooltip">
-                                        Looks good!
-                                    </div>
-                                </div>
-                                <div class="col-md-4 position-relative">
-                                    <label for="validationTooltipUsername" class="form-label">Username</label>
-                                    <div class="input-group has-validation">
-                                        <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
-                                        <input type="text" class="form-control" id="validationTooltipUsername"
-                                            aria-describedby="validationTooltipUsernamePrepend" required>
-                                        <div class="invalid-tooltip">
-                                            Please choose a unique and valid username.
+                            </div>
+                        </b-card-header>
+
+                        <b-card-body>
+                            <p class="text-muted">If your form layout allows it, you can swap the
+                                <code>.{valid|invalid}-feedback</code> classes for <code>.{valid|invalid}-tooltip</code>
+                                classes to display validation feedback in a styled tooltip. Be sure to have a parent
+                                with <code>position: relative</code> on it for tooltip positioning. In the example
+                                below, our column classes have this already, but your project may require an alternative
+                                setup.
+                            </p>
+
+                            <div class="live-preview">
+                                <form class="row g-3 needs-validation" novalidate>
+                                    <b-col md="4" class="position-relative">
+                                        <label for="validationTooltip01" class="form-label">First name</label>
+                                        <input type="text" class="form-control" id="validationTooltip01" value="Mark"
+                                            required>
+                                        <div class="valid-tooltip">
+                                            Looks good!
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 position-relative">
-                                    <label for="validationTooltip03" class="form-label">City</label>
-                                    <input type="text" class="form-control" id="validationTooltip03" required>
-                                    <div class="invalid-tooltip">
-                                        Please provide a valid city.
-                                    </div>
-                                </div>
-                                <div class="col-md-3 position-relative">
-                                    <label for="validationTooltip04" class="form-label">State</label>
-                                    <select class="form-select" id="validationTooltip04" required>
-                                        <option selected disabled value="">Choose...</option>
-                                        <option>...</option>
-                                    </select>
-                                    <div class="invalid-tooltip">
-                                        Please select a valid state.
-                                    </div>
-                                </div>
-                                <div class="col-md-3 position-relative">
-                                    <label for="validationTooltip05" class="form-label">Zip</label>
-                                    <input type="text" class="form-control" id="validationTooltip05" required>
-                                    <div class="invalid-tooltip">
-                                        Please provide a valid zip.
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <button class="btn btn-primary" type="button">Submit form</button>
-                                </div>
-                            </form>
-                        </div>
-<div class="d-none code-view">
-<pre class="language-markup">
+                                    </b-col>
+                                    <b-col md="4" class="position-relative">
+                                        <label for="validationTooltip02" class="form-label">Last name</label>
+                                        <input type="text" class="form-control" id="validationTooltip02" value="Otto"
+                                            required>
+                                        <div class="valid-tooltip">
+                                            Looks good!
+                                        </div>
+                                    </b-col>
+                                    <b-col md="4" class="position-relative">
+                                        <label for="validationTooltipUsername" class="form-label">Username</label>
+                                        <div class="input-group has-validation">
+                                            <span class="input-group-text"
+                                                id="validationTooltipUsernamePrepend">@</span>
+                                            <input type="text" class="form-control" id="validationTooltipUsername"
+                                                aria-describedby="validationTooltipUsernamePrepend" required>
+                                            <div class="invalid-tooltip">
+                                                Please choose a unique and valid username.
+                                            </div>
+                                        </div>
+                                    </b-col>
+                                    <b-col md="6" class="position-relative">
+                                        <label for="validationTooltip03" class="form-label">City</label>
+                                        <input type="text" class="form-control" id="validationTooltip03" required>
+                                        <div class="invalid-tooltip">
+                                            Please provide a valid city.
+                                        </div>
+                                    </b-col>
+                                    <b-col md="3" class="position-relative">
+                                        <label for="validationTooltip04" class="form-label">State</label>
+                                        <select class="form-select" id="validationTooltip04" required>
+                                            <option selected disabled value="">Choose...</option>
+                                            <option>...</option>
+                                        </select>
+                                        <div class="invalid-tooltip">
+                                            Please select a valid state.
+                                        </div>
+                                    </b-col>
+                                    <b-col md="3" class="position-relative">
+                                        <label for="validationTooltip05" class="form-label">Zip</label>
+                                        <input type="text" class="form-control" id="validationTooltip05" required>
+                                        <div class="invalid-tooltip">
+                                            Please provide a valid zip.
+                                        </div>
+                                    </b-col>
+                                    <b-col cols="12">
+                                        <b-button variant="primary" type="button">Submit form</b-button>
+                                    </b-col>
+                                </form>
+                            </div>
+                            <div class="d-none code-view">
+                                <pre class="language-markup">
 <code>&lt;form class=&quot;row g-3 needs-validation&quot; novalidate&gt;
 &lt;div class=&quot;col-md-4 position-relative&quot;&gt;
 &lt;label for=&quot;validationTooltip01&quot; class=&quot;form-label&quot;&gt;First name&lt;/label&gt;
@@ -576,15 +609,14 @@ Please provide a valid zip.
 &lt;button class=&quot;btn btn-primary&quot; type=&quot;submit&quot;&gt;Submit form&lt;/button&gt;
 &lt;/div&gt;
 &lt;/form&gt;</code></pre>
-</div>
-                        
-                    </div>
-                </div>
-            </div> <!-- end col -->
-        
-        </div>
-        <!-- end row -->
-    
-    </div>
+                            </div>
+
+                        </b-card-body>
+                    </b-card>
+                </b-col>
+
+            </b-row>
+
+        </b-row>
     </Layout>
 </template>

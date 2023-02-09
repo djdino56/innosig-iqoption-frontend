@@ -25,7 +25,7 @@
     }
 
     &::-webkit-scrollbar-thumb {
-        background-color: rgba(var(--#{$variable-prefix}dark-rgb), .075);
+        background-color: rgba(var(--#{$prefix}dark-rgb), .075);
         border-radius: 8px;
     }
 
@@ -58,10 +58,11 @@
 
 
 .tasks {
-    min-height: 140px;
+    min-height: 180px;
     position: relative;
 
-    &::before {
+    &.noTask{
+        &::before {
         content: "";
         position: absolute;
         left: 0;
@@ -74,6 +75,7 @@
         background-image: url('~@/assets/images/file.png');
         background-size: cover;
         background-position: center;
+    }
     }
 }
 

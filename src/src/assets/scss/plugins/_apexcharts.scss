@@ -14,12 +14,12 @@
 
 .apexcharts-tooltip-title,
 .apexcharts-tooltip-text {
-    font-family: $font-family-base !important;
+    font-family: $font-family-base !important;  
 }
 
 .apexcharts-tooltip{
     border: 1px solid $border-color !important;
-    background-color: $card-bg !important;
+    background-color: var(--#{$prefix}card-bg-custom) !important;
     box-shadow: $box-shadow !important;
     * {
         font-family: $font-family-base !important;
@@ -27,7 +27,7 @@
     }
 
     .apexcharts-tooltip-title{
-        background-color: rgba(var(--#{$variable-prefix}light-rgb), .75) !important;
+        background-color: rgba(var(--#{$prefix}light-rgb), .75) !important;
         border-bottom: 1px solid $border-color !important;
     }
 }
@@ -44,7 +44,7 @@
 
 .apexcharts-gridline {
     pointer-events: none;
-    stroke: rgba(var(--#{$variable-prefix}light-rgb), .75);
+    stroke: rgba(var(--#{$prefix}light-rgb), .75);
 }
 
 .apexcharts-legend-text {
@@ -92,7 +92,7 @@
     box-shadow: none;
     padding-left: 0;
     padding-top: 20px;
-    background: $card-bg;
+    background: var(--#{$prefix}card-bg-custom);
     border: 1px solid $border-color;
 }
 
@@ -141,6 +141,50 @@
         stroke: $border-color;
     }
     text{
-        fill: var(--#{$variable-prefix}body-color);
+        fill: var(--#{$prefix}body-color);
+    }
+}
+
+.apex-charts {
+
+    .apexcharts-xaxis,
+    .apexcharts-yaxis {
+        line {
+            stroke: var(--#{$prefix}border-color);
+        }
+    }
+
+    .apexcharts-xaxis-tick {
+        stroke: var(--#{$prefix}border-color);
+    }
+
+    .apexcharts-pie-series,
+    .apexcharts-bar-series {
+        path {
+            stroke: var(--#{$prefix}card-bg-custom);
+        }
+    }
+
+    .apexcharts-radialbar-track {
+        path {
+            stroke: var(--#{$prefix}light);
+        }
+    }
+
+    .apexcharts-marker {
+        stroke: var(--#{$prefix}card-bg-custom);
+    }
+
+    .apexcharts-boxPlot-series {
+        path {
+            stroke: var(--#{$prefix}border-color);
+        }
+    }
+
+    .apexcharts-treemap,
+    .apexcharts-heatmap-series {
+        rect {
+            stroke: var(--#{$prefix}card-bg-custom);
+        }
     }
 }

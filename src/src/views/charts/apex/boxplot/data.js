@@ -1,3 +1,26 @@
+function getChartColorsArray(colors){
+  colors = JSON.parse(colors);
+  return colors.map(function (value) {
+    var newValue = value.replace(" ", "");
+    if (newValue.indexOf(",") === -1) {
+      var color = getComputedStyle(document.documentElement).getPropertyValue(newValue);
+          if (color) {
+          color = color.replace(" ", "");
+          return color;
+          }
+          else return newValue;
+      } else {
+          var val = value.split(',');
+          if (val.length == 2) {
+              var rgbaColor = getComputedStyle(document.documentElement).getPropertyValue(val[0]);
+              rgbaColor = "rgba(" + rgbaColor + "," + val[1] + ")";
+              return rgbaColor;
+          } else {
+              return newValue;
+          }
+      }
+  });
+}
 const boxChart = {
   series: [
     {
@@ -53,7 +76,7 @@ const boxChart = {
       boxPlot: {
         colors: {
           upper: "#25a0e2",
-                    lower: "#32ccff",
+          lower: "#32ccff",
         },
       },
     },
@@ -61,7 +84,6 @@ const boxChart = {
 };
 
 //  Boxplot-Scatter
-
 const boxplotScatterChart = {
   series: [
     {
@@ -129,7 +151,7 @@ const boxplotScatterChart = {
         show: false,
       },
     },
-    colors: ["#00bd9d", "#e9ebec"],
+    colors: getChartColorsArray('["--vz-succcess", "--vz-info", "--vz-gray-300", "--vz-primary"]'),
     title: {
       text: "BoxPlot - Scatter Chart",
       align: "left",
@@ -148,8 +170,8 @@ const boxplotScatterChart = {
     plotOptions: {
       boxPlot: {
         colors: {
-          upper: "#eceeef",
-            lower: "#25a0e2"
+          upper: "#e9ebec",
+          lower: "#32ccff",
         },
       },
     },

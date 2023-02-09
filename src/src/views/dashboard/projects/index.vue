@@ -30,7 +30,7 @@ export default {
           active: true,
         },
       ],
-    }
+    };
   },
   components: {
     Layout,
@@ -44,58 +44,54 @@ export default {
     ActiveProjects,
     Status
   },
-}
+};
 </script>
 
 <template>
-    <Layout>
-        <PageHeader :title="title" :items="items" />
+  <Layout>
+    <PageHeader :title="title" :items="items" />
 
-        <div class="row project-wrapper">
-            <div class="col-xxl-8">
-                <div class="row">
-                    
-                        <Widgets />
-                    
-                    <div class="col-xl-4">
-                        
-                    </div>
-                    <div class="col-xl-4">
-                        
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xl-12">
-<Project/>
-                    </div>
-                </div>
-            </div>
+    <b-row class="project-wrapper">
+      <b-col xxl="8">
+        <b-row>
+          <Widgets />
+          <b-col xl="4">
+          </b-col>
+          <b-col xl="4">
+          </b-col>
+        </b-row>
+        <b-row>
+          <b-col xl="12">
+            <Project />
+          </b-col>
+        </b-row>
+      </b-col>
 
-            <div class="col-xxl-4">
-                <Schedules />
-            </div>
-        </div>
+      <b-col xxl="4">
+        <Schedules />
+      </b-col>
+    </b-row>
 
-        <div class="row">
-            <div class="col-xl-7">
-<ActiveProjects />
-            </div>
-            <div class="col-xl-5">
-                <Task />
-                </div>
-        </div>
+    <b-row>
+      <b-col xl="7">
+        <ActiveProjects />
+      </b-col>
+      <b-col xl="5">
+        <Task />
+      </b-col>
+    </b-row>
 
-        <div class="row">
-            <div class="col-xxl-4">
-                <Member />
-            </div>  
-            <div class="col-xxl-4 col-lg-6">
-                <Chat />
-            </div>
-            <div class="col-xxl-4 col-lg-6">
-                <Status />
-            </div>
-        </div>
+    <b-row>
+      <b-col xxl="4">
+        <Member />
+      </b-col>
+      <b-col xxl="4" lg="6">
+        <Chat />
+      </b-col>
+      <b-col xxl="4" lg="6">
+        <Status />
+      </b-col>
+    </b-row>
 
-    </Layout>
+  </Layout>
 </template>

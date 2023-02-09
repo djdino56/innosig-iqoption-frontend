@@ -68,7 +68,7 @@ const basicAreaChart = {
     legend: {
       horizontalAlign: "left",
     },
-    colors: getChartColorsArray('["--vz-success"]'),
+    colors: getChartColorsArray('["--vz-primary"]'),
   },
 };
 
@@ -96,7 +96,7 @@ const splineAreaChart = {
     stroke: {
       curve: "smooth",
     },
-    colors: getChartColorsArray('["--vz-primary", "--vz-success"]'),
+    colors: getChartColorsArray('["--vz-primary", "--vz-info"]'),
     xaxis: {
       type: "datetime",
       categories: [
@@ -413,7 +413,7 @@ const datetimeAreaChart = {
         show: false,
       },
     },
-    colors: getChartColorsArray('["--vz-info"]'),
+    colors: getChartColorsArray('["--vz-primary"]'),
     annotations: {
       yaxis: [
         {
@@ -680,7 +680,7 @@ const areaNegativeChart = {
         show: false,
       },
     },
-    colors: getChartColorsArray('["--vz-success", "--vz-info"]'),
+    colors: getChartColorsArray('["--vz-info", "--vz-primary"]'),
     yaxis: {
       tickAmount: 4,
       floating: false,
@@ -763,7 +763,7 @@ const areaMonthsChart = {
         },
       },
     },
-    colors: getChartColorsArray('["--vz-danger"]'),
+    colors: getChartColorsArray('["--vz-success"]'),
     stroke: {
       width: 0,
       curve: "smooth",
@@ -811,7 +811,7 @@ const areaYearsChart = {
         },
       },
     },
-    colors: getChartColorsArray('["--vz-success"]'),
+    colors: getChartColorsArray('["--vz-primary"]'),
     dataLabels: {
       enabled: false,
     },
@@ -897,7 +897,7 @@ const areaStackedChart = {
         },
       },
     },
-    colors: getChartColorsArray('["--vz-success", "--vz-info", "--vz-light"]'),
+    colors: getChartColorsArray('["--vz-primary", "--vz-info", "--vz-light"]'),
     dataLabels: {
       enabled: false,
     },
@@ -1036,7 +1036,7 @@ const areaIrregularChart = {
       horizontalAlign: "right",
       offsetX: -10,
     },
-    colors: getChartColorsArray('["--vz-primary", "--vz-warning", "--vz-success"]'),
+    colors: getChartColorsArray('["--vz-primary", "--vz-info", "--vz-success"]'),
   },
 };
 
@@ -1198,7 +1198,7 @@ const areaNullValueChart = {
         text: "Bytes Received",
       },
     },
-    colors: getChartColorsArray('["--vz-success"]'),
+    colors: getChartColorsArray('["--vz-primary"]'),
   },
 };
 

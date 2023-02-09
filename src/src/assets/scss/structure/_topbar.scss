@@ -39,6 +39,16 @@
         .dropdown-menu.show {
             top: 13px !important;
         }
+        .notification-actions {
+            display: none;
+            position: absolute;
+            background-color: $dropdown-bg;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 7px;
+            border-top: 1px solid $border-color;
+        }
     }
 
     .btn-topbar {

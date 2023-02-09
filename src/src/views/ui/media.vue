@@ -51,11 +51,11 @@ export default {
 <template>
   <Layout>
     <PageHeader :title="title" :items="items" />
-    <div class="row">
-      <div class="col-xxl-6">
-        <div class="card">
-          <div class="card-header align-items-center d-flex">
-            <h4 class="card-title mb-0 flex-grow-1">Examples</h4>
+    <b-row>
+      <b-col xxl="6">
+        <b-card no-body>
+          <b-card-header class="align-items-center d-flex">
+            <b-card-title class="mb-0 flex-grow-1">Examples</b-card-title>
             <div class="flex-shrink-0">
               <div
                 class="form-check form-switch form-switch-right form-switch-md"
@@ -70,11 +70,10 @@ export default {
                 />
               </div>
             </div>
-          </div>
-          <!-- end card header -->
+          </b-card-header>
 
-          <div class="card-body">
-            <p class="text-muted mb-4">
+          <b-card-body>
+          <p class="text-mub-card-body mb-4">
               Use few flex utilities that allow even more flexibility and
               customization than before.
             </p>
@@ -160,17 +159,14 @@ This is some content from a media component. You can replace this with any conte
 &lt;/div&gt;
 &lt;/div&gt;</code></pre>
             </div>
-          </div>
-          <!-- end card-body -->
-        </div>
-        <!-- end card -->
-      </div>
-      <!-- end col -->
+          </b-card-body>
+        </b-card>
+      </b-col>
 
-      <div class="col-xxl-6">
-        <div class="card">
-          <div class="card-header align-items-center d-flex">
-            <h4 class="card-title mb-0 flex-grow-1">Nesting Example</h4>
+      <b-col xxl="6">
+        <b-card no-body>
+          <b-card-header class="align-items-center d-flex">
+            <b-card-title class="mb-0 flex-grow-1">Nesting Example</b-card-title>
             <div class="flex-shrink-0">
               <div
                 class="form-check form-switch form-switch-right form-switch-md"
@@ -185,10 +181,9 @@ This is some content from a media component. You can replace this with any conte
                 />
               </div>
             </div>
-          </div>
-          <!-- end card header -->
+          </b-card-header>
 
-          <div class="card-body">
+          <b-card-body>
             <p class="text-muted mb-4">
               Media objects can be infinitely nested, though we suggest you stop
               at some point. Place nested
@@ -273,20 +268,16 @@ This is some content from a media component. You can replace this with any conte
 &lt;/div&gt;
 &lt;/div&gt;</code></pre>
             </div>
-          </div>
-          <!-- end card-body -->
-        </div>
-        <!-- end card -->
-      </div>
-      <!-- end col -->
-    </div>
-    <!-- end row -->
+          </b-card-body>
+        </b-card>
+      </b-col>
+    </b-row>
 
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="card">
-          <div class="card-header align-items-center d-flex">
-            <h4 class="card-title mb-0 flex-grow-1">Media Alignment</h4>
+    <b-row>
+      <b-col lg="12">
+        <b-card no-body>
+          <b-card-header class="align-items-center d-flex">
+            <b-card-title class="mb-0 flex-grow-1">Media Alignment</b-card-title>
             <div class="flex-shrink-0">
               <div
                 class="form-check form-switch form-switch-right form-switch-md"
@@ -303,11 +294,10 @@ This is some content from a media component. You can replace this with any conte
                 />
               </div>
             </div>
-          </div>
-          <!-- end card header -->
+          </b-card-header>
 
-          <div class="card-body">
-            <p class="text-muted mb-4">
+          <b-card-body>
+          <p class="text-mub-card-body mb-4">
               The images or other media can be aligned top, middle, or bottom.
               The default is top aligned.
             </p>
@@ -428,13 +418,9 @@ This is some content from a media component. You can replace this with any conte
 &lt;/div&gt;
 &lt;/div&gt;</code></pre>
             </div>
-          </div>
-          <!-- end card-body -->
-        </div>
-        <!-- end card -->
-      </div>
-      <!-- end col -->
-    </div>
-    <!-- end row -->
+          </b-card-body>
+        </b-card>
+      </b-col>
+    </b-row>
   </Layout>
 </template>

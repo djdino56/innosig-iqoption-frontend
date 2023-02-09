@@ -51,43 +51,39 @@ export default {
   <Layout>
     <PageHeader :title="title" :items="items" />
     
-    <div class="row">
-      <div class="col-xl-12">
+    <b-row>
+      <b-col xl="12">
         <Widget />
-      </div>
-    </div>
-    <!-- end row -->
+      </b-col>
+    </b-row>
 
-    <div class="row">
-      <div class="col-xxl-3 col-md-6">
+    <b-row>
+      <b-col xxl="3" md="6">
         <SalesForecast />
-      </div>
+      </b-col>
 
-      <div class="col-xxl-3 col-md-6">
+      <b-col xxl="3" md="6">
         <DealType />
-      </div>
-      <div class="col-xxl-6">
+      </b-col>
+      <b-col xxl="6">
         <BalanceOverview />
-      </div>
-    </div>
-    <!-- end row -->
-    <div class="row">
-      <div class="col-xl-7">
+      </b-col>
+    </b-row>
+    <b-row>
+      <b-col xl="7">
           <DealStatus />
-      </div>
-      <div class="col-xl-5">
+      </b-col>
+      <b-col xl="5">
           <Tasks />
-      </div>
-    </div>
-    <!-- end row -->
-    <div class="row">
-      <div class="col-xxl-5">
+      </b-col>
+    </b-row>
+    <b-row>
+      <b-col xxl="5">
           <UpcomingActivity />
-      </div>
-      <div class="col-xxl-7">
+      </b-col>
+      <b-col xxl="7">
           <ClosingDeals />
-      </div>
-    </div>
-    <!-- end row -->
+      </b-col>
+    </b-row>
   </Layout>
 </template>

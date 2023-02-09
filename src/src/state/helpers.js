@@ -16,7 +16,8 @@ export const layoutComputed = {
     mode: (state) => state.mode,
     position: (state) => state.position,
     sidebarView: (state) => state.sidebarView,
-    sidebarColor: (state) => state.sidebarColor
+    sidebarColor: (state) => state.sidebarColor,
+    sidebarImage: (state) => state.sidebarImage
   })
 }
 
@@ -24,7 +25,7 @@ export const authMethods = mapActions('auth', ['logIn', 'logOut', 'register', 'r
 
 export const layoutMethods = mapActions('layout', 
 ['changeLayoutType', 'changeLayoutWidth', 'changeSidebarSize', 'changeTopbar', 'changeMode', 'changePosition', 'changeSidebarView',
- 'changeSidebarColor'])
+ 'changeSidebarColor','changeSidebarImage','changePreloader'])
 
 export const authFackMethods = mapActions('authfack', ['login', 'registeruser', 'logout'])
 

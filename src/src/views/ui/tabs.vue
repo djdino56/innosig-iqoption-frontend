@@ -1,68 +1,67 @@
 <script>
-    import Layout from "../../layouts/main.vue";
-    import PageHeader from "@/components/page-header";
+import Layout from "../../layouts/main.vue";
+import PageHeader from "@/components/page-header";
 
-    export default {
-        data() {
-            return {
-                title: "Tabs",
-                items: [{
-                        text: "Base UI",
-                        href: "/",
-                    },
-                    {
-                        text: "Tabs",
-                        active: true,
-                    },
-                ],
-            };
-        },
-        name: "Tabs",
-        components: {
-            Layout,
-            PageHeader,
-        },
-    };
+export default {
+    data() {
+        return {
+            title: "Tabs",
+            items: [{
+                text: "Base UI",
+                href: "/",
+            },
+            {
+                text: "Tabs",
+                active: true,
+            },
+            ],
+        };
+    },
+    name: "Tabs",
+    components: {
+        Layout,
+        PageHeader,
+    },
+};
 </script>
 
 <template>
     <Layout>
         <PageHeader :title="title" :items="items" />
-        <div class="row">
-            <div class="col-xxl-6">
+        <b-row>
+            <b-col xxl="6">
                 <h5 class="mb-3">Default Tabs</h5>
-                <div class="card">
-                    <div class="card-body">
-                        <p class="text-muted">Use <code>nav-tabs</code> class to generate a default tabbed interface.
-                        </p>
-                        <!-- Nav tabs -->
+                <b-card no-body>
+                    <b-card-body>
+                        <p class="text-muted">Use <code>b-tabs</code> to generate a default tabbed interface.</p>
+
                         <ul class="nav nav-tabs mb-3" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link" data-bs-toggle="tab" href="#home" role="tab" aria-selected="false">
+                                <b-link class="nav-link" data-bs-toggle="tab" href="#home" role="tab"
+                                    aria-selected="false">
                                     Home
-                                </a>
+                                </b-link>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" data-bs-toggle="tab" href="#product1" role="tab"
+                                <b-link class="nav-link active" data-bs-toggle="tab" href="#product1" role="tab"
                                     aria-selected="false">
                                     Product
-                                </a>
+                                </b-link>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-bs-toggle="tab" href="#messages" role="tab"
+                                <b-link class="nav-link" data-bs-toggle="tab" href="#messages" role="tab"
                                     aria-selected="false">
                                     Messages
-                                </a>
+                                </b-link>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-bs-toggle="tab" href="#settings" role="tab"
+                                <b-link class="nav-link" data-bs-toggle="tab" href="#settings" role="tab"
                                     aria-selected="true">
                                     Settings
-                                </a>
+                                </b-link>
                             </li>
                         </ul>
-                        <!-- Tab panes -->
-                        <div class="tab-content  text-muted">
+                        <div class="tab-content text-muted">
                             <div class="tab-pane" id="home" role="tabpanel">
                                 <h6>Graphic Design</h6>
                                 <p class="mb-0">
@@ -103,45 +102,44 @@
                                 </p>
                             </div>
                         </div>
-                    </div><!-- end card-body -->
-                </div><!-- end card -->
-            </div>
-            <!--end col-->
+                    </b-card-body>
+                </b-card>
+            </b-col>
 
-            <div class="col-xxl-6">
+            <b-col xxl="6">
                 <h5 class="mb-3">Justify Tabs</h5>
-                <div class="card">
-                    <div class="card-body">
-                        <p class="text-muted">Use <code>nav-justified</code> class to generate equal-width elements with
-                            all horizontal space will be occupied by nav links.</p>
-                        <!-- Nav tabs -->
+                <b-card no-body>
+                    <b-card-body>
+                        <p class="text-muted">Use <code>&lt;b-nav tabs justified&gt;</code> class to generate
+                            equal-width elements with all horizontal space will be occupied by nav links.</p>
+
                         <ul class="nav nav-tabs nav-justified mb-3" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link" data-bs-toggle="tab" href="#base-justified-home" role="tab"
+                                <b-link class="nav-link" data-bs-toggle="tab" href="#base-justified-home" role="tab"
                                     aria-selected="false">
                                     Home
-                                </a>
+                                </b-link>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" data-bs-toggle="tab" href="#base-justified-product"
+                                <b-link class="nav-link active" data-bs-toggle="tab" href="#base-justified-product"
                                     role="tab" aria-selected="false">
                                     Product
-                                </a>
+                                </b-link>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-bs-toggle="tab" href="#base-justified-messages" role="tab"
+                                <b-link class="nav-link" data-bs-toggle="tab" href="#base-justified-messages" role="tab"
                                     aria-selected="false">
                                     Messages
-                                </a>
+                                </b-link>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-bs-toggle="tab" href="#base-justified-settings" role="tab"
+                                <b-link class="nav-link" data-bs-toggle="tab" href="#base-justified-settings" role="tab"
                                     aria-selected="true">
                                     Settings
-                                </a>
+                                </b-link>
                             </li>
                         </ul>
-                        <!-- Tab panes -->
+
                         <div class="tab-content  text-muted">
                             <div class="tab-pane" id="base-justified-home" role="tabpanel">
                                 <h6>Graphic Design</h6>
@@ -183,36 +181,38 @@
                                 </p>
                             </div>
                         </div>
-                    </div><!-- end card-body -->
-                </div><!-- end card -->
-            </div>
-            <!--end col-->
-        </div>
-        <!--end row-->
+                    </b-card-body>
+                </b-card>
+            </b-col>
+        </b-row>
 
-        <div class="row">
-            <div class="col-xxl-6">
+        <b-row>
+            <b-col xxl="6">
                 <h5 class="mb-3">Pills Tabs</h5>
-                <div class="card">
-                    <div class="card-body">
-                        <p class="text-muted">Use <code>nav-pills</code> class to generate particular selected nav links
-                            without borders.</p>
-                        <!-- Nav tabs -->
+                <b-card no-body>
+                    <b-card-body>
+                        <p class="text-muted">Use <code>&lt;b-nav card-header pills&gt;</code> class to generate
+                            particular selected nav links without borders.</p>
+
                         <ul class="nav nav-pills nav-primary mb-3" role="tablist">
                             <li class="nav-item waves-effect waves-light">
-                                <a class="nav-link active" data-bs-toggle="tab" href="#home-1" role="tab">Home</a>
+                                <b-link class="nav-link active" data-bs-toggle="tab" href="#home-1" role="tab">Home
+                                </b-link>
                             </li>
                             <li class="nav-item waves-effect waves-light">
-                                <a class="nav-link" data-bs-toggle="tab" href="#profile-1" role="tab">Profile</a>
+                                <b-link class="nav-link" data-bs-toggle="tab" href="#profile-1" role="tab">Profile
+                                </b-link>
                             </li>
                             <li class="nav-item waves-effect waves-light">
-                                <a class="nav-link" data-bs-toggle="tab" href="#messages-1" role="tab">Messages</a>
+                                <b-link class="nav-link" data-bs-toggle="tab" href="#messages-1" role="tab">Messages
+                                </b-link>
                             </li>
                             <li class="nav-item waves-effect waves-light">
-                                <a class="nav-link" data-bs-toggle="tab" href="#settings-1" role="tab">Settings</a>
+                                <b-link class="nav-link" data-bs-toggle="tab" href="#settings-1" role="tab">Settings
+                                </b-link>
                             </li>
                         </ul>
-                        <!-- Tab panes -->
+
                         <div class="tab-content text-muted">
                             <div class="tab-pane active" id="home-1" role="tabpanel">
                                 <div class="d-flex">
@@ -296,42 +296,45 @@
                                 </div>
                             </div>
                         </div>
-                    </div><!-- end card-body -->
-                </div><!-- end card -->
-            </div>
-            <!--end col-->
+                    </b-card-body>
+                </b-card>
+            </b-col>
 
-            <div class="col-xxl-6">
+            <b-col xxl="6">
                 <h5 class="mb-3">Pills Justified Tabs</h5>
-                <div class="card">
-                    <div class="card-body">
-                        <p class="text-muted">Use <code>nav-pills nav-justified</code> class to generate equal-width
-                            elements without borders, all horizontal space will be occupied by nav links.</p>
-                        <!-- Nav tabs -->
+                <b-card no-body>
+                    <b-card-body>
+                        <p class="text-muted">Use <code>&lt;b-nav card-header pills justified&gt;</code> class to
+                            generate equal-width elements without borders, all horizontal space will be occupied by nav
+                            links.</p>
+
                         <ul class="nav nav-pills nav-justified mb-3" role="tablist">
                             <li class="nav-item waves-effect waves-light">
-                                <a class="nav-link active" data-bs-toggle="tab" href="#pill-justified-home-1"
+                                <b-link class="nav-link active" data-bs-toggle="tab" href="#pill-justified-home-1"
                                     role="tab">
                                     Home
-                                </a>
+                                </b-link>
                             </li>
                             <li class="nav-item waves-effect waves-light">
-                                <a class="nav-link" data-bs-toggle="tab" href="#pill-justified-profile-1" role="tab">
+                                <b-link class="nav-link" data-bs-toggle="tab" href="#pill-justified-profile-1"
+                                    role="tab">
                                     Profile
-                                </a>
+                                </b-link>
                             </li>
                             <li class="nav-item waves-effect waves-light">
-                                <a class="nav-link" data-bs-toggle="tab" href="#pill-justified-messages-1" role="tab">
+                                <b-link class="nav-link" data-bs-toggle="tab" href="#pill-justified-messages-1"
+                                    role="tab">
                                     Messages
-                                </a>
+                                </b-link>
                             </li>
                             <li class="nav-item waves-effect waves-light">
-                                <a class="nav-link" data-bs-toggle="tab" href="#pill-justified-settings-1" role="tab">
+                                <b-link class="nav-link" data-bs-toggle="tab" href="#pill-justified-settings-1"
+                                    role="tab">
                                     Settings
-                                </a>
+                                </b-link>
                             </li>
                         </ul>
-                        <!-- Tab panes -->
+
                         <div class="tab-content text-muted">
                             <div class="tab-pane active" id="pill-justified-home-1" role="tabpanel">
                                 <div class="d-flex">
@@ -415,38 +418,36 @@
                                 </div>
                             </div>
                         </div>
-                    </div><!-- end card-body -->
-                </div><!-- end card -->
-            </div>
-            <!--end col-->
-        </div>
-        <!--end row-->
+                    </b-card-body>
+                </b-card>
+            </b-col>
+        </b-row>
 
-        <div class="row">
-            <div class="col-xxl-6">
+        <b-row>
+            <b-col xxl="6">
                 <h5 class="mb-3">Vertical Nav Tabs</h5>
-                <div class="card">
-                    <div class="card-body">
+                <b-card no-body>
+                    <b-card-body>
                         <p class="text-muted">Use <code>flex-column</code> class to create Vertical nav tabs.</p>
-                        <div class="row">
-                            <div class="col-md-3">
+                        <b-row>
+                            <b-col md="3">
                                 <div class="nav flex-column nav-pills text-center" id="v-pills-tab" role="tablist"
                                     aria-orientation="vertical">
-                                    <a class="nav-link mb-2 active" id="v-pills-home-tab" data-bs-toggle="pill"
+                                    <b-link class="nav-link mb-2 active" id="v-pills-home-tab" data-bs-toggle="pill"
                                         href="#v-pills-home" role="tab" aria-controls="v-pills-home"
-                                        aria-selected="true">Home</a>
-                                    <a class="nav-link mb-2" id="v-pills-profile-tab" data-bs-toggle="pill"
+                                        aria-selected="true">Home</b-link>
+                                    <b-link class="nav-link mb-2" id="v-pills-profile-tab" data-bs-toggle="pill"
                                         href="#v-pills-profile" role="tab" aria-controls="v-pills-profile"
-                                        aria-selected="false">Profile</a>
-                                    <a class="nav-link mb-2" id="v-pills-messages-tab" data-bs-toggle="pill"
+                                        aria-selected="false">Profile</b-link>
+                                    <b-link class="nav-link mb-2" id="v-pills-messages-tab" data-bs-toggle="pill"
                                         href="#v-pills-messages" role="tab" aria-controls="v-pills-messages"
-                                        aria-selected="false">Messages</a>
-                                    <a class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill"
+                                        aria-selected="false">Messages</b-link>
+                                    <b-link class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill"
                                         href="#v-pills-settings" role="tab" aria-controls="v-pills-settings"
-                                        aria-selected="false">Settings</a>
+                                        aria-selected="false">Settings</b-link>
                                 </div>
-                            </div><!-- end col -->
-                            <div class="col-md-9">
+                            </b-col>
+                            <b-col md="9">
                                 <div class="tab-content text-muted mt-4 mt-md-0" id="v-pills-tabContent">
                                     <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
                                         aria-labelledby="v-pills-home-tab">
@@ -530,17 +531,15 @@
                                         </p>
                                     </div>
                                 </div>
-                            </div><!--  end col -->
-                        </div>
-                        <!--end row-->
-                    </div><!-- end card-body -->
-                </div><!-- end card -->
-            </div>
-            <!--end col-->
-            <div class="col-xxl-6">
+                            </b-col>
+                        </b-row>
+                    </b-card-body>
+                </b-card>
+            </b-col>
+            <b-col xxl="6">
                 <h5 class="mb-3">Card Header Tabs</h5>
-                <div class="card">
-                    <div class="card-header align-items-center d-flex">
+                <b-card no-body>
+                    <b-card-header class="align-items-center d-flex">
                         <div class="flex-grow-1 oveflow-hidden">
                             <p class="text-muted text-truncates mb-0">Use <code>card-header-tabs</code> class to create
                                 card header tabs.</p>
@@ -549,25 +548,25 @@
                             <ul class="nav justify-content-end nav-tabs-custom rounded card-header-tabs border-bottom-0"
                                 role="tablist">
                                 <li class="nav-item">
-                                    <a class="nav-link active" data-bs-toggle="tab" href="#home2" role="tab">
+                                    <b-link class="nav-link active" data-bs-toggle="tab" href="#home2" role="tab">
                                         Home
-                                    </a>
+                                    </b-link>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" data-bs-toggle="tab" href="#profile2" role="tab">
+                                    <b-link class="nav-link" data-bs-toggle="tab" href="#profile2" role="tab">
                                         Profile
-                                    </a>
+                                    </b-link>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" data-bs-toggle="tab" href="#messages2" role="tab">
+                                    <b-link class="nav-link" data-bs-toggle="tab" href="#messages2" role="tab">
                                         Message
-                                    </a>
+                                    </b-link>
                                 </li>
                             </ul>
                         </div>
-                    </div>
-                    <div class="card-body">
-                        <!-- Tab panes -->
+                    </b-card-header>
+                    <b-card-body>
+
                         <div class="tab-content text-muted">
                             <div class="tab-pane active" id="home2" role="tabpanel">
                                 <p class="flex-grow-1 mb-0"><img src="@/assets/images/users/avatar-2.jpg" alt=""
@@ -613,46 +612,43 @@
                                 </p>
                             </div>
                         </div>
-                    </div><!-- end card-body -->
-                </div><!-- end card -->
-            </div>
-            <!--end col-->
-        </div>
-        <!--end row-->
+                    </b-card-body>
+                </b-card>
+            </b-col>
+        </b-row>
 
-        <div class="row">
-
-            <div class="col-xxl-6">
+        <b-row>
+            <b-col xxl="6">
                 <h5 class="mb-3">Custom Tabs Bordered</h5>
-                <div class="card">
-                    <div class="card-body">
+                <b-card no-body>
+                    <b-card-body>
                         <p class="text-muted">Use <code>nav-tabs-custom</code> class to create custom tabs with borders.
                         </p>
-                        <!-- Nav tabs -->
+
                         <ul class="nav nav-tabs nav-tabs-custom nav-success nav-justified mb-3" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" data-bs-toggle="tab" href="#home1" role="tab">
+                                <b-link class="nav-link active" data-bs-toggle="tab" href="#home1" role="tab">
                                     Home
-                                </a>
+                                </b-link>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-bs-toggle="tab" href="#profile1" role="tab">
+                                <b-link class="nav-link" data-bs-toggle="tab" href="#profile1" role="tab">
                                     Profile
-                                </a>
+                                </b-link>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-bs-toggle="tab" href="#messages1" role="tab">
+                                <b-link class="nav-link" data-bs-toggle="tab" href="#messages1" role="tab">
                                     Messages
-                                </a>
+                                </b-link>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-bs-toggle="tab" href="#settings1" role="tab">
+                                <b-link class="nav-link" data-bs-toggle="tab" href="#settings1" role="tab">
                                     Settings
-                                </a>
+                                </b-link>
                             </li>
                         </ul>
 
-                        <!-- Tab panes -->
+
                         <div class="tab-content text-muted">
                             <div class="tab-pane active" id="home1" role="tabpanel">
                                 <div class="d-flex">
@@ -665,8 +661,10 @@
                                         Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo
                                         park Austin. Cred vinyl keffiyeh DIY salvia PBR.
                                         <div class="mt-2">
-                                            <a href="javascript:void(0);" class="btn btn-sm btn-soft-primary">Read More
-                                                <i class="ri-arrow-right-line ms-1 align-middle"></i></a>
+                                            <b-link href="javascript:void(0);" class="btn btn-sm btn-soft-primary">Read
+                                                More
+                                                <i class="ri-arrow-right-line ms-1 align-middle"></i>
+                                            </b-link>
                                         </div>
                                     </div>
                                 </div>
@@ -683,8 +681,10 @@
                                         grass by the trickling stream; and, as I lie close to the earth, a thousand
                                         unknown.
                                         <div class="mt-2">
-                                            <a href="javascript:void(0);" class="btn btn-sm btn-soft-primary">Read More
-                                                <i class="ri-arrow-right-line ms-1 align-middle"></i></a>
+                                            <b-link href="javascript:void(0);" class="btn btn-sm btn-soft-primary">Read
+                                                More
+                                                <i class="ri-arrow-right-line ms-1 align-middle"></i>
+                                            </b-link>
                                         </div>
                                     </div>
                                 </div>
@@ -700,8 +700,10 @@
                                         Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore
                                         carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony.
                                         <div class="mt-2">
-                                            <a href="javascript:void(0);" class="btn btn-sm btn-soft-primary">Read More
-                                                <i class="ri-arrow-right-line ms-1 align-middle"></i></a>
+                                            <b-link href="javascript:void(0);" class="btn btn-sm btn-soft-primary">Read
+                                                More
+                                                <i class="ri-arrow-right-line ms-1 align-middle"></i>
+                                            </b-link>
                                         </div>
                                     </div>
                                 </div>
@@ -717,51 +719,53 @@
                                         with longing, Oh, would I could describe these conceptions, could impress upon
                                         paper all that is living so full and warm within me, that it might be the.
                                         <div class="mt-2">
-                                            <a href="javascript:void(0);" class="btn btn-sm btn-soft-primary">Read More
-                                                <i class="ri-arrow-right-line ms-1 align-middle"></i></a>
+                                            <b-link href="javascript:void(0);" class="btn btn-sm btn-soft-primary">Read
+                                                More
+                                                <i class="ri-arrow-right-line ms-1 align-middle"></i>
+                                            </b-link>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div><!-- end card-body -->
-                </div><!-- end card -->
-            </div>
-            <!--end col-->
+                    </b-card-body>
+                </b-card>
+            </b-col>
 
-            <div class="col-xxl-6">
+            <b-col xxl="6">
                 <h5 class="mb-3">Arrow Nav tabs</h5>
-                <div class="card">
-                    <div class="card-body">
+                <b-card no-body>
+                    <b-card-body>
                         <p class="text-muted">Use <code>arrow-navtabs </code>class to create arrow nav tabs.</p>
                         <ul class="nav nav-pills arrow-navtabs nav-success bg-light mb-3" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" data-bs-toggle="tab" href="#arrow-overview" role="tab">
+                                <b-link class="nav-link active" data-bs-toggle="tab" href="#arrow-overview" role="tab">
                                     <span class="d-block d-sm-none"><i class="mdi mdi-home-variant"></i></span>
                                     <span class="d-none d-sm-block">Overview</span>
-                                </a>
+                                </b-link>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-bs-toggle="tab" href="#arrow-profile" role="tab">
+                                <b-link class="nav-link" data-bs-toggle="tab" href="#arrow-profile" role="tab">
                                     <span class="d-block d-sm-none"><i class="mdi mdi-account"></i></span>
                                     <span class="d-none d-sm-block">Profile</span>
-                                </a>
+                                </b-link>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-bs-toggle="tab" href="#arrow-contact" role="tab">
+                                <b-link class="nav-link" data-bs-toggle="tab" href="#arrow-contact" role="tab">
                                     <span class="d-block d-sm-none"><i class="mdi mdi-email"></i></span>
                                     <span class="d-none d-sm-block">Contact</span>
-                                </a>
+                                </b-link>
                             </li>
                         </ul>
-                        <!-- Tab panes -->
+
                         <div class="tab-content text-muted">
                             <div class="tab-pane active" id="arrow-overview" role="tabpanel">
                                 <h6>Give your text a good structure</h6>
                                 <p class="mb-0">
                                     Contrary to popular belief, you don’t have to work endless nights and hours to
-                                    create a <a href="javascript:void(0);"
-                                        class="text-decoration-underline"><b>Fantastic Design</b></a> by using
+                                    cb-linkeate a <b-link href="javascript:void(0);" class="text-decoration-underline">
+                                        <b>Fantastic Design</b>
+                                    </b-link> by using
                                     complicated 3D elements. Flat design is your friend. Remember that. And the great
                                     thing about flat design is that it has become more and more popular over the years,
                                     which is excellent news to the beginner and advanced designer.
@@ -771,8 +775,9 @@
                                 <h6>Use a color palette</h6>
                                 <p class="mb-0">
                                     Opposites attract, and that’s a fact. It’s in our nature to be interested in the
-                                    unusual, and that’s why using contrasting colors in <a href="javascript:void(0);"
-                                        class="text-decoration-underline"><b>Graphic Design</b></a> is a must. It’s
+                                    ub-linkusual, and that’s why using contrasting colors in <b-link
+                                        href="javascript:void(0);" class="text-decoration-underline"><b>Graphic
+                                            Design</b></b-link> is a must. It’s
                                     eye-catching, it makes a statement, it’s impressive graphic design. Increase or
                                     decrease the letter spacing depending on the situation and try, try again until it
                                     looks right, and each letter has the perfect spot of its own.
@@ -785,52 +790,50 @@
                                     design, and tie them all together and make them work. In an awareness campaign, it
                                     is vital for people to begin put 2 and 2 together and begin to recognize your cause.
                                     Consistency piques people’s interest is that it has become more and more popular
-                                    over the years, which is excellent news to the beginner and advanced <a
+                                    over the years, which is excellent news to the beginner and advanced <b-link
                                         href="javascript:void(0);" class="text-decoration-underline"><b>Contact
-                                            Designer</b></a>.
+                                            Designer</b></b-link>.
                                 </p>
                             </div>
                         </div>
-                    </div><!-- end card-body -->
-                </div><!-- end card -->
-            </div>
-            <!--end col-->
-        </div>
-        <!--end row-->
+                    </b-card-body>
+                </b-card>
+            </b-col>
+        </b-row>
 
-        <div class="row">
-            <div class="col-xxl-6">
+        <b-row>
+            <b-col xxl="6">
                 <h5 class="mb-3">Header Justify Tabs</h5>
-                <div class="card">
-                    <div class="card-header align-items-xl-center d-xl-flex">
+                <b-card no-body>
+                    <b-card-header class="align-items-xl-center d-xl-flex">
                         <p class="text-muted flex-grow-1 mb-xl-0">Use <code>card-header-pills</code> class to create
                             header justify tab.</p>
                         <div class="flex-shrink-0">
                             <ul class="nav nav-pills card-header-pills" role="tablist">
                                 <li class="nav-item">
-                                    <a class="nav-link active" data-bs-toggle="tab" href="#developers" role="tab">
+                                    <b-link class="nav-link active" data-bs-toggle="tab" href="#developers" role="tab">
                                         Developers
-                                    </a>
+                                    </b-link>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" data-bs-toggle="tab" href="#designers" role="tab">
+                                    <b-link class="nav-link" data-bs-toggle="tab" href="#designers" role="tab">
                                         Designers
-                                    </a>
+                                    </b-link>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" data-bs-toggle="tab" href="#managers" role="tab">
+                                    <b-link class="nav-link" data-bs-toggle="tab" href="#managers" role="tab">
                                         Managers
-                                    </a>
+                                    </b-link>
                                 </li>
                             </ul>
                         </div>
-                    </div><!-- end card header -->
-                    <div class="card-body">
-                        <!-- Tab panes -->
+                    </b-card-header>
+                    <b-card-body>
+
                         <div class="tab-content text-muted">
                             <div class="tab-pane active" id="developers" role="tabpanel">
-                                <div class="row">
-                                    <div class="col-sm-6">
+                                <b-row>
+                                    <b-col sm="6">
                                         <div class="d-flex">
                                             <div class="flex-shrink-0">
                                                 <img src="@/assets/images/users/avatar-8.jpg" alt=""
@@ -861,9 +864,8 @@
                                                 <p class="mb-0">1025 Followers</p>
                                             </div>
                                         </div>
-                                    </div>
-                                    <!--end col-->
-                                    <div class="col-sm-6">
+                                    </b-col>
+                                    <b-col sm="6">
                                         <div class="d-flex mt-3 mt-sm-0">
                                             <div class="flex-shrink-0">
                                                 <img src="@/assets/images/users/avatar-5.jpg" alt=""
@@ -894,14 +896,12 @@
                                                 <p class="mb-0">1.5K Followers</p>
                                             </div>
                                         </div>
-                                    </div>
-                                    <!--end col-->
-                                </div>
-                                <!--end row-->
+                                    </b-col>
+                                </b-row>
                             </div>
                             <div class="tab-pane" id="designers" role="tabpanel">
-                                <div class="row">
-                                    <div class="col-sm-6">
+                                <b-row>
+                                    <b-col sm="6">
                                         <div class="d-flex">
                                             <div class="flex-shrink-0">
                                                 <img src="@/assets/images/users/avatar-1.jpg" alt=""
@@ -932,9 +932,8 @@
                                                 <p class="mb-0">4120 Followers</p>
                                             </div>
                                         </div>
-                                    </div>
-                                    <!--end col-->
-                                    <div class="col-sm-6">
+                                    </b-col>
+                                    <b-col sm="6">
                                         <div class="d-flex mt-3 mt-sm-0">
                                             <div class="flex-shrink-0">
                                                 <img src="@/assets/images/users/avatar-4.jpg" alt=""
@@ -965,14 +964,12 @@
                                                 <p class="mb-0">2K Followers</p>
                                             </div>
                                         </div>
-                                    </div>
-                                    <!--end col-->
-                                </div>
-                                <!--end row-->
+                                    </b-col>
+                                </b-row>
                             </div>
                             <div class="tab-pane" id="managers" role="tabpanel">
-                                <div class="row">
-                                    <div class="col-sm-6">
+                                <b-row>
+                                    <b-col sm="6">
                                         <div class="d-flex">
                                             <div class="flex-shrink-0">
                                                 <img src="@/assets/images/users/avatar-7.jpg" alt=""
@@ -1003,9 +1000,8 @@
                                                 <p class="mb-0">2100 Followers</p>
                                             </div>
                                         </div>
-                                    </div>
-                                    <!--end col-->
-                                    <div class="col-sm-6">
+                                    </b-col>
+                                    <b-col sm="6">
                                         <div class="d-flex mt-3 mt-sm-0">
                                             <div class="flex-shrink-0">
                                                 <img src="@/assets/images/users/avatar-5.jpg" alt=""
@@ -1036,21 +1032,18 @@
                                                 <p class="mb-0">9800 Followers</p>
                                             </div>
                                         </div>
-                                    </div>
-                                    <!--end col-->
-                                </div>
-                                <!--end row-->
+                                    </b-col>
+                                </b-row>
                             </div>
                         </div>
-                    </div><!-- end card-body -->
-                </div><!-- end card -->
-            </div>
-            <!--end col-->
+                    </b-card-body>
+                </b-card>
+            </b-col>
 
-            <div class="col-xxl-6">
+            <b-col xxl="6">
                 <h5 class="mb-3">Bottom Card Nav Tabs</h5>
-                <div class="card">
-                    <div class="card-body">
+                <b-card no-body>
+                    <b-card-body>
                         <p class="text-muted">Use <code>card-footer-tabs</code> class to create the bottom card nav
                             justify tab.</p>
                         <div class="tab-content text-muted">
@@ -1094,70 +1087,65 @@
                                 </p>
                             </div>
                         </div>
-                    </div><!-- end card-body -->
-                    <div class="card-footer bg-transparent border-top">
-                        <!-- Nav tabs -->
+                    </b-card-body>
+                    <b-card-footer class="bg-transparent border-top">
+
                         <ul class="nav nav-pills nav-justified card-footer-tabs fs-17" role="tablist">
-                            <li class="nav-item" data-bs-toggle="tooltip" data-bs-trigger="hover"
-                                data-bs-placement="top" title="Home">
-                                <a class="nav-link active" data-bs-toggle="tab" href="#bottomtabs-home" role="tab">
+                            <li class="nav-item" v-b-tooltip.hover title="Home">
+                                <b-link class="nav-link active" data-bs-toggle="tab" href="#bottomtabs-home" role="tab">
                                     <i class="ri-home-3-line"></i>
-                                </a>
+                                </b-link>
                             </li>
-                            <li class="nav-item" data-bs-toggle="tooltip" data-bs-trigger="hover"
-                                data-bs-placement="top" title="Profile">
-                                <a class="nav-link" data-bs-toggle="tab" href="#bottomtabs-profile" role="tab">
+                            <li class="nav-item" v-b-tooltip.hover title="Profile">
+                                <b-link class="nav-link" data-bs-toggle="tab" href="#bottomtabs-profile" role="tab">
                                     <i class="ri-user-2-line"></i>
-                                </a>
+                                </b-link>
                             </li>
-                            <li class="nav-item" data-bs-toggle="tooltip" data-bs-trigger="hover"
-                                data-bs-placement="top" title="Messages">
-                                <a class="nav-link" data-bs-toggle="tab" href="#bottomtabs-messages" role="tab">
+                            <li class="nav-item" v-b-tooltip.hover title="Messages">
+                                <b-link class="nav-link" data-bs-toggle="tab" href="#bottomtabs-messages" role="tab">
                                     <i class="ri-mail-line"></i>
-                                </a>
+                                </b-link>
                             </li>
                         </ul>
-                    </div>
-                </div><!-- end card -->
-            </div>
-            <!--end col-->
-        </div>
-        <!--end row-->
+                    </b-card-footer>
+                </b-card>
+            </b-col>
+        </b-row>
 
-        <div class="row">
-            <div class="col-xxl-6">
+        <b-row>
+            <b-col xxl="6">
                 <h5 class="mb-3">Custom Hover Tabs</h5>
-                <div class="card">
-                    <div class="card-body">
+                <b-card no-body>
+                    <b-card-body>
                         <p class="text-muted">Use <code>custom-hover-nav-tabs</code> class to create custom hover tabs.
                         </p>
-                    </div>
+                    </b-card-body>
                     <div class="border">
                         <ul class="nav nav-pills custom-hover-nav-tabs">
                             <li class="nav-item">
-                                <a href="#custom-hover-customere" data-bs-toggle="tab" aria-expanded="false"
+                                <b-link href="#custom-hover-customere" data-bs-toggle="tab" aria-expanded="false"
                                     class="nav-link active">
                                     <i class="ri-user-fill nav-icon nav-tab-position"></i>
                                     <h5 class="nav-titl nav-tab-position m-0">Customer</h5>
-                                </a>
+                                </b-link>
                             </li>
                             <li class="nav-item">
-                                <a href="#custom-hover-description" data-bs-toggle="tab" aria-expanded="true"
+                                <b-link href="#custom-hover-description" data-bs-toggle="tab" aria-expanded="true"
                                     class="nav-link">
                                     <i class="ri-file-text-line nav-icon nav-tab-position"></i>
                                     <h5 class="nav-titl nav-tab-position m-0">Description</h5>
-                                </a>
+                                </b-link>
                             </li>
                             <li class="nav-item">
-                                <a href="#custom-hover-reviews" data-bs-toggle="tab" aria-expanded="false"
+                                <b-link href="#custom-hover-reviews" data-bs-toggle="tab" aria-expanded="false"
                                     class="nav-link">
                                     <i class="ri-star-half-line nav-icon nav-tab-position"></i>
                                     <h5 class="nav-titl nav-tab-position m-0">Reviews</h5>
-                                </a>
+                                </b-link>
                             </li>
                         </ul>
                     </div>
-                    <div class="card-body">
+                    <b-card-body>
                         <div class="tab-content text-muted">
                             <div class="tab-pane show active" id="custom-hover-customere">
                                 <h6>Customer Details</h6>
@@ -1249,39 +1237,41 @@
                                 </div>
                             </div>
                         </div>
-                    </div><!-- end card-body -->
-                </div>
-            </div>
-            <!--end col-->
+                    </b-card-body>
+                </b-card>
+            </b-col>
 
-            <div class="col-xxl-6">
+            <b-col xxl="6">
                 <h5 class="mb-3">Custom Vertical Tabs</h5>
-                <div class="card">
-                    <div class="card-body">
+                <b-card no-body>
+                    <b-card-body>
                         <p class="text-muted">Use <code>custom-verti-nav-pills</code> class to create custom vertical
                             tabs.</p>
-                        <div class="row">
-                            <div class="col-lg-3">
+                        <b-row>
+                            <b-col lg="3">
                                 <div class="nav nav-pills flex-column nav-pills-tab custom-verti-nav-pills text-center"
                                     role="tablist" aria-orientation="vertical">
-                                    <a class="nav-link active show" id="custom-v-pills-home-tab" data-bs-toggle="pill"
-                                        href="#custom-v-pills-home" role="tab" aria-controls="custom-v-pills-home"
-                                        aria-selected="true">
+                                    <b-link class="nav-link active show" id="custom-v-pills-home-tab"
+                                        data-bs-toggle="pill" href="#custom-v-pills-home" role="tab"
+                                        aria-controls="custom-v-pills-home" aria-selected="true">
                                         <i class="ri-home-4-line d-block fs-20 mb-1"></i>
-                                        Home</a>
-                                    <a class="nav-link" id="custom-v-pills-profile-tab" data-bs-toggle="pill"
+                                        Home
+                                    </b-link>
+                                    <b-link class="nav-link" id="custom-v-pills-profile-tab" data-bs-toggle="pill"
                                         href="#custom-v-pills-profile" role="tab" aria-controls="custom-v-pills-profile"
                                         aria-selected="false">
                                         <i class="ri-user-2-line d-block fs-20 mb-1"></i>
-                                        Profile</a>
-                                    <a class="nav-link" id="custom-v-pills-messages-tab" data-bs-toggle="pill"
+                                        Profile
+                                    </b-link>
+                                    <b-link class="nav-link" id="custom-v-pills-messages-tab" data-bs-toggle="pill"
                                         href="#custom-v-pills-messages" role="tab"
                                         aria-controls="custom-v-pills-messages" aria-selected="false">
                                         <i class="ri-mail-line d-block fs-20 mb-1"></i>
-                                        Messages</a>
+                                        Messages
+                                    </b-link>
                                 </div>
-                            </div> <!-- end col-->
-                            <div class="col-lg-9">
+                            </b-col>
+                            <b-col lg="9">
                                 <div class="tab-content text-muted mt-3 mt-lg-0">
                                     <div class="tab-pane fade active show" id="custom-v-pills-home" role="tabpanel"
                                         aria-labelledby="custom-v-pills-home-tab">
@@ -1312,7 +1302,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!--end tab-pane-->
                                     <div class="tab-pane fade" id="custom-v-pills-profile" role="tabpanel"
                                         aria-labelledby="custom-v-pills-profile-tab">
                                         <div class="d-flex mb-4">
@@ -1341,7 +1330,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!--end tab-pane-->
                                     <div class="tab-pane fade" id="custom-v-pills-messages" role="tabpanel"
                                         aria-labelledby="custom-v-pills-messages-tab">
                                         <div class="d-flex mb-4">
@@ -1371,46 +1359,41 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!--end tab-pane-->
                                 </div>
-                            </div> <!-- end col-->
-                        </div> <!-- end row-->
-                    </div><!-- end card-body -->
-                </div>
-                <!--end card-->
-            </div>
-            <!--end col-->
+                            </b-col>
+                        </b-row>
+                    </b-card-body>
+                </b-card>
+            </b-col>
+        </b-row>
 
-        </div>
-        <!--end row-->
-
-        <div class="row">
-            <div class="col-xxl-6">
+        <b-row>
+            <b-col xxl="6">
                 <h5 class="mb-3">Animation Nav</h5>
-                <div class="card">
-                    <div class="card-body">
+                <b-card no-body>
+                    <b-card-body>
                         <p class="text-muted">Use <code>animation-nav</code> class to create animated tabs.</p>
-                        <!-- Nav tabs -->
+
                         <ul class="nav nav-pills animation-nav nav-justified gap-2 mb-3" role="tablist">
                             <li class="nav-item waves-effect waves-light">
-                                <a class="nav-link active" data-bs-toggle="tab" href="#animation-home" role="tab">
+                                <b-link class="nav-link active" data-bs-toggle="tab" href="#animation-home" role="tab">
                                     Home
-                                </a>
+                                </b-link>
                             </li>
                             <li class="nav-item waves-effect waves-light">
-                                <a class="nav-link" data-bs-toggle="tab" href="#animation-profile" role="tab">
+                                <b-link class="nav-link" data-bs-toggle="tab" href="#animation-profile" role="tab">
                                     Profile
-                                </a>
+                                </b-link>
                             </li>
                             <li class="nav-item waves-effect waves-light">
-                                <a class="nav-link" data-bs-toggle="tab" href="#animation-messages" role="tab">
+                                <b-link class="nav-link" data-bs-toggle="tab" href="#animation-messages" role="tab">
                                     Messages
-                                </a>
+                                </b-link>
                             </li>
                             <li class="nav-item waves-effect waves-light">
-                                <a class="nav-link" data-bs-toggle="tab" href="#animation-settings" role="tab">
+                                <b-link class="nav-link" data-bs-toggle="tab" href="#animation-settings" role="tab">
                                     Settings
-                                </a>
+                                </b-link>
                             </li>
                         </ul>
                         <div class="tab-content text-muted">
@@ -1496,43 +1479,42 @@
                                 </div>
                             </div>
                         </div>
-                    </div><!-- end card-body -->
-                </div>
-            </div>
-            <!--end col-->
-            <div class="col-xxl-6">
+                    </b-card-body>
+                </b-card>
+            </b-col>
+            <b-col xxl="6">
                 <h5 class="mb-3">Nav with Badge</h5>
-                <div class="card">
-                    <div class="card-body">
+                <b-card no-body>
+                    <b-card-body>
                         <p class="text-muted">Example of nav tabs with badge wrapped in nav item.</p>
-                        <!-- Nav tabs -->
+
                         <ul class="nav nav-tabs nav-justified mb-3" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link" data-bs-toggle="tab" href="#nav-badge-home" role="tab"
+                                <b-link class="nav-link" data-bs-toggle="tab" href="#nav-badge-home" role="tab"
                                     aria-selected="false">
                                     Explore
-                                </a>
+                                </b-link>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link align-middle" data-bs-toggle="tab" href="#nav-badge-profile"
+                                <b-link class="nav-link align-middle" data-bs-toggle="tab" href="#nav-badge-profile"
                                     role="tab" aria-selected="false">
-                                    Profile <span class="badge bg-success">Done</span>
-                                </a>
+                                    Profile <b-badge variant="success">Done</b-badge>
+                                </b-link>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link align-middle" data-bs-toggle="tab" href="#nav-badge-messages"
+                                <b-link class="nav-link align-middle" data-bs-toggle="tab" href="#nav-badge-messages"
                                     role="tab" aria-selected="false">
-                                    Messages <span class="badge bg-danger rounded-circle">5</span>
-                                </a>
+                                    Messages <b-badge variant="danger" class="rounded-circle">5</b-badge>
+                                </b-link>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" data-bs-toggle="tab" href="#nav-badge-settings" role="tab"
-                                    aria-selected="true">
+                                <b-link class="nav-link active" data-bs-toggle="tab" href="#nav-badge-settings"
+                                    role="tab" aria-selected="true">
                                     Settings
-                                </a>
+                                </b-link>
                             </li>
                         </ul>
-                        <!-- Nav tabs -->
+
                         <div class="tab-content text-muted">
                             <div class="tab-pane active" id="nav-badge-home" role="tabpanel">
                                 <div class="d-flex">
@@ -1616,45 +1598,43 @@
                                 </div>
                             </div>
                         </div>
-                    </div><!-- end card-body -->
-                </div>
-                <!--end card-->
-            </div>
-            <!--end col-->
-        </div>
+                    </b-card-body>
+                </b-card>
+            </b-col>
+        </b-row>
 
-        <div class="row">
-            <div class="col-xxl-6">
+        <b-row>
+            <b-col xxl="6">
                 <h5 class="mb-3">Border Top Nav</h5>
-                <div class="card">
-                    <div class="card-body">
+                <b-card no-body>
+                    <b-card-body>
                         <p class="text-muted">Use <code>nav-border-top</code> class to create nav tabs with border at
                             top.</p>
-                        <!-- Nav tabs -->
+
                         <ul class="nav nav-tabs nav-border-top nav-border-top-primary mb-3" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link" data-bs-toggle="tab" href="#nav-border-top-home" role="tab"
+                                <b-link class="nav-link" data-bs-toggle="tab" href="#nav-border-top-home" role="tab"
                                     aria-selected="false">
                                     Home
-                                </a>
+                                </b-link>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-bs-toggle="tab" href="#nav-border-top-profile" role="tab"
+                                <b-link class="nav-link" data-bs-toggle="tab" href="#nav-border-top-profile" role="tab"
                                     aria-selected="false">
                                     Profile
-                                </a>
+                                </b-link>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-bs-toggle="tab" href="#nav-border-top-messages" role="tab"
+                                <b-link class="nav-link" data-bs-toggle="tab" href="#nav-border-top-messages" role="tab"
                                     aria-selected="false">
                                     Messages
-                                </a>
+                                </b-link>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" data-bs-toggle="tab" href="#nav-border-top-settings"
+                                <b-link class="nav-link active" data-bs-toggle="tab" href="#nav-border-top-settings"
                                     role="tab" aria-selected="true">
                                     Settings
-                                </a>
+                                </b-link>
                             </li>
                         </ul>
                         <div class="tab-content text-muted">
@@ -1669,8 +1649,8 @@
                                         Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo
                                         park Austin. Cred vinyl keffiyeh DIY salvia PBR.
                                         <div class="mt-2">
-                                            <a href="javascript:void(0);" class="btn btn-link">Read More <i
-                                                    class="ri-arrow-right-line ms-1 align-middle"></i></a>
+                                            <b-link href="javascript:void(0);" class="btn btn-link">Read More <i
+                                                    class="ri-arrow-right-line ms-1 align-middle"></i></b-link>
                                         </div>
                                     </div>
                                 </div>
@@ -1687,8 +1667,8 @@
                                         grass by the trickling stream; and, as I lie close to the earth, a thousand
                                         unknown.
                                         <div class="mt-2">
-                                            <a href="javascript:void(0);" class="btn btn-link">Read More <i
-                                                    class="ri-arrow-right-line ms-1 align-middle"></i></a>
+                                            <b-link href="javascript:void(0);" class="btn btn-link">Read More <i
+                                                    class="ri-arrow-right-line ms-1 align-middle"></i></b-link>
                                         </div>
                                     </div>
                                 </div>
@@ -1704,8 +1684,8 @@
                                         Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore
                                         carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony.
                                         <div class="mt-2">
-                                            <a href="javascript:void(0);" class="btn btn-link">Read More <i
-                                                    class="ri-arrow-right-line ms-1 align-middle"></i></a>
+                                            <b-link href="javascript:void(0);" class="btn btn-link">Read More <i
+                                                    class="ri-arrow-right-line ms-1 align-middle"></i></b-link>
                                         </div>
                                     </div>
                                 </div>
@@ -1721,44 +1701,43 @@
                                         with longing, Oh, would I could describe these conceptions, could impress upon
                                         paper all that is living so full and warm within me, that it might be the.
                                         <div class="mt-2">
-                                            <a href="javascript:void(0);" class="btn btn-link">Read More <i
-                                                    class="ri-arrow-right-line ms-1 align-middle"></i></a>
+                                            <b-link href="javascript:void(0);" class="btn btn-link">Read More <i
+                                                    class="ri-arrow-right-line ms-1 align-middle"></i></b-link>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div><!-- end card-body -->
-                </div>
-            </div>
-            <!--end col-->
+                    </b-card-body>
+                </b-card>
+            </b-col>
 
-            <div class="col-xxl-6">
+            <b-col xxl="6">
                 <h5 class="mb-3">Border Top Nav Justified Tabs</h5>
-                <div class="card">
-                    <div class="card-body">
+                <b-card no-body>
+                    <b-card-body>
                         <p class="text-muted">Use <code>nav-border-top nav-justified</code> class to create nav tabs
                             with border at top with justified tabs position.</p>
-                        <!-- Nav tabs -->
+
                         <ul class="nav nav-tabs nav-justified nav-border-top nav-border-top-success mb-3"
                             role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" data-bs-toggle="tab" href="#nav-border-justified-home"
+                                <b-link class="nav-link active" data-bs-toggle="tab" href="#nav-border-justified-home"
                                     role="tab" aria-selected="false">
                                     <i class="ri-home-5-line align-middle me-1"></i> Home
-                                </a>
+                                </b-link>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-bs-toggle="tab" href="#nav-border-justified-profile" role="tab"
-                                    aria-selected="false">
+                                <b-link class="nav-link" data-bs-toggle="tab" href="#nav-border-justified-profile"
+                                    role="tab" aria-selected="false">
                                     <i class="ri-user-line me-1 align-middle"></i> Profile
-                                </a>
+                                </b-link>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-bs-toggle="tab" href="#nav-border-justified-messages"
+                                <b-link class="nav-link" data-bs-toggle="tab" href="#nav-border-justified-messages"
                                     role="tab" aria-selected="false">
                                     <i class="ri-question-answer-line align-middle me-1"></i>Messages
-                                </a>
+                                </b-link>
                             </li>
                         </ul>
                         <div class="tab-content text-muted">
@@ -1766,8 +1745,9 @@
                                 <h6>Give your text a good structure</h6>
                                 <p class="mb-0">
                                     Contrary to popular belief, you don’t have to work endless nights and hours to
-                                    create a <a href="javascript:void(0);"
-                                        class="text-decoration-underline"><b>Fantastic Design</b></a> by using
+                                    cb-linkeate a <b-link href="javascript:void(0);" class="text-decoration-underline">
+                                        <b>Fantastic Design</b>
+                                    </b-link> by using
                                     complicated 3D elements. Flat design is your friend. Remember that. And the great
                                     thing about flat design is that it has become more and more popular over the years,
                                     which is excellent news to the beginner and advanced designer.
@@ -1777,8 +1757,9 @@
                                 <h6>Use a color palette</h6>
                                 <p class="mb-0">
                                     Opposites attract, and that’s a fact. It’s in our nature to be interested in the
-                                    unusual, and that’s why using contrasting colors in <a href="javascript:void(0);"
-                                        class="text-decoration-underline"><b>Graphic Design</b></a> is a must. It’s
+                                    ub-linkusual, and that’s why using contrasting colors in <b-link
+                                        href="javascript:void(0);" class="text-decoration-underline"><b>Graphic
+                                            Design</b></b-link> is a must. It’s
                                     eye-catching, it makes a statement, it’s impressive graphic design. Increase or
                                     decrease the letter spacing depending on the situation and try, try again until it
                                     looks right, and each letter has the perfect spot of its own.
@@ -1791,44 +1772,42 @@
                                     design, and tie them all together and make them work. In an awareness campaign, it
                                     is vital for people to begin put 2 and 2 together and begin to recognize your cause.
                                     Consistency piques people’s interest is that it has become more and more popular
-                                    over the years, which is excellent news to the beginner and advanced <a
+                                    over the years, which is excellent news to the beginner and advanced <b-link
                                         href="javascript:void(0);" class="text-decoration-underline"><b>Contact
-                                            Designer</b></a>.
+                                            Designer</b></b-link>.
                                 </p>
                             </div>
                         </div>
-                    </div><!-- end card-body -->
-                </div>
-            </div>
-            <!--end col-->
-        </div>
-        <!--end row-->
-        <div class="row">
-            <div class="col-xxl-6">
+                    </b-card-body>
+                </b-card>
+            </b-col>
+        </b-row>
+        <b-row>
+            <b-col xxl="6">
                 <h5 class="mb-3">Outline Border Nav</h5>
-                <div class="card">
-                    <div class="card-body">
+                <b-card no-body>
+                    <b-card-body>
                         <p class="text-muted">*Use <code>nav-custom-</code> class with modifier class to color tabs.</p>
-                        <!-- Nav tabs -->
+
                         <ul class="nav nav-pills nav-custom-outline nav-primary mb-3" role="tablist">
                             <li class="nav-item waves-effect waves-light">
-                                <a class="nav-link active" data-bs-toggle="tab" href="#border-nav-home"
-                                    role="tab">Home</a>
+                                <b-link class="nav-link active" data-bs-toggle="tab" href="#border-nav-home" role="tab">
+                                    Home</b-link>
                             </li>
                             <li class="nav-item waves-effect waves-light">
-                                <a class="nav-link" data-bs-toggle="tab" href="#border-nav-profile"
-                                    role="tab">Profile</a>
+                                <b-link class="nav-link" data-bs-toggle="tab" href="#border-nav-profile" role="tab">
+                                    Profile</b-link>
                             </li>
                             <li class="nav-item waves-effect waves-light">
-                                <a class="nav-link" data-bs-toggle="tab" href="#border-nav-messages"
-                                    role="tab">Messages</a>
+                                <b-link class="nav-link" data-bs-toggle="tab" href="#border-nav-messages" role="tab">
+                                    Messages</b-link>
                             </li>
                             <li class="nav-item waves-effect waves-light">
-                                <a class="nav-link" data-bs-toggle="tab" href="#border-nav-settings"
-                                    role="tab">Settings</a>
+                                <b-link class="nav-link" data-bs-toggle="tab" href="#border-nav-settings" role="tab">
+                                    Settings</b-link>
                             </li>
                         </ul>
-                        <!-- Tab panes -->
+
                         <div class="tab-content text-muted">
                             <div class="tab-pane active" id="border-nav-home" role="tabpanel">
                                 <div class="d-flex">
@@ -1918,35 +1897,34 @@
                                 </div>
                             </div>
                         </div>
-                    </div><!-- end card-body -->
-                </div>
-            </div>
-            <!--end col-->
+                    </b-card-body>
+                </b-card>
+            </b-col>
 
-            <div class="col-xxl-6">
+            <b-col xxl="6">
                 <h5 class="mb-3">Custom Nav</h5>
-                <div class="card">
-                    <div class="card-body">
+                <b-card no-body>
+                    <b-card-body>
                         <p class="text-muted">*Use <code>nav-custom-</code> class with modifier class to color tabs.</p>
-                        <!-- Nav tabs -->
+
                         <ul class="nav nav-pills nav-customs nav-danger mb-3" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" data-bs-toggle="tab" href="#border-navs-home"
-                                    role="tab">Home</a>
+                                <b-link class="nav-link active" data-bs-toggle="tab" href="#border-navs-home"
+                                    role="tab">Home</b-link>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-bs-toggle="tab" href="#border-navs-profile"
-                                    role="tab">Profile</a>
+                                <b-link class="nav-link" data-bs-toggle="tab" href="#border-navs-profile" role="tab">
+                                    Profile</b-link>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-bs-toggle="tab" href="#border-navs-messages"
-                                    role="tab">Messages</a>
+                                <b-link class="nav-link" data-bs-toggle="tab" href="#border-navs-messages" role="tab">
+                                    Messages</b-link>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-bs-toggle="tab" href="#border-navs-settings"
-                                    role="tab">Settings</a>
+                                <b-link class="nav-link" data-bs-toggle="tab" href="#border-navs-settings" role="tab">
+                                    Settings</b-link>
                             </li>
-                        </ul><!-- Tab panes -->
+                        </ul>
                         <div class="tab-content text-muted">
                             <div class="tab-pane active" id="border-navs-home" role="tabpanel">
                                 <div class="d-flex">
@@ -2043,34 +2021,33 @@
                                 </div>
                             </div>
                         </div>
-                    </div><!-- end card-body -->
-                </div>
-            </div>
-            <!--end col-->
-        </div>
-        <!--end row-->
-        <div class="row">
-            <div class="col-xxl-6">
+                    </b-card-body>
+                </b-card>
+            </b-col>
+        </b-row>
+        <b-row>
+            <b-col xxl="6">
                 <h5 class="mb-3">Colored Nav</h5>
-                <div class="card">
-                    <div class="card-body">
+                <b-card no-body>
+                    <b-card-body>
                         <p class="text-muted">Use <code>nav-custom-</code> class with modifier class to color tabs.</p>
-                        <!-- Nav tabs -->
+
                         <ul class="nav nav-pills nav-custom nav-custom-success mb-3" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" data-bs-toggle="tab" href="#nav-colored-home" role="tab">
+                                <b-link class="nav-link active" data-bs-toggle="tab" href="#nav-colored-home"
+                                    role="tab">
                                     Home
-                                </a>
+                                </b-link>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-bs-toggle="tab" href="#nav-colored-profile" role="tab">
+                                <b-link class="nav-link" data-bs-toggle="tab" href="#nav-colored-profile" role="tab">
                                     Profile
-                                </a>
+                                </b-link>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-bs-toggle="tab" href="#nav-colored-messages" role="tab">
+                                <b-link class="nav-link" data-bs-toggle="tab" href="#nav-colored-messages" role="tab">
                                     Messages
-                                </a>
+                                </b-link>
                             </li>
                         </ul>
                         <div class="tab-content text-muted">
@@ -2145,32 +2122,31 @@
                                 </div>
                             </div>
                         </div>
-                    </div><!-- end card-body -->
-                </div>
-            </div>
-            <!--end col-->
+                    </b-card-body>
+                </b-card>
+            </b-col>
 
-            <div class="col-xxl-6">
+            <b-col xxl="6">
                 <h5 class="mb-3">Light Nav</h5>
-                <div class="card">
-                    <div class="card-body">
+                <b-card no-body>
+                    <b-card-body>
                         <p class="text-muted">Use <code>nav-custom-light</code> class to lighten the nav tabs area.</p>
-                        <!-- Nav tabs -->
+
                         <ul class="nav nav-pills nav-custom nav-custom-light mb-3" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" data-bs-toggle="tab" href="#nav-light-home" role="tab">
+                                <b-link class="nav-link active" data-bs-toggle="tab" href="#nav-light-home" role="tab">
                                     Home
-                                </a>
+                                </b-link>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-bs-toggle="tab" href="#nav-light-profile" role="tab">
+                                <b-link class="nav-link" data-bs-toggle="tab" href="#nav-light-profile" role="tab">
                                     Profile
-                                </a>
+                                </b-link>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-bs-toggle="tab" href="#nav-light-messages" role="tab">
+                                <b-link class="nav-link" data-bs-toggle="tab" href="#nav-light-messages" role="tab">
                                     Messages
-                                </a>
+                                </b-link>
                             </li>
                         </ul>
                         <div class="tab-content text-muted">
@@ -2230,11 +2206,9 @@
                                     organic, assumenda labore aesthetic magna elements, buttons, everything.</p>
                             </div>
                         </div>
-                    </div><!-- end card-body -->
-                </div>
-            </div>
-            <!--end col-->
-        </div>
-        <!--end row-->
+                    </b-card-body>
+                </b-card>
+            </b-col>
+        </b-row>
     </Layout>
 </template>

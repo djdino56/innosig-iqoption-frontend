@@ -28,7 +28,7 @@ export default {
     Swiper,
     SwiperSlide,
     lottie: Lottie,
-    Multiselect,
+    Multiselect
   },
   page: {
     title: "Transactions",
@@ -39,7 +39,7 @@ export default {
       title: "Transactions",
       items: [
         {
-          text: "Crypto",
+          text: "Velzon",
           href: "/",
         },
         {
@@ -208,7 +208,7 @@ export default {
       defaultOptions1: { animationData: animationData1 },
       defaultOptions2: { animationData: animationData2 },
       defaultOptions3: { animationData: animationData3 },
-      defaultOptions4: { animationData: animationData4 },
+      defaultOptions4: { animationData: animationData4 }
     };
   },
   computed: {
@@ -270,328 +270,188 @@ export default {
 <template>
   <Layout>
     <PageHeader :title="title" :items="items" />
-    <div class="row">
-      <div class="col-xxl-3 col-md-6">
-        <div class="card card-animate">
-          <div class="card-body">
+    <b-row>
+      <b-col xxl="3" md="6">
+        <b-card no-body class="card-animate">
+          <b-card-body>
             <div class="d-flex mb-3">
               <div class="flex-grow-1">
-                <lottie
-                  colors="primary:#25a0e2,secondary:#00bd9d"
-                  :options="defaultOptions"
-                  :height="55"
-                  :width="55"
-                  class="me-auto m-0"
-                />
+                <lottie colors="primary:#121331,secondary:#08a88a" :options="defaultOptions" :height="55" :width="55"
+                  class="me-auto m-0" />
               </div>
               <div class="flex-shrink-0">
-                <a
-                  href="javascript:void(0);"
-                  class="badge badge-soft-secondary badge-border"
-                  >BTC</a
-                >
-                <a
-                  href="javascript:void(0);"
-                  class="badge badge-soft-secondary badge-border"
-                  >ETH</a
-                >
-                <a
-                  href="javascript:void(0);"
-                  class="badge badge-soft-secondary badge-border"
-                  >USD</a
-                >
-                <a
-                  href="javascript:void(0);"
-                  class="badge badge-soft-secondary badge-border"
-                  >EUR</a
-                >
+                <b-link href="javascript:void(0);" class="badge badge-soft-warning badge-border">BTC</b-link>
+                <b-link href="javascript:void(0);" class="badge badge-soft-info badge-border">ETH</b-link>
+                <b-link href="javascript:void(0);" class="badge badge-soft-primary badge-border">USD</b-link>
+                <b-link href="javascript:void(0);" class="badge badge-soft-danger badge-border">EUR</b-link>
               </div>
             </div>
             <h3 class="mb-2">
-              $
-              <count-to
-                :duration="5000"
-                :startVal="0"
-                :endVal="74854"
-              ></count-to
-              ><small class="text-muted fs-13">.68k</small>
+              $ <count-to :duration="5000" :startVal="0" :endVal="74854"></count-to><small
+                class="text-muted fs-13">.68k</small>
             </h3>
             <h6 class="text-muted mb-0">Available Balance (USD)</h6>
-          </div>
-        </div>
-        <!--end card-->
-      </div>
-      <!--end col-->
-      <div class="col-xxl-3 col-md-6">
-        <div class="card card-animate">
-          <div class="card-body">
+          </b-card-body>
+        </b-card>
+      </b-col>
+      <b-col xxl="3" md="6">
+        <b-card no-body class="card-animate">
+          <b-card-body>
             <div class="d-flex mb-3">
               <div class="flex-grow-1">
-                <lottie
-                  colors="primary:#25a0e2,secondary:#00bd9d"
-                  :options="defaultOptions1"
-                  :height="55"
-                  :width="55"
-                  class="me-auto m-0"
-                />
+                <lottie colors="primary:#25a0e2,secondary:#00bd9d" :options="defaultOptions1" :height="55" :width="55"
+                  class="me-auto m-0" />
               </div>
               <div class="flex-shrink-0">
-                <a
-                  href="javascript:void(0);"
-                  class="badge badge-soft-secondary badge-border"
-                  >BTC</a
-                >
-                <a
-                  href="javascript:void(0);"
-                  class="badge badge-soft-secondary badge-border"
-                  >ETH</a
-                >
-                <a
-                  href="javascript:void(0);"
-                  class="badge badge-soft-secondary badge-border"
-                  >USD</a
-                >
-                <a
-                  href="javascript:void(0);"
-                  class="badge badge-soft-secondary badge-border"
-                  >EUR</a
-                >
+                <b-link href="javascript:void(0);" class="badge badge-soft-secondary badge-border">BTC</b-link>
+                <b-link href="javascript:void(0);" class="badge badge-soft-secondary badge-border">ETH</b-link>
+                <b-link href="javascript:void(0);" class="badge badge-soft-secondary badge-border">USD</b-link>
+                <b-link href="javascript:void(0);" class="badge badge-soft-secondary badge-border">EUR</b-link>
               </div>
             </div>
             <h3 class="mb-2">
-              $<count-to
-                :duration="5000"
-                :startVal="0"
-                :endVal="74361"
-              ></count-to
-              ><small class="text-muted fs-13">.34k</small>
+              $<count-to :duration="5000" :startVal="0" :endVal="74361"></count-to><small
+                class="text-muted fs-13">.34k</small>
             </h3>
             <h6 class="text-muted mb-0">Send (Previous Month)</h6>
-          </div>
-        </div>
-        <!--end card-->
-      </div>
-      <!--end col-->
-      <div class="col-xxl-3 col-md-6">
-        <div class="card card-animate">
-          <div class="card-body">
+          </b-card-body>
+        </b-card>
+      </b-col>
+      <b-col xxl="3" md="6">
+        <b-card no-body class="card-animate">
+          <b-card-body>
             <div class="d-flex mb-3">
               <div class="flex-grow-1">
-                <lottie
-                  colors="primary:#405189,secondary:#0ab39c"
-                  :options="defaultOptions3"
-                  :height="55"
-                  :width="55"
-                  class="me-auto m-0"
-                />
+                <lottie colors="primary:#25a0e2,secondary:#00bd9d" :options="defaultOptions3" :height="55" :width="55"
+                  class="me-auto m-0" />
               </div>
               <div class="flex-shrink-0">
-                <a
-                  href="javascript:void(0);"
-                  class="badge badge-soft-secondary badge-border"
-                  >BTC</a
-                >
-                <a
-                  href="javascript:void(0);"
-                  class="badge badge-soft-secondary badge-border"
-                  >ETH</a
-                >
-                <a
-                  href="javascript:void(0);"
-                  class="badge badge-soft-secondary badge-border"
-                  >USD</a
-                >
-                <a
-                  href="javascript:void(0);"
-                  class="badge badge-soft-secondary badge-border"
-                  >EUR</a
-                >
+                <b-link href="javascript:void(0);" class="badge badge-soft-secondary badge-border">BTC</b-link>
+                <b-link href="javascript:void(0);" class="badge badge-soft-secondary badge-border">ETH</b-link>
+                <b-link href="javascript:void(0);" class="badge badge-soft-secondary badge-border">USD</b-link>
+                <b-link href="javascript:void(0);" class="badge badge-soft-secondary badge-border">EUR</b-link>
               </div>
             </div>
             <h3 class="mb-2">
-              $<count-to
-                :duration="5000"
-                :startVal="0"
-                :endVal="97685"
-              ></count-to
-              ><small class="text-muted fs-13">.22k</small>
+              $<count-to :duration="5000" :startVal="0" :endVal="97685"></count-to><small
+                class="text-muted fs-13">.22k</small>
             </h3>
             <h6 class="text-muted mb-0">Receive (Previous Month)</h6>
-          </div>
-        </div>
-        <!--end card-->
-      </div>
-      <!--end col-->
-      <div class="col-xxl-3 col-md-6">
+          </b-card-body>
+        </b-card>
+      </b-col>
+      <b-col xxl="3" md="6">
         <swiper class="swiper-wrapper">
           <swiper-slide>
-            <div class="card card-animate">
-              <div class="card-body bg-soft-primary">
+            <b-card no-body class="card-animate border-0 overflow-hidden">
+              <b-card-body class="bg-soft-primary">
                 <div class="d-flex mb-3">
                   <div class="flex-grow-1">
-                    <lottie
-                      colors="primary:#405189,secondary:#0ab39c"
-                      :options="defaultOptions4"
-                      :height="55"
-                      :width="55"
-                      class="me-auto m-0"
-                    />
+                    <lottie colors="primary:#25a0e2,secondary:#00bd9d" :options="defaultOptions4" :height="55"
+                      :width="55" class="me-auto m-0" />
                   </div>
                   <div class="flex-shrink-0">
-                    <a href="javascript:void(0);" class="fw-medium"
-                      >Bitcoin (BTC)</a
-                    >
+                    <b-link href="javascript:void(0);" class="fw-medium">Bitcoin (BTC)</b-link>
                   </div>
                 </div>
                 <h3 class="mb-2">
                   $245<small class="text-muted fs-13">.65k</small>
                 </h3>
                 <h6 class="text-muted mb-0">Send - Receive (Previous Month)</h6>
-              </div>
-            </div>
-            <!--end card-->
+              </b-card-body>
+            </b-card>
           </swiper-slide>
           <swiper-slide>
-            <div class="card card-animate">
-              <div class="card-body bg-soft-primary">
+            <b-card no-body class="card-animate border-0 overflow-hidden">
+              <b-card-body class="bg-soft-primary">
                 <div class="d-flex mb-3">
                   <div class="flex-grow-1">
-                    <lottie
-                      colors="primary:#405189,secondary:#0ab39c"
-                      :options="defaultOptions4"
-                      :height="55"
-                      :width="55"
-                      class="me-auto m-0"
-                    />
+                    <lottie colors="primary:#25a0e2,secondary:#00bd9d" :options="defaultOptions4" :height="55"
+                      :width="55" class="me-auto m-0" />
                   </div>
                   <div class="flex-shrink-0">
-                    <a href="javascript:void(0);" class="fw-medium"
-                      >Ethereum (ETH)</a
-                    >
+                    <b-link href="javascript:void(0);" class="fw-medium">Ethereum (ETH)</b-link>
                   </div>
                 </div>
                 <h3 class="mb-2">
                   $24<small class="text-muted fs-13">.74k</small>
                 </h3>
                 <h6 class="text-muted mb-0">Send - Receive (Previous Month)</h6>
-              </div>
-            </div>
-            <!--end card-->
+              </b-card-body>
+            </b-card>
           </swiper-slide>
           <swiper-slide>
-            <div class="card card-animate">
-              <div class="card-body bg-soft-primary">
+            <b-card no-body class="card-animate border-0 overflow-hidden">
+              <b-card-body class="bg-soft-primary">
                 <div class="d-flex mb-3">
                   <div class="flex-grow-1">
-                    <lottie
-                      colors="primary:#405189,secondary:#0ab39c"
-                      :options="defaultOptions4"
-                      :height="55"
-                      :width="55"
-                      class="me-auto m-0"
-                    />
+                    <lottie colors="primary:#25a0e2,secondary:#00bd9d" :options="defaultOptions4" :height="55"
+                      :width="55" class="me-auto m-0" />
                   </div>
                   <div class="flex-shrink-0">
-                    <a href="javascript:void(0);" class="fw-medium"
-                      >Monero (XMR)</a
-                    >
+                    <b-link href="javascript:void(0);" class="fw-medium">Monero (XMR)</b-link>
                   </div>
                 </div>
                 <h3 class="mb-2">
                   $124<small class="text-muted fs-13">.36k</small>
                 </h3>
                 <h6 class="text-muted mb-0">Send - Receive (Previous Month)</h6>
-              </div>
-            </div>
-            <!--end card-->
+              </b-card-body>
+            </b-card>
           </swiper-slide>
         </swiper>
-      </div>
-      <!--end col-->
-    </div>
-    <!--end row-->
+      </b-col>
+    </b-row>
 
-    <div class="row align-items-center mb-4 g-3">
-      <div class="col-sm-3">
+    <b-row class="align-items-center mb-4 g-3">
+      <b-col sm="3">
         <div class="d-flex align-items-center gap-2">
           <span class="text-muted flex-shrink-0">Sort by: </span>
 
-          <Multiselect
-            class="form-control"
-            v-model="value2"
-            :close-on-select="true"
-            :searchable="true"
-            :create-option="true"
-            :options="[
+          <Multiselect class="form-control" v-model="value2" :close-on-select="true" :searchable="true"
+            :create-option="true" :options="[
               { value: 'All', label: 'All' },
               { value: 'USD', label: 'USD' },
               { value: 'ETH', label: 'ETH' },
               { value: 'BTC', label: 'BTC' },
               { value: 'EUR', label: 'EUR' },
-              { value: 'JPY', label: 'JPY' },
-            ]"
-          />
+              { value: 'JPY', label: 'JPY' }
+            ]" />
         </div>
-      </div>
-      <!--end col-->
-      <div class="col-sm-auto ms-auto">
+      </b-col>
+      <b-col sm="auto" class="ms-auto">
         <div class="d-flex gap-2">
-          <a
-            href="javascript:void(0);"
-            data-bs-toggle="modal"
-            class="btn btn-soft-secondary"
-            >Deposite</a
-          >
-          <a
-            href="javascript:void(0);"
-            data-bs-toggle="modal"
-            class="btn btn-soft-success"
-            >Withdraw</a
-          >
+          <b-link href="javascript:void(0);" class="btn btn-soft-secondary">Deposite</b-link>
+          <b-link href="javascript:void(0);" class="btn btn-soft-success">Withdraw</b-link>
         </div>
-      </div>
-      <!--end col-->
-    </div>
-    <!--end row-->
+      </b-col>
+    </b-row>
 
-    <div class="card" id="contactList">
-      <div class="card-header">
-        <div class="row align-items-center g-3">
-          <div class="col-md-3">
+    <b-card no-body id="contactList">
+      <b-card-header>
+        <b-row class="align-items-center g-3">
+          <b-col md="3">
             <h5 class="card-title mb-0">All Transactions</h5>
-          </div>
-          <!--end col-->
-          <div class="col-md-auto ms-auto">
+          </b-col>
+          <b-col md="auto" class="ms-auto">
             <div class="d-flex gap-2">
               <div class="search-box">
-                <input
-                  type="text"
-                  class="form-control search"
-                  placeholder="Search for transactions..."
-                />
+                <input type="text" class="form-control search" placeholder="Search for transactions..." v-model="searchQuery" />
                 <i class="ri-search-line search-icon"></i>
               </div>
-              <button class="btn btn-primary">
+              <b-button variant="primary">
                 <i class="ri-equalizer-line align-bottom me-1"></i> Filters
-              </button>
+              </b-button>
             </div>
-          </div>
-          <!--end col-->
-        </div>
-        <!--end row-->
-      </div>
-      <!--end card-header-->
-      <div class="card-body">
+          </b-col>
+        </b-row>
+      </b-card-header>
+      <b-card-body>
         <div class="table-responsive table-card">
           <table class="table align-middle table-nowrap" id="customerTable">
             <thead class="table-light text-muted">
               <tr>
-                <th
-                  class="sort"
-                  data-sort="name"
-                  scope="col"
-                  style="width: 60px"
-                ></th>
+                <th class="sort" data-sort="name" scope="col" style="width: 60px"></th>
                 <th class="sort" data-sort="date" scope="col">Timestamp</th>
                 <th class="sort" data-sort="currency_name" scope="col">
                   Currency
@@ -606,26 +466,20 @@ export default {
                 <th class="sort" data-sort="amount" scope="col">Amount</th>
                 <th class="sort" data-sort="status" scope="col">Status</th>
               </tr>
-              <!--end tr-->
             </thead>
             <tbody class="list form-check-all">
               <tr v-for="(data, index) of resultQuery" :key="index">
                 <td class="id" style="display: none">
-                  <a href="javascript:void(0);" class="fw-medium link-primary"
-                    >#VZ001</a
-                  >
+                  <b-link href="javascript:void(0);" class="fw-medium link-primary">#VZ001</b-link>
                 </td>
                 <td>
                   <div class="avatar-xs">
-                    <div
-                      class="avatar-title rounded-circle fs-16"
-                      :class="{
-                        'text-success bg-soft-success':
-                          data.icon == 'ri-arrow-left-down-fill',
-                        'bg-soft-danger text-danger':
-                          data.icon == 'ri-arrow-right-up-fill',
-                      }"
-                    >
+                    <div class="avatar-title rounded-circle fs-16" :class="{
+                      'text-success bg-soft-success':
+                        data.icon == 'ri-arrow-left-down-fill',
+                      'bg-soft-danger text-danger':
+                        data.icon == 'ri-arrow-right-up-fill',
+                    }">
                       <i :class="data.icon"></i>
                     </div>
                   </div>
@@ -646,45 +500,30 @@ export default {
                 <td class="transaction_id">{{ data.id }}</td>
                 <td class="type">{{ data.type }}</td>
                 <td>
-                  <h6
-                    class="mb-1 amount"
-                    :class="{
-                      'text-success': data.icon == 'ri-arrow-left-down-fill',
-                      'text-danger': data.icon == 'ri-arrow-right-up-fill',
-                    }"
-                  >
+                  <h6 class="mb-1 amount" :class="{
+                    'text-success': data.icon == 'ri-arrow-left-down-fill',
+                    'text-danger': data.icon == 'ri-arrow-right-up-fill',
+                  }">
                     {{ data.amount }}
                   </h6>
                   <p class="text-muted mb-0">{{ data.amount1 }}</p>
                 </td>
                 <td class="status">
-                  <span
-                    class="badge fs-11"
-                    :class="{
-                      'badge-soft-success': data.status == 'Success',
-                      'badge-soft-danger': data.status == 'Failed',
-                      'badge-soft-primary': data.status == 'Processing',
-                    }"
-                    ><i class="ri-time-line align-bottom"></i>
-                    {{ data.status }}</span
-                  >
+                  <span class="badge fs-11" :class="{
+                    'badge-soft-success': data.status == 'Success',
+                    'badge-soft-danger': data.status == 'Failed',
+                    'badge-soft-primary': data.status == 'Processing',
+                  }"><i class="ri-time-line align-bottom"></i>
+                    {{ data.status }}</span>
                 </td>
               </tr>
-              <!--end tr-->
             </tbody>
           </table>
-          <!--end table-->
           <div class="noresult" style="display: none">
             <div class="text-center">
-              <lottie
-                colors="primary:#121331,secondary:#08a88a"
-                :options="defaultOptions2"
-                :height="75"
-                :width="75"
-              />
+              <lottie colors="primary:#25a0e2,secondary:#00bd9d" :options="defaultOptions2" :height="75" :width="75" />
               <h5 class="mt-2">Sorry! No Result Found</h5>
-              <p class="text-muted mb-0">
-                We've searched more than 150+ transactions We did not find any
+              <p class="text-muted mb-0"> We've searched more than 150+ transactions We did not find any
                 transactions for you search.
               </p>
             </div>
@@ -692,40 +531,24 @@ export default {
         </div>
         <div class="d-flex justify-content-end mt-3">
           <div class="pagination-wrap hstack gap-2">
-            <a
-              class="page-item pagination-prev disabled"
-              href="#"
-              v-if="page != 1"
-              @click="page--"
-            >
+            <b-link class="page-item pagination-prev disabled" href="#" v-if="page != 1" @click="page--">
               Previous
-            </a>
+            </b-link>
             <ul class="pagination listjs-pagination mb-0">
-              <li
-                :class="{
-                  active: pageNumber == page,
-                  disabled: pageNumber == '...',
-                }"
-                v-for="(pageNumber, index) in pages.slice(page - 1, page + 5)"
-                :key="index"
-                @click="page = pageNumber"
-              >
-                <a class="page" href="#">{{ pageNumber }}</a>
+              <li :class="{
+                active: pageNumber == page,
+                disabled: pageNumber == '...',
+              }" v-for="(pageNumber, index) in pages.slice(page - 1, page + 5)" :key="index"
+                @click="page = pageNumber">
+                <b-link class="page" href="#">{{ pageNumber }}</b-link>
               </li>
             </ul>
-            <a
-              class="page-item pagination-next"
-              href="#"
-              @click="page++"
-              v-if="page < pages.length"
-            >
+            <b-link class="page-item pagination-next" href="#" @click="page++" v-if="page < pages.length">
               Next
-            </a>
+            </b-link>
           </div>
         </div>
-      </div>
-      <!--end card-body-->
-    </div>
-    <!--end card-->
+      </b-card-body>
+    </b-card>
   </Layout>
 </template>

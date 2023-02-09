@@ -39,14 +39,14 @@
         line-height: 0.1em;
         font-size: 1.4em;
         padding: 0.2em !important;
-        background: var(--#{$variable-prefix}light);
-        color: var(--#{$variable-prefix}body-color);
+        background: var(--#{$prefix}light);
+        color: var(--#{$prefix}body-color);
         border: none;
         border-radius: $btn-border-radius;
     }
 
     &.light {
-        background: var(--#{$variable-prefix}light);
+        background: var(--#{$prefix}light);
 
         button {
             background-color: $input-bg;
@@ -54,7 +54,7 @@
     }
 
     &.light-input {
-        background: var(--#{$variable-prefix}light);
+        background: var(--#{$prefix}light);
 
         input {
             background-color: $input-bg;

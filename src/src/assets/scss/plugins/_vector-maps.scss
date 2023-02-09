@@ -14,7 +14,7 @@
     text {
         font-family: $font-family-base;
         font-size: $font-size-base;
-        fill: var(--#{$variable-prefix}gray-700);
+        fill: var(--#{$prefix}gray-700);
     }
 }
 

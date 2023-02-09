@@ -51,36 +51,27 @@ export default {
   <Layout>
     <PageHeader :title="title" :items="items" />
 
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="card">
-          <div class="card-header align-items-center d-flex">
-            <h4 class="card-title mb-0 flex-grow-1">Default Alerts</h4>
+    <b-row>
+      <b-col lg="12">
+        <b-card no-body>
+          <b-card-header class="align-items-center d-flex">
+            <b-card-title class="mb-0 flex-grow-1">Default Alerts</b-card-title>
             <div class="flex-shrink-0">
-              <div
-                class="form-check form-switch form-switch-right form-switch-md"
-              >
-                <label for="default" class="form-label text-muted"
-                  >Show Code</label
-                >
-                <input
-                  class="form-check-input code-switcher"
-                  type="checkbox"
-                  id="default"
-                />
+              <div class="form-check form-switch form-switch-right form-switch-md">
+                <label for="default" class="form-label text-muted">Show Code</label>
+                <input class="form-check-input code-switcher" type="checkbox" id="default" />
               </div>
             </div>
-          </div>
-          <!-- end card header -->
+          </b-card-header>
 
-          <div class="card-body">
+          <b-card-body>
             <p class="text-muted">
               Use the
               <code>b-alert</code> selector to show a default alert.
             </p>
             <div class="live-preview">
-              <div class="row">
-                <div class="col-xl-6">
+              <b-row>
+                <b-col xl="6">
                   <h6>Primary Alert</h6>
                   <b-alert show variant="primary">
                     <strong>Hi!</strong> A simple <b>Primary alert</b> —check it
@@ -104,9 +95,9 @@ export default {
                     <strong>Something is very wrong!</strong> A simple
                     <b>danger alert</b> —check it out!
                   </b-alert>
-                </div>
+                </b-col>
 
-                <div class="col-xl-6">
+                <b-col xl="6">
                   <h6>Warning Alert</h6>
                   <b-alert show variant="warning">
                     <strong>Uh oh, something went wrong</strong> A simple
@@ -130,8 +121,8 @@ export default {
                     <strong>Did you know?</strong> A simple
                     <b>dark alert</b> —check it out!
                   </b-alert>
-                </div>
-              </div>
+                </b-col>
+              </b-row>
             </div>
 
             <div class="d-none code-view">
@@ -177,116 +168,84 @@ export default {
 &lt;/b-alert&gt;
 </code></pre>
             </div>
-          </div>
-          <!-- end card-body -->
-        </div>
-        <!-- end card -->
-      </div>
-    </div>
+          </b-card-body>
+        </b-card>
+      </b-col>
+    </b-row>
 
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="card">
-          <div class="card-header align-items-center d-flex">
-            <h4 class="card-title mb-0 flex-grow-1">Borderless Alerts</h4>
+    <b-row>
+      <b-col lg="12">
+        <b-card no-body>
+          <b-card-header class="align-items-center d-flex">
+            <b-card-title class="mb-0 flex-grow-1">Borderless Alerts</b-card-title>
             <div class="flex-shrink-0">
-              <div
-                class="form-check form-switch form-switch-right form-switch-md"
-              >
-                <label for="borderless-alerts" class="form-label text-muted"
-                  >Show Code</label
-                >
-                <input
-                  class="form-check-input code-switcher"
-                  type="checkbox"
-                  id="borderless-alerts"
-                />
+              <div class="form-check form-switch form-switch-right form-switch-md">
+                <label for="borderless-alerts" class="form-label text-muted">Show Code</label>
+                <input class="form-check-input code-switcher" type="checkbox" id="borderless-alerts" />
               </div>
             </div>
-          </div>
-          <!-- end card header -->
+          </b-card-header>
 
-          <div class="card-body">
+          <b-card-body>
             <p class="text-muted">
               Use the
               <code>alert-borderless</code> class to set alert without border.
             </p>
 
             <div class="live-preview">
-              <div class="row">
-                <div class="col-xl-6">
+              <b-row>
+                <b-col xl="6">
                   <h6>Primary Alert</h6>
-                  <div
-                    class="alert alert-primary alert-borderless"
-                    role="alert"
-                  >
+                  <b-alert variant="primary" class="alert-borderless" show>
                     <strong>Hi!</strong> A simple <b>Primary alert</b> —check it
                     out!
-                  </div>
+                  </b-alert>
 
                   <h6>Secondary Alert</h6>
-                  <div
-                    class="alert alert-secondary alert-borderless"
-                    role="alert"
-                  >
+                  <b-alert variant="secondary" class="alert-borderless" show>
                     <strong>How are you!</strong> A simple
                     <b>secondary alert</b> —check it out!
-                  </div>
+                  </b-alert>
 
                   <h6>Success Alert</h6>
-                  <div
-                    class="alert alert-success alert-borderless"
-                    role="alert"
-                  >
+                  <b-alert variant="success" class="alert-borderless" show>
                     <strong>Yey! Everything worked!</strong> A simple
                     <b>success alert</b> —check it out!
-                  </div>
+                  </b-alert>
 
                   <h6>Danger Alert</h6>
-                  <div
-                    class="alert alert-danger alert-borderless mb-xl-0"
-                    role="alert"
-                  >
+                  <b-alert variant="danger" class="alert-borderless mb-xl-0" show>
                     <strong>Something is very wrong!</strong> A simple danger
                     alert—check it out!
-                  </div>
-                </div>
+                  </b-alert>
+                </b-col>
 
-                <div class="col-xl-6">
+                <b-col xl="6">
                   <h6>Warning Alert</h6>
-                  <div
-                    class="alert alert-warning alert-borderless"
-                    role="alert"
-                  >
+                  <b-alert variant="warning" class="alert-borderless" show>
                     <strong>Uh oh, something went wrong</strong> A simple
                     <b>warning alert</b> —check it out!
-                  </div>
+                  </b-alert>
 
                   <h6>Info Alert</h6>
-                  <div class="alert alert-info alert-borderless" role="alert">
+                  <b-alert variant="info" class="alert-borderless" show>
                     <strong>Don't forget' it !</strong> A simple
                     <b>info alert</b> —check it out!
-                  </div>
+                  </b-alert>
 
                   <h6>Light Alert</h6>
-                  <div
-                    class="alert alert-light alert-borderless bg-light"
-                    role="alert"
-                  >
+                  <b-alert variant="light" class="alert-borderless bg-light" show>
                     <strong>Mind Your Step!</strong> A simple
                     <b>light alert</b> —check it out!
-                  </div>
+                  </b-alert>
 
                   <h6>Dark Alert</h6>
-                  <div
-                    class="alert alert-dark alert-borderless mb-0"
-                    role="alert"
-                  >
+                  <b-alert variant="dark" class="alert-borderless mb-0" show>
                     <strong>Did you know?</strong> A simple
                     <b>dark alert</b> —check it out!
-                  </div>
-                </div>
-              </div>
+                  </b-alert>
+                </b-col>
+              </b-row>
             </div>
 
             <div class="d-none code-view">
@@ -332,170 +291,76 @@ export default {
 &lt;/b-alert&gt;
 </code></pre>
             </div>
-          </div>
-          <!-- end card-body -->
-        </div>
-        <!-- end card -->
-      </div>
-    </div>
+          </b-card-body>
+        </b-card>
+      </b-col>
+    </b-row>
 
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="card">
-          <div class="card-header align-items-center d-flex">
-            <h4 class="card-title mb-0 flex-grow-1">Dismissing Alerts</h4>
+    <b-row>
+      <b-col lg="12">
+        <b-card no-body>
+          <b-card-header class="align-items-center d-flex">
+            <b-card-title class="mb-0 flex-grow-1">Dismissing Alerts</b-card-title>
             <div class="flex-shrink-0">
-              <div
-                class="form-check form-switch form-switch-right form-switch-md"
-              >
+              <div class="form-check form-switch form-switch-right form-switch-md">
                 <label for="1" class="form-label text-muted">Show Code</label>
-                <input
-                  class="form-check-input code-switcher"
-                  type="checkbox"
-                  id="1"
-                />
+                <input class="form-check-input code-switcher" type="checkbox" id="1" />
               </div>
             </div>
-          </div>
-          <!-- end card header -->
+          </b-card-header>
 
-          <div class="card-body">
+          <b-card-body>
             <p class="text-muted">
               Use the
               <code>dismissible</code> to <code>b-alert</code> to add dismissing button to
               the alert.
             </p>
             <div class="live-preview">
-              <div class="row">
-                <div class="col-xl-6">
+              <b-row>
+                <b-col xl="6">
                   <h6>Primary Alert</h6>
-                  <div
-                    class="alert alert-primary alert-dismissible fade show"
-                    role="alert"
-                  >
-                    <strong>Hi!</strong> A simple
-                    <b>Dismissible primary Alert</b>
-                    — check it out!
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="alert"
-                      aria-label="Close"
-                    ></button>
-                  </div>
+                  <b-alert show dismissible variant="primary">
+                    <strong>Hi!</strong> A simple <b>Dismissible primary Alert</b> — check it out!
+                  </b-alert>
 
                   <h6>Secondary Alert</h6>
-                  <div
-                    class="alert alert-secondary alert-dismissible fade show"
-                    role="alert"
-                  >
-                    <strong>How are you!</strong> A simple
-                    <b>Dismissible secondary alert</b>
-                    —check it out!
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="alert"
-                      aria-label="Close"
-                    ></button>
-                  </div>
+                  <b-alert variant="secondary" show dismissible>
+                    <strong>How are you!</strong> A simple <b>Dismissible secondary alert</b> —check it out!
+                  </b-alert>
 
                   <h6>Success Alert</h6>
-                  <div
-                    class="alert alert-success alert-dismissible fade show"
-                    role="alert"
-                  >
-                    <strong>Right Way !</strong> A simple
-                    <b>Dismissible success alert</b> —check it out!
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="alert"
-                      aria-label="Close"
-                    ></button>
-                  </div>
+                  <b-alert variant="success" show dismissible>
+                    <strong>Right Way !</strong> A simple <b>Dismissible success alert</b> —check it out!
+                  </b-alert>
 
                   <h6>Danger Alert</h6>
-                  <div
-                    class="alert alert-danger alert-dismissible fade show mb-xl-0"
-                    role="alert"
-                  >
-                    <strong>Something is very wrong!</strong> A simple
-                    <b>Dismissible danger alert</b> —check it out!
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="alert"
-                      aria-label="Close"
-                    ></button>
-                  </div>
-                </div>
+                  <b-alert variant="danger" show dismissible>
+                    <strong>Something is very wrong!</strong> A simple <b>Dismissible danger alert</b> —check it out!
+                  </b-alert>
+                </b-col>
 
-                <div class="col-xl-6">
+                <b-col xl="6">
                   <h6>Warning Alert</h6>
-                  <div
-                    class="alert alert-warning alert-dismissible fade show"
-                    role="alert"
-                  >
-                    <strong>Welcome Back!</strong> A simple
-                    <b>Dismissible warning alert</b> —check it out!
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="alert"
-                      aria-label="Close"
-                    ></button>
-                  </div>
+                  <b-alert variant="warning" show dismissible>
+                    <strong>Welcome Back!</strong> A simple <b>Dismissible warning alert</b> —check it out!
+                  </b-alert>
 
                   <h6>Info Alert</h6>
-                  <div
-                    class="alert alert-info alert-dismissible fade show"
-                    role="alert"
-                  >
-                    <strong>Don't forget' it !</strong> A simple
-                    <b>Dismissible info alert</b>
-                    —check it out!
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="alert"
-                      aria-label="Close"
-                    ></button>
-                  </div>
+                  <b-alert variant="info" show dismissible>
+                    <strong>Don't forget' it !</strong> A simple <b>Dismissible info alert</b> —check it out!
+                  </b-alert>
 
                   <h6>Light Alert</h6>
-                  <div
-                    class="alert alert-light alert-dismissible fade show"
-                    role="alert"
-                  >
-                    <strong>Mind Your Step!</strong> A simple
-                    <b>Dismissible light alert</b>
-                    —check it out!
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="alert"
-                      aria-label="Close"
-                    ></button>
-                  </div>
+                  <b-alert variant="light" show dismissible>
+                    <strong>Mind Your Step!</strong> A simple <b>Dismissible light alert</b> —check it out!
+                  </b-alert>
 
                   <h6>Dark Alert</h6>
-                  <div
-                    class="alert alert-dark alert-dismissible fade show mb-0"
-                    role="alert"
-                  >
-                    <strong>Did you know?</strong> A simple
-                    <b>Dismissible dark alert</b>
-                    —check it out!
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="alert"
-                      aria-label="Close"
-                    ></button>
-                  </div>
-                </div>
-              </div>
+                  <b-alert variant="dark" show dismissible>
+                    <strong>Did you know?</strong> A simple <b>Dismissible dark alert</b>—check it out!
+                  </b-alert>
+                </b-col>
+              </b-row>
             </div>
 
             <div class="d-none code-view">
@@ -549,34 +414,25 @@ export default {
 &lt;/b-alert&gt;
 </code></pre>
             </div>
-          </div>
-          <!-- end card-body -->
-        </div>
-        <!-- end card -->
-      </div>
-    </div>
+          </b-card-body>
+        </b-card>
+      </b-col>
+    </b-row>
 
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="card">
-          <div class="card-header align-items-center d-flex">
-            <h4 class="card-title mb-0 flex-grow-1">Link Color Alerts</h4>
+    <b-row>
+      <b-col lg="12">
+        <b-card no-body>
+          <b-card-header class="align-items-center d-flex">
+            <b-card-title class="mb-0 flex-grow-1">Link Color Alerts</b-card-title>
             <div class="flex-shrink-0">
-              <div
-                class="form-check form-switch form-switch-right form-switch-md"
-              >
+              <div class="form-check form-switch form-switch-right form-switch-md">
                 <label for="2" class="form-label text-muted">Show Code</label>
-                <input
-                  class="form-check-input code-switcher"
-                  type="checkbox"
-                  id="2"
-                />
+                <input class="form-check-input code-switcher" type="checkbox" id="2" />
               </div>
             </div>
-          </div>
-          <!-- end card header -->
+          </b-card-header>
 
-          <div class="card-body">
+          <b-card-body>
             <p class="text-muted">
               Use the
               <code>alert-link</code> class at &lt;a&gt; tag to show matching
@@ -584,67 +440,67 @@ export default {
             </p>
 
             <div class="live-preview">
-              <div class="row">
-                <div class="col-xl-6">
+              <b-row>
+                <b-col xl="6">
                   <h6>Primary Alert</h6>
-                  <div class="alert alert-primary" role="alert">
+                  <b-alert variant="primary" show>
                     A simple Primary alert with
-                    <a href="#" class="alert-link"> an example link </a>. Give
+                    <b-link href="#" class="alert-link"> an example link </b-link>. Give
                     it a click if you like.
-                  </div>
+                  </b-alert>
 
                   <h6>Secondary Alert</h6>
-                  <div class="alert alert-secondary" role="alert">
+                  <b-alert variant="secondary" show>
                     A simple Secondary alert with
-                    <a href="#" class="alert-link"> an example link </a>. Give
+                    <b-link href="#" class="alert-link"> an example link </b-link>. Give
                     it a click if you like.
-                  </div>
+                  </b-alert>
 
                   <h6>Success Alert</h6>
-                  <div class="alert alert-success" role="alert">
+                  <b-alert variant="success" show>
                     A simple Success alert with
-                    <a href="#" class="alert-link"> an example link </a>. Give
+                    <b-link href="#" class="alert-link"> an example link </b-link>. Give
                     it a click if you like.
-                  </div>
+                  </b-alert>
 
                   <h6>Danger Alert</h6>
-                  <div class="alert alert-danger mb-xl-0" role="alert">
+                  <b-alert variant="danger" class="mb-xl-0" show>
                     A simple Danger alert with
-                    <a href="#" class="alert-link"> an example link </a>. Give
+                    <b-link href="#" class="alert-link"> an example link </b-link>. Give
                     it a click if you like.
-                  </div>
-                </div>
+                  </b-alert>
+                </b-col>
 
-                <div class="col-xl-6">
+                <b-col xl="6">
                   <h6>Warning Alert</h6>
-                  <div class="alert alert-warning" role="alert">
+                  <b-alert variant="warning" show>
                     A simple Warning alert with
-                    <a href="#" class="alert-link"> an example link </a>. Give
+                    <b-link href="#" class="alert-link"> an example link </b-link>. Give
                     it a click if you like.
-                  </div>
+                  </b-alert>
 
                   <h6>Info Alert</h6>
-                  <div class="alert alert-info" role="alert">
+                  <b-alert variant="info" show>
                     A simple Info alert with
-                    <a href="#" class="alert-link"> an example link </a>. Give
+                    <b-link href="#" class="alert-link"> an example link </b-link>. Give
                     it a click if you like.
-                  </div>
+                  </b-alert>
 
                   <h6>Light Alert</h6>
-                  <div class="alert alert-light" role="alert">
+                  <b-alert variant="light" show>
                     A simple Light alert with
-                    <a href="#" class="alert-link"> an example link </a>. Give
+                    <b-link href="#" class="alert-link"> an example link </b-link>. Give
                     it a click if you like.
-                  </div>
+                  </b-alert>
 
                   <h6>Dark Alert</h6>
-                  <div class="alert alert-dark mb-0" role="alert">
+                  <b-alert variant="dark" class="mb-0" show>
                     A simple Dark alert with
-                    <a href="#" class="alert-link"> an example link </a>. Give
+                    <b-link href="#" class="alert-link"> an example link </b-link>. Give
                     it a click if you like.
-                  </div>
-                </div>
-              </div>
+                  </b-alert>
+                </b-col>
+              </b-row>
             </div>
 
             <div class="d-none code-view">
@@ -690,149 +546,71 @@ A simple &lt;b&gt;Dark alert&lt;/b&gt; with &lt;a href=&quot;#&quot; class=&quot
 &lt;/b-alert&gt;
 </code></pre>
             </div>
-          </div>
-          <!-- end card-body -->
-        </div>
-        <!-- end card -->
-      </div>
-    </div>
+          </b-card-body>
+        </b-card>
+      </b-col>
+    </b-row>
 
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="card">
-          <div class="card-header align-items-center d-flex">
-            <h4 class="card-title mb-0 flex-grow-1">Outline Alerts</h4>
+    <b-row>
+      <b-col lg="12">
+        <b-card no-body>
+          <b-card-header class="align-items-center d-flex">
+            <b-card-title class="mb-0 flex-grow-1">Outline Alerts</b-card-title>
             <div class="flex-shrink-0">
-              <div
-                class="form-check form-switch form-switch-right form-switch-md"
-              >
+              <div class="form-check form-switch form-switch-right form-switch-md">
                 <label for="4" class="form-label text-muted">Show Code</label>
-                <input
-                  class="form-check-input code-switcher"
-                  type="checkbox"
-                  id="4"
-                />
+                <input class="form-check-input code-switcher" type="checkbox" id="4" />
               </div>
             </div>
-          </div>
-          <!-- end card header -->
+          </b-card-header>
 
-          <div class="card-body">
+          <b-card-body>
             <p class="text-muted">
               Use the
               <code>alert-outline</code> class to set an alert with outline.
             </p>
 
             <div class="live-preview">
-              <div class="row">
-                <div class="col-xl-6">
+              <b-row>
+                <b-col xl="6">
                   <h6>Primary Outline Alert</h6>
-                  <div
-                    class="alert alert-primary alert-dismissible alert-outline fade show"
-                    role="alert"
-                  >
+                  <b-alert show dismissible variant="primary" class="alert-outline">
                     <strong>Hi!</strong> - Outline <b>primary alert</b> example
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="alert"
-                      aria-label="Close"
-                    ></button>
-                  </div>
+                  </b-alert>
 
                   <h6>Secondary Outline Alert</h6>
-                  <div
-                    class="alert alert-secondary alert-dismissible alert-outline fade show"
-                    role="alert"
-                  >
-                    <strong>How are you!</strong> - Outline
-                    <b>secondary alert</b> example
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="alert"
-                      aria-label="Close"
-                    ></button>
-                  </div>
+                  <b-alert show dismissible variant="secondary" class="alert-outline">
+                    <strong>Hi!</strong> - Outline <b>secondary alert</b> example
+                  </b-alert>
 
                   <h6>Success Outline Alert</h6>
-                  <div
-                    class="alert alert-success alert-dismissible alert-outline fade show"
-                    role="alert"
-                  >
-                    <strong>Yey! Everything worked!</strong> - Outline
-                    <b>success alert</b> example
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="alert"
-                      aria-label="Close"
-                    ></button>
-                  </div>
+                  <b-alert show dismissible variant="success" class="alert-outline">
+                    <strong>Yey! Everything worked!</strong> - Outline <b>success alert</b> example
+                  </b-alert>
 
                   <h6>Danger Outline Alert</h6>
-                  <div
-                    class="alert alert-danger alert-dismissible alert-outline fade show mb-xl-0"
-                    role="alert"
-                  >
-                    <strong>Something is very wrong!</strong> - Outline
-                    <b>danger alert</b> example
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="alert"
-                      aria-label="Close"
-                    ></button>
-                  </div>
-                </div>
+                  <b-alert show dismissible variant="danger" class="alert-outline">
+                    <strong>Something is very wrong!</strong> - Outline <b>danger alert</b> example
+                  </b-alert>
+                </b-col>
 
-                <div class="col-xl-6">
+                <b-col xl="6">
                   <h6>Warning Outline Alert</h6>
-                  <div
-                    class="alert alert-warning alert-dismissible alert-outline fade show"
-                    role="alert"
-                  >
-                    <strong>Uh oh, something went wrong!</strong> - Outline
-                    <b>warning alert</b> example
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="alert"
-                      aria-label="Close"
-                    ></button>
-                  </div>
+                  <b-alert show dismissible variant="warning" class="alert-outline">
+                    <strong>Uh oh, something went wrong!</strong> - Outline <b>warning alert</b> example
+                  </b-alert>
 
                   <h6>Info Outline Alert</h6>
-                  <div
-                    class="alert alert-info alert-dismissible alert-outline fade show"
-                    role="alert"
-                  >
-                    <strong>Don't forget' it !</strong> - Outline
-                    <b>info alert</b> example
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="alert"
-                      aria-label="Close"
-                    ></button>
-                  </div>
+                  <b-alert show dismissible variant="info" class="alert-outline">
+                    <strong>Don't forget' it !</strong> - Outline <b>info alert</b> example
+                  </b-alert>
 
                   <h6>Dark Alert</h6>
-                  <div
-                    class="alert alert-dark alert-dismissible alert-outline fade show mb-0"
-                    role="alert"
-                  >
-                    <strong>Did you know?</strong> - Outline
-                    <b>dark alert</b> example
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="alert"
-                      aria-label="Close"
-                    ></button>
-                  </div>
-                </div>
-              </div>
+                  <b-alert show dismissible variant="dark" class="alert-outline">
+                    <strong>Did you know?</strong> - Outline <b>dark alert</b> example
+                  </b-alert>
+                </b-col>
+              </b-row>
             </div>
 
             <div class="d-none code-view">
@@ -880,34 +658,25 @@ A simple &lt;b&gt;Dark alert&lt;/b&gt; with &lt;a href=&quot;#&quot; class=&quot
 &lt;/b-alert&gt;
 </code></pre>
             </div>
-          </div>
-          <!-- end card-body -->
-        </div>
-        <!-- end card -->
-      </div>
-    </div>
+          </b-card-body>
+        </b-card>
+      </b-col>
+    </b-row>
 
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="card">
-          <div class="card-header align-items-center d-flex">
-            <h4 class="card-title mb-0 flex-grow-1">Left Border Alerts</h4>
+    <b-row>
+      <b-col lg="12">
+        <b-card no-body>
+          <b-card-header class="align-items-center d-flex">
+            <b-card-title class="mb-0 flex-grow-1">Left Border Alerts</b-card-title>
             <div class="flex-shrink-0">
-              <div
-                class="form-check form-switch form-switch-right form-switch-md"
-              >
+              <div class="form-check form-switch form-switch-right form-switch-md">
                 <label for="5" class="form-label text-muted">Show Code</label>
-                <input
-                  class="form-check-input code-switcher"
-                  type="checkbox"
-                  id="5"
-                />
+                <input class="form-check-input code-switcher" type="checkbox" id="5" />
               </div>
             </div>
-          </div>
-          <!-- end card header -->
+          </b-card-header>
 
-          <div class="card-body">
+          <b-card-body>
             <p class="text-muted">
               Use the
               <code>alert-border-left</code> class to set an alert with the left
@@ -915,143 +684,55 @@ A simple &lt;b&gt;Dark alert&lt;/b&gt; with &lt;a href=&quot;#&quot; class=&quot
             </p>
 
             <div class="live-preview">
-              <div class="row">
-                <div class="col-xl-6">
+              <b-row>
+                <b-col xl="6">
                   <h6>Primary Alert</h6>
-                  <div
-                    class="alert alert-primary alert-border-left alert-dismissible fade show"
-                    role="alert"
-                  >
-                    <i class="ri-user-smile-line me-3 align-middle fs-16"></i>
-                    <strong>Primary</strong>
-                    - Left border alert
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="alert"
-                      aria-label="Close"
-                    ></button>
-                  </div>
+                  <b-alert show dismissible variant="primary" class="alert-border-left">
+                    <i class="ri-user-smile-line me-3 align-middle fs-16"></i><strong>Primary</strong> - Left border
+                    alert
+                  </b-alert>
 
                   <h6>Secondary Alert</h6>
-                  <div
-                    class="alert alert-secondary alert-border-left alert-dismissible fade show"
-                    role="alert"
-                  >
+                  <b-alert show dismissible variant="secondary" class="alert-border-left">
                     <i class="ri-check-double-line me-3 align-middle fs-16"></i>
-                    <strong>Secondary</strong>
-                    - Left border alert
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="alert"
-                      aria-label="Close"
-                    ></button>
-                  </div>
+                    <strong>Secondary</strong> - Left border alert
+                  </b-alert>
 
                   <h6>Success Alert</h6>
-                  <div
-                    class="alert alert-success alert-border-left alert-dismissible fade show"
-                    role="alert"
-                  >
-                    <i
-                      class="ri-notification-off-line me-3 align-middle fs-16"
-                    ></i>
-                    <strong>Success</strong>
-                    - Left border alert
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="alert"
-                      aria-label="Close"
-                    ></button>
-                  </div>
+                  <b-alert show dismissible variant="success" class="alert-border-left">
+                    <i class="ri-notification-off-line me-3 align-middle fs-16"></i><strong>Success</strong> - Left
+                    border alert
+                  </b-alert>
 
                   <h6>Danger Alert</h6>
-                  <div
-                    class="alert alert-danger alert-border-left alert-dismissible fade show mb-xl-0"
-                    role="alert"
-                  >
-                    <i
-                      class="ri-error-warning-line me-3 align-middle fs-16"
-                    ></i>
-                    <strong>Danger</strong>
-                    - Left border alert
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="alert"
-                      aria-label="Close"
-                    ></button>
-                  </div>
-                </div>
+                  <b-alert show dismissible variant="danger" class="alert-border-left">
+                    <i class="ri-error-warning-line me-3 align-middle fs-16"></i><strong>Danger</strong>- Left border
+                    alert
+                  </b-alert>
+                </b-col>
 
-                <div class="col-xl-6">
+                <b-col xl="6">
                   <h6>Warning Alert</h6>
-                  <div
-                    class="alert alert-warning alert-border-left alert-dismissible fade show"
-                    role="alert"
-                  >
-                    <i class="ri-alert-line me-3 align-middle fs-16"></i>
-                    <strong>Warning</strong>
-                    - Left border alert
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="alert"
-                      aria-label="Close"
-                    ></button>
-                  </div>
+                  <b-alert show dismissible variant="warning" class="alert-border-left">
+                    <i class="ri-alert-line me-3 align-middle fs-16"></i><strong>Warning</strong>- Left border alert
+                  </b-alert>
 
                   <h6>Info Alert</h6>
-                  <div
-                    class="alert alert-info alert-border-left alert-dismissible fade show"
-                    role="alert"
-                  >
-                    <i class="ri-airplay-line me-3 align-middle fs-16"></i>
-                    <strong>Info</strong>
-                    - Left border alert
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="alert"
-                      aria-label="Close"
-                    ></button>
-                  </div>
+                  <b-alert show dismissible variant="info" class="alert-border-left">
+                    <i class="ri-airplay-line me-3 align-middle fs-16"></i><strong>Info</strong>- Left border alert
+                  </b-alert>
 
                   <h6>Light Alert</h6>
-                  <div
-                    class="alert alert-light alert-border-left alert-dismissible fade show"
-                    role="alert"
-                  >
-                    <i class="ri-mail-line me-3 align-middle fs-16"></i>
-                    <strong>Light</strong>
-                    - Left border alert
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="alert"
-                      aria-label="Close"
-                    ></button>
-                  </div>
+                  <b-alert show dismissible variant="light" class="alert-border-left">
+                    <i class="ri-mail-line me-3 align-middle fs-16"></i><strong>Light</strong>- Left border alert
+                  </b-alert>
 
                   <h6>Dark Alert</h6>
-                  <div
-                    class="alert alert-dark alert-border-left alert-dismissible fade show mb-0"
-                    role="alert"
-                  >
-                    <i class="ri-refresh-line me-3 align-middle fs-16"></i>
-                    <strong>Dark</strong>
-                    - Left border alert
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="alert"
-                      aria-label="Close"
-                    ></button>
-                  </div>
-                </div>
-              </div>
+                  <b-alert show dismissible variant="dark" class="alert-border-left">
+                    <i class="ri-refresh-line me-3 align-middle fs-16"></i><strong>Dark</strong>- Left border alert
+                  </b-alert>
+                </b-col>
+              </b-row>
             </div>
 
             <div class="d-none code-view">
@@ -1105,168 +786,95 @@ A simple &lt;b&gt;Dark alert&lt;/b&gt; with &lt;a href=&quot;#&quot; class=&quot
 &lt;/b-alert&gt;
 </code></pre>
             </div>
-          </div>
-          <!-- end card-body -->
-        </div>
-        <!-- end card -->
-      </div>
-    </div>
+          </b-card-body>
+        </b-card>
+      </b-col>
+    </b-row>
 
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="card">
-          <div class="card-header align-items-center d-flex">
-            <h4 class="card-title mb-0 flex-grow-1">Label Icon Alerts</h4>
+    <b-row>
+      <b-col lg="12">
+        <b-card no-body>
+          <b-card-header class="align-items-center d-flex">
+            <b-card-title class="mb-0 flex-grow-1">Label Icon Alerts</b-card-title>
             <div class="flex-shrink-0">
-              <div
-                class="form-check form-switch form-switch-right form-switch-md"
-              >
+              <div class="form-check form-switch form-switch-right form-switch-md">
                 <label for="6" class="form-label text-muted">Show Code</label>
-                <input
-                  class="form-check-input code-switcher"
-                  type="checkbox"
-                  id="6"
-                />
+                <input class="form-check-input code-switcher" type="checkbox" id="6" />
               </div>
             </div>
-          </div>
-          <!-- end card header -->
+          </b-card-header>
 
-          <div class="card-body">
+          <b-card-body>
             <p class="text-muted">
               Use the
               <code>alert-label-icon</code> class to set an alert with a label
               icon.
             </p>
             <div class="live-preview">
-              <div class="row">
-                <div class="col-xl-6">
+              <b-row>
+                <b-col xl="6">
                   <h6>Primary Alert</h6>
-                  <div
-                    class="alert alert-primary alert-dismissible alert-solid alert-label-icon fade show"
-                    role="alert"
-                  >
+                  <b-alert dismissible variant="primary" class="alert-solid alert-label-icon" show>
                     <i class="ri-user-smile-line label-icon"></i>
                     <strong>Primary</strong> - Label icon alert
-                    <button
-                      type="button"
-                      class="btn-close btn-close-white"
-                      data-bs-dismiss="alert"
-                      aria-label="Close"
-                    ></button>
-                  </div>
+                    <button type="button" class="btn-close btn-close-white" aria-label="Close"></button>
+                  </b-alert>
 
                   <h6>Secondary Alert</h6>
-                  <div
-                    class="alert alert-secondary alert-dismissible alert-solid alert-label-icon fade show"
-                    role="alert"
-                  >
+                  <b-alert dismissible variant="secondary" class="alert-solid alert-label-icon" show>
                     <i class="ri-check-double-line label-icon"></i>
                     <strong>Secondary</strong>
                     - Label icon alert
-                    <button
-                      type="button"
-                      class="btn-close btn-close-white"
-                      data-bs-dismiss="alert"
-                      aria-label="Close"
-                    ></button>
-                  </div>
+                    <button type="button" class="btn-close btn-close-white" aria-label="Close"></button>
+                  </b-alert>
 
                   <h6>Success Alert</h6>
-                  <div
-                    class="alert alert-success alert-dismissible alert-solid alert-label-icon fade show"
-                    role="alert"
-                  >
+                  <b-alert dismissible variant="success" class="alert-solid alert-label-icon" show>
                     <i class="ri-notification-off-line label-icon"></i>
                     <strong>Success</strong>
                     - Label icon alert
-                    <button
-                      type="button"
-                      class="btn-close btn-close-white"
-                      data-bs-dismiss="alert"
-                      aria-label="Close"
-                    ></button>
-                  </div>
+                    <button type="button" class="btn-close btn-close-white" aria-label="Close"></button>
+                  </b-alert>
 
                   <h6>Danger Alert</h6>
-                  <div
-                    class="alert alert-danger alert-dismissible alert-solid alert-label-icon fade show mb-xl-0"
-                    role="alert"
-                  >
+                  <b-alert dismissible variant="danger" class="alert-solid alert-label-icon mb-xl-0" show>
                     <i class="ri-error-warning-line label-icon"></i>
                     <strong>Danger</strong>
                     - Label icon alert
-                    <button
-                      type="button"
-                      class="btn-close btn-close-white"
-                      data-bs-dismiss="alert"
-                      aria-label="Close"
-                    ></button>
-                  </div>
-                </div>
+                    <button type="button" class="btn-close btn-close-white" aria-label="Close"></button>
+                  </b-alert>
+                </b-col>
 
-                <div class="col-xl-6">
+                <b-col xl="6">
                   <h6>Warning Alert</h6>
-                  <div
-                    class="alert alert-warning alert-dismissible alert-solid alert-label-icon fade show"
-                    role="alert"
-                  >
+                  <b-alert dismissible variant="warning" class=" alert-solid alert-label-icon" show>
                     <i class="ri-alert-line label-icon"></i>
                     <strong>warning</strong> - Label icon alert
-                    <button
-                      type="button"
-                      class="btn-close btn-close-white"
-                      data-bs-dismiss="alert"
-                      aria-label="Close"
-                    ></button>
-                  </div>
+                    <button type="button" class="btn-close btn-close-white" aria-label="Close"></button>
+                  </b-alert>
 
                   <h6>Info Alert</h6>
-                  <div
-                    class="alert alert-info alert-dismissible alert-solid alert-label-icon fade show"
-                    role="alert"
-                  >
+                  <b-alert dismissible variant="info" class=" alert-solid alert-label-icon" show>
                     <i class="ri-airplay-line label-icon"></i>
                     <strong>Info</strong> - Label icon alert
-                    <button
-                      type="button"
-                      class="btn-close btn-close-white"
-                      data-bs-dismiss="alert"
-                      aria-label="Close"
-                    ></button>
-                  </div>
+                    <button type="button" class="btn-close btn-close-white" aria-label="Close"></button>
+                  </b-alert>
 
                   <h6>Light Alert</h6>
-                  <div
-                    class="alert alert-light alert-dismissible alert-solid alert-label-icon fade show"
-                    role="alert"
-                  >
+                  <b-alert dismissible variant="light ale" class=" alert-solid alert-label-icon" show>
                     <i class="ri-mail-line label-icon"></i>
                     <strong>Light</strong> - Label icon alert
-                    <button
-                      type="button"
-                      class="btn-close btn-close-white"
-                      data-bs-dismiss="alert"
-                      aria-label="Close"
-                    ></button>
-                  </div>
+                    <button type="button" class="btn-close btn-close-white" aria-label="Close"></button>
+                  </b-alert>
 
                   <h6>Dark Alert</h6>
-                  <div
-                    class="alert alert-dark alert-dismissible alert-solid alert-label-icon fade show mb-0"
-                    role="alert"
-                  >
+                  <b-alert dismissible variant="dark aler" class=" alert-solid alert-label-icon mb-0" show>
                     <i class="ri-refresh-line label-icon"></i>
                     <strong>Dark</strong> - Label icon alert
-                    <button
-                      type="button"
-                      class="btn-close btn-close-white"
-                      data-bs-dismiss="alert"
-                      aria-label="Close"
-                    ></button>
-                  </div>
-                </div>
-              </div>
+                    <button type="button" class="btn-close btn-close-white" aria-label="Close"></button>
+                  </b-alert>
+                </b-col>
+              </b-row>
             </div>
 
             <div class="d-none code-view">
@@ -1320,36 +928,25 @@ A simple &lt;b&gt;Dark alert&lt;/b&gt; with &lt;a href=&quot;#&quot; class=&quot
 &lt;/b-alert&gt;
 </code></pre>
             </div>
-          </div>
-          <!-- end card-body -->
-        </div>
-        <!-- end card -->
-      </div>
-    </div>
+          </b-card-body>
+        </b-card>
+      </b-col>
+    </b-row>
 
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="card">
-          <div class="card-header align-items-center d-flex">
-            <h4 class="card-title mb-0 flex-grow-1">
-              Additional Content Alerts
-            </h4>
+    <b-row>
+      <b-col lg="12">
+        <b-card no-body>
+          <b-card-header class="align-items-center d-flex">
+            <b-card-title class="mb-0 flex-grow-1"> Additional Content Alerts </b-card-title>
             <div class="flex-shrink-0">
-              <div
-                class="form-check form-switch form-switch-right form-switch-md"
-              >
+              <div class="form-check form-switch form-switch-right form-switch-md">
                 <label for="7" class="form-label text-muted">Show Code</label>
-                <input
-                  class="form-check-input code-switcher"
-                  type="checkbox"
-                  id="7"
-                />
+                <input class="form-check-input code-switcher" type="checkbox" id="7" />
               </div>
             </div>
-          </div>
-          <!-- end card header -->
+          </b-card-header>
 
-          <div class="card-body">
+          <b-card-body>
             <p class="text-muted">
               Use the
               <code>alert-additional</code> class and Use the
@@ -1357,25 +954,15 @@ A simple &lt;b&gt;Dark alert&lt;/b&gt; with &lt;a href=&quot;#&quot; class=&quot
               paragraphs, dividers etc.
             </p>
             <div class="live-preview">
-              <div class="row">
-                <div class="col-xl-6">
+              <b-row>
+                <b-col xl="6">
                   <h6>Primary Alert</h6>
-                  <div
-                    class="alert alert-primary alert-dismissible alert-additional fade show"
-                    role="alert"
-                  >
+
+                  <b-alert show dismissible variant="primary" class="alert-additional">
                     <div class="alert-body">
-                      <button
-                        type="button"
-                        class="btn-close"
-                        data-bs-dismiss="alert"
-                        aria-label="Close"
-                      ></button>
                       <div class="d-flex">
                         <div class="flex-shrink-0 me-3">
-                          <i
-                            class="ri-error-warning-line fs-16 align-middle"
-                          ></i>
+                          <i class="ri-error-warning-line fs-16 align-middle"></i>
                         </div>
                         <div class="flex-grow-1">
                           <h5 class="alert-heading">Well done !</h5>
@@ -1392,20 +979,10 @@ A simple &lt;b&gt;Dark alert&lt;/b&gt; with &lt;a href=&quot;#&quot; class=&quot
                         keep things nice and tidy.
                       </p>
                     </div>
-                  </div>
-
+                  </b-alert>
                   <h6>Danger Alert</h6>
-                  <div
-                    class="alert alert-danger alert-dismissible alert-additional fade show mb-xl-0"
-                    role="alert"
-                  >
+                  <b-alert show dismissible variant="danger" class="alert-additional mb-xl-0">
                     <div class="alert-body">
-                      <button
-                        type="button"
-                        class="btn-close"
-                        data-bs-dismiss="alert"
-                        aria-label="Close"
-                      ></button>
                       <div class="d-flex">
                         <div class="flex-shrink-0 me-3">
                           <i class="ri-alert-line fs-16 align-middle"></i>
@@ -1426,27 +1003,16 @@ A simple &lt;b&gt;Dark alert&lt;/b&gt; with &lt;a href=&quot;#&quot; class=&quot
                         keep things nice and tidy.
                       </p>
                     </div>
-                  </div>
-                </div>
+                  </b-alert>
+                </b-col>
 
-                <div class="col-xl-6">
+                <b-col xl="6">
                   <h6>Success Alert</h6>
-                  <div
-                    class="alert alert-success alert-dismissible alert-additional fade show"
-                    role="alert"
-                  >
+                  <b-alert show dismissible variant="success" class="alert-additional">
                     <div class="alert-body">
-                      <button
-                        type="button"
-                        class="btn-close"
-                        data-bs-dismiss="alert"
-                        aria-label="Close"
-                      ></button>
                       <div class="d-flex">
                         <div class="flex-shrink-0 me-3">
-                          <i
-                            class="ri-notification-off-line fs-16 align-middle"
-                          ></i>
+                          <i class="ri-notification-off-line fs-16 align-middle"></i>
                         </div>
                         <div class="flex-grow-1">
                           <h5 class="alert-heading">Yey! Everything worked!</h5>
@@ -1463,20 +1029,11 @@ A simple &lt;b&gt;Dark alert&lt;/b&gt; with &lt;a href=&quot;#&quot; class=&quot
                         keep things nice and tidy.
                       </p>
                     </div>
-                  </div>
+                  </b-alert>
 
                   <h6>Warning Alert</h6>
-                  <div
-                    class="alert alert-warning alert-dismissible alert-additional fade show mb-0"
-                    role="alert"
-                  >
+                  <b-alert show dismissible variant="warning" class="alert-additional mb-xl-0">
                     <div class="alert-body">
-                      <button
-                        type="button"
-                        class="btn-close"
-                        data-bs-dismiss="alert"
-                        aria-label="Close"
-                      ></button>
                       <div class="d-flex">
                         <div class="flex-shrink-0 me-3">
                           <i class="ri-alert-line fs-16 align-middle"></i>
@@ -1497,9 +1054,9 @@ A simple &lt;b&gt;Dark alert&lt;/b&gt; with &lt;a href=&quot;#&quot; class=&quot
                         keep things nice and tidy.
                       </p>
                     </div>
-                  </div>
-                </div>
-              </div>
+                  </b-alert>
+                </b-col>
+              </b-row>
             </div>
 
             <div class="d-none code-view">
@@ -1580,191 +1137,86 @@ A simple &lt;b&gt;Dark alert&lt;/b&gt; with &lt;a href=&quot;#&quot; class=&quot
 &lt;/div&gt;
 &lt;b-alert&gt;</code></pre>
             </div>
-          </div>
-          <!-- end card-body -->
-        </div>
-        <!-- end card -->
-      </div>
-    </div>
+          </b-card-body>
+        </b-card>
+      </b-col>
+    </b-row>
 
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="card">
-          <div class="card-header align-items-center d-flex">
-            <h4 class="card-title mb-0 flex-grow-1">
-              Top Border with Outline Alerts
-            </h4>
+    <b-row>
+      <b-col lg="12">
+        <b-card no-body>
+          <b-card-header class="align-items-center d-flex">
+            <b-card-title class="mb-0 flex-grow-1"> Top Border with Outline Alerts </b-card-title>
             <div class="flex-shrink-0">
-              <div
-                class="form-check form-switch form-switch-right form-switch-md"
-              >
+              <div class="form-check form-switch form-switch-right form-switch-md">
                 <label for="8" class="form-label text-muted">Show Code</label>
-                <input
-                  class="form-check-input code-switcher"
-                  type="checkbox"
-                  id="8"
-                />
+                <input class="form-check-input code-switcher" type="checkbox" id="8" />
               </div>
             </div>
-          </div>
-          <!-- end card header -->
+          </b-card-header>
 
-          <div class="card-body">
+          <b-card-body>
             <p class="text-muted">
               Use the
               <code>alert-top-border</code> class to set an alert with the top
               border and outline.
             </p>
             <div class="live-preview">
-              <div class="row">
-                <div class="col-xl-6">
+              <b-row>
+                <b-col xl="6">
                   <h6>Primary Alert</h6>
-                  <div
-                    class="alert alert-primary alert-top-border alert-dismissible fade show"
-                    role="alert"
-                  >
-                    <i
-                      class="ri-user-smile-line me-3 align-middle fs-16 text-primary"
-                    ></i>
-                    <strong>Primary</strong>
-                    - Top border alert
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="alert"
-                      aria-label="Close"
-                    ></button>
-                  </div>
+                  <b-alert show dismissible variant="primary" class="alert-top-border">
+                    <i class="ri-user-smile-line me-3 align-middle fs-16 text-primary"></i><strong>Primary</strong>- Top
+                    border alert
+                  </b-alert>
 
                   <h6>Secondary Alert</h6>
-                  <div
-                    class="alert alert-secondary alert-top-border alert-dismissible fade show"
-                    role="alert"
-                  >
+                  <b-alert show dismissible variant="secondary" class="alert-top-border">
                     <i
-                      class="ri-check-double-line me-3 align-middle fs-16 text-secondary"
-                    ></i>
-                    <strong>Secondary</strong>
-                    - Top border alert
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="alert"
-                      aria-label="Close"
-                    ></button>
-                  </div>
+                      class="ri-check-double-line me-3 align-middle fs-16 text-secondary"></i><strong>Secondary</strong>-
+                    Top border alert
+                  </b-alert>
 
                   <h6>Success Alert</h6>
-                  <div
-                    class="alert alert-success alert-top-border alert-dismissible fade show"
-                    role="alert"
-                  >
+                  <b-alert show dismissible variant="success" class="alert-top-border">
                     <i
-                      class="ri-notification-off-line me-3 align-middle fs-16 text-success"
-                    ></i>
-                    <strong>Success</strong>
-                    - Top border alert
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="alert"
-                      aria-label="Close"
-                    ></button>
-                  </div>
+                      class="ri-notification-off-line me-3 align-middle fs-16 text-success"></i><strong>Success</strong>-
+                    Top border alert
+                  </b-alert>
 
                   <h6>Danger Alert</h6>
-                  <div
-                    class="alert alert-danger alert-top-border alert-dismissible fade show mb-xl-0"
-                    role="alert"
-                  >
-                    <i
-                      class="ri-error-warning-line me-3 align-middle fs-16 text-danger"
-                    ></i>
-                    <strong>Danger</strong>
-                    - Top border alert
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="alert"
-                      aria-label="Close"
-                    ></button>
-                  </div>
-                </div>
+                  <b-alert show dismissible variant="danger" class="alert-top-border">
+                    <i class="ri-error-warning-line me-3 align-middle fs-16 text-danger"></i><strong>Danger</strong>-
+                    Top border alert
+                  </b-alert>
+                </b-col>
 
-                <div class="col-xl-6">
+                <b-col xl="6">
                   <h6>Warning Alert</h6>
-                  <div
-                    class="alert alert-warning alert-top-border alert-dismissible fade show"
-                    role="alert"
-                  >
-                    <i
-                      class="ri-alert-line me-3 align-middle fs-16 text-warning"
-                    ></i>
-                    <strong>Warning</strong>
-                    - Top border alert
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="alert"
-                      aria-label="Close"
-                    ></button>
-                  </div>
+                  <b-alert show dismissible variant="warning" class="alert-top-border">
+                    <i class="ri-alert-line me-3 align-middle fs-16 text-warning"></i><strong>Warning</strong>- Top
+                    border alert
+                  </b-alert>
 
                   <h6>Info Alert</h6>
-                  <div
-                    class="alert alert-info alert-top-border alert-dismissible fade show"
-                    role="alert"
-                  >
-                    <i
-                      class="ri-airplay-line me-3 align-middle fs-16 text-info"
-                    ></i>
-                    <strong>Info</strong>
-                    - Top border alert
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="alert"
-                      aria-label="Close"
-                    ></button>
-                  </div>
+                  <b-alert show dismissible variant="info" class="alert-top-border">
+                    <i class="ri-airplay-line me-3 align-middle fs-16 text-info"></i><strong>Info</strong>- Top border
+                    alert
+                  </b-alert>
 
                   <h6>Light Alert</h6>
-                  <div
-                    class="alert alert-light alert-top-border alert-dismissible fade show"
-                    role="alert"
-                  >
-                    <i
-                      class="ri-mail-line me-3 align-middle fs-16 text-dark"
-                    ></i>
-                    <strong>Light</strong>
-                    - Top border alert
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="alert"
-                      aria-label="Close"
-                    ></button>
-                  </div>
+                  <b-alert show dismissible variant="light" class="alert-top-border">
+                    <i class="ri-mail-line me-3 align-middle fs-16 text-dark"></i><strong>Light</strong>- Top border
+                    alert
+                  </b-alert>
 
                   <h6>Dark Alert</h6>
-                  <div
-                    class="alert alert-dark alert-top-border alert-dismissible fade show mb-0"
-                    role="alert"
-                  >
-                    <i
-                      class="ri-refresh-line me-3 align-middle fs-16 text-dark"
-                    ></i>
-                    <strong>Dark</strong>
-                    - Top border alert
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="alert"
-                      aria-label="Close"
-                    ></button>
-                  </div>
-                </div>
-              </div>
+                  <b-alert show dismissible variant="dark" class="alert-top-border">
+                    <i class="ri-refresh-line me-3 align-middle fs-16 text-dark"></i><strong>Dark</strong>- Top border
+                    alert
+                  </b-alert>
+                </b-col>
+              </b-row>
             </div>
 
             <div class="d-none code-view">
@@ -1818,169 +1270,76 @@ A simple &lt;b&gt;Dark alert&lt;/b&gt; with &lt;a href=&quot;#&quot; class=&quot
 &lt;/b-alert&gt;
 </code></pre>
             </div>
-          </div>
-          <!-- end card-body -->
-        </div>
-        <!-- end card -->
-      </div>
-    </div>
+          </b-card-body>
+        </b-card>
+      </b-col>
+    </b-row>
 
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="card">
-          <div class="card-header align-items-center d-flex">
-            <h4 class="card-title mb-0 flex-grow-1">Label Icon Arrow Alerts</h4>
+    <b-row>
+      <b-col lg="12">
+        <b-card no-body>
+          <b-card-header class="align-items-center d-flex">
+            <b-card-title class="mb-0 flex-grow-1">Label Icon Arrow Alerts</b-card-title>
             <div class="flex-shrink-0">
-              <div
-                class="form-check form-switch form-switch-right form-switch-md"
-              >
+              <div class="form-check form-switch form-switch-right form-switch-md">
                 <label for="9" class="form-label text-muted">Show Code</label>
-                <input
-                  class="form-check-input code-switcher"
-                  type="checkbox"
-                  id="9"
-                />
+                <input class="form-check-input code-switcher" type="checkbox" id="9" />
               </div>
             </div>
-          </div>
-          <!-- end card header -->
+          </b-card-header>
 
-          <div class="card-body">
+          <b-card-body>
             <p class="text-muted">
               Use the
               <code>alert-label-icon label-arrow</code> class to show an alert
               with label icon and arrow.
             </p>
             <div class="live-preview">
-              <div class="row">
-                <div class="col-xl-6">
+              <b-row>
+                <b-col xl="6">
                   <h6>Primary Alert</h6>
-                  <div
-                    class="alert alert-primary alert-dismissible alert-label-icon label-arrow fade show"
-                    role="alert"
-                  >
-                    <i class="ri-user-smile-line label-icon"></i>
-                    <strong>Primary</strong> - Label icon arrow alert
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="alert"
-                      aria-label="Close"
-                    ></button>
-                  </div>
+                  <b-alert show dismissible variant="primary" class="alert-label-icon label-arrow">
+                    <i class="ri-user-smile-line label-icon"></i><strong>Primary</strong> - Label icon arrow alert
+                  </b-alert>
 
                   <h6>Secondary Alert</h6>
-                  <div
-                    class="alert alert-secondary alert-dismissible alert-label-icon label-arrow fade show"
-                    role="alert"
-                  >
-                    <i class="ri-check-double-line label-icon"></i>
-                    <strong>Secondary</strong> - Label icon arrow alert
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="alert"
-                      aria-label="Close"
-                    ></button>
-                  </div>
+                  <b-alert show dismissible variant="secondary" class="alert-label-icon label-arrow">
+                    <i class="ri-check-double-line label-icon"></i><strong>Secondary</strong> - Label icon arrow alert
+                  </b-alert>
 
                   <h6>Success Alert</h6>
-                  <div
-                    class="alert alert-success alert-dismissible alert-label-icon label-arrow fade show"
-                    role="alert"
-                  >
-                    <i class="ri-notification-off-line label-icon"></i>
-                    <strong>Success</strong>
-                    - Label icon arrow alert
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="alert"
-                      aria-label="Close"
-                    ></button>
-                  </div>
+                  <b-alert show dismissible variant="success" class="alert-label-icon label-arrow">
+                    <i class="ri-notification-off-line label-icon"></i><strong>Success</strong>- Label icon arrow alert
+                  </b-alert>
 
                   <h6>Danger Alert</h6>
-                  <div
-                    class="alert alert-danger alert-dismissible alert-label-icon label-arrow fade show mb-xl-0"
-                    role="alert"
-                  >
-                    <i class="ri-error-warning-line label-icon"></i>
-                    <strong>Danger</strong>
-                    - Label icon arrow alert
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="alert"
-                      aria-label="Close"
-                    ></button>
-                  </div>
-                </div>
+                  <b-alert show dismissible variant="danger" class="alert-label-icon label-arrow">
+                    <i class="ri-error-warning-line label-icon"></i><strong>Danger</strong>- Label icon arrow alert
+                  </b-alert>
+                </b-col>
 
-                <div class="col-xl-6">
+                <b-col xl="6">
                   <h6>Warning Alert</h6>
-                  <div
-                    class="alert alert-warning alert-dismissible alert-label-icon label-arrow fade show"
-                    role="alert"
-                  >
-                    <i class="ri-alert-line label-icon"></i>
-                    <strong>Warning</strong> - Label icon arrow alert
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="alert"
-                      aria-label="Close"
-                    ></button>
-                  </div>
+                  <b-alert show dismissible variant="warning" class="alert-label-icon label-arrow">
+                    <i class="ri-alert-line label-icon"></i><strong>Warning</strong> - Label icon arrow alert
+                  </b-alert>
 
                   <h6>info Alert</h6>
-                  <div
-                    class="alert alert-info alert-dismissible alert-label-icon label-arrow fade show"
-                    role="alert"
-                  >
-                    <i class="ri-airplay-line label-icon"></i>
-                    <strong>Info</strong> - Label icon arrow alert
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="alert"
-                      aria-label="Close"
-                    ></button>
-                  </div>
+                  <b-alert show dismissible variant="info" class="alert-label-icon label-arrow">
+                    <i class="ri-airplay-line label-icon"></i><strong>Info</strong> - Label icon arrow alert
+                  </b-alert>
 
                   <h6>Light Alert</h6>
-                  <div
-                    class="alert alert-light alert-dismissible alert-label-icon label-arrow fade show"
-                    role="alert"
-                  >
-                    <i class="ri-mail-line label-icon"></i>
-                    <strong>Light</strong>
-                    - Label icon arrow alert
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="alert"
-                      aria-label="Close"
-                    ></button>
-                  </div>
+                  <b-alert show dismissible variant="light" class="alert-label-icon label-arrow">
+                    <i class="ri-mail-line label-icon"></i><strong>Light</strong>- Label icon arrow alert
+                  </b-alert>
 
                   <h6>Dark Alert</h6>
-                  <div
-                    class="alert alert-dark alert-dismissible alert-label-icon label-arrow fade show mb-0"
-                    role="alert"
-                  >
-                    <i class="ri-refresh-line label-icon"></i>
-                    <strong>Dark</strong>
-                    - Label icon arrow alert
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="alert"
-                      aria-label="Close"
-                    ></button>
-                  </div>
-                </div>
-              </div>
+                  <b-alert show dismissible variant="dark" class="alert-label-icon label-arrow">
+                    <i class="ri-refresh-line label-icon"></i><strong>Dark</strong>- Label icon arrow alert
+                  </b-alert>
+                </b-col>
+              </b-row>
             </div>
 
             <div class="d-none code-view">
@@ -2034,170 +1393,78 @@ A simple &lt;b&gt;Dark alert&lt;/b&gt; with &lt;a href=&quot;#&quot; class=&quot
 &lt;/b-alert&gt;
 </code></pre>
             </div>
-          </div>
-          <!-- end card-body -->
-        </div>
-        <!-- end card -->
-      </div>
-    </div>
+          </b-card-body>
+        </b-card>
+      </b-col>
+    </b-row>
 
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="card">
-          <div class="card-header align-items-center d-flex">
-            <h4 class="card-title mb-0 flex-grow-1">
-              Rounded Label Icon Alerts
-            </h4>
+    <b-row>
+      <b-col lg="12">
+        <b-card no-body>
+          <b-card-header class="align-items-center d-flex">
+            <b-card-title class="mb-0 flex-grow-1"> Rounded Label Icon Alerts </b-card-title>
             <div class="flex-shrink-0">
-              <div
-                class="form-check form-switch form-switch-right form-switch-md"
-              >
+              <div class="form-check form-switch form-switch-right form-switch-md">
                 <label for="10" class="form-label text-muted">Show Code</label>
-                <input
-                  class="form-check-input code-switcher"
-                  type="checkbox"
-                  id="10"
-                />
+                <input class="form-check-input code-switcher" type="checkbox" id="10" />
               </div>
             </div>
-          </div>
-          <!-- end card header -->
+          </b-card-header>
 
-          <div class="card-body">
+          <b-card-body>
             <p class="text-muted">
               Use the
               <code>alert-label-icon rounded-label</code> class to set an alert
               with a rounded label icon.
             </p>
             <div class="live-preview">
-              <div class="row">
-                <div class="col-xl-6">
+              <b-row>
+                <b-col xl="6">
                   <h6>Primary Alert</h6>
-                  <div
-                    class="alert alert-primary alert-dismissible alert-label-icon rounded-label fade show"
-                    role="alert"
-                  >
-                    <i class="ri-user-smile-line label-icon"></i>
-                    <strong>Primary</strong> - Rounded label alert
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="alert"
-                      aria-label="Close"
-                    ></button>
-                  </div>
+                  <b-alert show dismissible variant="primary" class="alert-label-icon rounded-label">
+                    <i class="ri-user-smile-line label-icon"></i><strong>Primary</strong> - Rounded label alert
+                  </b-alert>
 
                   <h6>Secondary Alert</h6>
-                  <div
-                    class="alert alert-secondary alert-dismissible alert-label-icon rounded-label fade show"
-                    role="alert"
-                  >
-                    <i class="ri-check-double-line label-icon"></i>
-                    <strong>Secondary</strong>
-                    - Rounded label alert
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="alert"
-                      aria-label="Close"
-                    ></button>
-                  </div>
+                  <b-alert show dismissible variant="secondary" class="alert-label-icon rounded-label">
+                    <i class="ri-check-double-line label-icon"></i><strong>Secondary</strong>- Rounded label alert
+                  </b-alert>
 
                   <h6>Success Alert</h6>
-                  <div
-                    class="alert alert-success alert-dismissible alert-label-icon rounded-label fade show"
-                    role="alert"
-                  >
-                    <i class="ri-notification-off-line label-icon"></i>
-                    <strong>Success</strong>
-                    - Rounded label alert
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="alert"
-                      aria-label="Close"
-                    ></button>
-                  </div>
+                  <b-alert show dismissible variant="success" class="alert-label-icon rounded-label">
+                    <i class="ri-notification-off-line label-icon"></i><strong>Success</strong>- Rounded label alert
+                  </b-alert>
 
                   <h6>Danger Alert</h6>
-                  <div
-                    class="alert alert-danger alert-dismissible alert-label-icon rounded-label fade show mb-xl-0"
-                    role="alert"
-                  >
-                    <i class="ri-error-warning-line label-icon"></i>
-                    <strong>Danger</strong>
-                    - Rounded label alert
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="alert"
-                      aria-label="Close"
-                    ></button>
-                  </div>
-                </div>
+                  <b-alert show dismissible variant="danger" class="alert-label-icon rounded-label">
+                    <i class="ri-error-warning-line label-icon"></i><strong>Danger</strong>- Rounded label alert
+                  </b-alert>
 
-                <div class="col-xl-6">
+                </b-col>
+
+                <b-col xl="6">
                   <h6>Warning Alert</h6>
-                  <div
-                    class="alert alert-warning alert-dismissible alert-label-icon rounded-label fade show"
-                    role="alert"
-                  >
-                    <i class="ri-alert-line label-icon"></i>
-                    <strong>Warning</strong> - Rounded label alert
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="alert"
-                      aria-label="Close"
-                    ></button>
-                  </div>
+                  <b-alert show dismissible variant="warning" class="alert-label-icon rounded-label">
+                    <i class="ri-alert-line label-icon"></i><strong>Warning</strong> - Rounded label alert
+                  </b-alert>
 
                   <h6>Info Alert</h6>
-                  <div
-                    class="alert alert-info alert-dismissible alert-label-icon rounded-label fade show"
-                    role="alert"
-                  >
-                    <i class="ri-airplay-line label-icon"></i>
-                    <strong>Info</strong> - Rounded label alert
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="alert"
-                      aria-label="Close"
-                    ></button>
-                  </div>
+                  <b-alert show dismissible variant="info" class="alert-label-icon rounded-label">
+                    <i class="ri-airplay-line label-icon"></i><strong>Info</strong> - Rounded label alert
+                  </b-alert>
 
                   <h6>Light Alert</h6>
-                  <div
-                    class="alert alert-light alert-dismissible alert-label-icon rounded-label fade show"
-                    role="alert"
-                  >
-                    <i class="ri-mail-line label-icon"></i>
-                    <strong>Light</strong> - Rounded label alert
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="alert"
-                      aria-label="Close"
-                    ></button>
-                  </div>
+                  <b-alert show dismissible variant="light" class="alert-label-icon rounded-label">
+                    <i class="ri-mail-line label-icon"></i><strong>Light</strong> - Rounded label alert
+                  </b-alert>
 
                   <h6>Dark Alert</h6>
-                  <div
-                    class="alert alert-dark alert-dismissible alert-label-icon rounded-label fade show mb-0"
-                    role="alert"
-                  >
-                    <i class="ri-refresh-line label-icon"></i>
-                    <strong>Dark</strong> - Rounded label alert
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="alert"
-                      aria-label="Close"
-                    ></button>
-                  </div>
-                </div>
-              </div>
+                  <b-alert show dismissible variant="dark" class="alert-label-icon rounded-label">
+                    <i class="ri-refresh-line label-icon"></i><strong>Dark</strong> - Rounded label alert
+                  </b-alert>
+
+                </b-col>
+              </b-row>
             </div>
 
             <div class="d-none code-view">
@@ -2251,97 +1518,68 @@ A simple &lt;b&gt;Dark alert&lt;/b&gt; with &lt;a href=&quot;#&quot; class=&quot
 &lt;/b-alert&gt;
 </code></pre>
             </div>
-          </div>
-          <!-- end card-body -->
-        </div>
-        <!-- end card -->
-      </div>
-    </div>
+          </b-card-body>
+        </b-card>
+      </b-col>
+    </b-row>
 
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="card">
-          <div class="card-header align-items-center d-flex">
-            <h4 class="card-title mb-0 flex-grow-1">Solid Alerts</h4>
+    <b-row>
+      <b-col lg="12">
+        <b-card no-body>
+          <b-card-header class="align-items-center d-flex">
+            <b-card-title class="mb-0 flex-grow-1">Solid Alerts</b-card-title>
             <div class="flex-shrink-0">
-              <div
-                class="form-check form-switch form-switch-right form-switch-md"
-              >
-                <label for="solid-alerts-code" class="form-label text-muted"
-                  >Show Code</label
-                >
-                <input
-                  class="form-check-input code-switcher"
-                  type="checkbox"
-                  id="solid-alerts-code"
-                />
+              <div class="form-check form-switch form-switch-right form-switch-md">
+                <label for="solid-alerts-code" class="form-label text-muted">Show Code</label>
+                <input class="form-check-input code-switcher" type="checkbox" id="solid-alerts-code" />
               </div>
             </div>
-          </div>
-          <!-- end card header -->
+          </b-card-header>
 
-          <div class="card-body">
+          <b-card-body>
             <p class="text-muted">
               Use the
               <code>alert-solid</code> class to set an alert with solid style.
             </p>
 
             <div class="live-preview">
-              <div class="row">
-                <div class="col-xl-6">
+              <b-row>
+                <b-col xl="6">
                   <h6>Primary Solid Alert</h6>
-                  <div class="alert alert-primary alert-solid" role="alert">
-                    <strong>Hi!</strong> - Solid <b>primary alert</b> example
-                  </div>
+                  <b-alert show variant="primary" class="alert-solid"><strong>Hi!</strong> - Solid <b>primary alert</b>
+                    example</b-alert>
 
                   <h6>Secondary Solid Alert</h6>
-                  <div class="alert alert-secondary alert-solid" role="alert">
-                    <strong>How are you!</strong> - Solid
-                    <b>secondary alert</b> example
-                  </div>
+                  <b-alert show variant="secondary" class="alert-solid"><strong>Hi!</strong> - Solid <b>primary
+                      alert</b> example</b-alert>
 
                   <h6>Success Solid Alert</h6>
-                  <div class="alert alert-success alert-solid" role="alert">
-                    <strong>Yey! Everything worked!</strong> - Solid
-                    <b>success alert</b> example
-                  </div>
+                  <b-alert show variant="success" class="alert-solid"><strong>Hi!</strong> - Solid <b>primary alert</b>
+                    example</b-alert>
 
                   <h6>Danger Solid Alert</h6>
-                  <div
-                    class="alert alert-danger alert-solid mb-xl-0"
-                    role="alert"
-                  >
-                    <strong>Something is very wrong!</strong> - Solid
-                    <b>danger alert</b> example
-                  </div>
-                </div>
+                  <b-alert show variant="danger" class="alert-solid"><strong>Hi!</strong> - Solid <b>primary alert</b>
+                    example</b-alert>
+                </b-col>
 
-                <div class="col-xl-6">
+                <b-col xl="6">
                   <h6>Warning Solid Alert</h6>
-                  <div class="alert alert-warning alert-solid" role="alert">
-                    <strong>Uh oh, something went wrong!</strong> - Solid
-                    <b>warning alert</b> example
-                  </div>
+                  <b-alert show variant="warning" class="alert-solid"><strong>Hi!</strong> - Solid <b>primary alert</b>
+                    example</b-alert>
 
                   <h6>Info Solid Alert</h6>
-                  <div class="alert alert-info alert-solid" role="alert">
-                    <strong>Don't forget' it !</strong> - Solid
-                    <b>info alert</b> example
-                  </div>
+                  <b-alert show variant="info" class="alert-solid"><strong>Hi!</strong> - Solid <b>primary alert</b>
+                    example</b-alert>
 
                   <h6>Light Solid Alert</h6>
-                  <div class="alert alert-light alert-solid" role="alert">
-                    <strong>Mind Your Step!</strong> - Solid
-                    <b>secondary alert</b> example
-                  </div>
+                  <b-alert show variant="light" class="alert-solid"><strong>Hi!</strong> - Solid <b>primary alert</b>
+                    example</b-alert>
 
                   <h6>Dark Solid Alert</h6>
-                  <div class="alert alert-dark alert-solid mb-0" role="alert">
-                    <strong>Did you know?</strong> - Solid
-                    <b>dark alert</b> example
-                  </div>
-                </div>
-              </div>
+                  <b-alert show variant="dark" class="alert-solid"><strong>Hi!</strong> - Solid <b>primary alert</b>
+                    example</b-alert>
+                </b-col>
+              </b-row>
             </div>
 
             <div class="d-none code-view">
@@ -2387,11 +1625,9 @@ A simple &lt;b&gt;Dark alert&lt;/b&gt; with &lt;a href=&quot;#&quot; class=&quot
 &lt;/b-alert&gt;
 </code></pre>
             </div>
-          </div>
-          <!-- end card-body -->
-        </div>
-        <!-- end card -->
-      </div>
-    </div>
+          </b-card-body>
+        </b-card>
+      </b-col>
+    </b-row>
   </Layout>
 </template>

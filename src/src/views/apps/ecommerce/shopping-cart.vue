@@ -36,6 +36,7 @@ export default {
           active: true,
         },
       ],
+      removeItemModal: false,
       taxRate: 0.125,
       shippingRate: 65.0,
       discountRate: 0.15,
@@ -50,23 +51,29 @@ export default {
   },
 
   mounted() {
-    // Remove product from cart
-    const removeProduct = document.getElementById("removeItemModal");
-    removeProduct.addEventListener("show.bs.modal", (e) => {
-      document
-        .getElementById("remove-product")
-        .addEventListener("click", () => {
-          e.relatedTarget.closest(".product").remove();
-          document.getElementById("close-modal").click();
-          this.recalculateCart();
-        });
-    });
-
     setTimeout(() => {
       this.isData();
     }, 100);
   },
   methods: {
+    deleteProduct() {
+      this.removeItemModal = true;
+      if (document.getElementById("removeItemModal")) {
+        document.getElementById("removeItemModal")
+        addEventListener("click", (e) => {
+          document
+            .getElementById("remove-product")
+            .addEventListener("click", () => {
+              if (e.target.closest('.product')) {
+                e.target.closest('.product').remove();
+              }
+              this.recalculateCart();
+              this.removeItemModal = false;
+            });
+        });
+      }
+    },
+
     isData() {
       const plus = document.getElementsByClassName("plus");
       const minus = document.getElementsByClassName("minus");
@@ -75,6 +82,7 @@ export default {
       if (plus) {
         Array.prototype.forEach.call(plus, (e) => {
           e.addEventListener("click", (event) => {
+
             let par = event.target.closest(".input-step");
 
             par.getElementsByClassName("product-quantity")[0].value++;
@@ -173,40 +181,31 @@ export default {
 <template>
   <Layout>
     <PageHeader :title="title" :items="items" />
-    <div class="row mb-3">
-      <div class="col-xl-8">
-        <div class="row align-items-center gy-3 mb-3">
-          <div class="col-sm">
+    <b-row class="mb-3">
+      <b-col xl="8">
+        <b-row class="align-items-center gy-3 mb-3">
+          <b-col sm>
             <div>
               <h5 class="fs-14 mb-0">Your Cart (03 items)</h5>
             </div>
-          </div>
-          <div class="col-sm-auto">
-            <router-link
-              to="/ecommerce/products"
-              class="link-primary text-decoration-underline"
-              >Continue Shopping</router-link
-            >
-          </div>
-        </div>
+          </b-col>
+          <b-col sm="auto">
+            <router-link to="/ecommerce/products" class="link-primary text-decoration-underline">Continue Shopping
+            </router-link>
+          </b-col>
+        </b-row>
 
-        <div class="card product">
-          <div class="card-body">
-            <div class="row gy-3">
-              <div class="col-sm-auto">
+        <b-card no-body class="product">
+          <b-card-body>
+            <b-row class="gy-3">
+              <b-col sm="auto">
                 <div class="avatar-lg bg-light rounded p-1">
-                  <img
-                    src="@/assets/images/products/img-8.png"
-                    alt=""
-                    class="img-fluid d-block"
-                  />
+                  <img src="@/assets/images/products/img-8.png" alt="" class="img-fluid d-block" />
                 </div>
-              </div>
-              <div class="col-sm">
+              </b-col>
+              <b-col sm>
                 <h5 class="fs-14 text-truncate">
-                  <router-link to="/ecommerce/product-detail" class="text-dark"
-                    >Sweatshirt for Men (Pink)</router-link
-                  >
+                  <router-link to="/ecommerce/product-details" class="text-dark">Sweatshirt for Men (Pink)</router-link>
                 </h5>
                 <ul class="list-inline text-muted">
                   <li class="list-inline-item">
@@ -219,82 +218,61 @@ export default {
 
                 <div class="input-step">
                   <button type="button" class="minus">–</button>
-                  <input
-                    type="number"
-                    class="product-quantity"
-                    v-model="value"
-                    min="0"
-                    max="100"
-                  />
+                  <input type="number" class="product-quantity" v-model="value" min="0" max="100" />
                   <button type="button" class="plus">+</button>
                 </div>
-              </div>
-              <div class="col-sm-auto">
+              </b-col>
+              <b-col sm="auto">
                 <div class="text-lg-end">
                   <p class="text-muted mb-1">Item Price:</p>
                   <h5 class="fs-14">
                     $<span id="ticket_price" class="product-price">119.99</span>
                   </h5>
                 </div>
-              </div>
-            </div>
-          </div>
-          <!-- card body -->
-          <div class="card-footer">
-            <div class="row align-items-center gy-3">
-              <div class="col-sm">
+              </b-col>
+            </b-row>
+          </b-card-body>
+          <b-card-footer>
+            <b-row class="align-items-center gy-3">
+              <b-col sm>
                 <div class="d-flex flex-wrap my-n1">
                   <div>
-                    <a
-                      href="#"
-                      class="d-block text-body p-1 px-2"
-                      data-bs-toggle="modal"
-                      data-bs-target="#removeItemModal"
-                      ><i
-                        class="ri-delete-bin-fill text-muted align-bottom me-1"
-                      ></i>
-                      Remove</a
-                    >
+                    <b-link class="d-block text-body p-1 px-2" @click="deleteProduct">
+                      <i class="ri-delete-bin-fill text-muted align-bottom me-1"></i>
+                      Remove
+                    </b-link>
                   </div>
                   <div>
-                    <a href="#" class="d-block text-body p-1 px-2"
-                      ><i class="ri-star-fill text-muted align-bottom me-1"></i>
-                      Add Wishlist</a
-                    >
+                    <b-link href="#" class="d-block text-body p-1 px-2"><i
+                        class="ri-star-fill text-muted align-bottom me-1"></i>
+                      Add Wishlist</b-link>
                   </div>
                 </div>
-              </div>
-              <div class="col-sm-auto">
+              </b-col>
+              <b-col sm="auto">
                 <div class="d-flex align-items-center gap-2 text-muted">
                   <div>Total :</div>
                   <h5 class="fs-14 mb-0">
                     $<span class="product-line-price">239.98</span>
                   </h5>
                 </div>
-              </div>
-            </div>
-          </div>
-          <!-- end card footer -->
-        </div>
-        <!-- end card -->
+              </b-col>
+            </b-row>
+          </b-card-footer>
+        </b-card>
 
-        <div class="card product">
-          <div class="card-body">
-            <div class="row gy-3">
-              <div class="col-sm-auto">
+        <b-card no-body class="product">
+          <b-card-body>
+            <b-row class="gy-3">
+              <b-col sm="auto">
                 <div class="avatar-lg bg-light rounded p-1">
-                  <img
-                    src="@/assets/images/products/img-7.png"
-                    alt=""
-                    class="img-fluid d-block"
-                  />
+                  <img src="@/assets/images/products/img-7.png" alt="" class="img-fluid d-block" />
                 </div>
-              </div>
-              <div class="col-sm">
+              </b-col>
+              <b-col sm>
                 <h5 class="fs-14 text-truncate">
-                  <router-link to="/ecommerce/product-detail" class="text-dark"
-                    >Noise NoiseFit Endure Smart Watch</router-link
-                  >
+                  <router-link to="/ecommerce/product-details" class="text-dark">Noise NoiseFit Endure Smart Watch
+                  </router-link>
                 </h5>
 
                 <ul class="list-inline text-muted">
@@ -308,82 +286,61 @@ export default {
 
                 <div class="input-step">
                   <button type="button" class="minus">–</button>
-                  <input
-                    type="number"
-                    class="product-quantity"
-                    v-model="value1"
-                    min="0"
-                    max="100"
-                  />
+                  <input type="number" class="product-quantity" v-model="value1" min="0" max="100" />
                   <button type="button" class="plus">+</button>
                 </div>
-              </div>
-              <div class="col-sm-auto">
+              </b-col>
+              <b-col sm="auto">
                 <div class="text-lg-end">
                   <p class="text-muted mb-1">Item Price:</p>
                   <h5 class="fs-14">
                     $<span class="product-price">94.99</span>
                   </h5>
                 </div>
-              </div>
-            </div>
-          </div>
-          <!-- card body -->
-          <div class="card-footer">
-            <div class="row align-items-center gy-3">
-              <div class="col-sm">
+              </b-col>
+            </b-row>
+          </b-card-body>
+          <b-card-footer>
+            <b-row class="align-items-center gy-3">
+              <b-col sm>
                 <div class="d-flex flex-wrap my-n1">
                   <div>
-                    <a
-                      href="#"
-                      class="d-block text-body p-1 px-2"
-                      data-bs-toggle="modal"
-                      data-bs-target="#removeItemModal"
-                      ><i
-                        class="ri-delete-bin-fill text-muted align-bottom me-1"
-                      ></i>
-                      Remove</a
-                    >
+                    <b-link class="d-block text-body p-1 px-2" @click="deleteProduct">
+                      <i class="ri-delete-bin-fill text-muted align-bottom me-1"></i>
+                      Remove
+                    </b-link>
                   </div>
                   <div>
-                    <a href="#" class="d-block text-body p-1 px-2"
-                      ><i class="ri-star-fill text-muted align-bottom me-1"></i>
-                      Add Wishlist</a
-                    >
+                    <b-link href="#" class="d-block text-body p-1 px-2"><i
+                        class="ri-star-fill text-muted align-bottom me-1"></i>
+                      Add Wishlist</b-link>
                   </div>
                 </div>
-              </div>
-              <div class="col-sm-auto">
+              </b-col>
+              <b-col sm="auto">
                 <div class="d-flex align-items-center gap-2 text-muted">
                   <div>Total :</div>
                   <h5 class="fs-14 mb-0">
                     $<span class="product-line-price">94.99</span>
                   </h5>
                 </div>
-              </div>
-            </div>
-          </div>
-          <!-- end card footer -->
-        </div>
-        <!-- end card -->
+              </b-col>
+            </b-row>
+          </b-card-footer>
+        </b-card>
 
-        <div class="card product">
-          <div class="card-body">
-            <div class="row gy-3">
-              <div class="col-sm-auto">
+        <b-card no-body class="product">
+          <b-card-body>
+            <b-row class="gy-3">
+              <b-col sm="auto">
                 <div class="avatar-lg bg-light rounded p-1">
-                  <img
-                    src="@/assets/images/products/img-3.png"
-                    alt=""
-                    class="img-fluid d-block"
-                  />
+                  <img src="@/assets/images/products/img-3.png" alt="" class="img-fluid d-block" />
                 </div>
-              </div>
-              <div class="col-sm">
+              </b-col>
+              <b-col sm>
                 <h5 class="fs-14 text-truncate">
-                  <router-link to="/ecommerce/product-detail" class="text-dark"
-                    >350 ml Glass Grocery Container</router-link
-                  >
+                  <router-link to="/ecommerce/product-details" class="text-dark">350 ml Glass Grocery Container
+                  </router-link>
                 </h5>
 
                 <ul class="list-inline text-muted">
@@ -397,103 +354,77 @@ export default {
 
                 <div class="input-step">
                   <button type="button" class="minus">–</button>
-                  <input
-                    type="number"
-                    class="product-quantity"
-                    v-model="value2"
-                    min="0"
-                    max="100"
-                  />
+                  <input type="number" class="product-quantity" v-model="value2" min="0" max="100" />
                   <button type="button" class="plus">+</button>
                 </div>
-              </div>
-              <div class="col-sm-auto">
+              </b-col>
+              <b-col sm="auto">
                 <div class="text-lg-end">
                   <p class="text-muted mb-1">Item Price:</p>
                   <h5 class="fs-14">
                     $<span class="product-price">24.99</span>
                   </h5>
                 </div>
-              </div>
-            </div>
-          </div>
-          <!-- card body -->
-          <div class="card-footer">
-            <div class="row align-items-center gy-3">
-              <div class="col-sm">
+              </b-col>
+            </b-row>
+          </b-card-body>
+          <b-card-footer>
+            <b-row class="align-items-center gy-3">
+              <b-col sm>
                 <div class="d-flex flex-wrap my-n1">
                   <div>
-                    <a
-                      href="#"
-                      class="d-block text-body p-1 px-2"
-                      data-bs-toggle="modal"
-                      data-bs-target="#removeItemModal"
-                      ><i
-                        class="ri-delete-bin-fill text-muted align-bottom me-1"
-                      ></i>
-                      Remove</a
-                    >
+                    <b-link class="d-block text-body p-1 px-2" @click="deleteProduct">
+                      <i class="ri-delete-bin-fill text-muted align-bottom me-1"></i>
+                      Remove
+                    </b-link>
                   </div>
                   <div>
-                    <a href="#" class="d-block text-body p-1 px-2"
-                      ><i class="ri-star-fill text-muted align-bottom me-1"></i>
-                      Add Wishlist</a
-                    >
+                    <b-link href="#" class="d-block text-body p-1 px-2"><i
+                        class="ri-star-fill text-muted align-bottom me-1"></i>
+                      Add Wishlist</b-link>
                   </div>
                 </div>
-              </div>
-              <div class="col-sm-auto">
+              </b-col>
+              <b-col sm="auto">
                 <div class="d-flex align-items-center gap-2 text-muted">
                   <div>Total :</div>
                   <h5 class="fs-14 mb-0">
                     $<span class="product-line-price">24.99</span>
                   </h5>
                 </div>
-              </div>
-            </div>
-          </div>
-          <!-- end card footer -->
-        </div>
-        <!-- end card -->
+              </b-col>
+            </b-row>
+          </b-card-footer>
+        </b-card>
 
         <div class="text-end mb-4">
-          <router-link
-            to="/ecommerce/checkout"
-            class="btn btn-primary btn-label right ms-auto"
-            ><i
-              class="ri-arrow-right-line label-icon align-bottom fs-16 ms-2"
-            ></i>
-            Checkout</router-link
-          >
+          <router-link to="/ecommerce/checkout" class="btn btn-primary btn-label right ms-auto"><i
+              class="ri-arrow-right-line label-icon align-bottom fs-16 ms-2"></i>
+            Checkout</router-link>
         </div>
-      </div>
-      <!-- end col -->
+      </b-col>
 
-      <div class="col-xl-4">
+      <b-col xl="4">
         <div class="sticky-side-div">
-          <div class="card">
-            <div class="card-header border-bottom-dashed">
+          <b-card no-body>
+            <b-card-header class="border-bottom-dashed">
               <h5 class="card-title mb-0">Order Summary</h5>
-            </div>
-            <div class="card-header bg-soft-light border-bottom-dashed">
+            </b-card-header>
+            <b-card-header class="bg-soft-light border-bottom-dashed">
               <div class="text-center">
                 <h6 class="mb-2">
                   Have a <span class="fw-semibold">promo</span> code ?
                 </h6>
               </div>
               <div class="hstack gap-3 px-3 mx-n3">
-                <input
-                  class="form-control me-auto"
-                  type="text"
-                  placeholder="Enter coupon code"
-                  aria-label="Add Promo Code here..."
-                />
-                <button type="button" class="btn btn-primary w-xs">
+                <input class="form-control me-auto" type="text" placeholder="Enter coupon code"
+                  aria-label="Add Promo Code here..." />
+                <b-button type="button" variant="primary" class="w-xs">
                   Apply
-                </button>
+                </b-button>
               </div>
-            </div>
-            <div class="card-body pt-2">
+            </b-card-header>
+            <b-card-body class="pt-2">
               <div class="table-responsive">
                 <table class="table table-borderless mb-0">
                   <tbody>
@@ -526,19 +457,13 @@ export default {
                   </tbody>
                 </table>
               </div>
-              <!-- end table-responsive -->
-            </div>
-          </div>
+            </b-card-body>
+          </b-card>
 
-          <div class="alert border-dashed alert-primary" role="alert">
+          <b-alert variant="primary" class="border-dashed" role="alert" show>
             <div class="d-flex align-items-center">
-              <lottie
-                colors="primary:#121331,secondary:#f06548"
-                :options="defaultOptions"
-                :height="80"
-                :width="80"
-                style="margin:0px;"
-              />
+              <lottie colors="primary:#121331,secondary:#25a0e2" :options="defaultOptions" :height="80" :width="80"
+                style="margin:0px;" />
               <div class="ms-2">
                 <h5 class="fs-14 text-primary fw-semibold">
                   Buying for a loved one?
@@ -547,75 +472,37 @@ export default {
                   Gift wrap and personalised message on card, <br />Only for
                   <span class="fw-semibold">$9.99</span> USD
                 </p>
-                <button
-                  type="button"
-                  class="btn ps-0 btn-sm btn-link text-primary text-uppercase"
-                >
+                <button type="button" class="btn ps-0 btn-sm btn-link text-primary text-uppercase">
                   Add Gift Wrap
                 </button>
               </div>
             </div>
-          </div>
+          </b-alert>
         </div>
-        <!-- end stickey -->
-      </div>
-    </div>
-    <!-- end row -->
-    <!-- removeItemModal -->
-    <div
-      id="removeItemModal"
-      class="modal fade zoomIn"
-      tabindex="-1"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-              id="close-modal"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <div class="mt-2 text-center">
-              <lottie
-                colors="primary:#f7b84b,secondary:#f06548"
-                :options="defaultOptions"
-                :height="100"
-                :width="100"
-              />
-              <div class="mt-4 pt-2 fs-15 mx-4 mx-sm-5">
-                <h4>Are you Sure ?</h4>
-                <p class="text-muted mx-4 mb-0">
-                  Are you Sure You want to Remove this Product ?
-                </p>
-              </div>
-            </div>
-            <div class="d-flex gap-2 justify-content-center mt-4 mb-2">
-              <button
-                type="button"
-                class="btn w-sm btn-light"
-                data-bs-dismiss="modal"
-              >
-                Close
-              </button>
-              <button
-                type="button"
-                class="btn w-sm btn-primary"
-                id="remove-product"
-              >
-                Yes, Delete It!
-              </button>
-            </div>
-          </div>
+      </b-col>
+    </b-row>
+
+
+    <!-- edit customer modal  -->
+    <b-modal v-model="removeItemModal" id="removeItemModal" modal-class="zoomIn" hide-footer title="Update Customer"
+      class="v-modal-custom" centered no-close-on-backdrop>
+      <div class="mt-2 text-center">
+        <lottie colors="primary:#25a0e2,secondary:#00bd9d" :options="defaultOptions" :height="100" :width="100" />
+        <div class="mt-4 pt-2 fs-15 mx-4 mx-sm-5">
+          <h4>Are you Sure ?</h4>
+          <p class="text-muted mx-4 mb-0">
+            Are you Sure You want to Remove this Product ?
+          </p>
         </div>
-        <!-- /.modal-content -->
       </div>
-      <!-- /.modal-dialog -->
-    </div>
-    <!-- /.modal -->
+      <div class="d-flex gap-2 justify-content-center mt-4 mb-2">
+        <b-button type="button" variant="light" class="w-sm" @click="removeItemModal = false">
+          Close
+        </b-button>
+        <b-button type="button" variant="primary" class="w-sm" id="remove-product" @click="deleteProduct">
+          Yes, Delete It!
+        </b-button>
+      </div>
+    </b-modal>
   </Layout>
 </template>

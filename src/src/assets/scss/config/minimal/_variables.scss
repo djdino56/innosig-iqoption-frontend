@@ -9,7 +9,8 @@
 
 // Prefix for :root CSS variables
 
-$variable-prefix:             vz-;
+$variable-prefix:             vz-; // Deprecated in v5.2.0 for the shorter `$prefix`
+$prefix:                      $variable-prefix;
 
 // Font Family
 $font-family-primary:                             'Open Sans', sans-serif;
@@ -23,38 +24,45 @@ $vertical-menu-width-md:                          180px;
 $vertical-menu-width-sm:                          70px;
 
 // Light Menu
-$vertical-menu-bg:                                var(--#{$variable-prefix}vertical-menu-bg);
+$vertical-menu-bg:                                var(--#{$prefix}vertical-menu-bg);
 $vertical-menu-box-shadow:                        none;
 $vertical-menu-border:                            $border-color;
 $vertical-menu-z-index:                           1002;
 $vertical-menu-item-font-size:                    0.9375rem;
 $vertical-menu-item-font-family:                  $font-family-secondary;
-$vertical-menu-item-color:                        var(--#{$variable-prefix}vertical-menu-item-color);
-$vertical-menu-item-hover-color:                  var(--#{$variable-prefix}vertical-menu-item-hover-color);
-$vertical-menu-item-active-color:                 var(--#{$variable-prefix}vertical-menu-item-active-color);
+$vertical-menu-item-color:                        var(--#{$prefix}vertical-menu-item-color);
+$vertical-menu-item-hover-color:                  var(--#{$prefix}vertical-menu-item-hover-color);
+$vertical-menu-item-active-color:                 var(--#{$prefix}vertical-menu-item-active-color);
 $vertical-menu-item-padding-x:                    1.5rem;
 $vertical-menu-item-padding-y:                    0.625rem;
 $vertical-menu-sub-item-font-size:                0.875rem;
 $vertical-menu-sub-item-font-family:              $font-family-primary;
-$vertical-menu-sub-item-color:                    var(--#{$variable-prefix}vertical-menu-sub-item-color);
-$vertical-menu-sub-item-hover-color:              var(--#{$variable-prefix}vertical-menu-sub-item-hover-color);
-$vertical-menu-sub-item-active-color:             var(--#{$variable-prefix}vertical-menu-sub-item-active-color);
+$vertical-menu-sub-item-color:                    var(--#{$prefix}vertical-menu-sub-item-color);
+$vertical-menu-sub-item-hover-color:              var(--#{$prefix}vertical-menu-sub-item-hover-color);
+$vertical-menu-sub-item-active-color:             var(--#{$prefix}vertical-menu-sub-item-active-color);
 $vertical-menu-sub-item-padding-x:                1.5rem;
 $vertical-menu-sub-item-padding-y:                0.55rem;
 $vertical-menu-dropdown-box-shadow:               0 2px 4px rgba(15,34,58,0.12);
-$vertical-menu-title-color:                       var(--#{$variable-prefix}vertical-menu-title-color);
+$vertical-menu-title-color:                       var(--#{$prefix}vertical-menu-title-color);
 $vertical-menu-item-icon-width:                   1.75rem;
 
 // Dark Menu
-$vertical-menu-bg-dark:                         var(--#{$variable-prefix}vertical-menu-bg-dark);
-$vertical-menu-border-dark:                     var(--#{$variable-prefix}vertical-menu-bg-dark);
-$vertical-menu-item-color-dark:                 var(--#{$variable-prefix}vertical-menu-item-color-dark);
-$vertical-menu-item-hover-color-dark:           var(--#{$variable-prefix}vertical-menu-item-hover-color-dark);
-$vertical-menu-item-active-color-dark:          var(--#{$variable-prefix}vertical-menu-item-active-color-dark);
-$vertical-menu-sub-item-color-dark:             var(--#{$variable-prefix}vertical-menu-sub-item-color-dark);
-$vertical-menu-sub-item-hover-color-dark:       var(--#{$variable-prefix}vertical-menu-sub-item-hover-color-dark);
-$vertical-menu-sub-item-active-color-dark:      var(--#{$variable-prefix}vertical-menu-sub-item-active-color-dark);
-$vertical-menu-title-color-dark:                var(--#{$variable-prefix}vertical-menu-title-color-dark);
+$vertical-menu-bg-dark:                         var(--#{$prefix}vertical-menu-bg-dark);
+$vertical-menu-border-dark:                     var(--#{$prefix}vertical-menu-bg-dark);
+$vertical-menu-item-color-dark:                 var(--#{$prefix}vertical-menu-item-color-dark);
+$vertical-menu-item-hover-color-dark:           var(--#{$prefix}vertical-menu-item-hover-color-dark);
+$vertical-menu-item-active-color-dark:          var(--#{$prefix}vertical-menu-item-active-color-dark);
+$vertical-menu-sub-item-color-dark:             var(--#{$prefix}vertical-menu-sub-item-color-dark);
+$vertical-menu-sub-item-hover-color-dark:       var(--#{$prefix}vertical-menu-sub-item-hover-color-dark);
+$vertical-menu-sub-item-active-color-dark:      var(--#{$prefix}vertical-menu-sub-item-active-color-dark);
+$vertical-menu-title-color-dark:                var(--#{$prefix}vertical-menu-title-color-dark);
+
+// vertical gradient Menu
+$vertical-menu-bg-gradient:                         var(--#{$prefix}vertical-menu-bg-gradient);
+$vertical-menu-border-gradient:                     var(--#{$prefix}vertical-menu-border-gradient);
+$vertical-menu-item-color-gradient:                 rgba($white, 0.5);
+$vertical-menu-sub-item-color-gradient:             rgba($white, 0.5);
+$vertical-menu-title-color-gradient:                rgba($white, 0.5);
 
 //
 // Horizontal Menu
@@ -68,71 +76,75 @@ $horizontal-menu-item-padding-y:                   0.75rem;
 //
 // Two Column Menu
 //
-$twocolumn-menu-iconview-bg:                     var(--#{$variable-prefix}twocolumn-menu-iconview-bg);
-$twocolumn-menu-bg:                              var(--#{$variable-prefix}twocolumn-menu-bg);
+$twocolumn-menu-iconview-bg:                     var(--#{$prefix}twocolumn-menu-iconview-bg);
+$twocolumn-menu-bg:                              var(--#{$prefix}twocolumn-menu-bg);
 $twocolumn-menu-iconview-width:                    70px;
 $twocolumn-menu-width:                             220px;
 $twocolumn-menu-box-shadow:                        0 2px 4px rgba(15,34,58,0.12);
 $twocolumn-menu-z-index:                           1002;
 // dark
-$twocolumn-menu-iconview-bg-dark:                var(--#{$variable-prefix}twocolumn-menu-iconview-bg-dark);
-$twocolumn-menu-bg-dark:                         var(--#{$variable-prefix}twocolumn-menu-bg-dark);
-$twocolumn-menu-border-dark:                     var(--#{$variable-prefix}twocolumn-menu-bg-dark);
-$twocolumn-menu-item-color-dark:                 var(--#{$variable-prefix}twocolumn-menu-item-color-dark);
-$twocolumn-menu-item-active-color-dark:          var(--#{$variable-prefix}twocolumn-menu-item-active-color-dark);
-$twocolumn-menu-item-active-bg-dark:             var(--#{$variable-prefix}twocolumn-menu-item-active-bg-dark);
+$twocolumn-menu-iconview-bg-dark:                var(--#{$prefix}twocolumn-menu-iconview-bg-dark);
+$twocolumn-menu-bg-dark:                         var(--#{$prefix}twocolumn-menu-bg-dark);
+$twocolumn-menu-border-dark:                     var(--#{$prefix}twocolumn-menu-bg-dark);
+$twocolumn-menu-item-color-dark:                 var(--#{$prefix}twocolumn-menu-item-color-dark);
+$twocolumn-menu-item-active-color-dark:          var(--#{$prefix}twocolumn-menu-item-active-color-dark);
+$twocolumn-menu-item-active-bg-dark:             var(--#{$prefix}twocolumn-menu-item-active-bg-dark);
 
+// gradient Menu
+$twocolumn-menu-item-color-gradient:              rgba($white, 0.6);
 
 // Topbar - (Default Light)
 $header-height:                                    70px;
-$header-bg:                                      var(--#{$variable-prefix}header-bg);
-$header-item-color:                              var(--#{$variable-prefix}header-item-color);
+$header-bg:                                      var(--#{$prefix}header-bg);
+$header-item-color:                              var(--#{$prefix}header-item-color);
 
 // Topbar - Dark
-$header-bg-dark:                                 var(--#{$variable-prefix}header-bg-dark);
-$header-item-color-dark:                         var(--#{$variable-prefix}header-item-color-dark); 
+$header-bg-dark:                                 var(--#{$prefix}header-bg-dark);
+$header-item-color-dark:                         var(--#{$prefix}header-item-color-dark); 
 
 // Topbar Search
-$topbar-search-bg:                                var(--#{$variable-prefix}topbar-search-bg);
+$topbar-search-bg:                                var(--#{$prefix}topbar-search-bg);
 $page-title-box-shadow:                           none;
-$page-title-border:                               var(--#{$variable-prefix}border-color);
+$page-title-border:                               var(--#{$prefix}border-color);
 
 // Topbar User
-$topbar-user-bg: var(--#{$variable-prefix}topbar-user-bg);
-$topbar-user-bg-dark: var(--#{$variable-prefix}topbar-user-bg-dark);
+$topbar-user-bg: var(--#{$prefix}topbar-user-bg);
+$topbar-user-bg-dark: var(--#{$prefix}topbar-user-bg-dark);
 
 // Footer
 $footer-height: 60px;
-$footer-bg: var(--#{$variable-prefix}footer-bg);
-$footer-color: var(--#{$variable-prefix}footer-color);
+$footer-bg: var(--#{$prefix}footer-bg);
+$footer-color: var(--#{$prefix}footer-color);
 
 // Horizontal nav
-$topnav-bg:   var(--#{$variable-prefix}topnav-bg);
-$topnav-item-color:   var(--#{$variable-prefix}topnav-item-color);
-$topnav-item-color-active:   var(--#{$variable-prefix}topnav-item-color-active);
+$topnav-bg:   var(--#{$prefix}topnav-bg);
+$topnav-item-color:   var(--#{$prefix}topnav-item-color);
+$topnav-item-color-active:   var(--#{$prefix}topnav-item-color-active);
 
 // Brand 
 $navbar-brand-box-width: 240px;
 
 // Boxed layout width
 $boxed-layout-width:    1300px;
-$boxed-body-bg:         var(--#{$variable-prefix}boxed-body-bg);
+$boxed-body-bg:         var(--#{$prefix}boxed-body-bg);
 
 // Font Weight
 $font-weight-medium: 500;
-$font-weight-semibold: 600;
 
 // heading
-$heading-color: var(--#{$variable-prefix}heading-color);
+$heading-color: var(--#{$prefix}heading-color);
 $heading-font-family:         $font-family-secondary;
 
 // Chat
-$chat-primary-bg:       var(--#{$variable-prefix}light);
-$chat-secondary-bg:    rgba(var(--#{$variable-prefix}primary-rgb), 0.15);
-$chat-secondary-color:  var(--#{$variable-prefix}primary);
+$chat-primary-bg:       var(--#{$prefix}light);
+$chat-secondary-bg:    rgba(var(--#{$prefix}primary-rgb), 0.15);
+$chat-secondary-color:  var(--#{$prefix}primary);
 
 // Timeline
-$timeline-color:   var(--#{$variable-prefix}light);     
+$timeline-color:   var(--#{$prefix}light);   
+
+//auth pages
+$auth-bg-cover: linear-gradient(-45deg, $primary 50%, $success);
 
 // Variables
 //
@@ -479,6 +491,7 @@ $enable-transitions:          true;
 $enable-reduced-motion:       true;
 $enable-smooth-scroll:        true;
 $enable-grid-classes:         true;
+$enable-container-classes:    true;
 $enable-cssgrid:              false;
 $enable-button-pointers:      true;
 $enable-rfs:                  true;
@@ -535,47 +548,14 @@ $body-bg:                   #ffffff;
 $body-color:                $gray-900;
 $body-text-align:           null;
 
-// Utilities maps
-//
-// Extends the default `$theme-colors` maps to help create our utilities.
-
-// Come v6, we'll de-dupe these variables. Until then, for backward compatibility, we keep them to reassign.
-// scss-docs-start utilities-colors
-$utilities-colors: $theme-colors-rgb;
-// scss-docs-end utilities-colors
-  
-// scss-docs-start utilities-text-colors
-$utilities-text: map-merge(
-  $utilities-colors,
-  (
-    "black": to-rgb($black),
-    "white": to-rgb($white),
-    "body": to-rgb($body-color)
-  )
-);
-$utilities-text-colors: map-loop($utilities-text, rgba-css-var, "$key", "text");
-// scss-docs-end utilities-text-colors
-
-// scss-docs-start utilities-bg-colors
-$utilities-bg: map-merge(
-  $utilities-colors,
-  (
-    "black": to-rgb($black),
-    "white": to-rgb($white),
-    "body": to-rgb($body-bg)
-  )
-);
-$utilities-bg-colors: map-loop($utilities-bg, rgba-css-var, "$key", "bg");
-// scss-docs-end utilities-bg-colors
-
 // Links
 //
 // Style anchor elements.
 
-$link-color:                              var(--#{$variable-prefix}link-color);
+$link-color:                              var(--#{$prefix}link-color);
 $link-decoration:                         underline;
 $link-shade-percentage:                   20%;
-$link-hover-color:                        var(--#{$variable-prefix}link-hover-color);
+$link-hover-color:                        var(--#{$prefix}link-hover-color);
 $link-hover-decoration:                   null;
 
 $stretched-link-pseudo-element:           after;
@@ -633,11 +613,9 @@ $grid-columns:                12;
 $grid-gutter-width:           1.5rem;
 $grid-row-columns:            6;
 
-$gutters: $spacers;
-
 // Container padding
 
-$container-padding-x: $grid-gutter-width * .5;
+$container-padding-x: $grid-gutter-width * 1;
 
 
 // Components
@@ -654,13 +632,17 @@ $border-widths: (
   5: 5px
 );
 
-$border-color:                var(--#{$variable-prefix}border-color);
+$border-style:                solid;
+$border-color-translucent:    rgba($black, .175);
+$border-color:                var(--#{$prefix}border-color);
 // scss-docs-end border-variables
 
 // scss-docs-start border-radius-variables
 $border-radius:               .25rem;
 $border-radius-sm:            .2rem;
 $border-radius-lg:            .3rem;
+$border-radius-xl:            1rem;
+$border-radius-2xl:           2rem;
 $border-radius-pill:          50rem;
 // scss-docs-end border-radius-variables
 
@@ -708,8 +690,8 @@ $aspect-ratios: (
 $font-family-sans-serif:      $font-family-primary;
 $font-family-monospace:       SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 // stylelint-enable value-keyword-case
-$font-family-base:            var(--#{$variable-prefix}font-sans-serif);
-$font-family-code:            var(--#{$variable-prefix}font-monospace);
+$font-family-base:            var(--#{$prefix}font-sans-serif);
+$font-family-code:            var(--#{$prefix}font-monospace);
 
 // $font-size-root affects the value of `rem`, which is used for as well font sizes, paddings, and margins
 // $font-size-base affects the font size of the body text
@@ -721,6 +703,7 @@ $font-size-lg:                $font-size-base * 1.25;
 $font-weight-lighter:         lighter;
 $font-weight-light:           300;
 $font-weight-normal:          400;
+$font-weight-semibold:        600;
 $font-weight-bold:            700;
 $font-weight-bolder:          bolder;
 
@@ -768,6 +751,8 @@ $display-font-sizes: (
   6: 2.5rem
 );
 
+$display-font-family: null;
+$display-font-style:  null;
 $display-font-weight: 300;
 $display-line-height: $headings-line-height;
 // scss-docs-end display-headings
@@ -791,7 +776,12 @@ $blockquote-footer-font-size: $small-font-size;
 
 $hr-margin-y:                 $spacer;
 $hr-color:                    inherit;
+// fusv-disable
+$hr-bg-color:                 null; // Deprecated in v5.2.0
 $hr-height:                   $border-width;
+// fusv-enable
+$hr-border-color:             null; // Allows for inherited colors
+$hr-border-width:             $border-width;
 $hr-opacity:                  .25;
 
 $legend-margin-bottom:        .5rem;
@@ -801,8 +791,6 @@ $legend-font-weight:          null;
 $mark-padding:                .2em;
 
 $dt-font-weight:              $font-weight-semibold;
-
-$nested-kbd-font-weight:      $font-weight-bold;
 
 $list-inline-padding:         .5rem;
 
@@ -822,7 +810,7 @@ $table-cell-padding-x-sm:     .25rem;
 
 $table-cell-vertical-align:   top;
 
-$table-color:                 var(--#{$variable-prefix}body-color);
+$table-color:                 var(--#{$prefix}body-color);
 $table-bg:                    transparent;
 $table-accent-bg:             transparent;
 
@@ -830,21 +818,22 @@ $table-th-font-weight:        null;
 
 $table-striped-color:         $table-color;
 $table-striped-bg-factor:     .02;
-$table-striped-bg:            rgba(var(--#{$variable-prefix}dark-rgb), $table-striped-bg-factor);
+$table-striped-bg:            rgba(var(--#{$prefix}dark-rgb), $table-striped-bg-factor);
 
 $table-active-color:          $table-color;
 $table-active-bg-factor:      1;
-$table-active-bg:             rgba(var(--#{$variable-prefix}light-rgb), $table-active-bg-factor);
+$table-active-bg:             rgba(var(--#{$prefix}light-rgb), $table-active-bg-factor);
 
 $table-hover-color:           $table-color;
 $table-hover-bg-factor:       1;
-$table-hover-bg:              rgba(var(--#{$variable-prefix}light-rgb), $table-hover-bg-factor);
+$table-hover-bg:              rgba(var(--#{$prefix}light-rgb), $table-hover-bg-factor);
 
 $table-border-factor:         .1;
 $table-border-width:          $border-width;
 $table-border-color:          $border-color;
 
 $table-striped-order:         odd;
+$table-striped-columns-order: even;
 
 $table-group-separator-color: $border-color;
 
@@ -981,12 +970,13 @@ $input-padding-y-lg:                    $input-btn-padding-y-lg;
 $input-padding-x-lg:                    $input-btn-padding-x-lg;
 $input-font-size-lg:                    $input-btn-font-size-lg;
 
-$input-bg:                              var(--#{$variable-prefix}input-bg);
-$input-disabled-bg:                     var(--#{$variable-prefix}input-disabled-bg);
+$input-bg:                              var(--#{$prefix}input-bg);
+$input-disabled-color:                  null;
+$input-disabled-bg:                     var(--#{$prefix}input-disabled-bg);
 $input-disabled-border-color:           null;
 
-$input-color:                           var(--#{$variable-prefix}body-color);
-$input-border-color:                    var(--#{$variable-prefix}input-border);
+$input-color:                           var(--#{$prefix}body-color);
+$input-border-color:                    var(--#{$prefix}input-border);
 $input-border-width:                    $input-btn-border-width;
 $input-box-shadow:                      $box-shadow-inset;
 
@@ -995,13 +985,13 @@ $input-border-radius-sm:                $border-radius-sm;
 $input-border-radius-lg:                $border-radius-lg;
 
 $input-focus-bg:                        $input-bg;
-$input-focus-border-color:              var(--#{$variable-prefix}input-focus-border);
+$input-focus-border-color:              var(--#{$prefix}input-focus-border);
 $input-focus-color:                     $input-color;
 $input-focus-width:                     $input-btn-focus-width;
 $input-focus-box-shadow:                $input-btn-focus-box-shadow;
 
 $input-placeholder-color:               $gray-600;
-$input-plaintext-color:                 var(--#{$variable-prefix}body-color);
+$input-plaintext-color:                 var(--#{$prefix}body-color);
 
 $input-height-border:                   $input-border-width * 2;
 
@@ -1029,7 +1019,7 @@ $form-check-transition:                   null;
 $form-check-input-active-filter:          brightness(90%);
 
 $form-check-input-bg:                     $input-bg;
-$form-check-input-border:                 1px solid var(--#{$variable-prefix}input-check-border);
+$form-check-input-border:                 1px solid var(--#{$prefix}input-check-border);
 $form-check-input-border-radius:          .25em;
 $form-check-radio-border-radius:          50%;
 $form-check-input-focus-border:           $input-focus-border-color;
@@ -1074,7 +1064,7 @@ $input-group-addon-padding-y:           $input-padding-y;
 $input-group-addon-padding-x:           $input-padding-x;
 $input-group-addon-font-weight:         $input-font-weight;
 $input-group-addon-color:               $input-color;
-$input-group-addon-bg:                  var(--#{$variable-prefix}input-group-addon-bg);
+$input-group-addon-bg:                  var(--#{$prefix}input-group-addon-bg);
 $input-group-addon-border-color:        $input-border-color;
 // scss-docs-end input-group-variables
 
@@ -1112,10 +1102,12 @@ $form-select-focus-box-shadow:    0 0 0 $form-select-focus-width $input-btn-focu
 $form-select-padding-y-sm:        $input-padding-y-sm;
 $form-select-padding-x-sm:        $input-padding-x-sm;
 $form-select-font-size-sm:        $input-font-size-sm;
+$form-select-border-radius-sm:    $input-border-radius-sm;
 
 $form-select-padding-y-lg:        $input-padding-y-lg;
 $form-select-padding-x-lg:        $input-padding-x-lg;
 $form-select-font-size-lg:        $input-font-size-lg;
+$form-select-border-radius-lg:    $input-border-radius-lg;
 
 $form-select-transition:          $input-transition;
 // scss-docs-end form-select-variables
@@ -1124,7 +1116,7 @@ $form-select-transition:          $input-transition;
 $form-range-track-width:          100%;
 $form-range-track-height:         .5rem;
 $form-range-track-cursor:         pointer;
-$form-range-track-bg:             var(--#{$variable-prefix}gray-300);
+$form-range-track-bg:             var(--#{$prefix}gray-300);
 $form-range-track-border-radius:  1rem;
 $form-range-track-box-shadow:     $box-shadow-inset;
 
@@ -1202,6 +1194,7 @@ $zindex-modal-backdrop:             1050;
 $zindex-modal:                      1055;
 $zindex-popover:                    1070;
 $zindex-tooltip:                    1080;
+$zindex-toast:                      1090;
 // scss-docs-end zindex-stack
 
 
@@ -1217,13 +1210,13 @@ $nav-link-hover-color:              $link-hover-color;
 $nav-link-transition:               color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
 $nav-link-disabled-color:           $gray-600;
 
-$nav-tabs-border-color:             var(--#{$variable-prefix}gray-300);
+$nav-tabs-border-color:             var(--#{$prefix}gray-300);
 $nav-tabs-border-width:             $border-width;
 $nav-tabs-border-radius:            $border-radius;
-$nav-tabs-link-hover-border-color:  var(--#{$variable-prefix}gray-300) var(--#{$variable-prefix}gray-300) $nav-tabs-border-color;
-$nav-tabs-link-active-color:        var(--#{$variable-prefix}nav-tabs-link-active-color);
-$nav-tabs-link-active-bg:           var(--#{$variable-prefix}nav-tabs-link-active-bg);
-$nav-tabs-link-active-border-color: var(--#{$variable-prefix}gray-300) var(--#{$variable-prefix}gray-300) $nav-tabs-link-active-bg;
+$nav-tabs-link-hover-border-color:  var(--#{$prefix}gray-300) var(--#{$prefix}gray-300) $nav-tabs-border-color;
+$nav-tabs-link-active-color:        $gray-700;
+$nav-tabs-link-active-bg:           var(--#{$prefix}nav-tabs-link-active-bg);
+$nav-tabs-link-active-border-color: var(--#{$prefix}gray-300) var(--#{$prefix}gray-300) $nav-tabs-link-active-bg;
 
 $nav-pills-border-radius:           $border-radius;
 $nav-pills-link-active-color:       $component-active-color;
@@ -1286,22 +1279,22 @@ $dropdown-padding-x:                0;
 $dropdown-padding-y:                .5rem;
 $dropdown-spacer:                   .125rem;
 $dropdown-font-size:                $font-size-base;
-$dropdown-color:                    var(--#{$variable-prefix}body-color);
-$dropdown-bg:                       var(--#{$variable-prefix}dropdown-bg);
-$dropdown-border-color:             var(--#{$variable-prefix}border-color);
+$dropdown-color:                    var(--#{$prefix}body-color);
+$dropdown-bg:                       $white;
+$dropdown-border-color:             var(--#{$prefix}border-color);
 $dropdown-border-radius:            $border-radius-lg;
-$dropdown-border-width:             var(--#{$variable-prefix}dropdown-border-width);
+$dropdown-border-width:             0;
 $dropdown-inner-border-radius:      subtract($dropdown-border-radius, $dropdown-border-width);
 $dropdown-divider-bg:               $dropdown-border-color;
 $dropdown-divider-margin-y:         $spacer * .5;
 $dropdown-box-shadow:               $box-shadow-lg;
 
-$dropdown-link-color:               var(--#{$variable-prefix}dropdown-link-color);
-$dropdown-link-hover-color:         var(--#{$variable-prefix}dropdown-link-hover-color);
-$dropdown-link-hover-bg:            var(--#{$variable-prefix}dropdown-link-hover-bg);
+$dropdown-link-color:               $gray-900;
+$dropdown-link-hover-color:         #{shade-color($gray-900, 10%)};
+$dropdown-link-hover-bg:            $gray-100;
 
-$dropdown-link-active-color:        var(--#{$variable-prefix}dropdown-link-hover-color);
-$dropdown-link-active-bg:           var(--#{$variable-prefix}dropdown-link-hover-bg);
+$dropdown-link-active-color:        #{shade-color($gray-900, 10%)};
+$dropdown-link-active-bg:           $gray-100;
 
 $dropdown-link-disabled-color:      $gray-500;
 
@@ -1309,7 +1302,10 @@ $dropdown-item-padding-y:           0.35rem;
 $dropdown-item-padding-x:           1.2rem;
 
 $dropdown-header-color:             $gray-600;
-$dropdown-header-padding:           $dropdown-padding-y $dropdown-item-padding-x;
+$dropdown-header-padding-x:         $dropdown-item-padding-x;
+$dropdown-header-padding-y:         $dropdown-padding-y;
+// fusv-disable
+$dropdown-header-padding:           $dropdown-header-padding-y $dropdown-header-padding-x; // Deprecated in v5.2.0
 // scss-docs-end dropdown-variables
 
 // scss-docs-start dropdown-dark-variables
@@ -1338,21 +1334,22 @@ $pagination-padding-x-sm:           .5rem;
 $pagination-padding-y-lg:           .6rem;
 $pagination-padding-x-lg:           1.2rem;
 
+$pagination-font-size:              $font-size-base;
 $pagination-color:                  $link-color;
-$pagination-bg:                     var(--#{$variable-prefix}card-bg);
+$pagination-bg:                     var(--#{$prefix}card-bg);
 $pagination-border-width:           $border-width;
 $pagination-border-radius:          $border-radius;
 $pagination-margin-start:           -$pagination-border-width;
-$pagination-border-color:           var(--#{$variable-prefix}border-color);
+$pagination-border-color:           var(--#{$prefix}border-color);
 
 $pagination-focus-color:            $link-hover-color;
-$pagination-focus-bg:               var(--#{$variable-prefix}pagination-hover-bg);
+$pagination-focus-bg:               $gray-200;
 $pagination-focus-box-shadow:       $input-btn-focus-box-shadow;
 $pagination-focus-outline:          0;
 
 $pagination-hover-color:            $link-hover-color;
-$pagination-hover-bg:               var(--#{$variable-prefix}pagination-hover-bg);
-$pagination-hover-border-color:     var(--#{$variable-prefix}border-color);
+$pagination-hover-bg:               $gray-200;
+$pagination-hover-border-color:     var(--#{$prefix}border-color);
 
 $pagination-active-color:           $component-active-color;
 $pagination-active-bg:              $component-active-bg;
@@ -1389,11 +1386,11 @@ $card-box-shadow:                   none;
 $card-inner-border-radius:          subtract($card-border-radius, $card-border-width);
 $card-cap-padding-y:                $card-spacer-y;
 $card-cap-padding-x:                $card-spacer-x;
-$card-cap-bg:                       var(--#{$variable-prefix}card-cap-bg);
+$card-cap-bg:                       $white;
 $card-cap-color:                    null;
 $card-height:                       null;
 $card-color:                        null;
-$card-bg:                           var(--#{$variable-prefix}card-bg);
+$card-bg:                           $white;
 $card-img-overlay-padding:          $spacer;
 $card-group-margin:                 $grid-gutter-width * .5;
 // scss-docs-end card-variables
@@ -1403,10 +1400,10 @@ $card-group-margin:                 $grid-gutter-width * .5;
 // scss-docs-start accordion-variables
 $accordion-padding-y:                     1rem;
 $accordion-padding-x:                     1.25rem;
-$accordion-color:                         var(--#{$variable-prefix}body-color);
-$accordion-bg:                            var(--#{$variable-prefix}card-bg);
+$accordion-color:                         var(--#{$prefix}body-color);
+$accordion-bg:                            $white;
 $accordion-border-width:                  $border-width;
-$accordion-border-color:                  var(--#{$variable-prefix}border-color);
+$accordion-border-color:                  var(--#{$prefix}border-color);
 $accordion-border-radius:                 $border-radius;
 $accordion-inner-border-radius:           subtract($accordion-border-radius, $accordion-border-width);
 
@@ -1467,28 +1464,29 @@ $form-feedback-tooltip-border-radius: $tooltip-border-radius;
 
 // scss-docs-start popover-variables
 $popover-font-size:                 $font-size-base;
-$popover-bg:                        var(--#{$variable-prefix}popover-bg);
+$popover-bg:                        $white;
 $popover-max-width:                 276px;
 $popover-border-width:              $border-width;
-$popover-border-color:              var(--#{$variable-prefix}border-color);
+$popover-border-color:              var(--#{$prefix}border-color);
 $popover-border-radius:             $border-radius;
 $popover-inner-border-radius:       subtract($popover-border-radius, $popover-border-width);
 $popover-box-shadow:                $box-shadow-lg;
 
-$popover-header-bg:                 $popover-bg;
+$popover-header-font-size:          $font-size-base;
+$popover-header-bg:                 var(--#{$prefix}popover-bg);
 $popover-header-color:              $headings-color;
 $popover-header-padding-y:          .7rem;
 $popover-header-padding-x:          $spacer;
 
-$popover-body-color:                var(--#{$variable-prefix}body-color);
+$popover-body-color:                var(--#{$prefix}body-color);
 $popover-body-padding-y:            $spacer;
 $popover-body-padding-x:            $spacer;
 
 $popover-arrow-width:               1rem;
 $popover-arrow-height:              .5rem;
-$popover-arrow-color:               $popover-bg;
+$popover-arrow-color:               var(--#{$prefix}popover-bg);
 
-$popover-arrow-outer-color:         var(--#{$variable-prefix}border-color);;
+$popover-arrow-outer-color:         var(--#{$prefix}border-color);;
 // scss-docs-end popover-variables
 
 
@@ -1500,16 +1498,16 @@ $toast-padding-x:                   .75rem;
 $toast-padding-y:                   .5rem;
 $toast-font-size:                   .875rem;
 $toast-color:                       null;
-$toast-background-color:            var(--#{$variable-prefix}toast-background-color);
+$toast-background-color:            rgba($white, .85);
 $toast-border-width:                1px;
-$toast-border-color:                var(--#{$variable-prefix}toast-border-color);
+$toast-border-color:                rgba($black, .1);
 $toast-border-radius:               $border-radius;
 $toast-box-shadow:                  $box-shadow;
 $toast-spacing:                     $container-padding-x;
 
 $toast-header-color:                $gray-600;
-$toast-header-background-color:     var(--#{$variable-prefix}toast-background-color);
-$toast-header-border-color:         var(--#{$variable-prefix}toast-header-border-color);
+$toast-header-background-color:     rgba($white, .85);
+$toast-header-border-color:         rgba($black, .05);
 // scss-docs-end toast-variables
 
 
@@ -1530,6 +1528,7 @@ $badge-border-radius:               $border-radius;
 // scss-docs-start modal-variables
 $modal-inner-padding:               $spacer * 1.25;
 
+// Margin between elements in footer, must be lower than or equal to 2 * $modal-inner-padding
 $modal-footer-margin-between:       .5rem;
 
 $modal-dialog-margin:               .5rem;
@@ -1538,7 +1537,7 @@ $modal-dialog-margin-y-sm-up:       1.75rem;
 $modal-title-line-height:           $line-height-base;
 
 $modal-content-color:               null;
-$modal-content-bg:                  var(--#{$variable-prefix}modal-bg);
+$modal-content-bg:                  $white;
 $modal-content-border-color:        $border-color;
 $modal-content-border-width:        $border-width;
 $modal-content-border-radius:       $border-radius-lg;
@@ -1556,6 +1555,7 @@ $modal-header-padding-y:            $modal-inner-padding;
 $modal-header-padding-x:            $modal-inner-padding;
 $modal-header-padding:              $modal-header-padding-y $modal-header-padding-x; // Keep this for backwards compatibility
 
+$modal-footer-bg:                   null;
 $modal-sm:                          300px;
 $modal-md:                          500px;
 $modal-lg:                          800px;
@@ -1591,7 +1591,7 @@ $alert-dismissible-padding-r:   $alert-padding-x * 3; // 3x covers width of x pl
 // scss-docs-start progress-variables
 $progress-height:                   0.625rem;
 $progress-font-size:                $font-size-base * .75;
-$progress-bg:                       var(--#{$variable-prefix}progress-bg);;
+$progress-bg:                       $gray-200;
 $progress-border-radius:            $border-radius;
 $progress-box-shadow:               $box-shadow-inset;
 $progress-bar-color:                $white;
@@ -1604,9 +1604,9 @@ $progress-bar-transition:           width .6s ease;
 // List group
 
 // scss-docs-start list-group-variables
-$list-group-color:                  var(--#{$variable-prefix}body-color);
-$list-group-bg:                     var(--#{$variable-prefix}card-bg);
-$list-group-border-color:           var(--#{$variable-prefix}border-color);
+$list-group-color:                  var(--#{$prefix}body-color);
+$list-group-bg:                     var(--#{$prefix}card-bg);
+$list-group-border-color:           var(--#{$prefix}border-color);
 $list-group-border-width:           $border-width;
 $list-group-border-radius:          $border-radius;
 
@@ -1615,7 +1615,7 @@ $list-group-item-padding-x:         $spacer;
 $list-group-item-bg-scale:          -80%;
 $list-group-item-color-scale:       40%;
 
-$list-group-hover-bg:               var(--#{$variable-prefix}list-group-hover-bg);
+$list-group-hover-bg:               var(--#{$prefix}list-group-hover-bg);
 $list-group-active-color:           $component-active-color;
 $list-group-active-bg:              $component-active-bg;
 $list-group-active-border-color:    $list-group-active-bg;
@@ -1623,11 +1623,11 @@ $list-group-active-border-color:    $list-group-active-bg;
 $list-group-disabled-color:         $gray-600;
 $list-group-disabled-bg:            $list-group-bg;
 
-$list-group-action-color:           var(--#{$variable-prefix}body-color);
+$list-group-action-color:           var(--#{$prefix}body-color);
 $list-group-action-hover-color:     $list-group-action-color;
 
-$list-group-action-active-color:    var(--#{$variable-prefix}body-color);
-$list-group-action-active-bg:       var(--#{$variable-prefix}list-group-hover-bg);;
+$list-group-action-active-color:    var(--#{$prefix}body-color);
+$list-group-action-active-bg:       var(--#{$prefix}list-group-hover-bg);;
 // scss-docs-end list-group-variables
 
 
@@ -1635,9 +1635,9 @@ $list-group-action-active-bg:       var(--#{$variable-prefix}list-group-hover-bg
 
 // scss-docs-start thumbnail-variables
 $thumbnail-padding:                 .25rem;
-$thumbnail-bg:                      var(--#{$variable-prefix}body-bg);
+$thumbnail-bg:                      var(--#{$prefix}body-bg);
 $thumbnail-border-width:            $border-width;
-$thumbnail-border-color:            var(--#{$variable-prefix}border-color);
+$thumbnail-border-color:            var(--#{$prefix}border-color);
 $thumbnail-border-radius:           $border-radius;
 $thumbnail-box-shadow:              $box-shadow-sm;
 // scss-docs-end thumbnail-variables
@@ -1765,5 +1765,6 @@ $kbd-padding-x:                     .4rem;
 $kbd-font-size:                     $code-font-size;
 $kbd-color:                         $white;
 $kbd-bg:                            $gray-900;
+$nested-kbd-font-weight:            $font-weight-bold;; // Deprecated in v5.2.0, removing in v6
 
 $pre-color:                         null;

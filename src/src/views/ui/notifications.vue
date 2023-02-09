@@ -51,107 +51,70 @@ export default {
 <template>
     <Layout>
         <PageHeader :title="title" :items="items" />
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card">
-                    <div class="card-header align-items-center d-flex">
-                        <h4 class="card-title mb-0 flex-grow-1">Bootstrap Toasts</h4>
+        <b-row>
+            <b-col lg="12">
+                <b-card no-body>
+                    <b-card-header  class="align-items-center d-flex">
+                        <b-card-title class="mb-0 flex-grow-1">Bootstrap Toasts</b-card-title>
                         <div class="flex-shrink-0">
                             <div class="form-check form-switch form-switch-right form-switch-md">
-                                <label for="bootstraptoast-showcode" class="form-label text-muted">
-                                    Show
-                                    Code
-                                </label>
-                                <input
-                                    class="form-check-input code-switcher"
-                                    type="checkbox"
-                                    id="bootstraptoast-showcode"
-                                />
+                                <label for="bootstraptoast-showcode" class="form-label text-muted">Show
+                                    Code</label>
+                                <input class="form-check-input code-switcher" type="checkbox"
+                                    id="bootstraptoast-showcode" />
                             </div>
                         </div>
-                    </div>
-                    <!-- end card header -->
+                    </b-card-header >
 
-                    <div class="card-body">
+                    <b-card-body>
                         <div class="live-preview">
-                            <div class="row g-3">
-                                <div class="col-xxl-6">
+                            <b-row class="g-3">
+                                <b-col xxl="6">
                                     <h5 class="fs-14 mb-3">Default Toast</h5>
                                     <p class="text-muted">
                                         Use
                                         <code>toast</code> class to set a default toast.
                                     </p>
                                     <!-- Basic Toasts Example -->
-                                    <div
-                                        class="toast fade show"
-                                        role="alert"
-                                        aria-live="assertive"
-                                        data-bs-autohide="false"
-                                        aria-atomic="true"
-                                    >
+                                    <div class="toast fade show" role="alert" aria-live="assertive"
+                                        data-bs-autohide="false" aria-atomic="true">
                                         <div class="toast-header">
-                                            <img
-                                                src="@/assets/images/logo-sm.png"
-                                                class="rounded me-2"
-                                                alt="..."
-                                                height="20"
-                                            />
+                                            <img src="@/assets/images/logo-sm.png" class="rounded me-2" alt="..."
+                                                height="20" />
                                             <span class="fw-semibold me-auto">Velzon</span>
                                             <small>06 mins ago</small>
-                                            <button
-                                                type="button"
-                                                class="btn-close"
-                                                data-bs-dismiss="toast"
-                                                aria-label="Close"
-                                            ></button>
+                                            <button type="button" class="btn-close" data-bs-dismiss="toast"
+                                                aria-label="Close"></button>
                                         </div>
-                                        <div
-                                            class="toast-body"
-                                        >Hello, world! This is a toast message.</div>
+                                        <div class="toast-body">Hello, world! This is a toast message.</div>
                                     </div>
 
                                     <div class="mt-4">
                                         <h5 class="fs-14">Translucent</h5>
-                                        <p class="text-muted">
+                                        <p class="text-muted">Code
                                             Toasts are slightly translucent, too, so they
                                             blend over whatever
                                             they might appear over.
                                         </p>
                                         <!-- Toasts Translucent -->
                                         <div class="p-3 bg-light">
-                                            <div
-                                                class="toast fade show"
-                                                role="alert"
-                                                aria-live="assertive"
-                                                data-bs-autohide="false"
-                                                aria-atomic="true"
-                                            >
+                                            <div class="toast fade show" role="alert" aria-live="assertive"
+                                                data-bs-autohide="false" aria-atomic="true">
                                                 <div class="toast-header">
-                                                    <img
-                                                        src="@/assets/images/logo-sm.png"
-                                                        class="rounded me-2"
-                                                        alt="..."
-                                                        height="20"
-                                                    />
+                                                    <img src="@/assets/images/logo-sm.png" class="rounded me-2"
+                                                        alt="..." height="20" />
                                                     <span class="fw-semibold me-auto">Velzon</span>
                                                     <small>11 mins ago</small>
-                                                    <button
-                                                        type="button"
-                                                        class="btn-close"
-                                                        data-bs-dismiss="toast"
-                                                        aria-label="Close"
-                                                    ></button>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="toast"
+                                                        aria-label="Close"></button>
                                                 </div>
-                                                <div
-                                                    class="toast-body"
-                                                >Hello, world! This is a toast message.</div>
+                                                <div class="toast-body">Hello, world! This is a toast message.</div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <!--end col-->
+                                </b-col>
 
-                                <div class="col-xxl-6">
+                                <b-col xxl="6">
                                     <div>
                                         <h5 class="fs-14">Stacking</h5>
                                         <p class="text-muted">
@@ -162,70 +125,40 @@ export default {
 
                                         <div class="p-3 bg-light">
                                             <!-- Toasts Stacking -->
-                                            <div
-                                                class="toast fade show"
-                                                role="alert"
-                                                aria-live="assertive"
-                                                data-bs-autohide="false"
-                                                aria-atomic="true"
-                                            >
+                                            <div class="toast fade show" role="alert" aria-live="assertive"
+                                                data-bs-autohide="false" aria-atomic="true">
                                                 <div class="toast-header">
-                                                    <img
-                                                        src="@/assets/images/logo-sm.png"
-                                                        class="rounded me-2"
-                                                        alt="..."
-                                                        height="20"
-                                                    />
+                                                    <img src="@/assets/images/logo-sm.png" class="rounded me-2"
+                                                        alt="..." height="20" />
                                                     <span class="fw-semibold me-auto">Velzon</span>
                                                     <small>Just now</small>
-                                                    <button
-                                                        type="button"
-                                                        class="btn-close"
-                                                        data-bs-dismiss="toast"
-                                                        aria-label="Close"
-                                                    ></button>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="toast"
+                                                        aria-label="Close"></button>
                                                 </div>
                                                 <div class="toast-body">See? Just like this.</div>
                                             </div>
 
-                                            <div
-                                                class="toast fade show"
-                                                role="alert"
-                                                aria-live="assertive"
-                                                data-bs-autohide="false"
-                                                aria-atomic="true"
-                                            >
+                                            <div class="toast fade show" role="alert" aria-live="assertive"
+                                                data-bs-autohide="false" aria-atomic="true">
                                                 <div class="toast-header">
-                                                    <img
-                                                        src="@/assets/images/logo-sm.png"
-                                                        class="rounded me-2"
-                                                        alt="..."
-                                                        height="20"
-                                                    />
+                                                    <img src="@/assets/images/logo-sm.png" class="rounded me-2"
+                                                        alt="..." height="20" />
                                                     <span class="fw-semibold me-auto">Velzon</span>
                                                     <small>2 seconds ago</small>
-                                                    <button
-                                                        type="button"
-                                                        class="btn-close"
-                                                        data-bs-dismiss="toast"
-                                                        aria-label="Close"
-                                                    ></button>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="toast"
+                                                        aria-label="Close"></button>
                                                 </div>
-                                                <div
-                                                    class="toast-body"
-                                                >Heads up, toasts will stack automatically</div>
+                                                <div class="toast-body">Heads up, toasts will stack automatically</div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <!--end col-->
-                            </div>
-                            <!--end row-->
+                                </b-col>
+                            </b-row>
 
                             <div class="mt-5">
                                 <h5 class="fs-14">Placement</h5>
-                                <div class="row g-3">
-                                    <div class="col-xxl-6">
+                                <b-row class="g-3">
+                                    <b-col xxl="6">
                                         <div>
                                             <p class="text-muted">
                                                 Place toasts with custom CSS as you need them.
@@ -239,46 +172,26 @@ export default {
                                             </p>
 
                                             <!-- Toasts Placement -->
-                                            <div
-                                                class="bg-light"
-                                                aria-live="polite"
-                                                aria-atomic="true"
-                                                style="position: relative; min-height: 200px;"
-                                            >
-                                                <div
-                                                    class="toast fade show"
-                                                    role="alert"
-                                                    aria-live="assertive"
-                                                    aria-atomic="true"
-                                                    data-bs-toggle="toast"
-                                                    style="position: absolute; top: 16px; right: 16px;"
-                                                >
+                                            <div class="bg-light" aria-live="polite" aria-atomic="true"
+                                                style="position: relative; min-height: 200px;">
+                                                <div class="toast fade show" role="alert" aria-live="assertive"
+                                                    aria-atomic="true" data-bs-toggle="toast"
+                                                    style="position: absolute; top: 16px; right: 16px;">
                                                     <div class="toast-header">
-                                                        <img
-                                                            src="@/assets/images/logo-sm.png"
-                                                            class="rounded me-2"
-                                                            alt="..."
-                                                            height="20"
-                                                        />
+                                                        <img src="@/assets/images/logo-sm.png" class="rounded me-2"
+                                                            alt="..." height="20" />
                                                         <span class="fw-semibold me-auto">Velzon</span>
                                                         <small>06 mins ago</small>
-                                                        <button
-                                                            type="button"
-                                                            class="btn-close"
-                                                            data-bs-dismiss="toast"
-                                                            aria-label="Close"
-                                                        ></button>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="toast"
+                                                            aria-label="Close"></button>
                                                     </div>
-                                                    <div
-                                                        class="toast-body"
-                                                    >Hello, world! This is a toast message.</div>
+                                                    <div class="toast-body">Hello, world! This is a toast message.</div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <!--end col-->
+                                    </b-col>
 
-                                    <div class="col-xxl-6">
+                                    <b-col xxl="6">
                                         <div>
                                             <p class="text-muted">
                                                 You can also get fancy with flexbox utilities
@@ -288,45 +201,25 @@ export default {
                                             </p>
 
                                             <!-- Flexbox container for aligning the toasts -->
-                                            <div
-                                                aria-live="polite"
-                                                aria-atomic="true"
+                                            <div aria-live="polite" aria-atomic="true"
                                                 class="bg-light d-flex justify-content-center align-items-center"
-                                                style="height: 200px;"
-                                            >
-                                                <div
-                                                    class="toast fade show"
-                                                    role="alert"
-                                                    aria-live="assertive"
-                                                    data-bs-autohide="false"
-                                                    aria-atomic="true"
-                                                >
+                                                style="height: 200px;">
+                                                <div class="toast fade show" role="alert" aria-live="assertive"
+                                                    data-bs-autohide="false" aria-atomic="true">
                                                     <div class="toast-header">
-                                                        <img
-                                                            src="@/assets/images/logo-sm.png"
-                                                            class="rounded me-2"
-                                                            alt="..."
-                                                            height="20"
-                                                        />
+                                                        <img src="@/assets/images/logo-sm.png" class="rounded me-2"
+                                                            alt="..." height="20" />
                                                         <span class="fw-semibold me-auto">Velzon</span>
                                                         <small>11 mins ago</small>
-                                                        <button
-                                                            type="button"
-                                                            class="btn-close"
-                                                            data-bs-dismiss="toast"
-                                                            aria-label="Close"
-                                                        ></button>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="toast"
+                                                            aria-label="Close"></button>
                                                     </div>
-                                                    <div
-                                                        class="toast-body"
-                                                    >Hello, world! This is a toast message.</div>
+                                                    <div class="toast-body">Hello, world! This is a toast message.</div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <!--end col-->
-                                </div>
-                                <!--end row-->
+                                    </b-col>
+                                </b-row>
                             </div>
                         </div>
 
@@ -422,14 +315,9 @@ export default {
     &lt;/div&gt;
 &lt;/div&gt;</code></pre>
                         </div>
-                    </div>
-                    <!-- end card-body -->
-                </div>
-                <!-- end card -->
-            </div>
-            <!-- end col -->
-        </div>
-        <!-- end row -->
-
+                    </b-card-body>
+                </b-card>
+            </b-col>
+        </b-row>
     </Layout>
 </template>

@@ -51,15 +51,14 @@ export default {
 <template>
     <Layout>
         <PageHeader :title="title" :items="items" />
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h4 class="card-title mb-0">Grid Options</h4>
-                    </div>
-                    <!-- end card header -->
+        <b-row>
+            <b-col cols="12">
+                <b-card no-body>
+                    <b-card-header>
+                        <b-card-title class="mb-0">Grid Options</b-card-title>
+                    </b-card-header>
 
-                    <div class="card-body">
+                    <b-card-body>
                         <p class="text-muted">
                             See how aspects of the Bootstrap grid
                             system work across multiple devices with a handy table.
@@ -105,9 +104,7 @@ export default {
                                     <tr>
                                         <th class="text-nowrap" scope="row">Grid behavior</th>
                                         <td>Horizontal at all times</td>
-                                        <td
-                                            colspan="5"
-                                        >Collapsed to start, horizontal above breakpoints</td>
+                                        <td colspan="5">Collapsed to start, horizontal above breakpoints</td>
                                     </tr>
                                     <tr>
                                         <th class="text-nowrap" scope="row">Max container width</th>
@@ -166,111 +163,86 @@ export default {
                                 </tbody>
                             </table>
                         </div>
-                    </div>
-                    <!-- end card body -->
-                </div>
-                <!-- end card -->
-            </div>
-            <!-- end col -->
-        </div>
-        <!-- end row -->
+                    </b-card-body>
+                </b-card>
+            </b-col>
+        </b-row>
 
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card">
-                    <div class="card-header align-items-center d-flex">
-                        <h4
-                            class="card-title mb-0 flex-grow-1"
-                        >Vertical alignment (align-items-start)</h4>
+        <b-row>
+            <b-col lg="12">
+                <b-card no-body>
+                    <b-card-header class="align-items-center d-flex">
+                        <b-card-title class="mb-0 flex-grow-1">Vertical alignment (align-items-start)</b-card-title>
                         <div class="flex-shrink-0">
                             <div class="form-check form-switch form-switch-right form-switch-md">
-                                <label
-                                    for="verticl-align-start"
-                                    class="form-label text-muted"
-                                >Show Code</label>
-                                <input
-                                    class="form-check-input code-switcher"
-                                    type="checkbox"
-                                    id="verticl-align-start"
-                                />
+                                <label for="verticl-align-start" class="form-label text-muted">Show Code</label>
+                                <input class="form-check-input code-switcher" type="checkbox"
+                                    id="verticl-align-start" />
                             </div>
                         </div>
-                    </div>
-                    <!-- end card header -->
+                    </b-card-header>
 
-                    <div class="card-body">
+                    <b-card-body>
                         <p class="text-muted">
                             Use
                             <code>align-items-start</code> class to vertically align-items at the start.
                         </p>
                         <div class="live-preview">
                             <div class="bg-light p-3 text-center">
-                                <div class="row align-items-start" style="min-height: 6rem;">
-                                    <div class="col-sm-4">
-                                        <div
-                                            class="bg-soft-primary text-primary rounded p-2"
-                                        >col-sm-4</div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div
-                                            class="bg-soft-primary text-primary rounded p-2 mt-2 mt-sm-0"
-                                        >col-sm-4</div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div
-                                            class="bg-soft-primary text-primary rounded p-2 mt-2 mt-sm-0"
-                                        >col-sm-4</div>
-                                    </div>
-                                </div>
+                                <b-row class="align-items-start" style="min-height: 6rem;">
+                                    <b-col sm="4">
+                                        <div class="bg-soft-primary text-primary rounded p-2">col-sm-4</div>
+                                    </b-col>
+                                    <b-col sm="4">
+                                        <div class="bg-soft-primary text-primary rounded p-2 mt-2 mt-sm-0">col-sm-4
+                                        </div>
+                                    </b-col>
+                                    <b-col sm="4">
+                                        <div class="bg-soft-primary text-primary rounded p-2 mt-2 mt-sm-0">col-sm-4
+                                        </div>
+                                    </b-col>
+                                </b-row>
                             </div>
                         </div>
 
                         <div class="d-none code-view">
                             <pre class="language-markup">
 <code>&lt;!-- Vertical alignment (align-items-start) --&gt;
-&lt;div class=&quot;row align-items-start&quot;&gt;
-&lt;div class=&quot;col-sm-4&quot;&gt;
-...
-&lt;/div&gt;
-&lt;div class=&quot;col-sm-4&quot;&gt;
-...
-&lt;/div&gt;
-&lt;div class=&quot;col-sm-4&quot;&gt;
-...
-&lt;/div&gt;
-&lt;/div&gt;</code></pre>
+    &lt;b-row class=&quot;align-items-start&quot; style=&quot;min-height: 6rem;&quot;&gt;
+        &lt;b-col sm=&quot;4&quot;&gt;
+            &lt;div class=&quot;bg-soft-primary text-primary rounded p-2&quot;&gt;col-sm-4&lt;/div&gt;
+        &lt;/b-col&gt;
+        &lt;b-col sm=&quot;4&quot;&gt;
+            &lt;div class=&quot;bg-soft-primary text-primary rounded p-2 mt-2 mt-sm-0&quot;&gt;col-sm-4
+            &lt;/div&gt;
+        &lt;/b-col&gt;
+        &lt;b-col sm=&quot;4&quot;&gt;
+            &lt;div class=&quot;bg-soft-primary text-primary rounded p-2 mt-2 mt-sm-0&quot;&gt;col-sm-4
+            &lt;/div&gt;
+        &lt;/b-col&gt;
+    &lt;/b-row&gt;
+</code></pre>
                         </div>
-                    </div>
-                    <!-- end card-body -->
-                </div>
-                <!-- end card -->
-            </div>
-        </div>
+                    </b-card-body>
+                </b-card>
+            </b-col>
+        </b-row>
 
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card">
-                    <div class="card-header align-items-center d-flex">
-                        <h4
-                            class="card-title mb-0 flex-grow-1"
-                        >Vertical alignment (align-items-center)</h4>
+        <b-row>
+            <b-col lg="12">
+                <b-card no-body>
+                    <b-card-header class="align-items-center d-flex">
+                        <b-card-title class="mb-0 flex-grow-1">Vertical alignment (align-items-center)</b-card-title>
                         <div class="flex-shrink-0">
                             <div class="form-check form-switch form-switch-right form-switch-md">
-                                <label
-                                    for="verticl-align-center"
-                                    class="form-label text-muted"
-                                >Show Code</label>
-                                <input
-                                    class="form-check-input code-switcher"
-                                    type="checkbox"
-                                    id="verticl-align-center"
-                                />
+                                <label for="verticl-align-center" class="form-label text-muted">Show Code</label>
+                                <input class="form-check-input code-switcher" type="checkbox"
+                                    id="verticl-align-center" />
                             </div>
                         </div>
-                    </div>
-                    <!-- end card header -->
+                    </b-card-header>
 
-                    <div class="card-body">
+                    <b-card-body>
                         <p class="text-muted">
                             Use
                             <code>align-items-center</code> class to vertically align-items at the center.
@@ -278,263 +250,233 @@ export default {
 
                         <div class="live-preview">
                             <div class="bg-light p-3 text-center">
-                                <div class="row align-items-center" style="min-height: 6rem;">
-                                    <div class="col-sm-4">
-                                        <div
-                                            class="bg-soft-primary text-primary rounded p-2"
-                                        >col-sm-4</div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div
-                                            class="bg-soft-primary text-primary rounded p-2 mt-2 mt-sm-0"
-                                        >col-sm-4</div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div
-                                            class="bg-soft-primary text-primary rounded p-2 mt-2 mt-sm-0"
-                                        >col-sm-4</div>
-                                    </div>
-                                </div>
+                                <b-row class="align-items-center" style="min-height: 6rem;">
+                                    <b-col sm="4">
+                                        <div class="bg-soft-primary text-primary rounded p-2">col-sm-4</div>
+                                    </b-col>
+                                    <b-col sm="4">
+                                        <div class="bg-soft-primary text-primary rounded p-2 mt-2 mt-sm-0">col-sm-4
+                                        </div>
+                                    </b-col>
+                                    <b-col sm="4">
+                                        <div class="bg-soft-primary text-primary rounded p-2 mt-2 mt-sm-0">col-sm-4
+                                        </div>
+                                    </b-col>
+                                </b-row>
                             </div>
                         </div>
 
                         <div class="d-none code-view">
                             <pre class="language-markup">
 <code>&lt;!-- Vertical alignment (align-items-center) --&gt;
-&lt;div class=&quot;row align-items-center&quot;&gt;
-&lt;div class=&quot;col-sm-4&quot;&gt;
-...
-&lt;/div&gt;
-&lt;div class=&quot;col-sm-4&quot;&gt;
-...
-&lt;/div&gt;
-&lt;div class=&quot;col-sm-4&quot;&gt;
-...
-&lt;/div&gt;
-&lt;/div&gt;</code></pre>
+    &lt;b-row class=&quot;align-items-center&quot; style=&quot;min-height: 6rem;&quot;&gt;
+        &lt;b-col sm=&quot;4&quot;&gt;
+            &lt;div class=&quot;bg-soft-primary text-primary rounded p-2&quot;&gt;col-sm-4&lt;/div&gt;
+        &lt;/b-col&gt;
+        &lt;b-col sm=&quot;4&quot;&gt;
+            &lt;div class=&quot;bg-soft-primary text-primary rounded p-2 mt-2 mt-sm-0&quot;&gt;col-sm-4
+            &lt;/div&gt;
+        &lt;/b-col&gt;
+        &lt;b-col sm=&quot;4&quot;&gt;
+            &lt;div class=&quot;bg-soft-primary text-primary rounded p-2 mt-2 mt-sm-0&quot;&gt;col-sm-4
+            &lt;/div&gt;
+        &lt;/b-col&gt;
+    &lt;/b-row&gt;
+</code></pre>
                         </div>
-                    </div>
-                    <!-- end card-body -->
-                </div>
-                <!-- end card -->
-            </div>
-        </div>
+                    </b-card-body>
+                </b-card>
+            </b-col>
+        </b-row>
 
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card">
-                    <div class="card-header align-items-center d-flex">
-                        <h4 class="card-title mb-0 flex-grow-1">Vertical alignment (align-items-end)</h4>
+        <b-row>
+            <b-col lg="12">
+                <b-card no-body>
+                    <b-card-header class="align-items-center d-flex">
+                        <b-card-title class="mb-0 flex-grow-1">Vertical alignment (align-items-end)</b-card-title>
                         <div class="flex-shrink-0">
                             <div class="form-check form-switch form-switch-right form-switch-md">
                                 <label for="default" class="form-label text-muted">Show Code</label>
-                                <input
-                                    class="form-check-input code-switcher"
-                                    type="checkbox"
-                                    id="default"
-                                />
+                                <input class="form-check-input code-switcher" type="checkbox" id="default" />
                             </div>
                         </div>
-                    </div>
-                    <!-- end card header -->
+                    </b-card-header>
 
-                    <div class="card-body">
+                    <b-card-body>
                         <p class="text-muted">
                             Use
                             <code>align-items-end</code> class to vertically align-items at the end.
                         </p>
                         <div class="live-preview">
                             <div class="bg-light p-3 text-center">
-                                <div class="row align-items-end" style="min-height: 6rem;">
-                                    <div class="col-sm-4">
-                                        <div
-                                            class="bg-soft-primary text-primary rounded p-2"
-                                        >col-sm-4</div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div
-                                            class="bg-soft-primary text-primary rounded p-2 mt-2 mt-sm-0"
-                                        >col-sm-4</div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div
-                                            class="bg-soft-primary text-primary rounded p-2 mt-2 mt-sm-0"
-                                        >col-sm-4</div>
-                                    </div>
-                                </div>
+                                <b-row class="align-items-end" style="min-height: 6rem;">
+                                    <b-col sm="4">
+                                        <div class="bg-soft-primary text-primary rounded p-2">col-sm-4</div>
+                                    </b-col>
+                                    <b-col sm="4">
+                                        <div class="bg-soft-primary text-primary rounded p-2 mt-2 mt-sm-0">col-sm-4
+                                        </div>
+                                    </b-col>
+                                    <b-col sm="4">
+                                        <div class="bg-soft-primary text-primary rounded p-2 mt-2 mt-sm-0">col-sm-4
+                                        </div>
+                                    </b-col>
+                                </b-row>
                             </div>
                         </div>
 
                         <div class="d-none code-view">
                             <pre class="language-markup">
 <code>&lt;!-- Vertical alignment (align-items-end) --&gt;
-&lt;div class=&quot;row align-items-end&quot;&gt;
-&lt;div class=&quot;col-sm-4&quot;&gt;
-...
-&lt;/div&gt;
-&lt;div class=&quot;col-sm-4&quot;&gt;
-...
-&lt;/div&gt;
-&lt;div class=&quot;col-sm-4&quot;&gt;
-...
-&lt;/div&gt;
-&lt;/div&gt;</code></pre>
+    &lt;b-row class=&quot;align-items-end&quot; style=&quot;min-height: 6rem;&quot;&gt;
+        &lt;b-col sm=&quot;4&quot;&gt;
+            &lt;div class=&quot;bg-soft-primary text-primary rounded p-2&quot;&gt;col-sm-4&lt;/div&gt;
+        &lt;/b-col&gt;
+        &lt;b-col sm=&quot;4&quot;&gt;
+            &lt;div class=&quot;bg-soft-primary text-primary rounded p-2 mt-2 mt-sm-0&quot;&gt;col-sm-4
+            &lt;/div&gt;
+        &lt;/b-col&gt;
+        &lt;b-col sm=&quot;4&quot;&gt;
+            &lt;div class=&quot;bg-soft-primary text-primary rounded p-2 mt-2 mt-sm-0&quot;&gt;col-sm-4
+            &lt;/div&gt;
+        &lt;/b-col&gt;
+    &lt;/b-row&gt;
+</code></pre>
                         </div>
-                    </div>
-                    <!-- end card-body -->
-                </div>
-                <!-- end card -->
-            </div>
-        </div>
+                    </b-card-body>
+                </b-card>
+            </b-col>
+        </b-row>
 
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card">
-                    <div class="card-header align-items-center d-flex">
-                        <h4 class="card-title mb-0 flex-grow-1">Align Self</h4>
+        <b-row>
+            <b-col lg="12">
+                <b-card no-body>
+                    <b-card-header class="align-items-center d-flex">
+                        <b-card-title class="mb-0 flex-grow-1">Align Self</b-card-title>
                         <div class="flex-shrink-0">
                             <div class="form-check form-switch form-switch-right form-switch-md">
                                 <label for="align-self" class="form-label text-muted">Show Code</label>
-                                <input
-                                    class="form-check-input code-switcher"
-                                    type="checkbox"
-                                    id="align-self"
-                                />
+                                <input class="form-check-input code-switcher" type="checkbox" id="align-self" />
                             </div>
                         </div>
-                    </div>
-                    <!-- end card header -->
+                    </b-card-header>
 
-                    <div class="card-body">
+                    <b-card-body>
                         <p class="text-muted">
                             Use the
                             <code>align-self-start</code>,
                             <code>align-self-center</code>, or
-                            <code>align-self-end</code> class respectively to vertically align items with a different position.
+                            <code>align-self-end</code> class respectively to vertically align items with a different
+                            position.
                         </p>
 
                         <div class="live-preview">
                             <div class="bg-light p-3 text-center">
-                                <div class="row g-2" style="min-height: 9rem;">
-                                    <div class="col-sm-4 align-self-start">
-                                        <div
-                                            class="bg-soft-primary text-primary rounded p-2"
-                                        >align-self-start</div>
-                                    </div>
-                                    <div class="col-sm-4 align-self-center">
-                                        <div
-                                            class="bg-soft-primary text-primary rounded p-2"
-                                        >align-self-center</div>
-                                    </div>
-                                    <div class="col-sm-4 align-self-end">
-                                        <div
-                                            class="bg-soft-primary text-primary rounded p-2"
-                                        >align-self-end</div>
-                                    </div>
-                                </div>
+                                <b-row class="g-2" style="min-height: 9rem;">
+                                    <b-col sm="4" class="align-self-start">
+                                        <div class="bg-soft-primary text-primary rounded p-2">align-self-start</div>
+                                    </b-col>
+                                    <b-col sm="4" class="align-self-center">
+                                        <div class="bg-soft-primary text-primary rounded p-2">align-self-center</div>
+                                    </b-col>
+                                    <b-col sm="4" class="align-self-end">
+                                        <div class="bg-soft-primary text-primary rounded p-2">align-self-end</div>
+                                    </b-col>
+                                </b-row>
                             </div>
                         </div>
 
                         <div class="d-none code-view">
                             <pre class="language-markup">
 <code>&lt;!-- Align Self --&gt;
-&lt;div class=&quot;row&quot;&gt;
-&lt;div class=&quot;col-sm-4 align-self-start&quot;&gt;
-...
-&lt;/div&gt;
-&lt;div class=&quot;col-sm-4 align-self-center&quot;&gt;
-...
-&lt;/div&gt;
-&lt;div class=&quot;col-sm-4 align-self-end&quot;&gt;
-...
-&lt;/div&gt;
-&lt;/div&gt;</code></pre>
+    &lt;b-row class=&quot;g-2&quot; style=&quot;min-height: 9rem;&quot;&gt;
+        &lt;b-col sm=&quot;4&quot; class=&quot;align-self-start&quot;&gt;
+            &lt;div class=&quot;bg-soft-primary text-primary rounded p-2&quot;&gt;align-self-start&lt;/div&gt;
+        &lt;/b-col&gt;
+        &lt;b-col sm=&quot;4&quot; class=&quot;align-self-center&quot;&gt;
+            &lt;div class=&quot;bg-soft-primary text-primary rounded p-2&quot;&gt;align-self-center&lt;/div&gt;
+        &lt;/b-col&gt;
+        &lt;b-col sm=&quot;4&quot; class=&quot;align-self-end&quot;&gt;
+            &lt;div class=&quot;bg-soft-primary text-primary rounded p-2&quot;&gt;align-self-end&lt;/div&gt;
+        &lt;/b-col&gt;
+    &lt;/b-row>
+</code></pre>
                         </div>
-                    </div>
-                    <!-- end card-body -->
-                </div>
-                <!-- end card -->
-            </div>
-        </div>
+                    </b-card-body>
+                </b-card>
+            </b-col>
+        </b-row>
 
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card">
-                    <div class="card-header align-items-center d-flex">
-                        <h4 class="card-title mb-0 flex-grow-1">Horizontal Alignment</h4>
+        <b-row>
+            <b-col lg="12">
+                <b-card no-body>
+                    <b-card-header class="align-items-center d-flex">
+                        <b-card-title class="mb-0 flex-grow-1">Horizontal Alignment</b-card-title>
                         <div class="flex-shrink-0">
                             <div class="form-check form-switch form-switch-right form-switch-md">
-                                <label
-                                    for="horizontal-align"
-                                    class="form-label text-muted"
-                                >Show Code</label>
-                                <input
-                                    class="form-check-input code-switcher"
-                                    type="checkbox"
-                                    id="horizontal-align"
-                                />
+                                <label for="horizontal-align" class="form-label text-muted">Show Code</label>
+                                <input class="form-check-input code-switcher" type="checkbox" id="horizontal-align" />
                             </div>
                         </div>
-                    </div>
-                    <!-- end card header -->
+                    </b-card-header>
 
-                    <div class="card-body">
+                    <b-card-body>
                         <p class="text-muted">
                             Use the
                             <code>justify-content-start</code>,
                             <code>justify-content-center</code>, or
-                            <code>justify-content-end</code> class respectively to horizontally align items with a different position.
+                            <code>justify-content-end</code> class respectively to horizontally align items with a
+                            different position.
                         </p>
                         <div class="live-preview">
                             <div class="bg-light p-3 text-center">
-                                <div class="row justify-content-start">
-                                    <div class="col-sm-4">
-                                        <div
-                                            class="bg-soft-primary text-primary rounded p-2"
-                                        >justify-content-start</div>
-                                    </div>
-                                </div>
-                                <div class="row justify-content-center">
-                                    <div class="col-sm-4">
-                                        <div
-                                            class="bg-soft-primary text-primary rounded p-2 mt-2 mt-sm-0"
-                                        >justify-content-center</div>
-                                    </div>
-                                </div>
-                                <div class="row justify-content-end">
-                                    <div class="col-sm-4">
-                                        <div
-                                            class="bg-soft-primary text-primary rounded p-2 mt-2 mt-sm-0"
-                                        >justify-content-end</div>
-                                    </div>
-                                </div>
+                                <b-row class="justify-content-start">
+                                    <b-col sm="4">
+                                        <div class="bg-soft-primary text-primary rounded p-2">justify-content-start
+                                        </div>
+                                    </b-col>
+                                </b-row>
+                                <b-row class="justify-content-center">
+                                    <b-col sm="4">
+                                        <div class="bg-soft-primary text-primary rounded p-2 mt-2 mt-sm-0">
+                                            justify-content-center</div>
+                                    </b-col>
+                                </b-row>
+                                <b-row class="justify-content-end">
+                                    <b-col sm="4">
+                                        <div class="bg-soft-primary text-primary rounded p-2 mt-2 mt-sm-0">
+                                            justify-content-end</div>
+                                    </b-col>
+                                </b-row>
                             </div>
                         </div>
 
                         <div class="d-none code-view">
                             <pre class="language-markup">
 <code>&lt;!-- Horizontal Alignment --&gt;
-&lt;div class=&quot;row justify-content-start&quot;&gt;
-&lt;div class=&quot;col-sm-4&quot;&gt;
-...
-&lt;/div&gt;
-&lt;/div&gt;</code>
-<code>&lt;div class=&quot;row justify-content-center&quot;&gt;
-&lt;div class=&quot;col-sm-4&quot;&gt;
-...
-&lt;/div&gt;
-&lt;/div&gt;</code>
-<code>&lt;div class=&quot;row justify-content-end&quot;&gt;
-&lt;div class=&quot;col-sm-4&quot;&gt;
-...
-&lt;/div&gt;
-&lt;/div&gt;</code></pre>
+    &lt;b-row class=&quot;justify-content-start&quot;&gt;
+        &lt;b-col sm=&quot;4&quot;&gt;
+            &lt;div class=&quot;bg-soft-primary text-primary rounded p-2&quot;&gt;justify-content-start
+            &lt;/div&gt;
+        &lt;/b-col&gt;
+    &lt;/b-row&gt;
+    &lt;b-row class=&quot;justify-content-center&quot;&gt;
+        &lt;b-col sm=&quot;4&quot;&gt;
+            &lt;div class=&quot;bg-soft-primary text-primary rounded p-2 mt-2 mt-sm-0&quot;&gt;
+                justify-content-center&lt;/div&gt;
+        &lt;/b-col&gt;
+    &lt;/b-row&gt;
+    &lt;b-row class=&quot;justify-content-end&quot;&gt;
+        &lt;b-col sm=&quot;4&quot;&gt;
+            &lt;div class=&quot;bg-soft-primary text-primary rounded p-2 mt-2 mt-sm-0&quot;&gt;
+                justify-content-end&lt;/div&gt;
+        &lt;/b-col&gt;
+    &lt;/b-row&gt;
+</code></pre>
                         </div>
-                    </div>
-                    <!-- end card-body -->
-                </div>
-                <!-- end card -->
-            </div>
-        </div>
+                    </b-card-body>
+                </b-card>
+            </b-col>
+        </b-row>
     </Layout>
 </template>

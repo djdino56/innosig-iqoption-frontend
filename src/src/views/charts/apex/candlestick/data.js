@@ -1,7 +1,6 @@
 import moment from "moment";
 import { seriesData, seriesDataLinear } from "../chart-series";
 
-
 //  Basic Candlestick Charts
 const basicCandlestickChart = {
   series: [
@@ -651,8 +650,8 @@ const categoryXaxisChart = {
     plotOptions: {
       candlestick: {
         colors: {
-          upward: "#00bd9d",
-          downward: "#25a0e2",
+          upward: "#0AB39C",
+          downward: "#F06548",
         },
       },
     },
@@ -660,7 +659,7 @@ const categoryXaxisChart = {
       xaxis: [
         {
           x: "Oct 06 14:00",
-          borderColor: "#00bd9d",
+          borderColor: "#F06548",
           label: {
             borderColor: "#f34e4e",
             style: {

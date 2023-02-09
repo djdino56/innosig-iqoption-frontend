@@ -432,7 +432,38 @@ export default {
           change: "+13.11%",
           changeClass: "success",
           coinName: "btc",
-          chartsColor: "#0AB39C",
+          chartsColor: "#00bd9d",
+          chartOptions: {
+            chart: {
+              width: "100%",
+              height: 46,
+              type: "area",
+              sparkline: {
+                enabled: true,
+              },
+              toolbar: {
+                show: false,
+              },
+            },
+            dataLabels: {
+              enabled: false,
+            },
+            stroke: {
+              curve: "smooth",
+              width: 1.5,
+            },
+            fill: {
+              type: "gradient",
+              gradient: {
+                shadeIntensity: 1,
+                inverseColors: false,
+                opacityFrom: 0.45,
+                opacityTo: 0.05,
+                stops: [50, 100, 100, 100],
+              },
+            },
+            colors: ["#00bd9d"],
+          },
           series: [
             {
               name: "Bitcoin",
@@ -448,7 +479,38 @@ export default {
           change: "+15.08%",
           changeClass: "success",
           coinName: "ltc",
-          chartsColor: "#0AB39C",
+          chartsColor: "#f17171",
+          chartOptions: {
+            chart: {
+              width: "100%",
+              height: 46,
+              type: "area",
+              sparkline: {
+                enabled: true,
+              },
+              toolbar: {
+                show: false,
+              },
+            },
+            dataLabels: {
+              enabled: false,
+            },
+            stroke: {
+              curve: "smooth",
+              width: 1.5,
+            },
+            fill: {
+              type: "gradient",
+              gradient: {
+                shadeIntensity: 1,
+                inverseColors: false,
+                opacityFrom: 0.45,
+                opacityTo: 0.05,
+                stops: [50, 100, 100, 100],
+              },
+            },
+            colors: ["#f17171"],
+          },
           series: [
             {
               name: "Litecoin",
@@ -464,7 +526,38 @@ export default {
           change: "+08.57%",
           changeClass: "success",
           coinName: "etc",
-          chartsColor: "#0AB39C",
+          chartsColor: "#f17171",
+          chartOptions: {
+            chart: {
+              width: "100%",
+              height: 46,
+              type: "area",
+              sparkline: {
+                enabled: true,
+              },
+              toolbar: {
+                show: false,
+              },
+            },
+            dataLabels: {
+              enabled: false,
+            },
+            stroke: {
+              curve: "smooth",
+              width: 1.5,
+            },
+            fill: {
+              type: "gradient",
+              gradient: {
+                shadeIntensity: 1,
+                inverseColors: false,
+                opacityFrom: 0.45,
+                opacityTo: 0.05,
+                stops: [50, 100, 100, 100],
+              },
+            },
+            colors: ["#f17171"],
+          },
           series: [
             {
               name: "Eathereum",
@@ -480,7 +573,38 @@ export default {
           change: "-09.21%",
           changeClass: "danger",
           coinName: "bnb",
-          chartsColor: "#F06548",
+          chartsColor: "#f17171",
+          chartOptions: {
+            chart: {
+              width: "100%",
+              height: 46,
+              type: "area",
+              sparkline: {
+                enabled: true,
+              },
+              toolbar: {
+                show: false,
+              },
+            },
+            dataLabels: {
+              enabled: false,
+            },
+            stroke: {
+              curve: "smooth",
+              width: 1.5,
+            },
+            fill: {
+              type: "gradient",
+              gradient: {
+                shadeIntensity: 1,
+                inverseColors: false,
+                opacityFrom: 0.45,
+                opacityTo: 0.05,
+                stops: [50, 100, 100, 100],
+              },
+            },
+            colors: ["#f17171"],
+          },
           series: [
             {
               name: "Binance",
@@ -496,7 +620,38 @@ export default {
           change: "+12.07%",
           changeClass: "success",
           coinName: "dash",
-          chartsColor: "#0AB39C",
+          chartsColor: "#00bd9d",
+          chartOptions: {
+            chart: {
+              width: "100%",
+              height: 46,
+              type: "area",
+              sparkline: {
+                enabled: true,
+              },
+              toolbar: {
+                show: false,
+              },
+            },
+            dataLabels: {
+              enabled: false,
+            },
+            stroke: {
+              curve: "smooth",
+              width: 1.5,
+            },
+            fill: {
+              type: "gradient",
+              gradient: {
+                shadeIntensity: 1,
+                inverseColors: false,
+                opacityFrom: 0.45,
+                opacityTo: 0.05,
+                stops: [50, 100, 100, 100],
+              },
+            },
+            colors: ["#00bd9d"],
+          },
           series: [
             {
               name: "Dash",
@@ -512,7 +667,38 @@ export default {
           change: "+14.99%",
           changeClass: "success",
           coinName: "usdt",
-          chartsColor: "#0AB39C",
+          chartsColor: "#00bd9d",
+          chartOptions: {
+            chart: {
+              width: "100%",
+              height: 46,
+              type: "area",
+              sparkline: {
+                enabled: true,
+              },
+              toolbar: {
+                show: false,
+              },
+            },
+            dataLabels: {
+              enabled: false,
+            },
+            stroke: {
+              curve: "smooth",
+              width: 1.5,
+            },
+            fill: {
+              type: "gradient",
+              gradient: {
+                shadeIntensity: 1,
+                inverseColors: false,
+                opacityFrom: 0.45,
+                opacityTo: 0.05,
+                stops: [50, 100, 100, 100],
+              },
+            },
+            colors: ["#00bd9d"],
+          },
           series: [
             {
               name: "Dash",
@@ -528,7 +714,38 @@ export default {
           change: "-05.07%",
           changeClass: "danger",
           coinName: "neo",
-          chartsColor: "#F06548",
+          chartsColor: "#00bd9d",
+          chartOptions: {
+            chart: {
+              width: "100%",
+              height: 46,
+              type: "area",
+              sparkline: {
+                enabled: true,
+              },
+              toolbar: {
+                show: false,
+              },
+            },
+            dataLabels: {
+              enabled: false,
+            },
+            stroke: {
+              curve: "smooth",
+              width: 1.5,
+            },
+            fill: {
+              type: "gradient",
+              gradient: {
+                shadeIntensity: 1,
+                inverseColors: false,
+                opacityFrom: 0.45,
+                opacityTo: 0.05,
+                stops: [50, 100, 100, 100],
+              },
+            },
+            colors: ["#00bd9d"],
+          },
           series: [
             {
               name: "Neo",
@@ -601,186 +818,122 @@ export default {
 <template>
   <Layout>
     <PageHeader :title="title" :items="items" />
-    <div class="row">
-      <div class="col-xxl-9">
-        <div class="card">
-          <div class="card-header">
+    <b-row>
+      <b-col xxl="9">
+        <b-card no-body>
+          <b-card-header>
             <div class="d-flex align-items-center">
               <div class="flex-grow-1">
                 <h5 class="card-title mb-0">My Portfolio Statistics</h5>
               </div>
-              <div
-                class="
-                  toolbar
-                  d-flex
-                  align-items-start
-                  justify-content-center
-                  flex-wrap
-                  gap-2
-                "
-              >
-                <button
-                  type="button"
-                  class="btn btn-soft-secondary timeline-btn btn-sm"
-                  id="one_month"
-                >
+              <div class="toolbar d-flex align-items-start justify-content-center flex-wrap gap-2">
+                <b-button type="button" variant="soft-secondary" size="sm" class="timeline-btn" id="one_month">
                   1M
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-soft-secondary timeline-btn btn-sm"
-                  id="six_months"
-                >
+                </b-button>
+                <b-button type="button" variant="soft-secondary" size="sm" class="timeline-btn" id="six_months">
                   6M
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-soft-secondary timeline-btn btn-sm"
-                  id="one_year"
-                >
+                </b-button>
+                <b-button type="button" variant="soft-secondary" size="sm" class="timeline-btn" id="one_year">
                   1Y
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-soft-secondary timeline-btn btn-sm active"
-                  id="all"
-                >
+                </b-button>
+                <b-button type="button" variant="soft-primary" size="sm" class="timeline-btn active" id="all">
                   ALL
-                </button>
+                </b-button>
               </div>
             </div>
-          </div>
-          <div class="card-body">
+          </b-card-header>
+          <b-card-body>
             <div>
-              <apexchart
-                class="apex-charts"
-                dir="ltr"
-                height="320"
-                :series="series"
-                :options="chartOptions"
-              ></apexchart>
+              <apexchart class="apex-charts" dir="ltr" height="320" :series="series" :options="chartOptions">
+              </apexchart>
             </div>
-          </div>
-        </div>
+          </b-card-body>
+        </b-card>
 
         <div class="d-flex align-items-center mb-3">
           <div class="flex-grow-1">
             <h5 class="mb-0">Watchlist</h5>
           </div>
           <div class="flexshrink-0">
-            <button class="btn btn-primary btn-sm">
+            <b-button variant="primary" size="sm">
               <i class="ri-star-line align-bottom"></i> Add Watchlist
-            </button>
+            </b-button>
           </div>
         </div>
 
-        <swiper
-          class="cryptoSlider"
-          :slidesPerView="1"
-          :loop="false"
-          :spaceBetween="24"
-          :navigation="{
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-          }"
-          :autoplay="{
-            delay: 2500,
-            disableOnInteraction: false,
-          }"
-          :breakpoints="{
-            640: {
-              slidesPerView: 2,
-            },
-            1024: {
-              slidesPerView: 3,
-            },
-            1600: {
-              slidesPerView: 4,
-            },
-          }"
-        >
+        <swiper class="cryptoSlider" :slidesPerView="1" :loop="false" :spaceBetween="24" :navigation="{
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        }" :autoplay="{
+  delay: 2500,
+  disableOnInteraction: false,
+}" :breakpoints="{
+  640: {
+    slidesPerView: 2,
+  },
+  1024: {
+    slidesPerView: 3,
+  },
+  1600: {
+    slidesPerView: 4,
+  },
+}">
           <template v-for="(item, index) of cryptoSlider" :key="index">
             <swiper-slide>
-              <div class="card">
-                <div class="card-body">
+              <b-card no-body>
+                <b-card-body>
                   <div class="float-end">
                     <div class="dropdown">
-                      <a
-                        class="text-reset"
-                        href="#"
-                        data-bs-toggle="dropdown"
-                        aria-haspopup="true"
-                        aria-expanded="false"
-                      >
+                      <b-link class="text-reset" href="#" data-bs-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
                         <span class="text-muted fs-18">
                           <i class="mdi mdi-dots-horizontal"></i>
                         </span>
-                      </a>
+                      </b-link>
                       <div class="dropdown-menu dropdown-menu-end">
-                        <a class="dropdown-item" href="#">Details</a>
-                        <a class="dropdown-item" href="#">Cancel</a>
+                        <b-link class="dropdown-item" href="#">Details</b-link>
+                        <b-link class="dropdown-item" href="#">Cancel</b-link>
                       </div>
                     </div>
                   </div>
                   <div class="d-flex align-items-center">
-                    <img
-                      :src="item.img"
-                      class="bg-light rounded-circle p-1 avatar-xs img-fluid"
-                      alt
-                    />
+                    <img :src="item.img" class="bg-light rounded-circle p-1 avatar-xs img-fluid" alt />
                     <h6 class="ms-2 mb-0 fs-14">{{ item.label }}</h6>
                   </div>
-                  <div class="row align-items-end g-0">
-                    <div class="col-6">
+                  <b-row class="align-items-end g-0">
+                    <b-col cols="6">
                       <h5 class="mb-1 mt-4">{{ item.price }}</h5>
                       <p class="text-success fs-13 fw-medium mb-0">
                         {{ item.change }}
-                        <span class="text-muted ms-2 fs-10 text-uppercase"
-                          >({{ itemcoinName }})</span
-                        >
+                        <span class="text-muted ms-2 fs-10 text-uppercase">({{ item.coinName }})</span>
                       </p>
-                    </div>
-                    <!-- end col -->
-                    <div class="col-6">
-                      <apexchart
-                        class="apex-charts"
-                        height="50"
-                        dir="ltr"
-                        :series="item.series"
-                        :options="chartOptions"
-                      ></apexchart>
-                    </div>
-                    <!-- end col -->
-                  </div>
-                  <!-- end row -->
-                </div>
-                <!-- end card body -->
-              </div>
-              <!-- end card -->
+                    </b-col>
+                    <b-col cols="6">
+                      <apexchart class="apex-charts" :options="item.chartOptions" height="50" dir="ltr"
+                        :series="item.series.length > 0 ? item.series : []" :key="item.id"></apexchart>
+                    </b-col>
+                  </b-row>
+                </b-card-body>
+              </b-card>
             </swiper-slide>
-            <!-- end -->
           </template>
         </swiper>
-        <!-- end swiper -->
-        <!-- end swiper -->
 
-        <div class="card" id="marketList">
-          <div
-            class="card-header border-bottom-dashed d-flex align-items-center"
-          >
-            <h4 class="card-title mb-0 flex-grow-1">Market Status</h4>
+        <b-card no-body id="marketList">
+          <b-card-header class="border-bottom-dashed d-flex align-items-center">
+            <b-card-title class="mb-0 flex-grow-1">Market Status</b-card-title>
             <div class="flex-shrink-0">
-              <div class="btn-group" role="group" aria-label="Basic example">
-                <button type="button" class="btn btn-primary btn-sm">
+              <b-btn-group class="btn-group">
+                <b-button type="button" variant="primary" size="sm">
                   Today
-                </button>
-                <button type="button" class="btn btn-outline-primary btn-sm">
+                </b-button>
+                <b-button type="button" variant="outline-primary" size="sm">
                   Overall
-                </button>
-              </div>
+                </b-button>
+              </b-btn-group>
             </div>
-          </div>
-          <div class="card-body">
+          </b-card-header>
+          <b-card-body>
             <div class="table-responsive table-card">
               <table class="table align-middle table-nowrap" id="customerTable">
                 <thead class="table-light text-muted">
@@ -805,24 +958,17 @@ export default {
                     </th>
                   </tr>
                 </thead>
-                <!--end thead-->
                 <tbody class="list form-check-all">
                   <tr v-for="(data, index) of resultQuery" :key="index">
                     <td class="id" style="display: none">
-                      <a
-                        href="javascript:void(0);"
-                        class="fw-medium link-primary"
-                        >#VZ001</a
-                      >
+                      <b-link href="javascript:void(0);" class="fw-medium link-primary">#VZ001</b-link>
                     </td>
                     <td>
                       <div class="d-flex align-items-center fw-medium">
                         <img :src="data.image" alt="" class="avatar-xxs me-2" />
-                        <a
-                          href="javascript:void(0)"
-                          class="currency_name link-secondary"
-                          >{{ data.currency_name }}</a
-                        >
+                        <b-link href="javascript:void(0)" class="currency_name link-secondary">{{
+                            data.currency_name
+                        }}</b-link>
                       </div>
                     </td>
                     <td class="quantity_value">{{ data.quantity }}</td>
@@ -830,164 +976,113 @@ export default {
                     <td class="current_value">{{ data.value }}</td>
                     <td class="returns">{{ data.returns }}</td>
                     <td class="returns_per">
-                      <h6
-                        class="fs-13 mb-0"
-                        :class="{
-                          'text-danger': data.volume > 1,
-                          'text-success': data.volume < 1,
-                        }"
-                      >
-                        <i
-                          class="align-middle me-1"
-                          :class="{
-                            'mdi mdi-trending-down': data.volume > 1,
-                            'mdi mdi-trending-up': data.volume < 1,
-                          }"
-                        ></i
-                        >{{ data.volume }}%
+                      <h6 class="fs-13 mb-0" :class="{
+                        'text-danger': data.volume > 1,
+                        'text-success': data.volume < 1,
+                      }">
+                        <i class="mdi mdi-trending-up align-middle me-1"></i>{{ data.volume }}%
                       </h6>
                     </td>
                   </tr>
-                  <!--end tr-->
                 </tbody>
               </table>
-              <!--end table-->
               <div class="noresult" style="display: none">
                 <div class="text-center">
-                  <lottie
-                    class="avatar-xl"
-                    colors="primary:#121331,secondary:#08a88a"
-                    :options="defaultOptions"
-                    :height="75"
-                    :width="75"
-                  />
+                  <lottie class="avatar-xl" colors="primary:#25a0e2,secondary:#00bd9d" :options="defaultOptions"
+                    :height="75" :width="75" />
                   <h5 class="mt-2">Sorry! No Result Found</h5>
-                  <p class="text-muted mb-0">
-                    We've searched more than 150+ Currencies We did not find any
-                    Currencies for you search.
-                  </p>
+                  <p class="text-muted mb-0">We've searched more than 150+ Currencies We did not find any
+                    Currencies for you search.</p>
                 </div>
               </div>
             </div>
             <div class="d-flex justify-content-end mt-3">
               <div class="pagination-wrap hstack gap-2">
-                <a
-                  class="page-item pagination-prev disabled"
-                  href="#"
-                  v-if="page != 1 || resultQuery.length >= 6"
-                  @click="page--"
-                >
+                <b-link class="page-item pagination-prev disabled" href="#" v-if="page != 1 || resultQuery.length >= 6"
+                  @click="page--">
                   Previous
-                </a>
+                </b-link>
 
-                <ul
-                  class="pagination listjs-pagination mb-0"
-                  v-if="resultQuery.length >= 6"
-                >
-                  <li
-                    class="active"
-                    v-for="(pageNumber, index) in pages.slice(
-                      page - 1,
-                      page + 5
-                    )"
-                    :key="index"
-                    @click="page = pageNumber"
-                  >
-                    <a class="page" href="#">{{ pageNumber }}</a>
+                <ul class="pagination listjs-pagination mb-0" v-if="resultQuery.length >= 6">
+                  <li class="active" v-for="(pageNumber, index) in pages.slice(
+                    page - 1,
+                    page + 5
+                  )" :key="index" @click="page = pageNumber">
+                    <b-link class="page" href="#">{{ pageNumber }}</b-link>
                   </li>
                 </ul>
-                <a
-                  class="page-item pagination-next"
-                  href="#"
-                  @click="page++"
-                  v-if="page < pages.length"
-                >
+                <b-link class="page-item pagination-next" href="#" @click="page++" v-if="page < pages.length">
                   Next
-                </a>
+                </b-link>
               </div>
             </div>
-          </div>
-        </div>
-        <!--end card-->
-      </div>
-      <!--end col-->
+          </b-card-body>
+        </b-card>
+      </b-col>
 
-      <div class="col-xxl-3">
-        <div class="card border-0 overflow-hidden">
-          <div class="card-body bg-soft-primary">
+      <b-col xxl="3">
+        <b-card no-body class="border-0 overflow-hidden">
+          <b-card-body class="bg-soft-primary">
             <div class="d-flex">
               <div class="flex-grow-1">
                 <h5 class="fs-13 mb-3">My Portfolio</h5>
                 <h2>$61,91,967<small class="text-muted fs-14">.29</small></h2>
                 <p class="text-muted mb-0">
                   $25,10,974
-                  <small class="badge badge-soft-success"
-                    ><i class="ri-arrow-right-up-line fs-13 align-bottom"></i
-                    >4.37%</small
-                  >
+                  <b-badge tag="small" variant="soft-success" class="badge-soft-success"><i
+                      class="ri-arrow-right-up-line fs-13 align-bottom"></i>4.37%</b-badge>
                 </p>
               </div>
               <div class="flex-shrink-0">
                 <i class="mdi mdi-wallet-outline text-primary h1"></i>
               </div>
             </div>
-          </div>
-        </div>
-        <!--end card-->
-        <div class="card">
-          <div class="card-body">
+          </b-card-body>
+        </b-card>
+        <b-card no-body>
+          <b-card-body>
             <div class="d-flex">
               <div class="flex-grow-1">
                 <h5 class="fs-13 mb-3">Today's Profit</h5>
                 <h2>$2,74,365<small class="text-muted fs-14">.84</small></h2>
                 <p class="text-muted mb-0">
                   $9,10,564
-                  <small class="badge badge-soft-success"
-                    ><i class="ri-arrow-right-up-line fs-13 align-bottom"></i
-                    >1.25%</small
-                  >
+                  <b-badge tag="small" variant="soft-success" class="badge-soft-success"><i
+                      class="ri-arrow-right-up-line fs-13 align-bottom"></i>1.25%</b-badge>
                 </p>
               </div>
               <div class="flex-shrink-0">
                 <i class="ri-hand-coin-line text-primary h1"></i>
               </div>
             </div>
-          </div>
-        </div>
-        <!--end card-->
-        <div class="card">
-          <div class="card-body">
+          </b-card-body>
+        </b-card>
+        <b-card no-body>
+          <b-card-body>
             <div class="d-flex">
               <div class="flex-grow-1">
                 <h5 class="fs-13 mb-3">Overall Profit</h5>
                 <h2>$32,67,120<small class="text-muted fs-14">.42</small></h2>
                 <p class="text-muted mb-0">
                   $18,22,730
-                  <small class="badge badge-soft-success"
-                    ><i class="ri-arrow-right-up-line fs-13 align-bottom"></i
-                    >8.34%</small
-                  >
+                  <b-badge tag="small" variant="soft-success" class="badge-soft-success"><i
+                      class="ri-arrow-right-up-line fs-13 align-bottom"></i>8.34%</b-badge>
                 </p>
               </div>
               <div class="flex-shrink-0">
                 <i class="ri-line-chart-line text-primary h1"></i>
               </div>
             </div>
-          </div>
-        </div>
-        <!--end card-->
-        <div class="card">
-          <div class="card-header">
+          </b-card-body>
+        </b-card>
+        <b-card no-body>
+          <b-card-header>
             <h5 class="card-title mb-0">Recent Transaction</h5>
-          </div>
-          <div class="card-body">
+          </b-card-header>
+          <b-card-body>
             <div class="d-flex mb-3">
               <div class="flex-shrink-0">
-                <img
-                  src="@/assets/images/svg/crypto-icons/btc.svg"
-                  alt=""
-                  class="avatar-xxs"
-                />
+                <img src="@/assets/images/svg/crypto-icons/btc.svg" alt="" class="avatar-xxs" />
               </div>
               <div class="flex-grow-1 ms-3">
                 <h6 class="mb-1">Bitcoin (BTC)</h6>
@@ -999,11 +1094,7 @@ export default {
             </div>
             <div class="d-flex mb-3">
               <div class="flex-shrink-0">
-                <img
-                  src="@/assets/images/svg/crypto-icons/ltc.svg"
-                  alt=""
-                  class="avatar-xxs"
-                />
+                <img src="@/assets/images/svg/crypto-icons/ltc.svg" alt="" class="avatar-xxs" />
               </div>
               <div class="flex-grow-1 ms-3">
                 <h6 class="mb-1">Litecoin (LTC)</h6>
@@ -1015,11 +1106,7 @@ export default {
             </div>
             <div class="d-flex mb-3">
               <div class="flex-shrink-0">
-                <img
-                  src="@/assets/images/svg/crypto-icons/xmr.svg"
-                  alt=""
-                  class="avatar-xxs"
-                />
+                <img src="@/assets/images/svg/crypto-icons/xmr.svg" alt="" class="avatar-xxs" />
               </div>
               <div class="flex-grow-1 ms-3">
                 <h6 class="mb-1">Monero (XMR)</h6>
@@ -1031,11 +1118,7 @@ export default {
             </div>
             <div class="d-flex mb-3">
               <div class="flex-shrink-0">
-                <img
-                  src="@/assets/images/svg/crypto-icons/fil.svg"
-                  alt=""
-                  class="avatar-xxs"
-                />
+                <img src="@/assets/images/svg/crypto-icons/fil.svg" alt="" class="avatar-xxs" />
               </div>
               <div class="flex-grow-1 ms-3">
                 <h6 class="mb-1">Filecoin (FIL)</h6>
@@ -1047,11 +1130,7 @@ export default {
             </div>
             <div class="d-flex mb-3">
               <div class="flex-shrink-0">
-                <img
-                  src="@/assets/images/svg/crypto-icons/dot.svg"
-                  alt=""
-                  class="avatar-xxs"
-                />
+                <img src="@/assets/images/svg/crypto-icons/dot.svg" alt="" class="avatar-xxs" />
               </div>
               <div class="flex-grow-1 ms-3">
                 <h6 class="mb-1">Polkadot (DOT)</h6>
@@ -1062,19 +1141,13 @@ export default {
               </div>
             </div>
             <div>
-              <router-link
-                to="/crypto/transactions"
-                class="btn btn-soft-primary w-100"
-                >View All Transactions
-                <i class="ri-arrow-right-line align-bottom"></i
-              ></router-link>
+              <router-link to="/crypto/transactions" class="btn btn-soft-primary w-100">View All Transactions
+                <i class="ri-arrow-right-line align-bottom"></i>
+              </router-link>
             </div>
-          </div>
-        </div>
-        <!--end card-->
-      </div>
-      <!--end col-->
-    </div>
-    <!--end row-->
+          </b-card-body>
+        </b-card>
+      </b-col>
+    </b-row>
   </Layout>
 </template>

@@ -1,42 +1,78 @@
 <script>
-  import Multiselect from "@vueform/multiselect";
-  import "@vueform/multiselect/themes/default.css";
-  import flatPickr from "vue-flatpickr-component";
-  import "flatpickr/dist/flatpickr.css";
+import Multiselect from "@vueform/multiselect";
+import "@vueform/multiselect/themes/default.css";
+import flatPickr from "vue-flatpickr-component";
+import "flatpickr/dist/flatpickr.css";
+import axios from 'axios';
+import Layout from "../../../layouts/main.vue";
+import appConfig from "../../../../app.config";
 
-  import Layout from "../../../layouts/main.vue";
-  import appConfig from "../../../../app.config";
-
-  export default {
-    page: {
+export default {
+  page: {
+    title: "Setting",
+    meta: [{
+      name: "description",
+      content: appConfig.description
+    }],
+  },
+  data() {
+    return {
       title: "Setting",
-      meta: [{
-        name: "description",
-        content: appConfig.description
-      }],
-    },
-    data() {
-      return {
-        title: "Setting",
-        items: [{
-            text: "Pages",
-            href: "/",
-          },
-          {
-            text: "Setting",
-            active: true,
-          },
-        ],
-        value: ["javascript"],
-        date: null,
+      items: [{
+        text: "Velzon",
+        href: "/",
+      },
+      {
+        text: "Setting",
+        active: true,
+      },
+      ],
+      value: ['javascript'],
+      date: null,
+    };
+  },
+  components: {
+    Layout,
+    Multiselect,
+    flatPickr
+  },
+  methods: {
+    changepass() {
+      var data = {
+        password: document.getElementById('oldpasswordInput').value,
+        new_password: document.getElementById('newpasswordInput').value,
+        confirm_password: document.getElementById('confirmpasswordInput').value
       };
+      axios.patch('https://api-node.themesbrand.website/updatepassword', data).then((data) => {
+        console.log(data);
+      }).catch((e) => {
+        console.log(e);
+      });
     },
-    components: {
-      Layout,
-      Multiselect,
-      flatPickr,
-    },
-  };
+    updatedata() {
+      var userid = localStorage.getItem('userid');
+      var data = {
+        first_name: document.getElementById('firstnameInput').value,
+        last_name: document.getElementById('lastnameInput').value,
+        phone: document.getElementById('phonenumberInput').value,
+        email: document.getElementById('emailInput').value,
+        joining_date: document.getElementById('dateinput').value,
+        skills: document.getElementById('skillsinput').value,
+        designation: document.getElementById('designationInput').value,
+        website: document.getElementById('websiteInput1').value,
+        city: document.getElementById('cityInput').value,
+        country: document.getElementById('countryInput').value,
+        zipcode: document.getElementById('zipcodeInput').value,
+        Description: document.getElementById('exampleFormControlTextarea').value,
+      };
+      axios.patch('https://api-node.themesbrand.website/user/' + userid, data).then((data) => {
+        console.log(data);
+      }).catch((e) => {
+        console.log(e);
+      });
+    }
+  },
+};
 </script>
 
 <template>
@@ -58,10 +94,10 @@
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-xxl-3">
-        <div class="card mt-n5">
-          <div class="card-body p-4">
+    <b-row>
+      <b-col xxl="3">
+        <b-card no-body class="mt-n5">
+          <b-card-body class="p-4">
             <div class="text-center">
               <div class="
                   profile-user
@@ -88,39 +124,38 @@
               <h5 class="fs-16 mb-1">Anna Adame</h5>
               <p class="text-muted mb-0">Lead Designer / Developer</p>
             </div>
-          </div>
-        </div>
-        <!--end card-->
-        <div class="card">
-          <div class="card-body">
+          </b-card-body>
+        </b-card>
+        <b-card no-body>
+          <b-card-body>
             <div class="d-flex align-items-center mb-5">
               <div class="flex-grow-1">
                 <h5 class="card-title mb-0">Complete Your Profile</h5>
               </div>
               <div class="flex-shrink-0">
-                <a href="javascript:void(0);" class="badge bg-light text-secondary fs-12"><i
-                    class="ri-edit-box-line align-bottom me-1"></i> Edit</a>
+                <b-link href="javascript:void(0);" class="badge bg-light text-secondary fs-12"><i
+                    class="ri-edit-box-line align-bottom me-1"></i> Edit</b-link>
               </div>
             </div>
-            <div class="progress animated-progess custom-progress progress-label">
-              <div class="progress-bar bg-primary" role="progressbar" style="width: 30%" aria-valuenow="30"
-                aria-valuemin="0" aria-valuemax="100">
-                <div class="label">30%</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-body">
+
+            <b-progress class="animated-progress custom-progress progress-label">
+              <b-progress-bar :value="30" variant="primary">
+              <div class="label">30%</div>
+              </b-progress-bar>
+            </b-progress>
+          </b-card-body>
+        </b-card>
+        <b-card no-body>
+          <b-card-body>
             <div class="d-flex align-items-center mb-4">
               <div class="flex-grow-1">
                 <h5 class="card-title mb-0">Portfolio</h5>
               </div>
               <div class="flex-shrink-0">
-                <a href="javascript:void(0);" class="badge bg-light text-secondary fs-12"><i
-                    class="ri-add-fill align-bottom me-1"></i> Add</a>
+                <b-link href="javascript:void(0);" class="badge bg-light text-secondary fs-12"> <i class="ri-add-fill align-bottom me-1"></i> 
+                  Add</b-link>
               </div>
-            </div>
+            </div>  
             <div class="mb-3 d-flex">
               <div class="avatar-xs d-block flex-shrink-0 me-3">
                 <span class="avatar-title rounded-circle fs-16 bg-soft-dark text-dark">
@@ -154,14 +189,12 @@
               </div>
               <input type="text" class="form-control" id="pinterestName" placeholder="Username" value="Advance Dave" />
             </div>
-          </div>
-        </div>
-        <!--end card-->
-      </div>
-      <!--end col-->
-      <div class="col-xxl-9">
-        <div class="card mt-xxl-n5">
-          <div class="card-header">
+          </b-card-body>
+        </b-card>
+      </b-col>
+      <b-col xxl="9">
+        <b-card no-body class="mt-xxl-n5">
+          <b-card-header>
             <ul class="
                 nav nav-tabs-custom
                 rounded
@@ -169,81 +202,82 @@
                 border-bottom-0
               " role="tablist">
               <li class="nav-item">
-                <a class="nav-link active" data-bs-toggle="tab" href="#personalDetails" role="tab">
+                <b-link class="nav-link active" data-bs-toggle="tab" href="#personalDetails" role="tab">
                   <i class="fas fa-home"></i>
                   Personal Details
-                </a>
+                </b-link>
               </li>
               <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="tab" href="#changePassword" role="tab">
+                <b-link class="nav-link" data-bs-toggle="tab" href="#changePassword" role="tab">
                   <i class="far fa-user"></i>
                   Change Password
-                </a>
+                </b-link>
               </li>
               <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="tab" href="#experience" role="tab">
+                <b-link class="nav-link" data-bs-toggle="tab" href="#experience" role="tab">
                   <i class="far fa-envelope"></i>
                   Experience
-                </a>
+                </b-link>
               </li>
               <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="tab" href="#privacy" role="tab">
+                <b-link class="nav-link" data-bs-toggle="tab" href="#privacy" role="tab">
                   <i class="far fa-envelope"></i>
                   Privacy Policy
-                </a>
+                </b-link>
               </li>
             </ul>
-          </div>
-          <div class="card-body p-4">
+          </b-card-header>
+          <b-card-body class="p-4">
             <div class="tab-content">
               <div class="tab-pane active" id="personalDetails" role="tabpanel">
                 <form action="javascript:void(0);">
-                  <div class="row">
-                    <div class="col-lg-6">
+                  <b-row>
+                    <b-col lg="6">
                       <div class="mb-3">
-                        <label for="firstnameInput" class="form-label">First Name</label>
+                        <label for="firstnameInput" class="form-label">First 
+                          Name</label>
                         <input type="text" class="form-control" id="firstnameInput" placeholder="Enter your firstname"
                           value="Dave" />
                       </div>
-                    </div>
-                    <!--end col-->
-                    <div class="col-lg-6">
+                    </b-col>
+                    <b-col lg="6">
                       <div class="mb-3">
-                        <label for="lastnameInput" class="form-label">Last Name</label>
+                        <label for="lastnameInput" class="form-label">Last 
+                          Name</label>
                         <input type="text" class="form-control" id="lastnameInput" placeholder="Enter your lastname"
                           value="Adame" />
                       </div>
-                    </div>
-                    <!--end col-->
-                    <div class="col-lg-6">
+                    </b-col>
+                    <b-col lg="6">
                       <div class="mb-3">
-                        <label for="phonenumberInput" class="form-label">Phone Number</label>
+                        <label for="phonenumberInput" class="form-label">Phone 
+                          Number</label>
                         <input type="text" class="form-control" id="phonenumberInput"
                           placeholder="Enter your phone number" value="+(1) 987 6543" />
                       </div>
-                    </div>
-                    <!--end col-->
-                    <div class="col-lg-6">
+                    </b-col>
+                    <b-col lg="6">
                       <div class="mb-3">
-                        <label for="emailInput" class="form-label">Email Address</label>
+                        <label for="emailInput" class="form-label">Email 
+                          Address</label>
                         <input type="email" class="form-control" id="emailInput" placeholder="Enter your email"
                           value="daveadame@velzon.com" />
                       </div>
-                    </div>
-                    <!--end col-->
-                    <div class="col-lg-12">
+                    </b-col>
+                    <b-col lg="12">
                       <div class="mb-3">
-                        <label for="JoiningdatInput" class="form-label">Joining Date</label>
+                        <label for="JoiningdatInput" class="form-label">Joining
+                           Date</label>
 
-                        <flat-pickr v-model="date" class="form-control"></flat-pickr>
+                        <flat-pickr v-model="date" id="dateinput" class="form-control"></flat-pickr>
+
                       </div>
-                    </div>
-                    <!--end col-->
-                    <div class="col-lg-12">
+                    </b-col>
+                    <b-col lg="12">
                       <div class="mb-3">
                         <label for="skillsInput" class="form-label">Skills</label>
-                        <Multiselect v-model="value" mode="tags" :close-on-select="false" :searchable="true"
-                          :create-option="true" :options="[
+                        <Multiselect v-model="value" id="skillsinput" mode="tags" :close-on-select="false"
+                          :searchable="true" :create-option="true" :options="[
                             { value: 'illustrator', label: 'Illustrator' },
                             { value: 'photoshop', label: 'Photoshop' },
                             { value: 'css', label: 'CSS' },
@@ -253,120 +287,109 @@
                             { value: 'php', label: 'PHP' },
                           ]" />
                       </div>
-                    </div>
-                    <!--end col-->
-                    <div class="col-lg-6">
+                    </b-col>
+                    <b-col lg="6">
                       <div class="mb-3">
                         <label for="designationInput" class="form-label">Designation</label>
                         <input type="text" class="form-control" id="designationInput" placeholder="Designation"
                           value="Lead Designer / Developer" />
                       </div>
-                    </div>
-                    <!--end col-->
-                    <div class="col-lg-6">
+                    </b-col>
+                    <b-col lg="6">
                       <div class="mb-3">
                         <label for="websiteInput1" class="form-label">Website</label>
                         <input type="text" class="form-control" id="websiteInput1" placeholder="www.example.com"
                           value="www.velzon.com" />
                       </div>
-                    </div>
-                    <!--end col-->
-                    <div class="col-lg-4">
+                    </b-col>
+                    <b-col lg="4">
                       <div class="mb-3">
                         <label for="cityInput" class="form-label">City</label>
                         <input type="text" class="form-control" id="cityInput" placeholder="City" value="California" />
                       </div>
-                    </div>
-                    <!--end col-->
-                    <div class="col-lg-4">
+                    </b-col>
+                    <b-col lg="4">
                       <div class="mb-3">
                         <label for="countryInput" class="form-label">Country</label>
                         <input type="text" class="form-control" id="countryInput" placeholder="Country"
                           value="United States" />
                       </div>
-                    </div>
-                    <!--end col-->
-                    <div class="col-lg-4">
+                    </b-col>
+                    <b-col lg="4">
                       <div class="mb-3">
-                        <label for="zipcodeInput" class="form-label">Zip Code</label>
+                        <label for="zipcodeInput" class="form-label">Zip 
+                          Code</label>
                         <input type="text" class="form-control" minlength="5" maxlength="6" id="zipcodeInput"
                           placeholder="Enter zipcode" value="90011" />
                       </div>
-                    </div>
-                    <!--end col-->
-                    <div class="col-lg-12">
+                    </b-col>
+                    <b-col lg="12">
                       <div class="mb-3 pb-2">
                         <label for="exampleFormControlTextarea" class="form-label">Description</label>
                         <textarea class="form-control" id="exampleFormControlTextarea"
-                          placeholder="Enter your description"
-                          rows="3">Hi I'm Anna Adame,It will be as simple as Occidental; in fact, it will be Occidental. To an English person, it will seem like simplified English, as a skeptical Cambridge friend of mine told me what Occidental is European languages are members of the same family.</textarea>
+                          placeholder="Enter your description" rows="3">
+Hi I'm Anna Adame,It will be as simple as Occidental; in fact, it will be Occidental. To an English person, it will seem like simplified English, as a skeptical Cambridge friend of mine told me what Occidental is European languages are members of the same family.</textarea>
                       </div>
-                    </div>
-                    <!--end col-->
-                    <div class="col-lg-12">
+                    </b-col>
+                    <b-col lg="12">
                       <div class="hstack gap-2 justify-content-end">
-                        <button type="submit" class="btn btn-primary">
+                        <b-button type="submit" variant="primary" @click="updatedata">
                           Updates
-                        </button>
-                        <button type="button" class="btn btn-soft-secondary">
+                        </b-button>
+                        <b-button type="button" variant="soft-secondary">
                           Cancel
-                        </button>
+                        </b-button>
                       </div>
-                    </div>
-                    <!--end col-->
-                  </div>
-                  <!--end row-->
+                    </b-col>
+                  </b-row>
                 </form>
               </div>
-              <!--end tab-pane-->
               <div class="tab-pane" id="changePassword" role="tabpanel">
                 <form action="javascript:void(0);">
-                  <div class="row g-2">
-                    <div class="col-lg-4">
+                  <b-row class="g-2">
+                    <b-col lg="4">
                       <div>
-                        <label for="oldpasswordInput" class="form-label">Old Password*</label>
+                        <label for="oldpasswordInput" class="form-label">Old 
+                          Password*</label>
                         <input type="password" class="form-control" id="oldpasswordInput"
                           placeholder="Enter current password" />
                       </div>
-                    </div>
-                    <!--end col-->
-                    <div class="col-lg-4">
+                    </b-col>
+                    <b-col lg="4">
                       <div>
-                        <label for="newpasswordInput" class="form-label">New Password*</label>
+                        <label for="newpasswordInput" class="form-label">New 
+                          Password*</label>
                         <input type="password" class="form-control" id="newpasswordInput"
                           placeholder="Enter new password" />
                       </div>
-                    </div>
-                    <!--end col-->
-                    <div class="col-lg-4">
+                    </b-col>
+                    <b-col lg="4">
                       <div>
-                        <label for="confirmpasswordInput" class="form-label">Confirm Password*</label>
+                        <label for="confirmpasswordInput" class="form-label">Confirm 
+                          Password*</label>
                         <input type="password" class="form-control" id="confirmpasswordInput"
                           placeholder="Confirm password" />
                       </div>
-                    </div>
-                    <!--end col-->
-                    <div class="col-lg-12">
+                    </b-col>
+                    <b-col lg="12">
                       <div class="mb-3">
-                        <a href="javascript:void(0);" class="link-primary text-decoration-underline">Forgot Password
-                          ?</a>
+                        <b-link href="javascript:void(0);" class="link-primary text-decoration-underline">Forgot
+                          Password
+                          ?</b-link>
                       </div>
-                    </div>
-                    <!--end col-->
-                    <div class="col-lg-12">
+                    </b-col>
+                    <b-col lg="12">
                       <div class="text-end">
-                        <button type="submit" class="btn btn-primary">
+                        <b-button type="submit" variant="primary" @click="changepass">
                           Change Password
-                        </button>
+                        </b-button>
                       </div>
-                    </div>
-                    <!--end col-->
-                  </div>
-                  <!--end row-->
+                    </b-col>
+                  </b-row>
                 </form>
                 <div class="mt-4 mb-3 border-bottom pb-2">
                   <div class="float-end">
-                    <a href="javascript:void(0);" class="link-secondary">All Logout</a>
+                    <b-link href="javascript:void(0);" class="link-secondary">All Logout</b-link>
                   </div>
                   <h5 class="card-title">Login History</h5>
                 </div>
@@ -383,7 +406,7 @@
                     </p>
                   </div>
                   <div>
-                    <a href="javascript:void(0);" class="link-secondary">Logout</a>
+                    <b-link href="javascript:void(0);"  class="link-secondary">Logout</b-link>
                   </div>
                 </div>
                 <div class="d-flex align-items-center mb-3">
@@ -399,7 +422,7 @@
                     </p>
                   </div>
                   <div>
-                    <a href="javascript:void(0);">Logout</a>
+                    <b-link href="javascript:void(0);"  class="link-secondary">Logout</b-link>
                   </div>
                 </div>
                 <div class="d-flex align-items-center mb-3">
@@ -415,7 +438,7 @@
                     </p>
                   </div>
                   <div>
-                    <a href="javascript:void(0);" class="link-secondary">Logout</a>
+                    <b-link href="javascript:void(0);"  class="link-secondary">Logout</b-link>
                   </div>
                 </div>
                 <div class="d-flex align-items-center">
@@ -431,37 +454,36 @@
                     </p>
                   </div>
                   <div>
-                    <a href="javascript:void(0);">Logout</a>
+                    <b-link href="javascript:void(0);">Logout</b-link>
                   </div>
                 </div>
               </div>
-              <!--end tab-pane-->
               <div class="tab-pane" id="experience" role="tabpanel">
                 <form>
                   <div id="newlink">
                     <div id="1">
-                      <div class="row">
-                        <div class="col-lg-12">
+                      <b-row>
+                        <b-col lg="12">
                           <div class="mb-3">
-                            <label for="jobTitle" class="form-label">Job Title</label>
+                            <label for="jobTitle" class="form-label">Job 
+                              Title</label>
                             <input type="text" class="form-control" id="jobTitle" placeholder="Job title"
                               value="Lead Designer / Developer" />
                           </div>
-                        </div>
-                        <!--end col-->
-                        <div class="col-lg-6">
+                        </b-col>
+                        <b-col lg="6">
                           <div class="mb-3">
-                            <label for="companyName" class="form-label">Company Name</label>
+                            <label for="companyName" class="form-label">Company
+                               Name</label>
                             <input type="text" class="form-control" id="companyName" placeholder="Company name"
                               value="Themesbrand" />
                           </div>
-                        </div>
-                        <!--end col-->
-                        <div class="col-lg-6">
+                        </b-col>
+                        <b-col lg="6">
                           <div class="mb-3">
                             <label for="experienceYear" class="form-label">Experience Years</label>
-                            <div class="row">
-                              <div class="col-lg-5">
+                            <b-row>
+                              <b-col lg="5">
                                 <Multiselect class="form-control" v-model="value2" :close-on-select="true"
                                   :searchable="true" :create-option="true" :options="[
                                     { value: '', label: 'Select years' },
@@ -486,13 +508,15 @@
                                     { value: 'Choice 19', label: '2019' },
                                     { value: 'Choice 20', label: '2020' },
                                     { value: 'Choice 21', label: '2021' },
-                                    { value: 'Choice 22', label: '2022' },
+                                    { value: 'Choice 22', label: '2022' }
+                                  
+                                  
                                   ]" />
-                              </div>
-                              <!--end col-->
-                              <div class="col-auto align-self-center">to</div>
-                              <!--end col-->
-                              <div class="col-lg-5">
+                              </b-col>
+                              <b-col cols="auto" class="align-self-center">to</b-col>
+                              <b-col lg="5">
+
+
                                 <Multiselect class="form-control" v-model="value1" :close-on-select="true"
                                   :searchable="true" :create-option="true" :options="[
                                     { value: '', label: 'Select years' },
@@ -517,43 +541,40 @@
                                     { value: 'Choice 19', label: '2019' },
                                     { value: 'Choice 20', label: '2020' },
                                     { value: 'Choice 21', label: '2021' },
-                                    { value: 'Choice 22', label: '2022' },
+                                    { value: 'Choice 22', label: '2022' }
+                                  
+                                  
                                   ]" />
-                              </div>
-                              <!--end col-->
-                            </div>
-                            <!--end row-->
+                              </b-col>
+                            </b-row>
                           </div>
-                        </div>
-                        <!--end col-->
-                        <div class="col-lg-12">
+                        </b-col>
+                        <b-col lg="12">
                           <div class="mb-3">
-                            <label for="jobDescription" class="form-label">Job Description</label>
+                            <label for="jobDescription" class="form-label">Job 
+                              Description</label>
                             <textarea class="form-control" id="jobDescription" rows="3" placeholder="Enter description">
 You always want to make sure that your fonts work well together and try to limit the number of fonts you use to three or less. Experiment and play around with the fonts that you already have in the software you're working with reputable font websites. </textarea>
                           </div>
-                        </div>
-                        <!--end col-->
+                        </b-col>
                         <div class="hstack gap-2 justify-content-end">
-                          <a class="btn btn-success" href="javascript:void(0);">Delete</a>
+                          <b-link class="btn btn-success" href="javascript:void(0);">Delete</b-link>
                         </div>
-                      </div>
-                      <!--end row-->
+                      </b-row>
                     </div>
                   </div>
                   <div id="newForm" style="display: none"></div>
-                  <div class="col-lg-12">
+                  <b-col lg="12">
                     <div class="hstack gap-2">
-                      <button type="button" class="btn btn-success">
+                      <b-button type="button" variant="success">
                         Update
-                      </button>
-                      <a href="javascript:void(0);" class="btn btn-primary">Add New</a>
+                      </b-button>
+                      <b-link href="javascript:void(0);" class="btn btn-primary">Add 
+                        New</b-link>
                     </div>
-                  </div>
-                  <!--end col-->
+                  </b-col>
                 </form>
               </div>
-              <!--end tab-pane-->
               <div class="tab-pane" id="privacy" role="tabpanel">
                 <div class="mb-4 pb-2">
                   <h5 class="card-title text-decoration-underline mb-3">
@@ -570,7 +591,8 @@ You always want to make sure that your fonts work well together and try to limit
                       </p>
                     </div>
                     <div class="flex-shrink-0 ms-sm-3">
-                      <a href="javascript:void(0);" class="btn btn-sm btn-primary">Enable Two-facor Authentication</a>
+                      <b-link href="javascript:void(0);" class="btn btn-sm btn-primary">Enable Two-facor Authentication
+                      </b-link>
                     </div>
                   </div>
                   <div class="d-flex flex-column flex-sm-row mb-4 mb-sm-0 mt-2">
@@ -583,7 +605,7 @@ You always want to make sure that your fonts work well together and try to limit
                       </p>
                     </div>
                     <div class="flex-shrink-0 ms-sm-3">
-                      <a href="javascript:void(0);" class="btn btn-sm btn-primary">Set up secondary method</a>
+                      <b-link href="javascript:void(0);" class="btn btn-sm btn-primary">Set up secondary method</b-link>
                     </div>
                   </div>
                   <div class="d-flex flex-column flex-sm-row mb-4 mb-sm-0 mt-2">
@@ -597,7 +619,7 @@ You always want to make sure that your fonts work well together and try to limit
                       </p>
                     </div>
                     <div class="flex-shrink-0 ms-sm-3">
-                      <a href="javascript:void(0);" class="btn btn-sm btn-primary">Generate backup codes</a>
+                      <b-link href="javascript:void(0);" class="btn btn-sm btn-primary">Generate backup codes</b-link>
                     </div>
                   </div>
                 </div>
@@ -703,18 +725,15 @@ You always want to make sure that your fonts work well together and try to limit
                       value="make@321654987" style="max-width: 265px" />
                   </div>
                   <div class="hstack gap-2 mt-3">
-                    <a href="javascript:void(0);" class="btn btn-soft-primary">Close & Delete This Account</a>
-                    <a href="javascript:void(0);" class="btn btn-light">Cancel</a>
+                    <b-link href="javascript:void(0);" class="btn btn-soft-primary">Close & Delete This Account</b-link>
+                    <b-link href="javascript:void(0);" class="btn btn-light">Cancel</b-link>
                   </div>
                 </div>
               </div>
-              <!--end tab-pane-->
             </div>
-          </div>
-        </div>
-      </div>
-      <!--end col-->
-    </div>
-    <!--end row-->
+          </b-card-body>
+        </b-card>
+      </b-col>
+    </b-row>
   </Layout>
 </template>

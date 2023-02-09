@@ -9,7 +9,7 @@
 
 .noUi-handle{
   background: $success;
-  border: 2px solid var(--#{$variable-prefix}card-bg);
+  border: 2px solid var(--#{$prefix}card-bg);
   box-shadow: none;
 }
 
@@ -41,8 +41,8 @@
   padding: $tooltip-padding-y $tooltip-padding-x;
   border-color: $border-color;
   border-radius: $tooltip-border-radius;
-  background-color: $card-bg;
-  color: $body-color;
+  background-color: var(--#{$prefix}card-bg-custom);
+  color: var(--#{$prefix}body-color);
 }
 
 // Vertical Slider
@@ -85,8 +85,8 @@
 
 .noUi-target{
   box-shadow: none;
-  background-color: var(--#{$variable-prefix}light);
-  border-color: var(--#{$variable-prefix}light);
+  background-color: var(--#{$prefix}light);
+  border-color: var(--#{$prefix}light);
 }
 
 .noUi-touch-area{

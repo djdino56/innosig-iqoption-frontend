@@ -6,10 +6,10 @@
     font-family: $font-family-base !important;
 
     &.ck-reset_all, &.ck-reset_all *{
-        color: var(--#{$variable-prefix}body-color) !important;
+        color: var(--#{$prefix}body-color) !important;
     }
     &.ck-toolbar{
-        background: #{rgba(var(--#{$variable-prefix}light-rgb), .75)} !important;
+        background: #{rgba(var(--#{$prefix}light-rgb), .75)} !important;
     }
 
     p {
@@ -30,13 +30,13 @@
 
     &.ck-editor__main>.ck-editor__editable {
         border-top: 0 !important;
-        background-color: $card-bg !important;
+        background-color: var(--#{$prefix}card-bg-custom) !important;
         border-color: $input-border-color !important;
         box-shadow: none !important;
     }
 
     &.ck-dropdown__panel{
-        background: $dropdown-bg !important;
+        background: var(--#{$prefix}choices-bg) !important;
         box-shadow: $box-shadow-lg;
         animation-name: DropDownSlide;
         animation-duration: .3s;
@@ -45,7 +45,7 @@
     }
 
     &.ck-list {
-        background: $dropdown-bg !important;
+        background: var(--#{$prefix}choices-bg) !important;
     }
 
     &.ck-dropdown {
@@ -76,17 +76,17 @@ a.ck.ck-button{
 
     &:focus, &:active{
         box-shadow: none !important;
-        border: 1px solid var(--#{$variable-prefix}light) !important;
+        border: 1px solid var(--#{$prefix}light) !important;
     }
 
     &:not(.ck-disabled){
         &:hover{
-            background: var(--#{$variable-prefix}light) !important;
+            background: var(--#{$prefix}light) !important;
         }
     }
 
     &.ck-on{
-        background: var(--#{$variable-prefix}light) !important;
+        background: var(--#{$prefix}light) !important;
     }
 }
 

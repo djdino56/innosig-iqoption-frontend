@@ -73,15 +73,14 @@ export default {
 <template>
   <Layout>
     <PageHeader :title="title" :items="items" />
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="card">
-          <div class="card-header align-items-center d-flex">
-            <h4 class="card-title mb-0">Ckeditor Classic Editor</h4>
-          </div>
-          <!-- end card header -->
+    <b-row>
+      <b-col lg="12">
+        <b-card no-body>
+          <b-card-header class="align-items-center d-flex">
+            <b-card-title class="mb-0">Ckeditor Classic Editor</b-card-title>
+          </b-card-header>
 
-          <div class="card-body">
+          <b-card-body>
             <p class="text-muted">
               Use <code>ckeditor-classic</code> class to set ckeditor classic
               editor.
@@ -89,15 +88,11 @@ export default {
             <div class="ckeditor-classic">
               <ckeditor v-model="editorData" :editor="editor"></ckeditor>
             </div>
-          </div>
-          <!-- end card-body -->
-        </div>
-        <!-- end card -->
-      </div>
-      <!-- end col -->
-    </div>
-    <!-- end row -->
+          </b-card-body>
+        </b-card>
+      </b-col>
+    </b-row>
 
-    
+
   </Layout>
 </template>

@@ -37,7 +37,7 @@
         top: 30px;
         right: -30px;
         padding: 9px 0;
-        background: $card-bg;
+        background: var(--#{$prefix}card-bg-custom);
         border: 1px solid $border-color;
         border-radius: 50px;
         color: $success;
@@ -56,7 +56,7 @@
 
     .content {
         padding: 20px;
-        background: $card-bg;
+        background: var(--#{$prefix}card-bg-custom);
         position: relative;
         border: 1px solid $border-color;
         border-radius: $border-radius;
@@ -94,14 +94,14 @@
 @media (max-width: 991.98px) {
     .timeline {
         &::after {
-            left: 112px;
+            left: 24px;
             bottom: 180px;
         }
     }
 
     .timeline-item {
         width: 100%;
-        padding-left: 165px;
+        padding-left: 48px;
         padding-right: 0px;
 
         &.right,  &.left {
@@ -110,9 +110,9 @@
             .icon {
                 width: 45px;
                 height: 45px;
-                top: 37.5px;
+                top: 0;
                 font-size: 18px;
-                left: 90px;
+                left: 0;
             }
 
             &::before {
@@ -122,8 +122,10 @@
 
             .date {
                 right: auto;
-                left: 0px;
+                left: 48px;
                 width: 79px;
+                top: 8px;
+                text-align: left;
             }
         }
     }
@@ -200,8 +202,11 @@
         padding: 20px;
         border: 1px solid $border-color;
         border-radius: 6px;
-        background: $card-bg;
+        background: var(--#{$prefix}card-bg-custom);
         max-width: 695px;
+        @media (max-width: 991.98px){
+            margin-right: 0;
+        }
 
         &::after {
             content: '';
@@ -212,7 +217,7 @@
             border-style: solid;
             top: 26px;
             right: 100%;
-            border-color: transparent $card-bg transparent transparent;
+            border-color: transparent var(--#{$prefix}card-bg-custom) transparent transparent;
             border-width: 10px;
         }
 
@@ -262,7 +267,7 @@
                 left: 30px;
                 margin-left: 0px;
                 top: -19px;
-                border-color: transparent transparent $card-bg transparent;
+                border-color: transparent transparent var(--#{$prefix}card-bg-custom) transparent;
                 border-width: 10px;
                 z-index: 1;
             }
@@ -414,8 +419,8 @@
         }
 
         .acitivity-avatar {
-            background-color: var(--#{$variable-prefix}card-bg);
-            border: 3px solid var(--#{$variable-prefix}card-bg);
+            background-color: var(--#{$prefix}card-bg-custom);
+            border: 3px solid var(--#{$prefix}card-bg-custom);
             height: 32px;
             width: 32px;
         }
@@ -426,7 +431,7 @@
             border-left: 1px dashed $border-color;
             left: 16px;
             height: 100%;
-            top: 0px;
+            top: 5px;
             z-index: 0;
         }
         &:last-child {

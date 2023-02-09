@@ -109,37 +109,29 @@ export default {
 </script>
 
 <template>
-  <div class="card">
-    <div class="card-header align-items-center d-flex">
-      <h4 class="card-title mb-0 flex-grow-1">Team Members</h4>
+  <b-card no-body class="card-height-100">
+    <b-card-header class="align-items-center d-flex">
+      <b-card-title class="mb-0 flex-grow-1">Team Members</b-card-title>
       <div class="flex-shrink-0">
         <div class="dropdown card-header-dropdown">
-          <a
-            class="text-reset dropdown-btn"
-            href="#"
-            data-bs-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            <span class="fw-semibold text-uppercase fs-12">Sort by: </span
-            ><span class="text-muted"
-              >Last 30 Days<i class="mdi mdi-chevron-down ms-1"></i
-            ></span>
-          </a>
+          <b-link class="text-reset dropdown-btn" href="#" data-bs-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            <span class="fw-semibold text-uppercase fs-12">Sort by: </span><span class="text-muted">Last 30 Days<i
+                class="mdi mdi-chevron-down ms-1"></i></span>
+          </b-link>
           <div class="dropdown-menu dropdown-menu-end">
-            <a class="dropdown-item" href="#">Today</a>
-            <a class="dropdown-item" href="#">Yesterday</a>
-            <a class="dropdown-item" href="#">Last 7 Days</a>
-            <a class="dropdown-item" href="#">Last 30 Days</a>
-            <a class="dropdown-item" href="#">This Month</a>
-            <a class="dropdown-item" href="#">Last Month</a>
+            <b-link class="dropdown-item" href="#">Today</b-link>
+            <b-link class="dropdown-item" href="#">Yesterday</b-link>
+            <b-link class="dropdown-item" href="#">Last 7 Days</b-link>
+            <b-link class="dropdown-item" href="#">Last 30 Days</b-link>
+            <b-link class="dropdown-item" href="#">This Month</b-link>
+            <b-link class="dropdown-item" href="#">Last Month</b-link>
           </div>
         </div>
       </div>
-    </div>
-    <!-- end card header -->
+    </b-card-header>
 
-    <div class="card-body">
+    <b-card-body>
       <div class="table-responsive table-card">
         <table class="table table-borderless table-nowrap align-middle mb-0">
           <thead class="table-light text-muted">
@@ -161,37 +153,19 @@ export default {
               </td>
               <td>
                 <h6 class="mb-0">{{ item.hours }}
-                : <span class="text-muted">150h</span></h6>
+                  : <span class="text-muted">150h</span></h6>
               </td>
               <td>
                 {{ item.tasks }}
               </td>
               <td style="width: 5%">
-                <apexchart
-                  class="apex-charts"
-                  height="36"
-                  dir="ltr"
-                  :series="item.series"
-                  :options="chartOptions"
-                ></apexchart>
-
-                <!-- <div
-                  id="radialBar_chart_1"
-                  data-colors='["--vz-primary"]'
-                  data-chart-series="50"
-                  class="apex-charts"
-                  dir="ltr"
-                ></div> -->
+                <apexchart class="apex-charts" height="36" dir="ltr" :series="item.series"
+                  :options="{ ...chartOptions, ...{ colors: [item.chartsColor] } }"></apexchart>
               </td>
             </tr>
-            <!-- end tr -->
           </tbody>
-          <!-- end tbody -->
         </table>
-        <!-- end table -->
       </div>
-    </div>
-    <!-- end cardbody -->
-  </div>
-  <!-- end card -->
+    </b-card-body>
+  </b-card>
 </template>

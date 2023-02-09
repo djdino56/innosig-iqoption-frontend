@@ -51,84 +51,35 @@ export default {
 <template>
   <Layout>
     <PageHeader :title="title" :items="items" />
-    <div class="row">
-      <div class="col-xxl-6">
-        <div class="card">
-          <div class="card-header align-items-center d-flex">
-            <h4 class="card-title mb-0 flex-grow-1">Default Progress</h4>
+    <b-row>
+      <b-col xxl="6">
+        <b-card no-body>
+          <b-card-header class="align-items-center d-flex">
+            <b-card-title class="mb-0 flex-grow-1">Default Progress</b-card-title>
             <div class="flex-shrink-0">
-              <div
-                class="form-check form-switch form-switch-right form-switch-md"
-              >
-                <label for="default" class="form-label text-muted"
-                  >Show Code</label
-                >
-                <input
-                  class="form-check-input code-switcher"
-                  type="checkbox"
-                  id="default"
-                />
+              <div class="form-check form-switch form-switch-right form-switch-md">
+                <label for="default" class="form-label text-muted">Show Code</label>
+                <input class="form-check-input code-switcher" type="checkbox" id="default" />
               </div>
             </div>
-          </div>
-          <!-- end card header -->
+          </b-card-header>
 
-          <div class="card-body">
+          <b-card-body>
             <p class="text-muted">
               Use
-              <code>progress</code> class to show default progress.
+              <code>b-progress</code> tag to show default progress.
             </p>
 
             <div class="live-preview">
-              <div class="progress mb-4">
-                <div
-                  class="progress-bar"
-                  role="progressbar"
-                  aria-valuenow="0"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                ></div>
-              </div>
-              <div class="progress mb-4">
-                <div
-                  class="progress-bar"
-                  role="progressbar"
-                  style="width: 25%"
-                  aria-valuenow="25"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                ></div>
-              </div>
-              <div class="progress mb-4">
-                <div
-                  class="progress-bar"
-                  role="progressbar"
-                  style="width: 50%"
-                  aria-valuenow="50"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                ></div>
-              </div>
-              <div class="progress mb-4">
-                <div
-                  class="progress-bar"
-                  role="progressbar"
-                  style="width: 75%"
-                  aria-valuenow="75"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                ></div>
-              </div>
-              <div class="progress">
-                <div
-                  class="progress-bar"
-                  role="progressbar"
-                  style="width: 100%"
-                  aria-valuenow="100"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                ></div>
-              </div>
+              <b-progress variant="primary" class="mb-4" :value="0" />
+
+              <b-progress variant="primary" class="mb-4" :value="25" />
+
+              <b-progress variant="primary" class="mb-4" :value="50" />
+
+              <b-progress variant="primary" class="mb-4" :value="75" />
+
+              <b-progress variant="primary" :value="100" />
             </div>
 
             <div class="d-none code-view">
@@ -145,95 +96,40 @@ export default {
     &lt;b-progress :value=&quot;100&quot;&gt;
 </code></pre>
             </div>
-          </div>
-          <!-- end card-body -->
-        </div>
-        <!-- end card -->
-      </div>
-      <!-- end col -->
+          </b-card-body>
+        </b-card>
+      </b-col>
 
-      <div class="col-xxl-6">
-        <div class="card">
-          <div class="card-header align-items-center d-flex">
-            <h4 class="card-title mb-0 flex-grow-1">
-              Progress with background color
-            </h4>
+      <b-col xxl="6">
+        <b-card no-body>
+          <b-card-header class="align-items-center d-flex">
+            <b-card-title class="mb-0 flex-grow-1"> Progress with background color </b-card-title>
             <div class="flex-shrink-0">
-              <div
-                class="form-check form-switch form-switch-right form-switch-md"
-              >
-                <label for="background-show-code" class="form-label text-muted"
-                  >Show Code</label
-                >
-                <input
-                  class="form-check-input code-switcher"
-                  type="checkbox"
-                  id="background-show-code"
-                />
+              <div class="form-check form-switch form-switch-right form-switch-md">
+                <label for="background-show-code" class="form-label text-muted">Show Code</label>
+                <input class="form-check-input code-switcher" type="checkbox" id="background-show-code" />
               </div>
             </div>
-          </div>
-          <!-- end card header -->
+          </b-card-header>
 
-          <div class="card-body">
+          <b-card-body>
             <p class="text-muted">
               Use
-              <code>bg-</code> class to progress bar class with the
+              <code>variant=""</code> in progress bar class with the
               below-mentioned color variation to set the background color
               progress bar.
             </p>
 
             <div class="live-preview">
-              <div class="progress mb-4">
-                <div
-                  class="progress-bar bg-primary"
-                  role="progressbar"
-                  style="width: 15%"
-                  aria-valuenow="15"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                ></div>
-              </div>
-              <div class="progress mb-4">
-                <div
-                  class="progress-bar bg-success"
-                  role="progressbar"
-                  style="width: 25%"
-                  aria-valuenow="25"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                ></div>
-              </div>
-              <div class="progress mb-4">
-                <div
-                  class="progress-bar bg-info"
-                  role="progressbar"
-                  style="width: 50%"
-                  aria-valuenow="50"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                ></div>
-              </div>
-              <div class="progress mb-4">
-                <div
-                  class="progress-bar bg-warning"
-                  role="progressbar"
-                  style="width: 75%"
-                  aria-valuenow="75"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                ></div>
-              </div>
-              <div class="progress">
-                <div
-                  class="progress-bar bg-danger"
-                  role="progressbar"
-                  style="width: 100%"
-                  aria-valuenow="100"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                ></div>
-              </div>
+              <b-progress :value="15" variant="primary" class="mb-4"></b-progress>
+
+              <b-progress :value="25" variant="success" class="mb-4"></b-progress>
+
+              <b-progress :value="50" variant="info" class="mb-4"></b-progress>
+
+              <b-progress :value="75" variant="warning" class="mb-4"></b-progress>
+
+              <b-progress :value="100" variant="danger"></b-progress>
             </div>
 
             <div class="d-none code-view">
@@ -251,58 +147,32 @@ export default {
 
     </code></pre>
             </div>
-          </div>
-          <!-- end card-body -->
-        </div>
-        <!-- end card -->
-      </div>
-      <!-- end col -->
-    </div>
-    <!-- end row -->
+          </b-card-body>
+        </b-card>
+      </b-col>
+    </b-row>
 
-    <div class="row">
-      <div class="col-xxl-6">
-        <div class="card">
-          <div class="card-header align-items-center d-flex">
-            <h4 class="card-title mb-0 flex-grow-1">Progress with Label</h4>
+    <b-row>
+      <b-col xxl="6">
+        <b-card no-body>
+          <b-card-header class="align-items-center d-flex">
+            <b-card-title class="mb-0 flex-grow-1">Progress with Label</b-card-title>
             <div class="flex-shrink-0">
-              <div
-                class="form-check form-switch form-switch-right form-switch-md"
-              >
-                <label
-                  for="labelprogress-showcode"
-                  class="form-label text-muted"
-                  >Show Code</label
-                >
-                <input
-                  class="form-check-input code-switcher"
-                  type="checkbox"
-                  id="labelprogress-showcode"
-                />
+              <div class="form-check form-switch form-switch-right form-switch-md">
+                <label for="labelprogress-showcode" class="form-label text-muted">Show Code</label>
+                <input class="form-check-input code-switcher" type="checkbox" id="labelprogress-showcode" />
               </div>
             </div>
-          </div>
-          <!-- end card header -->
+          </b-card-header>
 
-          <div class="card-body">
+          <b-card-body>
             <p class="text-muted">
               Add labels to your progress bars by placing text within the
               progress-bar.
             </p>
 
             <div class="live-preview">
-              <div class="progress">
-                <div
-                  class="progress-bar"
-                  role="progressbar"
-                  style="width: 25%"
-                  aria-valuenow="25"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                >
-                  25%
-                </div>
-              </div>
+              <b-progress :value="25" variant="primary" class="mb-4" show-value></b-progress>
             </div>
 
             <div class="d-none code-view">
@@ -311,37 +181,23 @@ export default {
     &lt;b-progress :value=&quot;25&quot; variant=&quot;primary&quot; class=&quot;mb-4&quot; show-value &gt;&lt;/b-progress&gt;
 </code></pre>
             </div>
-          </div>
-          <!-- end card-body -->
-        </div>
-        <!-- end card -->
-      </div>
-      <!-- end col -->
+          </b-card-body>
+        </b-card>
+      </b-col>
 
-      <div class="col-xxl-6">
-        <div class="card">
-          <div class="card-header align-items-center d-flex">
-            <h4 class="card-title mb-0 flex-grow-1">Multiple Bars</h4>
+      <b-col xxl="6">
+        <b-card no-body>
+          <b-card-header class="align-items-center d-flex">
+            <b-card-title class="mb-0 flex-grow-1">Multiple Bars</b-card-title>
             <div class="flex-shrink-0">
-              <div
-                class="form-check form-switch form-switch-right form-switch-md"
-              >
-                <label
-                  for="multibarprogress-showcode"
-                  class="form-label text-muted"
-                  >Show Code</label
-                >
-                <input
-                  class="form-check-input code-switcher"
-                  type="checkbox"
-                  id="multibarprogress-showcode"
-                />
+              <div class="form-check form-switch form-switch-right form-switch-md">
+                <label for="multibarprogress-showcode" class="form-label text-muted">Show Code</label>
+                <input class="form-check-input code-switcher" type="checkbox" id="multibarprogress-showcode" />
               </div>
             </div>
-          </div>
-          <!-- end card header -->
+          </b-card-header>
 
-          <div class="card-body">
+          <b-card-body>
             <p class="text-muted">
               Use
               <code>bg-</code> class to progress bar class with the
@@ -350,77 +206,41 @@ export default {
             </p>
 
             <div class="live-preview">
-              <div class="progress">
-                <div
-                  class="progress-bar"
-                  role="progressbar"
-                  style="width: 15%"
-                  aria-valuenow="15"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                ></div>
-                <div
-                  class="progress-bar bg-success"
-                  role="progressbar"
-                  style="width: 30%"
-                  aria-valuenow="30"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                ></div>
-                <div
-                  class="progress-bar bg-info"
-                  role="progressbar"
-                  style="width: 20%"
-                  aria-valuenow="20"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                ></div>
-              </div>
+              <b-progress>
+                <b-progress-bar :value="15" variant="primary" />
+                <b-progress-bar :value="30" variant="success" />
+                <b-progress-bar :value="20" variant="info" />
+              </b-progress>
             </div>
 
             <div class="d-none code-view">
               <pre class="language-markup">
 <code>&lt;!-- Multiple Bars --&gt;
 &lt;b-progress&gt;
-    &lt;b-progress :value=&quot;15&quot; variant=&quot;primary&quot; /&gt;
-    &lt;b-progress :value=&quot;30&quot; variant=&quot;success&quot; /&gt;
-    &lt;b-progress :value=&quot;20&quot; variant=&quot;info&quot; /&gt;
+    &lt;b-progress-bar :value=&quot;15&quot; variant=&quot;primary&quot; /&gt;
+    &lt;b-progress-bar :value=&quot;30&quot; variant=&quot;success&quot; /&gt;
+    &lt;b-progress-bar :value=&quot;20&quot; variant=&quot;info&quot; /&gt;
 &lt;/b-progress&gt;</code></pre>
             </div>
-          </div>
-          <!-- end card-body -->
-        </div>
-        <!-- end card -->
-      </div>
-      <!-- end col -->
-    </div>
-    <!-- end row -->
+          </b-card-body>
+        </b-card>
+      </b-col>
+    </b-row>
 
-    <div class="row">
-      <div class="col-xxl-6">
-        <div class="card">
-          <div class="card-header align-items-center d-flex">
-            <h4 class="card-title mb-0 flex-grow-1">Height</h4>
+    <b-row>
+      <b-col xxl="6">
+        <b-card no-body>
+          <b-card-header class="align-items-center d-flex">
+            <b-card-title class="mb-0 flex-grow-1">Height</b-card-title>
             <div class="flex-shrink-0">
-              <div
-                class="form-check form-switch form-switch-right form-switch-md"
-              >
-                <label
-                  for="heightprogress-showcode"
-                  class="form-label text-muted"
-                  >Show Code</label
-                >
-                <input
-                  class="form-check-input code-switcher"
-                  type="checkbox"
-                  id="heightprogress-showcode"
-                />
+              <div class="form-check form-switch form-switch-right form-switch-md">
+                <label for="heightprogress-showcode" class="form-label text-muted">Show Code</label>
+                <input class="form-check-input code-switcher" type="checkbox" id="heightprogress-showcode" />
               </div>
             </div>
-          </div>
-          <!-- end card header -->
+          </b-card-header>
 
-          <div class="card-body">
+          <b-card-body>
             <p class="text-muted">
               Use
               <code>progress-sm</code>, <code>progress-lg</code>, or
@@ -430,59 +250,19 @@ export default {
             <div class="live-preview">
               <div class="mb-4">
                 <h5 class="fs-13">Small Progress</h5>
-                <!-- Prgress sm -->
-                <div class="progress progress-sm">
-                  <div
-                    class="progress-bar"
-                    role="progressbar"
-                    style="width: 25%"
-                    aria-valuenow="25"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                  ></div>
-                </div>
+                <b-progress :value="25" class="progress-sm" variant="primary" />
               </div>
               <div class="mb-4">
                 <h5 class="fs-13">Default Progress</h5>
-                <!-- Prgress md -->
-                <div class="progress">
-                  <div
-                    class="progress-bar bg-success"
-                    role="progressbar"
-                    style="width: 40%"
-                    aria-valuenow="40"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                  ></div>
-                </div>
+                <b-progress :value="40" variant="success" />
               </div>
               <div class="mb-4">
                 <h5 class="fs-13">Large Progress</h5>
-                <!-- Prgress lg -->
-                <div class="progress progress-lg">
-                  <div
-                    class="progress-bar bg-warning"
-                    role="progressbar"
-                    style="width: 50%"
-                    aria-valuenow="50"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                  ></div>
-                </div>
+                <b-progress :value="50" class="progress-lg" variant="warning" />
               </div>
               <div>
                 <h5 class="fs-13">Extra Large Progress</h5>
-                <!-- Prgress xl -->
-                <div class="progress progress-xl">
-                  <div
-                    class="progress-bar bg-danger"
-                    role="progressbar"
-                    style="width: 70%"
-                    aria-valuenow="70"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                  ></div>
-                </div>
+                <b-progress :value="70" class="progress-xl" variant="danger" />
               </div>
             </div>
 
@@ -498,63 +278,31 @@ export default {
     &lt;b-progress :value=&quot;70&quot; class=&quot;progress-xl&quot; variant=&quot;danger&quot;&gt;&lt;/b-progress&gt;
 </code></pre>
             </div>
-          </div>
-          <!-- end card-body -->
-        </div>
-        <!-- end card -->
-      </div>
-      <!-- end col -->
+          </b-card-body>
+        </b-card>
+      </b-col>
 
-      <div class="col-xxl-6">
-        <div class="card">
-          <div class="card-header align-items-center d-flex">
-            <h4 class="card-title mb-0 flex-grow-1">Striped Progress</h4>
+      <b-col xxl="6">
+        <b-card no-body>
+          <b-card-header class="align-items-center d-flex">
+            <b-card-title class="mb-0 flex-grow-1">Striped Progress</b-card-title>
             <div class="flex-shrink-0">
-              <div
-                class="form-check form-switch form-switch-right form-switch-md"
-              >
-                <label
-                  for="stripesprogress-showcode"
-                  class="form-label text-muted"
-                  >Show Code</label
-                >
-                <input
-                  class="form-check-input code-switcher"
-                  type="checkbox"
-                  id="stripesprogress-showcode"
-                />
+              <div class="form-check form-switch form-switch-right form-switch-md">
+                <label for="stripesprogress-showcode" class="form-label text-muted">Show Code</label>
+                <input class="form-check-input code-switcher" type="checkbox" id="stripesprogress-showcode" />
               </div>
             </div>
-          </div>
-          <!-- end card header -->
+          </b-card-header>
 
-          <div class="card-body">
+          <b-card-body>
             <p class="text-muted">
               Use
               <code>progress-bar-striped</code> class to add strip to the
               progress.
             </p>
             <div class="live-preview">
-              <div class="progress mb-4">
-                <div
-                  class="progress-bar progress-bar-striped"
-                  role="progressbar"
-                  style="width: 25%"
-                  aria-valuenow="25"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                ></div>
-              </div>
-              <div class="progress">
-                <div
-                  class="progress-bar progress-bar-striped bg-success"
-                  role="progressbar"
-                  style="width: 40%"
-                  aria-valuenow="40"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                ></div>
-              </div>
+              <b-progress striped :value="25" class="mb-4" variant="primary" />
+              <b-progress striped :value="40" variant="success" />
             </div>
 
             <div class="d-none code-view">
@@ -565,36 +313,21 @@ export default {
     &lt;b-progress striped :value=&quot;40&quot; variant=&quot;success&quot;&gt;&lt;/b-progress&gt;
 </code></pre>
             </div>
-          </div>
-          <!-- end card-body -->
-        </div>
-        <!-- end card -->
+          </b-card-body>
+        </b-card>
 
-        <div class="card">
-          <div class="card-header align-items-center d-flex">
-            <h4 class="card-title mb-0 flex-grow-1">
-              Animated Striped Progress
-            </h4>
+        <b-card no-body>
+          <b-card-header class="align-items-center d-flex">
+            <b-card-title class="mb-0 flex-grow-1"> Animated Striped Progress </b-card-title>
             <div class="flex-shrink-0">
-              <div
-                class="form-check form-switch form-switch-right form-switch-md"
-              >
-                <label
-                  for="animationstripesprogress-showcode"
-                  class="form-label text-muted"
-                  >Show Code</label
-                >
-                <input
-                  class="form-check-input code-switcher"
-                  type="checkbox"
-                  id="animationstripesprogress-showcode"
-                />
+              <div class="form-check form-switch form-switch-right form-switch-md">
+                <label for="animationstripesprogress-showcode" class="form-label text-muted">Show Code</label>
+                <input class="form-check-input code-switcher" type="checkbox" id="animationstripesprogress-showcode" />
               </div>
             </div>
-          </div>
-          <!-- end card header -->
+          </b-card-header>
 
-          <div class="card-body">
+          <b-card-body>
             <p class="text-muted">
               Use
               <code>progress-bar-striped progress-bar-animated</code> class to
@@ -602,114 +335,58 @@ export default {
             </p>
 
             <div class="live-preview">
-              <div class="progress">
-                <div
-                  class="
-                    progress-bar progress-bar-striped progress-bar-animated
-                  "
-                  role="progressbar"
-                  aria-valuenow="75"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                  style="width: 75%"
-                ></div>
-              </div>
+              <b-progress striped animated :value="75" variant="primary" />
             </div>
 
             <div class="d-none code-view">
               <pre class="language-markup">
 <code>&lt;b-progress striped animated :value=&quot;75&quot; variant=&quot;primary&quot;&gt;&lt;/b-progress&gt;</code></pre>
             </div>
-          </div>
-          <!-- end card-body -->
-        </div>
-        <!-- end card -->
-      </div>
-      <!-- end col -->
-    </div>
-    <!-- end row -->
+          </b-card-body>
+        </b-card>
+      </b-col>
+    </b-row>
 
-    <div class="row">
-      <div class="col-xxl-6">
-        <div class="card">
-          <div class="card-header align-items-center d-flex">
-            <h4 class="card-title mb-0 flex-grow-1">Gradient Progress</h4>
+    <b-row>
+      <b-col xxl="6">
+        <b-card no-body>
+          <b-card-header class="align-items-center d-flex">
+            <b-card-title class="mb-0 flex-grow-1">Gradient Progress</b-card-title>
             <div class="flex-shrink-0">
-              <div
-                class="form-check form-switch form-switch-right form-switch-md"
-              >
-                <label
-                  for="gradientprogress-showcode"
-                  class="form-label text-muted"
-                  >Show Code</label
-                >
-                <input
-                  class="form-check-input code-switcher"
-                  type="checkbox"
-                  id="gradientprogress-showcode"
-                />
+              <div class="form-check form-switch form-switch-right form-switch-md">
+                <label for="gradientprogress-showcode" class="form-label text-muted">Show Code</label>
+                <input class="form-check-input code-switcher" type="checkbox" id="gradientprogress-showcode" />
               </div>
             </div>
-          </div>
-          <!-- end card header -->
+          </b-card-header>
 
-          <div class="card-body">
+          <b-card-body>
             <p class="text-muted">
               Use
               <code>bg-gradient</code> class to show gradient progress bar.
             </p>
 
             <div class="live-preview">
-              <div class="progress mb-4">
-                <div
-                  class="progress-bar bg-primary bg-gradient"
-                  role="progressbar"
-                  style="width: 15%"
-                  aria-valuenow="15"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                ></div>
-              </div>
-              <div class="progress mb-4">
-                <div
-                  class="progress-bar bg-success bg-gradient"
-                  role="progressbar"
-                  style="width: 25%"
-                  aria-valuenow="25"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                ></div>
-              </div>
-              <div class="progress mb-4">
-                <div
-                  class="progress-bar bg-info bg-gradient"
-                  role="progressbar"
-                  style="width: 50%"
-                  aria-valuenow="50"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                ></div>
-              </div>
-              <div class="progress mb-4">
-                <div
-                  class="progress-bar bg-warning bg-gradient"
-                  role="progressbar"
-                  style="width: 75%"
-                  aria-valuenow="75"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                ></div>
-              </div>
-              <div class="progress">
-                <div
-                  class="progress-bar bg-danger bg-gradient"
-                  role="progressbar"
-                  style="width: 100%"
-                  aria-valuenow="100"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                ></div>
-              </div>
+
+              <b-progress class="mb-4">
+                <b-progress-bar :value="15" variant="primary" class="bg-gradient" />
+              </b-progress>
+
+              <b-progress class="mb-4">
+                <b-progress-bar :value="25" variant="success" class="bg-gradient" />
+              </b-progress>
+
+              <b-progress class="mb-4">
+                <b-progress-bar :value="50" variant="info" class="bg-gradient" />
+              </b-progress>
+
+              <b-progress class="mb-4">
+                <b-progress-bar :value="75" variant="warning" class="bg-gradient" />
+              </b-progress>
+
+              <b-progress>
+                <b-progress-bar :value="100" variant="danger" class="bg-gradient" />
+              </b-progress>
             </div>
 
             <div class="d-none code-view">
@@ -726,92 +403,48 @@ export default {
 &lt;b-progress :value=&quot;100&quot; class=&quot;bg-gradient&quot;  variant=&quot;danger&quot;&gt;&lt;/b-progress&gt;
     </code></pre>
             </div>
-          </div>
-          <!-- end card-body -->
-        </div>
-        <!-- end card -->
-      </div>
-      <!-- end col -->
-      <div class="col-xxl-6">
-        <div class="card">
-          <div class="card-header align-items-center d-flex">
-            <h4 class="card-title mb-0 flex-grow-1">Animated Progress</h4>
+          </b-card-body>
+        </b-card>
+      </b-col>
+      <b-col xxl="6">
+        <b-card no-body>
+          <b-card-header class="align-items-center d-flex">
+            <b-card-title class="mb-0 flex-grow-1">Animated Progress</b-card-title>
             <div class="flex-shrink-0">
-              <div
-                class="form-check form-switch form-switch-right form-switch-md"
-              >
-                <label
-                  for="animatedprogress-showcode"
-                  class="form-label text-muted"
-                  >Show Code</label
-                >
-                <input
-                  class="form-check-input code-switcher"
-                  type="checkbox"
-                  id="animatedprogress-showcode"
-                />
+              <div class="form-check form-switch form-switch-right form-switch-md">
+                <label for="animatedprogress-showcode" class="form-label text-muted">Show Code</label>
+                <input class="form-check-input code-switcher" type="checkbox" id="animatedprogress-showcode" />
               </div>
             </div>
-          </div>
-          <!-- end card header -->
+          </b-card-header>
 
-          <div class="card-body">
+          <b-card-body>
             <p class="text-muted">
               Use
               <code>animated-progess</code> class to show progress with
               animation.
             </p>
             <div class="live-preview">
-              <div class="progress animated-progess mb-4">
-                <div
-                  class="progress-bar bg-primary"
-                  role="progressbar"
-                  style="width: 15%"
-                  aria-valuenow="15"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                ></div>
-              </div>
-              <div class="progress animated-progess mb-4">
-                <div
-                  class="progress-bar bg-success"
-                  role="progressbar"
-                  style="width: 25%"
-                  aria-valuenow="25"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                ></div>
-              </div>
-              <div class="progress animated-progess mb-4">
-                <div
-                  class="progress-bar bg-info"
-                  role="progressbar"
-                  style="width: 50%"
-                  aria-valuenow="50"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                ></div>
-              </div>
-              <div class="progress animated-progess mb-4">
-                <div
-                  class="progress-bar bg-warning"
-                  role="progressbar"
-                  style="width: 75%"
-                  aria-valuenow="75"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                ></div>
-              </div>
-              <div class="progress animated-progess">
-                <div
-                  class="progress-bar bg-danger"
-                  role="progressbar"
-                  style="width: 100%"
-                  aria-valuenow="100"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                ></div>
-              </div>
+
+              <b-progress class="animated-progress mb-4">
+                <b-progress-bar :value="15" variant="primary" />
+              </b-progress>
+
+              <b-progress class="animated-progress mb-4">
+                <b-progress-bar :value="25" variant="success" />
+              </b-progress>
+
+              <b-progress class="animated-progress mb-4">
+                <b-progress-bar :value="50" variant="info" />
+              </b-progress>
+
+              <b-progress class="animated-progress mb-4">
+                <b-progress-bar :value="75" variant="warning" />
+              </b-progress>
+
+              <b-progress class="animated-progress">
+                <b-progress-bar :value="100" variant="danger" />
+              </b-progress>
             </div>
 
             <div class="d-none code-view">
@@ -828,96 +461,51 @@ export default {
 &lt;b-progress animated :value=&quot;100&quot; variant=&quot;danger&quot;&gt;&lt;/b-progress&gt;
 </code></pre>
             </div>
-          </div>
-          <!-- end card-body -->
-        </div>
-        <!-- end card -->
-      </div>
-      <!-- end col -->
-    </div>
-    <!-- end row -->
+          </b-card-body>
+        </b-card>
+      </b-col>
+    </b-row>
 
-    <div class="row">
-      <div class="col-xxl-6">
-        <div class="card">
-          <div class="card-header align-items-center d-flex">
-            <h4 class="card-title mb-0 flex-grow-1">Custom Progress</h4>
+    <b-row>
+      <b-col xxl="6">
+        <b-card no-body>
+          <b-card-header class="align-items-center d-flex">
+            <b-card-title class="mb-0 flex-grow-1">Custom Progress</b-card-title>
             <div class="flex-shrink-0">
-              <div
-                class="form-check form-switch form-switch-right form-switch-md"
-              >
-                <label
-                  for="customprogress-showcode"
-                  class="form-label text-muted"
-                  >Show Code</label
-                >
-                <input
-                  class="form-check-input code-switcher"
-                  type="checkbox"
-                  id="customprogress-showcode"
-                />
+              <div class="form-check form-switch form-switch-right form-switch-md">
+                <label for="customprogress-showcode" class="form-label text-muted">Show Code</label>
+                <input class="form-check-input code-switcher" type="checkbox" id="customprogress-showcode" />
               </div>
             </div>
-          </div>
-          <!-- end card header -->
+          </b-card-header>
 
-          <div class="card-body">
+          <b-card-body>
             <p class="text-muted">
               Use
               <code>animated-progess custom-progess</code> class to show custom
               progress with animation.
             </p>
             <div class="live-preview">
-              <div class="progress animated-progess custom-progress mb-4">
-                <div
-                  class="progress-bar bg-primary"
-                  role="progressbar"
-                  style="width: 15%"
-                  aria-valuenow="15"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                ></div>
-              </div>
-              <div class="progress animated-progess custom-progress mb-4">
-                <div
-                  class="progress-bar bg-success"
-                  role="progressbar"
-                  style="width: 25%"
-                  aria-valuenow="25"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                ></div>
-              </div>
-              <div class="progress animated-progess custom-progress mb-4">
-                <div
-                  class="progress-bar bg-info"
-                  role="progressbar"
-                  style="width: 50%"
-                  aria-valuenow="50"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                ></div>
-              </div>
-              <div class="progress animated-progess custom-progress mb-4">
-                <div
-                  class="progress-bar bg-warning"
-                  role="progressbar"
-                  style="width: 75%"
-                  aria-valuenow="75"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                ></div>
-              </div>
-              <div class="progress animated-progess custom-progress">
-                <div
-                  class="progress-bar bg-danger"
-                  role="progressbar"
-                  style="width: 100%"
-                  aria-valuenow="100"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                ></div>
-              </div>
+
+              <b-progress class="animated-progress custom-progress mb-4">
+                <b-progress-bar :value="15" variant="primary" />
+              </b-progress>
+
+              <b-progress class="animated-progress custom-progress mb-4">
+                <b-progress-bar :value="25" variant="success" />
+              </b-progress>
+
+              <b-progress class="animated-progress custom-progress mb-4">
+                <b-progress-bar :value="50" variant="info" />
+              </b-progress>
+
+              <b-progress class="animated-progress custom-progress mb-4">
+                <b-progress-bar :value="75" variant="warning" />
+              </b-progress>
+
+              <b-progress class="animated-progress custom-progress mb-4">
+                <b-progress-bar :value="100" variant="danger" />
+              </b-progress>
             </div>
 
             <div class="d-none code-view">
@@ -934,39 +522,23 @@ export default {
 &lt;b-progress animated :value=&quot;100&quot; class=&quot;custom-progress&quot; variant=&quot;danger&quot;&gt;&lt;/b-progress&gt;
 </code></pre>
             </div>
-          </div>
-          <!-- end card-body -->
-        </div>
-        <!-- end card -->
-      </div>
-      <!-- end col -->
+          </b-card-body>
+        </b-card>
+      </b-col>
 
-      <div class="col-xxl-6">
-        <div class="card">
-          <div class="card-header align-items-center d-flex">
-            <h4 class="card-title mb-0 flex-grow-1">
-              Custom Progress with Label
-            </h4>
+      <b-col xxl="6">
+        <b-card no-body>
+          <b-card-header class="align-items-center d-flex">
+            <b-card-title class="mb-0 flex-grow-1"> Custom Progress with Label </b-card-title>
             <div class="flex-shrink-0">
-              <div
-                class="form-check form-switch form-switch-right form-switch-md"
-              >
-                <label
-                  for="customprogresslabel-showcode"
-                  class="form-label text-muted"
-                  >Show Code</label
-                >
-                <input
-                  class="form-check-input code-switcher"
-                  type="checkbox"
-                  id="customprogresslabel-showcode"
-                />
+              <div class="form-check form-switch form-switch-right form-switch-md">
+                <label for="customprogresslabel-showcode" class="form-label text-muted">Show Code</label>
+                <input class="form-check-input code-switcher" type="checkbox" id="customprogresslabel-showcode" />
               </div>
             </div>
-          </div>
-          <!-- end card header -->
+          </b-card-header>
 
-          <div class="card-body">
+          <b-card-body>
             <p class="text-muted">
               Use
               <code>animated-progess custom-progess progress-label</code> class
@@ -976,117 +548,70 @@ export default {
               <div class="d-flex align-items-center pb-2 mt-4">
                 <div class="flex-shrink-0 me-3">
                   <div class="avatar-xs">
-                    <div
-                      class="
+                    <div class="
                         avatar-title
                         bg-light
                         rounded-circle
                         text-muted
                         fs-16
-                      "
-                    >
+                      ">
                       <i class="mdi mdi-facebook"></i>
                     </div>
                   </div>
                 </div>
                 <div class="flex-grow-1">
-                  <div
-                    class="
-                      progress
-                      animated-progess
-                      custom-progress
-                      progress-label
-                    "
-                  >
-                    <div
-                      class="progress-bar bg-primary"
-                      role="progressbar"
-                      style="width: 15%"
-                      aria-valuenow="15"
-                      aria-valuemin="0"
-                      aria-valuemax="100"
-                    >
-                      <div class="label">15%</div>
-                    </div>
-                  </div>
+                  <b-progress class="animated-progress custom-progress progress-label">
+                    <b-progress-bar :value="15" variant="primary">
+                    <div class="label">15%</div>
+                    </b-progress-bar>
+                  </b-progress>
                 </div>
               </div>
 
               <div class="d-flex align-items-center py-2">
                 <div class="flex-shrink-0 me-3">
                   <div class="avatar-xs">
-                    <div
-                      class="
+                    <div class="
                         avatar-title
                         bg-light
                         rounded-circle
                         text-muted
                         fs-16
-                      "
-                    >
+                      ">
                       <i class="mdi mdi-twitter"></i>
                     </div>
                   </div>
                 </div>
                 <div class="flex-grow-1">
-                  <div
-                    class="
-                      progress
-                      animated-progess
-                      custom-progress
-                      progress-label
-                    "
-                  >
-                    <div
-                      class="progress-bar bg-success"
-                      role="progressbar"
-                      style="width: 25%"
-                      aria-valuenow="25"
-                      aria-valuemin="0"
-                      aria-valuemax="100"
-                    >
-                      <div class="label">25%</div>
-                    </div>
-                  </div>
+
+                  <b-progress class="animated-progress custom-progress progress-label">
+                    <b-progress-bar :value="25" variant="success">
+                    <div class="label">25%</div>
+                    </b-progress-bar>
+                  </b-progress>
                 </div>
               </div>
 
               <div class="d-flex align-items-center py-2">
                 <div class="flex-shrink-0 me-3">
                   <div class="avatar-xs">
-                    <div
-                      class="
+                    <div class="
                         avatar-title
                         bg-light
                         rounded-circle
                         text-muted
                         fs-16
-                      "
-                    >
+                      ">
                       <i class="mdi mdi-github"></i>
                     </div>
                   </div>
                 </div>
                 <div class="flex-grow-1">
-                  <div
-                    class="
-                      progress
-                      animated-progess
-                      custom-progress
-                      progress-label
-                    "
-                  >
-                    <div
-                      class="progress-bar bg-info"
-                      role="progressbar"
-                      style="width: 50%"
-                      aria-valuenow="50"
-                      aria-valuemin="0"
-                      aria-valuemax="100"
-                    >
-                      <div class="label">30%</div>
-                    </div>
-                  </div>
+                  <b-progress class="animated-progress custom-progress progress-label">
+                    <b-progress-bar :value="30" variant="info">
+                    <div class="label">30%</div>
+                    </b-progress-bar>
+                  </b-progress>
                 </div>
               </div>
             </div>
@@ -1132,47 +657,32 @@ export default {
     &lt;/div&gt;
 &lt;/div&gt;</code></pre>
             </div>
-          </div>
-          <!-- end card-body -->
-        </div>
-        <!-- end card -->
-      </div>
-      <!-- end col -->
-    </div>
-    <!-- end row -->
+          </b-card-body>
+        </b-card>
+      </b-col>
+    </b-row>
 
-    <div class="row">
-      <div class="col-xxl-6">
-        <div class="card">
-          <div class="card-header align-items-center d-flex">
-            <h4 class="card-title mb-0 flex-grow-1">Content Progress</h4>
+    <b-row>
+      <b-col xxl="6">
+        <b-card no-body>
+          <b-card-header class="align-items-center d-flex">
+            <b-card-title class="mb-0 flex-grow-1">Content Progress</b-card-title>
             <div class="flex-shrink-0">
-              <div
-                class="form-check form-switch form-switch-right form-switch-md"
-              >
-                <label
-                  for="bsprogrescontent-showcode"
-                  class="form-label text-muted"
-                  >Show Code</label
-                >
-                <input
-                  class="form-check-input code-switcher"
-                  type="checkbox"
-                  id="bsprogrescontent-showcode"
-                />
+              <div class="form-check form-switch form-switch-right form-switch-md">
+                <label for="bsprogrescontent-showcode" class="form-label text-muted">Show Code</label>
+                <input class="form-check-input code-switcher" type="checkbox" id="bsprogrescontent-showcode" />
               </div>
             </div>
-          </div>
-          <!-- end card header -->
+          </b-card-header>
 
-          <div class="card-body">
+          <b-card-body>
             <p class="text-muted pb-2">
               Example of progress with content wrapped in progress.
             </p>
 
             <div class="live-preview">
-              <div class="card bg-light overflow-hidden shadow-none">
-                <div class="card-body">
+              <b-card no-body class="bg-light overflow-hidden shadow-none">
+                <b-card-body>
                   <div class="d-flex">
                     <div class="flex-grow-1">
                       <h6 class="mb-0">
@@ -1183,21 +693,15 @@ export default {
                       <h6 class="mb-0">1 min left</h6>
                     </div>
                   </div>
-                </div>
-                <div class="progress bg-soft-secondary rounded-0">
-                  <div
-                    class="progress-bar bg-secondary"
-                    role="progressbar"
-                    style="width: 30%"
-                    aria-valuenow="30"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                  ></div>
-                </div>
-              </div>
+                </b-card-body>
 
-              <div class="card bg-light overflow-hidden shadow-none">
-                <div class="card-body">
+                <b-progress class="bg-soft-secondary rounded-0">
+                  <b-progress-bar :value="30" variant="secondary" />
+                </b-progress>
+              </b-card>
+
+              <b-card no-body class="bg-light overflow-hidden shadow-none">
+                <b-card-body>
                   <div class="d-flex">
                     <div class="flex-grow-1">
                       <h6 class="mb-0">
@@ -1208,21 +712,15 @@ export default {
                       <h6 class="mb-0">45s left</h6>
                     </div>
                   </div>
-                </div>
-                <div class="progress bg-soft-success rounded-0">
-                  <div
-                    class="progress-bar bg-success"
-                    role="progressbar"
-                    style="width: 60%"
-                    aria-valuenow="60"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                  ></div>
-                </div>
-              </div>
+                </b-card-body>
 
-              <div class="card bg-light overflow-hidden shadow-none">
-                <div class="card-body">
+                <b-progress class="bg-soft-success rounded-0">
+                  <b-progress-bar :value="60" variant="success" />
+                </b-progress>
+              </b-card>
+
+              <b-card no-body class="bg-light overflow-hidden shadow-none">
+                <b-card-body>
                   <div class="d-flex">
                     <div class="flex-grow-1">
                       <h6 class="mb-0">
@@ -1233,18 +731,12 @@ export default {
                       <h6 class="mb-0">25s left</h6>
                     </div>
                   </div>
-                </div>
-                <div class="progress bg-soft-danger rounded-0">
-                  <div
-                    class="progress-bar bg-danger"
-                    role="progressbar"
-                    style="width: 82%"
-                    aria-valuenow="82"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                  ></div>
-                </div>
-              </div>
+                </b-card-body>
+
+                <b-progress class="bg-soft-danger rounded-0">
+                  <b-progress-bar :value="82" variant="danger" />
+                </b-progress>
+              </b-card>
             </div>
 
             <div class="d-none code-view">
@@ -1291,37 +783,23 @@ export default {
 &lt;b-progress :value=&quot;82&quot; class=&quot;custom-progress bg-soft-danger rounded-0&quot; variant=&quot;danger&quot;&gt;&lt;/b-progress&gt;
 &lt;/b-card&gt;</code></pre>
             </div>
-          </div>
-          <!-- end card-body -->
-        </div>
-        <!-- end card -->
-      </div>
-      <!-- end col -->
+          </b-card-body>
+        </b-card>
+      </b-col>
 
-      <div class="col-xxl-6">
-        <div class="card">
-          <div class="card-header align-items-center d-flex">
-            <h4 class="card-title mb-0 flex-grow-1">Progress with Steps</h4>
+      <b-col xxl="6">
+        <b-card no-body>
+          <b-card-header class="align-items-center d-flex">
+            <b-card-title class="mb-0 flex-grow-1">Progress with Steps</b-card-title>
             <div class="flex-shrink-0">
-              <div
-                class="form-check form-switch form-switch-right form-switch-md"
-              >
-                <label
-                  for="bsprogressexample-showcode"
-                  class="form-label text-muted"
-                  >Show Code</label
-                >
-                <input
-                  class="form-check-input code-switcher"
-                  type="checkbox"
-                  id="bsprogressexample-showcode"
-                />
+              <div class="form-check form-switch form-switch-right form-switch-md">
+                <label for="bsprogressexample-showcode" class="form-label text-muted">Show Code</label>
+                <input class="form-check-input code-switcher" type="checkbox" id="bsprogressexample-showcode" />
               </div>
             </div>
-          </div>
-          <!-- end card header -->
+          </b-card-header>
 
-          <div class="card-body">
+          <b-card-body>
             <p class="text-muted pb-2">
               Here is the example of progress which is represented by steps
               completion.
@@ -1329,58 +807,38 @@ export default {
 
             <div class="live-preview">
               <div class="position-relative m-4">
-                <div class="progress" style="max-height:  1px">
-                  <div
-                    class="progress-bar"
-                    role="progressbar"
-                    style="width: 50%"
-                    aria-valuenow="25"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                  ></div>
-                </div>
-                <button
-                  type="button"
-                  class="
+
+                <b-progress style="max-height: 1px">
+                  <b-progress-bar :value="50" variant="primary" />
+                </b-progress>
+
+                <b-button pill variant="primary" size="sm" type="button" class="
                     position-absolute
                     top-0
                     start-0
                     translate-middle
-                    btn btn-sm btn-primary
-                    rounded-pill
-                  "
-                  style="width: 2rem; height: 2rem"
-                >
+                    
+                  " style="width: 2rem; height: 2rem">
                   1
-                </button>
-                <button
-                  type="button"
-                  class="
+                </b-button>
+                <b-button pill variant="primary" size="sm" type="button" class="
                     position-absolute
                     top-0
                     start-50
                     translate-middle
-                    btn btn-sm btn-primary
-                    rounded-pill
-                  "
-                  style="width: 2rem; height: 2rem"
-                >
+                    
+                  " style="width: 2rem; height: 2rem">
                   2
-                </button>
-                <button
-                  type="button"
-                  class="
+                </b-button>
+                <b-button pill variant="light" size="sm" type="button" class="
                     position-absolute
                     top-0
                     start-100
                     translate-middle
-                    btn btn-sm btn-light
-                    rounded-pill
-                  "
-                  style="width: 2rem; height: 2rem"
-                >
+                    
+                  " style="width: 2rem; height: 2rem">
                   3
-                </button>
+                </b-button>
               </div>
             </div>
 
@@ -1395,75 +853,43 @@ export default {
     &lt;b-button size=&quot;sm&quot; variant=&quot;light&quot; class=&quot;position-absolute top-0 start-100 translate-middlerounded-pill&quot; style=&quot;width: 2rem; height:2rem;&quot;&gt;3&lt;/b-button&gt;
 &lt;/div&gt;</code></pre>
             </div>
-          </div>
-          <!-- end card-body -->
-        </div>
-        <!-- end card -->
+          </b-card-body>
+        </b-card>
 
-        <div class="card">
-          <div class="card-header align-items-center d-flex">
-            <h4 class="card-title mb-0 flex-grow-1">
-              Step Progress with Arrow
-            </h4>
+        <b-card no-body>
+          <b-card-header class="align-items-center d-flex">
+            <b-card-title class="mb-0 flex-grow-1"> Step Progress with Arrow </b-card-title>
             <div class="flex-shrink-0">
-              <div
-                class="form-check form-switch form-switch-right form-switch-md"
-              >
-                <label
-                  for="stepprogressexample-showcode"
-                  class="form-label text-muted"
-                  >Show Code</label
-                >
-                <input
-                  class="form-check-input code-switcher"
-                  type="checkbox"
-                  id="stepprogressexample-showcode"
-                />
+              <div class="form-check form-switch form-switch-right form-switch-md">
+                <label for="stepprogressexample-showcode" class="form-label text-muted">Show 
+                  Code</label>
+                <input class="form-check-input code-switcher" type="checkbox" id="stepprogressexample-showcode" />
               </div>
             </div>
-          </div>
-          <!-- end card header -->
+          </b-card-header>
 
-          <div class="card-body">
+          <b-card-body>
             <p class="text-muted pb-2">
               Use
-              <code>progress-step-arrow</code>class to create step progress with
+              <code>progress-step-arrow</code> class to create step progress with
               an arrow.
             </p>
 
             <div class="live-preview">
-              <div class="progress progress-step-arrow progress-primary">
-                <div
-                  class="progress-bar"
-                  role="progressbar"
-                  style="width: 100%"
-                  aria-valuenow="100"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                >
+
+              <b-progress class="progress-step-arrow progress-primary">
+                <b-progress-bar :value="100">
                   Step 1
-                </div>
-                <div
-                  class="progress-bar"
-                  role="progressbar"
-                  style="width: 100%"
-                  aria-valuenow="30"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                >
+                </b-progress-bar>
+
+                <b-progress-bar :value="100">
                   Step 2
-                </div>
-                <div
-                  class="progress-bar bg-light text-dark"
-                  role="progressbar"
-                  style="width: 100%"
-                  aria-valuenow="20"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                >
+                </b-progress-bar>
+
+                <b-progress-bar :value="100" variant="light" class="text-dark">
                   Step 3
-                </div>
-              </div>
+                </b-progress-bar>
+              </b-progress>
             </div>
 
             <div class="d-none code-view">
@@ -1476,13 +902,9 @@ export default {
 &lt;/b-progress&gt;
     </code></pre>
             </div>
-          </div>
-          <!-- end card-body -->
-        </div>
-        <!-- end card -->
-      </div>
-      <!-- end col -->
-    </div>
-    <!-- end row -->
+          </b-card-body>
+        </b-card>
+      </b-col>
+    </b-row>
   </Layout>
 </template>

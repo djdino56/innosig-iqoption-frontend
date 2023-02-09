@@ -12,14 +12,14 @@ const chatData = [
         image: require('@/assets/images/users/avatar-3.jpg'),
         name: 'Adam Miller',
         message: 'I\'ve finished it! See you so',
-        time: '',
+        time: '5',
         color: 'success'
     },
     {
         id: 3,
         name: 'Keith Gonzales',
         message: 'This theme is awesome!',
-        time: '5',
+        time: '2',
         color: 'success'
     },
     {
@@ -34,7 +34,7 @@ const chatData = [
         id: 5,
         name: 'Mitchel Givens',
         message: 'Hey! there I\'m available',
-        time: '7',
+        time: '',
         color: 'secondary'
     },
     {
@@ -42,7 +42,7 @@ const chatData = [
         image: require('@/assets/images/users/avatar-4.jpg'),
         name: 'Stephen Hadley',
         message: 'I\'ve finished it! See you so',
-        time: '',
+        time: '7',
         color: 'success'
     },
     {
@@ -50,7 +50,7 @@ const chatData = [
         image: require('@/assets/images/users/avatar-2.jpg'),
         name: 'Leord Joseph',
         message: 'This theme is awesome!',
-        time: '2',
+        time: '',
         color: 'success'
     },
 ];

@@ -71,7 +71,7 @@
         opacity: 0;
         border-radius: 100px;
         animation: voice-wave 1.8s infinite;
-        background-color: var(--#{$variable-prefix}light);
+        background-color: var(--#{$prefix}light);
 
         &:nth-child(2) {
             animation-delay: 0.3s;

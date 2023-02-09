@@ -1,101 +1,99 @@
 <script>
-    export default {
-        methods: {
+export default {
+    methods: {
 
-        },
-        mounted() {
-            var password = document.getElementById("password-input")
-            password.onchange = this.validatePassword;
-            document.querySelectorAll("form .auth-pass-inputgroup")
-                .forEach(function (item) {
-                    item.querySelectorAll(".password-addon").forEach(function (subitem) {
-                        subitem.addEventListener("click", function () {
-                            var passwordInput = item.querySelector(".password-input");
-                            if (passwordInput.type === "password") {
-                                passwordInput.type = "text";
-                            } else {
-                                passwordInput.type = "password";
-                            }
-                        });
+    },
+    mounted() {
+        var password = document.getElementById("password-input");
+        password.onchange = this.validatePassword;
+        document.querySelectorAll("form .auth-pass-inputgroup")
+            .forEach(function (item) {
+                item.querySelectorAll(".password-addon").forEach(function (subitem) {
+                    subitem.addEventListener("click", function () {
+                        var passwordInput = item.querySelector(".password-input");
+                        if (passwordInput.type === "password") {
+                            passwordInput.type = "text";
+                        } else {
+                            passwordInput.type = "password";
+                        }
                     });
                 });
+            });
 
 
 
-            var myInput = document.getElementById("password-input");
-            var letter = document.getElementById("pass-lower");
-            var capital = document.getElementById("pass-upper");
-            var number = document.getElementById("pass-number");
-            var length = document.getElementById("pass-length");
+        var myInput = document.getElementById("password-input");
+        var letter = document.getElementById("pass-lower");
+        var capital = document.getElementById("pass-upper");
+        var number = document.getElementById("pass-number");
+        var length = document.getElementById("pass-length");
 
-            // When the user clicks on the password field, show the message box
-            myInput.onfocus = function () {
-                document.getElementById("password-contain").style.display = "block";
-            };
+        // When the user clicks on the password field, show the message box
+        myInput.onfocus = function () {
+            document.getElementById("password-contain").style.display = "block";
+        };
 
-            // When the user clicks outside of the password field, hide the password-contain box
-            myInput.onblur = function () {
-                document.getElementById("password-contain").style.display = "none";
-            };
+        // When the user clicks outside of the password field, hide the password-contain box
+        myInput.onblur = function () {
+            document.getElementById("password-contain").style.display = "none";
+        };
 
-            // When the user starts to type something inside the password field
-            myInput.onkeyup = function () {
-                // Validate lowercase letters
-                var lowerCaseLetters = /[a-z]/g;
-                if (myInput.value.match(lowerCaseLetters)) {
-                    letter.classList.remove("invalid");
-                    letter.classList.add("valid");
-                } else {
-                    letter.classList.remove("valid");
-                    letter.classList.add("invalid");
-                }
+        // When the user starts to type something inside the password field
+        myInput.onkeyup = function () {
+            // Validate lowercase letters
+            var lowerCaseLetters = /[a-z]/g;
+            if (myInput.value.match(lowerCaseLetters)) {
+                letter.classList.remove("invalid");
+                letter.classList.add("valid");
+            } else {
+                letter.classList.remove("valid");
+                letter.classList.add("invalid");
+            }
 
-                // Validate capital letters
-                var upperCaseLetters = /[A-Z]/g;
-                if (myInput.value.match(upperCaseLetters)) {
-                    capital.classList.remove("invalid");
-                    capital.classList.add("valid");
-                } else {
-                    capital.classList.remove("valid");
-                    capital.classList.add("invalid");
-                }
+            // Validate capital letters
+            var upperCaseLetters = /[A-Z]/g;
+            if (myInput.value.match(upperCaseLetters)) {
+                capital.classList.remove("invalid");
+                capital.classList.add("valid");
+            } else {
+                capital.classList.remove("valid");
+                capital.classList.add("invalid");
+            }
 
-                // Validate numbers
-                var numbers = /[0-9]/g;
-                if (myInput.value.match(numbers)) {
-                    number.classList.remove("invalid");
-                    number.classList.add("valid");
-                } else {
-                    number.classList.remove("valid");
-                    number.classList.add("invalid");
-                }
+            // Validate numbers
+            var numbers = /[0-9]/g;
+            if (myInput.value.match(numbers)) {
+                number.classList.remove("invalid");
+                number.classList.add("valid");
+            } else {
+                number.classList.remove("valid");
+                number.classList.add("invalid");
+            }
 
-                // Validate length
-                if (myInput.value.length >= 8) {
-                    length.classList.remove("invalid");
-                    length.classList.add("valid");
-                } else {
-                    length.classList.remove("valid");
-                    length.classList.add("invalid");
-                }
-            };
-        },
+            // Validate length
+            if (myInput.value.length >= 8) {
+                length.classList.remove("invalid");
+                length.classList.add("valid");
+            } else {
+                length.classList.remove("valid");
+                length.classList.add("invalid");
+            }
+        };
+    },
 
-    }
+};
 </script>
 
 <template>
-    <!-- auth-page wrapper -->
     <div class="auth-page-wrapper auth-bg-cover py-5 d-flex justify-content-center align-items-center min-vh-100">
         <div class="bg-overlay"></div>
-        <!-- auth-page content -->
         <div class="auth-page-content overflow-hidden pt-lg-5">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="card overflow-hidden m-0">
-                            <div class="row justify-content-center g-0">
-                                <div class="col-lg-6">
+            <b-container>
+                <b-row>
+                    <b-col lg="12">
+                        <b-card no-body class="overflow-hidden m-0 border-0">
+                            <b-row class="justify-content-center g-0">
+                                <b-col lg="6">
                                     <div class="p-lg-5 p-4 auth-one-bg h-100">
                                         <div class="bg-overlay"></div>
                                         <div class="position-relative h-100 d-flex flex-column">
@@ -120,7 +118,7 @@
                                                         <button type="button" data-bs-target="#qoutescarouselIndicators"
                                                             data-bs-slide-to="2" aria-label="Slide 3"></button>
                                                     </div>
-                                                    <div class="carousel-inner text-center text-white-50 pb-5">
+                                                    <div class="carousel-inner text-center text-white pb-5">
                                                         <div class="carousel-item active">
                                                             <p class="fs-15 fst-italic">" Great! Clean code, clean
                                                                 design, easy for customization. Thanks very much! "</p>
@@ -135,14 +133,13 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <!-- end carousel -->
 
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </b-col>
 
-                                <div class="col-lg-6">
+                                <b-col lg="6">
                                     <div class="p-lg-5 p-4">
                                         <div>
                                             <h5 class="text-primary">Register Account</h5>
@@ -178,10 +175,10 @@
                                                             onpaste="return false" placeholder="Enter password"
                                                             id="password-input" aria-describedby="passwordInput"
                                                             pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
-                                                        <button
-                                                            class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon"
+                                                        <b-button variant="link"
+                                                            class="position-absolute end-0 top-0 text-decoration-none text-muted password-addon"
                                                             type="button" id="password-addon"><i
-                                                                class="ri-eye-fill align-middle"></i></button>
+                                                                class="ri-eye-fill align-middle"></i></b-button>
                                                         <div class="invalid-feedback">
                                                             Please enter password
                                                         </div>
@@ -190,12 +187,14 @@
 
                                                 <div class="mb-4">
                                                     <p class="mb-0 fs-12 text-muted fst-italic">By registering you agree
-                                                        to the Velzon <a href="#"
-                                                            class="text-primary text-decoration-underline fst-normal fw-medium">Terms
-                                                            of Use</a></p>
+                                                        to the Velzon <b-link href="#"
+                                                            class="text-primary text-decoration-underline fst-normal fw-medium">
+                                                            Terms
+                                                            of Use</b-link>
+                                                    </p>
                                                 </div>
                                                 <div id="password-contain" class="p-3 bg-light mb-2 rounded">
-                                                    <h5 class="fs-13">Password must contain:</h5>
+                                                    <h5 class="fs-13 fw-semibold">Password must contain:</h5>
                                                     <p id="pass-length" class="invalid fs-12 mb-2">Minimum <b>8
                                                             characters</b>
                                                     </p>
@@ -204,13 +203,15 @@
                                                         (a-z)</p>
                                                     <p id="pass-upper" class="invalid fs-12 mb-2">At least
                                                         <b>uppercase</b>
-                                                        letter (A-Z)</p>
+                                                        letter (A-Z)
+                                                    </p>
                                                     <p id="pass-number" class="invalid fs-12 mb-0">A least <b>number</b>
                                                         (0-9)
                                                     </p>
                                                 </div>
                                                 <div class="mt-4">
-                                                    <button class="btn btn-success w-100" type="button">Sign Up</button>
+                                                    <b-button variant="success" class="w-100" type="button">Sign Up
+                                                    </b-button>
                                                 </div>
 
                                                 <div class="mt-4 text-center">
@@ -219,18 +220,14 @@
                                                     </div>
 
                                                     <div>
-                                                        <button type="button"
-                                                            class="btn btn-primary btn-icon waves-effect waves-light"><i
-                                                                class="ri-facebook-fill fs-16"></i></button>
-                                                        <button type="button"
-                                                            class="btn btn-danger btn-icon waves-effect waves-light ms-1"><i
-                                                                class="ri-google-fill fs-16"></i></button>
-                                                        <button type="button"
-                                                            class="btn btn-dark btn-icon waves-effect waves-light ms-1"><i
-                                                                class="ri-github-fill fs-16"></i></button>
-                                                        <button type="button"
-                                                            class="btn btn-info btn-icon waves-effect waves-light ms-1"><i
-                                                                class="ri-twitter-fill fs-16"></i></button>
+                                                        <b-button type="button" variant="primary" class="btn-icon"><i
+                                                                class="ri-facebook-fill fs-16"></i></b-button>
+                                                        <b-button type="button" variant="danger" class="btn-icon ms-1">
+                                                            <i class="ri-google-fill fs-16"></i></b-button>
+                                                        <b-button type="button" variant="dark" class="btn-icon ms-1"><i
+                                                                class="ri-github-fill fs-16"></i></b-button>
+                                                        <b-button type="button" variant="info" class="btn-icon ms-1"><i
+                                                                class="ri-twitter-fill fs-16"></i></b-button>
                                                     </div>
                                                 </div>
                                             </form>
@@ -244,34 +241,26 @@
                                             </p>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- end card -->
-                    </div>
-                    <!-- end col -->
+                                </b-col>
+                            </b-row>
+                        </b-card>
+                    </b-col>
 
-                </div>
-                <!-- end row -->
-            </div>
-            <!-- end container -->
+                </b-row>
+            </b-container>
         </div>
-        <!-- end auth page content -->
 
-        <!-- footer -->
         <footer class="footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
+            <b-container>
+                <b-row>
+                    <b-col lg="12">
                         <div class="text-center">
-                            <p class="mb-0">&copy; {{new Date().getFullYear()}} Velzon. Crafted with <i
+                            <p class="mb-0">&copy; {{ new Date().getFullYear() }} Velzon. Crafted with <i
                                     class="mdi mdi-heart text-danger"></i> by Themesbrand</p>
                         </div>
-                    </div>
-                </div>
-            </div>
+                    </b-col>
+                </b-row>
+            </b-container>
         </footer>
-        <!-- end Footer -->
     </div>
-    <!-- end auth-page-wrapper -->
 </template>

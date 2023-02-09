@@ -3,15 +3,15 @@
 // 
 
 .gridjs-container {
-    color: $table-color;
-    padding: 0;
+    color: $table-color !important;
+    padding: 0 !important;
     display: block;
 }
 
 .gridjs-wrapper {
-    box-shadow: none;
-    border: 1px solid $table-border-color;
-    border-radius: 0px;
+    box-shadow: none !important;
+    border: 1px solid $table-border-color !important;
+    border-radius: 0px !important;
 
     &::-webkit-scrollbar {
         -webkit-appearance: none;
@@ -26,14 +26,14 @@
     }
 
     &::-webkit-scrollbar-thumb {
-        background-color: rgba(var(--#{$variable-prefix}dark-rgb), .075);
+        background-color: rgba(var(--#{$prefix}dark-rgb), .075);
         border-radius: 10px;
-        border: 2px solid $card-bg;
+        border: 2px solid var(--#{$prefix}card-bg-custom);
     }
 
     &::-webkit-scrollbar-track {
         border-radius: 10px;
-        background-color: $card-bg;
+        background-color: var(--#{$prefix}card-bg-custom);
     }
 }
 
@@ -47,20 +47,20 @@
 }
 
 .gridjs-tbody, td.gridjs-td{
-    background-color: $table-bg;
+    background-color: $table-bg !important;
 }
 
 th.gridjs-th,
 td.gridjs-td {
-    border: 1px solid $table-border-color;
-    padding: $table-cell-padding-y $table-cell-padding-x;
+    border: 1px solid $table-border-color !important;
+    padding: $table-cell-padding-y $table-cell-padding-x !important;
 }
 
 th {
     &.gridjs-th {
-        border-top: 0;
-        color: $table-color;
-        background-color: rgba(var(--#{$variable-prefix}light-rgb), .75);
+        border-top: 0 !important;
+        color: $table-color !important;
+        background-color: rgba(var(--#{$prefix}light-rgb), .75) !important;
 
     }
 
@@ -68,7 +68,7 @@ th {
 
         &:focus,
         &:hover {
-            background-color: rgba(var(--#{$variable-prefix}light-rgb), .85);
+            background-color: rgba(var(--#{$prefix}light-rgb), .85) !important;
         }
     }
 }
@@ -78,10 +78,10 @@ th {
 }
 
 .gridjs-footer {
-    box-shadow: none;
-    border: 1px solid $table-border-color;
-    border-top: 0;
-    background-color: $table-bg;
+    box-shadow: none !important;
+    border: 1px solid $table-border-color !important;
+    border-top: 0 !important;
+    background-color: $table-bg !important;
 }
 
 .gridjs-summary {
@@ -94,42 +94,42 @@ th {
     .gridjs-pages button {
         margin-left: 0.3rem;
         border-radius: $border-radius !important;
-        border: 1px solid $pagination-border-color;
-        background-color: $pagination-bg;
-        color: $pagination-color;
+        border: 1px solid $pagination-border-color !important;
+        background-color: $pagination-bg !important;
+        color: $pagination-color !important;
 
         &:last-child{
-            border-right: 1px solid $pagination-border-color;
+            border-right: 1px solid $pagination-border-color !important;
         }
 
         &:disabled,
         &:hover:disabled,
         &[disabled] {
-            color: $pagination-disabled-color;
-            background-color: $pagination-bg;
+            color: $pagination-disabled-color !important;
+            background-color: $pagination-bg !important;
         }
 
         &:hover {
-            background-color: $pagination-hover-bg;
-            color: $pagination-hover-color;
+            background-color: $pagination-bg !important;
+            color: $pagination-hover-color !important;
         }
 
         &:focus {
-            box-shadow: none;
+            box-shadow: none !important;
         }
 
         &:last-child,
         &:first-child {
             &:hover {
-                background-color: transparent;
+                background-color: transparent !important;
             }
         }
 
-        &.gridjs-currentPage {
-            background-color: $pagination-active-bg;
-            color: $pagination-active-color;
-            border-color: $pagination-active-border-color;
-            font-weight: $font-weight-medium;
+        &.gridjs-currentPage, &.active {
+            background-color: $pagination-active-bg !important;
+            color: $pagination-active-color !important;
+            border-color: $pagination-active-border-color !important;
+            font-weight: $font-weight-medium !important;
         }
     }
 }
@@ -213,7 +213,8 @@ button{
     }
 
     .gridjs-footer{
-        padding: 8px 16px;
+        padding: 8px 16px !important;
+        border: none !important;
     }
 }
 
@@ -226,7 +227,7 @@ button{
         background-color: $form-check-input-checked-bg-color;
         border-color: $form-check-input-checked-border-color;
         @if $enable-gradients {
-            background-image: escape-svg($form-check-input-checked-bg-image), var(--#{$variable-prefix}gradient);
+            background-image: escape-svg($form-check-input-checked-bg-image), var(--#{$prefix}gradient);
           } @else {
             background-image: escape-svg($form-check-input-checked-bg-image);
           }
@@ -253,14 +254,28 @@ button{
 
 .gridjs-border-none{
     td.gridjs-td, th.gridjs-th{
-        border-right-width: 0;
-        border-left-width: 0;
+        border-right-width: 0 !important;
+        border-left-width: 0 !important;
     }
 }
 
-.gridjs-loading-bar {
-    background-color: $card-bg;
+td.gridjs-td:first-child{
+    border-left: none !important;
 }
+
+td.gridjs-td:last-child{
+    border-right: none !important;
+}
+
+.gridjs-tr:last-child td{
+    border-bottom: 0 !important;
+}
+
+.gridjs-loading-bar {
+    background-color: var(--#{$prefix}card-bg-custom);
+}
+
+
 
 [data-layout-mode="dark"]{
     button{

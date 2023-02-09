@@ -46,94 +46,66 @@ export default {
 <template>
   <Layout>
     <PageHeader :title="title" :items="items" />
-    <div class="row">
-      <div class="col-lg-6">
-        <div class="card">
-          <div class="card-body">
-            <h4 class="card-title mb-4">Line Chart</h4>
-            <!-- Line Chart -->
-            <vue3-chart-js
-              class="chartjs-chart"
-              v-bind="{ ...line }"
-            ></vue3-chart-js>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-6">
-        <div class="card">
-          <div class="card-body">
-            <h4 class="card-title mb-4">Bar Chart</h4>
-          
-            <!-- Bar Chart -->
-            <vue3-chart-js
-               class="chartjs-chart"
-              v-bind="{ ...bar }"
-            ></vue3-chart-js>
-          </div>
-        </div>
-      </div>
-    </div>
+    <b-row>
+      <b-col lg="6">
+        <b-card no-body>
+          <b-card-body>
+            <b-card-title class="mb-4">Line Chart</b-card-title>
+            <vue3-chart-js class="chartjs-chart" v-bind="{ ...line }"></vue3-chart-js>
+          </b-card-body>
+        </b-card>
+      </b-col>
+      <b-col lg="6">
+        <b-card no-body>
+          <b-card-body>
+            <b-card-title class="mb-4">Bar Chart</b-card-title>
 
-    <div class="row">
-      <div class="col-lg-6">
-        <div class="card">
-          <div class="card-body">
-            <h4 class="card-title mb-4">Pie Chart</h4>
-            
-            <!-- Pie Chart -->
-             <vue3-chart-js
-              :height="140"
-              class="chartjs-chart"
-              v-bind="{ ...pie }"
-            ></vue3-chart-js>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-6">
-        <div class="card">
-          <div class="card-body">
-            <h4 class="card-title mb-4">Donut Chart</h4>
-            
-            <!-- Donut Chart -->
-            <vue3-chart-js
-              :height="140"
-              class="chartjs-chart"
-              v-bind="{ ...Doughnut }"
-            ></vue3-chart-js>
-          </div>
-        </div>
-      </div>
-    </div>
+            <vue3-chart-js class="chartjs-chart" v-bind="{ ...bar }"></vue3-chart-js>
+          </b-card-body>
+        </b-card>
+      </b-col>
+    </b-row>
 
-    <div class="row">
-      <div class="col-lg-6">
-        <div class="card">
-          <div class="card-body">
-            <h4 class="card-title mb-4">Polar area Chart</h4>
-            
-            <!-- Polar area Chart -->
-            <vue3-chart-js
-              :height="140"
-              class="chartjs-chart"
-              v-bind="{ ...PolarArea }"
-            ></vue3-chart-js>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-6">
-        <div class="card">
-          <div class="card-body">
-            <h4 class="card-title mb-4">Radar Chart</h4>
-            
-            <!-- Radar Chart -->
-             <vue3-chart-js
-              :height="140"
-              class="chartjs-chart"
-              v-bind="{ ...radar }"
-            ></vue3-chart-js>
-          </div>
-        </div>
-      </div>
-    </div>
+    <b-row>
+      <b-col lg="6">
+        <b-card no-body>
+          <b-card-body>
+            <b-card-title class="mb-4">Pie Chart</b-card-title>
+
+            <vue3-chart-js :height="140" class="chartjs-chart" v-bind="{ ...pie }"></vue3-chart-js>
+          </b-card-body>
+        </b-card>
+      </b-col>
+      <b-col lg="6">
+        <b-card no-body>
+          <b-card-body>
+            <b-card-title class="mb-4">Donut Chart</b-card-title>
+
+            <vue3-chart-js :height="140" class="chartjs-chart" v-bind="{ ...Doughnut }"></vue3-chart-js>
+          </b-card-body>
+        </b-card>
+      </b-col>
+    </b-row>
+
+    <b-row>
+      <b-col lg="6">
+        <b-card no-body>
+          <b-card-body>
+            <b-card-title class="mb-4">Polar area Chart</b-card-title>
+
+            <vue3-chart-js :height="140" class="chartjs-chart" v-bind="{ ...PolarArea }"></vue3-chart-js>
+          </b-card-body>
+        </b-card>
+      </b-col>
+      <b-col lg="6">
+        <b-card no-body>
+          <b-card-body>
+            <b-card-title class="mb-4">Radar Chart</b-card-title>
+
+            <vue3-chart-js :height="140" class="chartjs-chart" v-bind="{ ...radar }"></vue3-chart-js>
+          </b-card-body>
+        </b-card>
+      </b-col>
+    </b-row>
   </Layout>
 </template>

@@ -65,6 +65,7 @@
       </div>
       <!-- modal login-->
       <b-modal
+          class="v-modal-custom"
           size="lg"
           id="modal-create"
           ref="exchange-account-create"

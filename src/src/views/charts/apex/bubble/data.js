@@ -98,7 +98,7 @@ const simpleBubbleChart = {
     yaxis: {
       max: 70,
     },
-    colors: getChartColorsArray('["--vz-primary", "--vz-info", "--vz-warning", "--vz-success"]'),
+    colors: getChartColorsArray('["--vz-primary", "--vz-info", "--vz-secondary", "--vz-success"]'),
   },
 };
 
@@ -168,7 +168,7 @@ const bubble3DChart = {
     theme: {
       palette: "palette2",
     },
-    colors: getChartColorsArray('["--vz-primary", "--vz-success", "--vz-warning", "--vz-danger"]'),
+    colors: getChartColorsArray('["--vz-primary", "--vz-success", "--vz-info", "--vz-secondary"]'),
   },
 };
 

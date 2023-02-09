@@ -13,7 +13,7 @@
 // alert outline
 
 .alert-outline {
-    background-color: $card-bg;
+    background-color: var(--#{$prefix}card-bg-custom);
     border-width: 2px;
 }
 
@@ -68,7 +68,7 @@
 // alert top border example
 
 .alert-top-border {
-    background-color: $card-bg;
+    background-color: var(--#{$prefix}card-bg-custom);
     border-color: $border-color;
     border-top: 2px solid;
     color: var(--#{$variable-prefix}body-color);

@@ -19,7 +19,7 @@
     width: 307.875px;
     box-sizing: border-box;
     touch-action: manipulation;
-    background: $dropdown-bg;
+    background: var(--#{$prefix}choices-bg) !important;
     box-shadow: 1px 0 0 $border-color, -1px 0 0 $border-color, 0 1px 0 $border-color, 0 -1px 0 $border-color, 0 3px 13px rgba(0, 0, 0, 0.08);
 
     &.open,
@@ -152,10 +152,10 @@
         bottom: 100%;
     }
     &.arrowTop::before {
-        border-bottom-color: #e6e6e6;
+        border-bottom-color: $primary !important;
     }
     &.arrowTop::after {
-        border-bottom-color: $white;
+        border-bottom-color: $primary !important;
     }
 
     &.arrowBottom::before,
@@ -163,10 +163,10 @@
         top: 100%;
     }
     &.arrowBottom::before {
-        border-top-color: #e6e6e6;
+        border-top-color: $primary !important;
     }
     &.arrowBottom::after {
-        border-top-color: $white;
+        border-top-color: $primary !important;
     }
     &:focus {
         outline: 0;
@@ -300,7 +300,7 @@
         line-height: 50%;
         opacity: 0;
         cursor: pointer;
-        border: 1px solid rgba(var(--#{$variable-prefix}dark-rgb),0.15);
+        border: 1px solid rgba(var(--#{$prefix}dark-rgb),0.15);
         box-sizing: border-box;
 
         &:hover {
@@ -490,7 +490,7 @@
 span.flatpickr-weekday {
     cursor: default;
     font-size: 90%;
-    background: transparent;
+    background: $primary;
     color: $white;
     line-height: 1;
     margin: 0;
@@ -539,7 +539,7 @@ span.flatpickr-weekday {
     border: 1px solid transparent;
     border-radius: 150px;
     box-sizing: border-box;
-    color: var(--#{$variable-prefix}body-color);
+    color: var(--#{$prefix}body-color);
     cursor: pointer;
     font-weight: 400;
     width: 14.2857143%;
@@ -555,7 +555,7 @@ span.flatpickr-weekday {
 
     &:hover,
     &:focus {
-        background-color: rgba(var(--#{$variable-prefix}light-rgb), 0.7);
+        background-color: rgba(var(--#{$prefix}light-rgb), 0.7);
     }
 
     &.inRange,
@@ -572,8 +572,8 @@ span.flatpickr-weekday {
     &.nextMonthDay:focus {
         cursor: pointer;
         outline: 0;
-        background-color: var(--#{$variable-prefix}light);
-        border-color: var(--#{$variable-prefix}light);
+        background-color: var(--#{$prefix}light);
+        border-color: var(--#{$prefix}light);
     }
 
     &.today {
@@ -585,7 +585,7 @@ span.flatpickr-weekday {
         &:focus {
             border-color: $primary;
             background-color: rgba($primary, 0.15);
-            color: var(--#{$variable-prefix}dark);
+            color: var(--#{$prefix}dark);
         }
     }
 
@@ -638,7 +638,7 @@ span.flatpickr-weekday {
 
     &.inRange {
         border-radius: 0;
-        box-shadow: -5px 0 0 var(--#{$variable-prefix}light), 5px 0 0 var(--#{$variable-prefix}light);
+        box-shadow: -5px 0 0 var(--#{$prefix}light), 5px 0 0 var(--#{$prefix}light);
     }
 
     &.flatpickr-disabled,
@@ -648,7 +648,7 @@ span.flatpickr-weekday {
     &.notAllowed,
     &.notAllowed.prevMonthDay,
     &.notAllowed.nextMonthDay {
-        color: rgba(var(--#{$variable-prefix}body-color-rgb),0.3);
+        color: rgba(var(--#{$prefix}body-color-rgb),0.3);
         background: transparent;
         border-color: transparent;
         cursor: default;
@@ -657,7 +657,7 @@ span.flatpickr-weekday {
     &.flatpickr-disabled,
     &.flatpickr-disabled:hover {
         cursor: not-allowed;
-        color: rgba(var(--#{$variable-prefix}body-color-rgb),0.3);
+        color: rgba(var(--#{$prefix}body-color-rgb),0.3);
     }
 
     &.week.selected {
@@ -684,7 +684,7 @@ span.flatpickr-weekday {
     .flatpickr-weekday {
         float: none;
         width: 100%;
-        line-height: 28px;
+        line-height: 35px;
     }
 
     span{
@@ -693,7 +693,7 @@ span.flatpickr-weekday {
             display: block;
             width: 100%;
             max-width: none;
-            color: rgba(var(--#{$variable-prefix}dark-rgb),0.3);
+            color: rgba(var(--#{$prefix}dark-rgb),0.3);
             background: transparent;
             cursor: default;
             border: none;
@@ -764,7 +764,7 @@ span.flatpickr-weekday {
         padding: 0;
         height: inherit;
         line-height: inherit;
-        color: var(--#{$variable-prefix}body-color);
+        color: var(--#{$prefix}body-color);
         font-size: 14px;
         position: relative;
         box-sizing: border-box;
@@ -791,7 +791,7 @@ span.flatpickr-weekday {
         height: inherit;
         float: left;
         line-height: inherit;
-        color: var(--#{$variable-prefix}body-color);
+        color: var(--#{$prefix}body-color);
         font-weight: bold;
         width: 2%;
         user-select: none;

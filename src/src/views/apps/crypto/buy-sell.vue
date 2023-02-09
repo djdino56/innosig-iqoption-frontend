@@ -5,6 +5,35 @@ import Layout from "../../../layouts/main.vue";
 import PageHeader from "@/components/page-header";
 import appConfig from "../../../../app.config";
 
+function getChartColorsArray(colors) {
+  colors = JSON.parse(colors);
+  return colors.map(function (value) {
+    var newValue = value.replace(" ", "");
+    if (newValue.indexOf(",") === -1) {
+      var color = getComputedStyle(document.documentElement).getPropertyValue(
+        newValue
+      );
+      if (color) {
+        color = color.replace(" ", "");
+        return color;
+      } else return newValue;
+    } else {
+      var val = value.split(",");
+      if (val.length == 2) {
+        var rgbaColor = getComputedStyle(
+          document.documentElement
+        ).getPropertyValue(val[0]);
+        rgbaColor = "rgba(" + rgbaColor + "," + val[1] + ")";
+        return rgbaColor;
+      } else {
+        return newValue;
+      }
+    }
+  });
+}
+
+var chartcolors = getChartColorsArray('["--vz-primary", "--vz-success"]');
+
 export default {
   components: {
     Layout,
@@ -12,7 +41,7 @@ export default {
     CountTo,
   },
   page: {
-    title: "Buy & Sell",
+    title: "Widgets",
     meta: [{ name: "description", content: appConfig.description }],
   },
   data() {
@@ -446,8 +475,8 @@ export default {
         plotOptions: {
           candlestick: {
             colors: {
-              upward: "#25a0e2",
-              downward: "#00bd9d",
+              upward: chartcolors[0],
+              downward: chartcolors[1],
             },
           },
         },
@@ -609,48 +638,36 @@ export default {
   <Layout>
     <PageHeader :title="title" :items="items" />
 
-    <div class="row">
-      <div class="col-xl-3 col-sm-6">
-        <div class="card card-animate">
-          <div class="card-body">
+    <b-row>
+      <b-col xl="3" sm="6">
+        <b-card no-body class="card-animate">
+          <b-card-body>
             <div class="d-flex">
               <div class="flex-grow-1">
                 <h6 class="text-muted mb-3">Total Buy</h6>
                 <h2 class="mb-0">
-                  $<count-to
-                    :startVal="0"
-                    :duration="5000"
-                    :endVal="243"
-                  ></count-to
-                  ><small class="text-muted fs-13">.10k</small>
+                  $<count-to :startVal="0" :duration="5000" :endVal="243"></count-to><small
+                    class="text-muted fs-13">.10k</small>
                 </h2>
               </div>
               <div class="flex-shrink-0 avatar-sm">
-                <div
-                  class="avatar-title bg-soft-primary text-primary fs-22 rounded"
-                >
+                <div class="avatar-title bg-soft-primary text-primary fs-22 rounded">
                   <i class="ri-shopping-bag-line"></i>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-        <!--end card-->
-      </div>
-      <!--end col-->
-      <div class="col-xl-3 col-sm-6">
-        <div class="card card-animate">
-          <div class="card-body">
+          </b-card-body>
+        </b-card>
+      </b-col>
+      <b-col xl="3" sm="6">
+        <b-card no-body class="card-animate">
+          <b-card-body>
             <div class="d-flex">
               <div class="flex-grow-1">
                 <h6 class="text-muted mb-3">Total Sell</h6>
                 <h2 class="mb-0">
-                  $<count-to
-                    :startVal="0"
-                    :duration="5000"
-                    :endVal="658"
-                  ></count-to
-                  ><small class="text-muted fs-13">.00k</small>
+                  $<count-to :startVal="0" :duration="5000" :endVal="658"></count-to><small
+                    class="text-muted fs-13">.00k</small>
                 </h2>
               </div>
               <div class="flex-shrink-0 avatar-sm">
@@ -659,121 +676,79 @@ export default {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-        <!--end card-->
-      </div>
-      <!--end col-->
-      <div class="col-xl-3 col-sm-6">
-        <div class="card card-animate">
-          <div class="card-body">
+          </b-card-body>
+        </b-card>
+      </b-col>
+      <b-col xl="3" sm="6">
+        <b-card no-body class="card-animate">
+          <b-card-body>
             <div class="d-flex">
               <div class="flex-grow-1">
                 <h6 class="text-muted mb-3">Today's Buy</h6>
                 <h2 class="mb-0">
-                  $<count-to
-                    :startVal="0"
-                    :duration="5000"
-                    :endVal="104"
-                  ></count-to
-                  ><small class="text-muted fs-13">.85k</small>
+                  $<count-to :startVal="0" :duration="5000" :endVal="104"></count-to><small
+                    class="text-muted fs-13">.85k</small>
                 </h2>
               </div>
               <div class="flex-shrink-0 avatar-sm">
-                <div
-                  class="
-                    avatar-title
-                    bg-soft-primary
-                    text-primary
-                    fs-22
-                    rounded
-                  "
-                >
+                <div class="avatar-title bg-soft-primary text-primary fs-22 rounded">
                   <i class="ri-arrow-left-down-fill"></i>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-        <!--end card-->
-      </div>
-      <!--end col-->
-      <div class="col-xl-3 col-sm-6">
-        <div class="card card-animate">
-          <div class="card-body">
+          </b-card-body>
+        </b-card>
+      </b-col>
+      <b-col xl="3" sm="6">
+        <b-card no-body class="card-animate">
+          <b-card-body>
             <div class="d-flex">
               <div class="flex-grow-1">
                 <h6 class="text-muted mb-3">Today's Sell</h6>
                 <h2 class="mb-0">
-                  $<count-to
-                    :startVal="0"
-                    :duration="5000"
-                    :endVal="87"
-                  ></count-to
-                  ><small class="text-muted fs-13">.35k</small>
+                  $<count-to :startVal="0" :duration="5000" :endVal="87"></count-to><small
+                    class="text-muted fs-13">.35k</small>
                 </h2>
               </div>
               <div class="flex-shrink-0 avatar-sm">
-                <div
-                  class="
-                    avatar-title
-                    bg-soft-primary
-                    text-primary
-                    fs-22
-                    rounded
-                  "
-                >
+                <div class="avatar-title bg-soft-primary text-primary fs-22 rounded">
                   <i class="ri-arrow-right-up-fill"></i>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-        <!--end card-->
-      </div>
-      <!--end col-->
-    </div>
-    <!--end row-->
+          </b-card-body>
+        </b-card>
+      </b-col>
+    </b-row>
 
-    <div class="row">
-      <div class="col-xxl-9">
-        <div class="card card-height-100">
-          <div class="card-header border-0 align-items-center d-flex">
-            <h4 class="card-title mb-0 flex-grow-1">Market Graph</h4>
-            <div>
-              <button type="button" class="btn btn-soft-secondary btn-sm me-1">
+    <b-row>
+      <b-col xxl="9">
+        <b-card no-body class="card-height-100">
+          <b-card-header class="border-0 align-items-center d-flex">
+            <b-card-title class="mb-0 flex-grow-1">Market Graph</b-card-title>
+            <div class="hstack gap-1">
+              <b-button type="button" variant="soft-secondary" size="sm">
                 1H
-              </button>
-              <button type="button" class="btn btn-soft-secondary btn-sm me-1">
+              </b-button>
+              <b-button type="button" variant="soft-secondary" size="sm">
                 7D
-              </button>
-              <button type="button" class="btn btn-soft-secondary btn-sm me-1">
+              </b-button>
+              <b-button type="button" variant="soft-secondary" size="sm">
                 1M
-              </button>
-              <button type="button" class="btn btn-soft-secondary btn-sm me-1">
+              </b-button>
+              <b-button type="button" variant="soft-secondary" size="sm">
                 1Y
-              </button>
-              <button type="button" class="btn btn-soft-primary btn-sm me-1">
+              </b-button>
+              <b-button type="button" variant="soft-primary" size="sm">
                 ALL
-              </button>
+              </b-button>
             </div>
-          </div>
-          <!-- end card header -->
-          <div class="card-body p-0">
+          </b-card-header>
+          <b-card-body class="p-0">
             <div
-              class="
-                bg-soft-light
-                border-top-dashed
-                border
-                border-start-0
-                border-end-0
-                border-bottom-dashed
-                py-3
-                px-4
-              "
-            >
-              <div class="row align-items-center">
-                <div class="col-6">
+              class="bg-soft-light border-top-dashed border border-start-0 border-end-0 border-bottom-dashed py-3 px-4">
+              <b-row class="align-items-center">
+                <b-col cols="6">
                   <div class="d-flex flex-wrap gap-4 align-items-center">
                     <div>
                       <h3 class="fs-19">
@@ -781,27 +756,15 @@ export default {
                       </h3>
                       <p class="text-muted text-uppercase fw-medium mb-0">
                         Bitcoin (BTC)
-                        <small class="badge badge-soft-success"
-                          ><i class="ri-arrow-right-up-line align-bottom"></i>
-                          2.15%</small
-                        >
+                        <b-badge variant="soft-success" class="badge-soft-success"><i class="ri-arrow-right-up-line align-bottom"></i>
+                          2.15%</b-badge>
                       </p>
                     </div>
                   </div>
-                </div>
-                <!-- end col -->
-                <div class="col-6">
+                </b-col>
+                <b-col cols="6">
                   <div class="d-flex">
-                    <div
-                      class="
-                        d-flex
-                        justify-content-end
-                        text-end
-                        flex-wrap
-                        gap-4
-                        ms-auto
-                      "
-                    >
+                    <div class="d-flex justify-content-end text-end flex-wrap gap-4 ms-auto">
                       <div class="pe-3">
                         <h6 class="mb-2 text-muted">High</h6>
                         <h5 class="text-success mb-0">$28,722.76</h5>
@@ -816,64 +779,33 @@ export default {
                       </div>
                     </div>
                   </div>
-                </div>
-                <!-- end col -->
-              </div>
-              <!-- end row -->
+                </b-col>
+              </b-row>
             </div>
-          </div>
-          <!-- end cardbody -->
-          <div class="card-body p-0 pb-3">
-            <apexchart
-              class="apex-charts"
-              height="350"
-              dir="ltr"
-              :series="options.series"
-              :options="options.chartOptions"
-            ></apexchart>
-          </div>
-          <!-- end cardbody -->
-        </div>
-        <!-- end card -->
-      </div>
-      <!--end col-->
-      <div class="col-xxl-3">
-        <div class="card card-height-100">
-          <div class="card-header">
-            <ul
-              class="
-                nav nav-tabs-custom
-                rounded
-                card-header-tabs
-                nav-justified
-                border-bottom-0
-                mx-n3
-              "
-              role="tablist"
-            >
+          </b-card-body>
+          <b-card-body class="p-0 pb-3">
+            <apexchart class="apex-charts" height="350" dir="ltr" :series="options.series"
+              :options="options.chartOptions"></apexchart>
+          </b-card-body>
+        </b-card>
+      </b-col>
+      <b-col xxl="3">
+        <b-card no-body class="card-height-100">
+          <b-card-header>
+            <ul class="nav nav-tabs-custom rounded card-header-tabs nav-justified border-bottom-0 mx-n3" role="tablist">
               <li class="nav-item">
-                <a
-                  class="nav-link active"
-                  data-bs-toggle="tab"
-                  href="#cryptoBuy"
-                  role="tab"
-                >
+                <b-link class="nav-link active" data-bs-toggle="tab" href="#cryptoBuy" role="tab">
                   Buy
-                </a>
+                </b-link>
               </li>
               <li class="nav-item">
-                <a
-                  class="nav-link"
-                  data-bs-toggle="tab"
-                  href="#cryptoSell"
-                  role="tab"
-                >
+                <b-link class="nav-link" data-bs-toggle="tab" href="#cryptoSell" role="tab">
                   Sell
-                </a>
+                </b-link>
               </li>
             </ul>
-          </div>
-          <div class="card-body p-0">
+          </b-card-header>
+          <b-card-body class="p-0">
             <div class="tab-content text-muted">
               <div class="tab-pane active" id="cryptoBuy" role="tabpanel">
                 <div class="p-3 bg-soft-primary">
@@ -885,8 +817,8 @@ export default {
                   <h6 class="mb-0 text-primary">Buy Coin</h6>
                 </div>
                 <div class="p-3">
-                  <div class="row">
-                    <div class="col-6">
+                  <b-row>
+                    <b-col cols="6">
                       <div class="mb-3">
                         <label>Currency :</label>
                         <select class="form-select">
@@ -895,9 +827,8 @@ export default {
                           <option>LTC</option>
                         </select>
                       </div>
-                    </div>
-                    <!-- end col -->
-                    <div class="col-6">
+                    </b-col>
+                    <b-col cols="6">
                       <div class="mb-3">
                         <label>Payment Method :</label>
                         <select class="form-select">
@@ -907,10 +838,8 @@ export default {
                           <option>Payoneer</option>
                         </select>
                       </div>
-                    </div>
-                    <!-- end col -->
-                  </div>
-                  <!-- end row -->
+                    </b-col>
+                  </b-row>
                   <div>
                     <div class="input-group mb-3">
                       <label class="input-group-text">Amount</label>
@@ -919,30 +848,20 @@ export default {
 
                     <div class="input-group mb-3">
                       <label class="input-group-text">Price</label>
-                      <input
-                        type="text"
-                        class="form-control"
-                        placeholder="2.045585"
-                      />
+                      <input type="text" class="form-control" placeholder="2.045585" />
                       <label class="input-group-text">$</label>
                     </div>
 
                     <div class="input-group mb-0">
                       <label class="input-group-text">Total</label>
-                      <input
-                        type="text"
-                        class="form-control"
-                        placeholder="2700.16"
-                      />
+                      <input type="text" class="form-control" placeholder="2700.16" />
                     </div>
                   </div>
                   <div class="mt-3 pt-2">
                     <div class="d-flex mb-2">
                       <div class="flex-grow-1">
                         <p class="fs-13 mb-0">
-                          Transaction Fees<span class="text-muted ms-1 fs-11"
-                            >(0.05%)</span
-                          >
+                          Transaction Fees<span class="text-muted ms-1 fs-11">(0.05%)</span>
                         </p>
                       </div>
                       <div class="flex-shrink-0">
@@ -952,9 +871,7 @@ export default {
                     <div class="d-flex mb-2">
                       <div class="flex-grow-1">
                         <p class="fs-13 mb-0">
-                          Minimum Received<span class="text-muted ms-1 fs-11"
-                            >(2%)</span
-                          >
+                          Minimum Received<span class="text-muted ms-1 fs-11">(2%)</span>
                         </p>
                       </div>
                       <div class="flex-shrink-0">
@@ -971,13 +888,12 @@ export default {
                     </div>
                   </div>
                   <div class="mt-3 pt-2">
-                    <button type="button" class="btn btn-primary w-100">
+                    <b-button type="button" variant="primary" class="w-100">
                       Buy Coin
-                    </button>
+                    </b-button>
                   </div>
                 </div>
               </div>
-              <!--end tab-pane-->
               <div class="tab-pane" id="cryptoSell" role="tabpanel">
                 <div class="p-3 bg-soft-primary">
                   <div class="float-end ms-2">
@@ -988,8 +904,8 @@ export default {
                   <h6 class="mb-0 text-primary">Sell Coin</h6>
                 </div>
                 <div class="p-3">
-                  <div class="row">
-                    <div class="col-6">
+                  <b-row>
+                    <b-col cols="6">
                       <div class="mb-3">
                         <label for="currencySelect">Currency :</label>
                         <select class="form-select" id="currencySelect">
@@ -1000,9 +916,8 @@ export default {
                           <option value="LTC">LTC</option>
                         </select>
                       </div>
-                    </div>
-                    <!-- end col -->
-                    <div class="col-6">
+                    </b-col>
+                    <b-col cols="6">
                       <div class="mb-3">
                         <div class="mb-3">
                           <label for="paymentMethod">Payment Method :</label>
@@ -1014,40 +929,28 @@ export default {
                           </select>
                         </div>
                       </div>
-                    </div>
-                    <!-- end col -->
-                  </div>
-                  <!-- end row -->
+                    </b-col>
+                  </b-row>
                   <div>
                     <div class="input-group mb-3">
                       <label class="input-group-text">Amount</label>
                       <input type="text" class="form-control" placeholder="0" />
-                    </div>
+                    </div>  
                     <div class="input-group mb-3">
                       <label class="input-group-text">Price</label>
-                      <input
-                        type="text"
-                        class="form-control"
-                        placeholder="2.045585"
-                      />
+                      <input type="text" class="form-control" placeholder="2.045585" />
                       <label class="input-group-text">$</label>
                     </div>
                     <div class="input-group mb-0">
                       <label class="input-group-text">Total</label>
-                      <input
-                        type="text"
-                        class="form-control"
-                        placeholder="2700.16"
-                      />
+                      <input type="text" class="form-control" placeholder="2700.16" />
                     </div>
                   </div>
                   <div class="mt-3 pt-2">
                     <div class="d-flex mb-2">
                       <div class="flex-grow-1">
                         <p class="fs-13 mb-0">
-                          Transaction Fees<span class="text-muted ms-1 fs-11"
-                            >(0.05%)</span
-                          >
+                          Transaction Fees<span class="text-muted ms-1 fs-11">(0.05%)</span>
                         </p>
                       </div>
                       <div class="flex-shrink-0">
@@ -1057,9 +960,7 @@ export default {
                     <div class="d-flex mb-2">
                       <div class="flex-grow-1">
                         <p class="fs-13 mb-0">
-                          Minimum Received<span class="text-muted ms-1 fs-11"
-                            >(2%)</span
-                          >
+                          Minimum Received<span class="text-muted ms-1 fs-11">(2%)</span>
                         </p>
                       </div>
                       <div class="flex-shrink-0">
@@ -1076,49 +977,40 @@ export default {
                     </div>
                   </div>
                   <div class="mt-3 pt-2">
-                    <button type="button" class="btn btn-primary w-100">
+                    <b-button type="button" variant="primary" class="w-100">
                       Sell Coin
-                    </button>
+                    </b-button>
                   </div>
                 </div>
               </div>
-              <!--end tab-pane-->
             </div>
-          </div>
-        </div>
-      </div>
-      <!--end col-->
-    </div>
-    <!--end row-->
+          </b-card-body>
+        </b-card>
+      </b-col>
+    </b-row>
 
-    <div class="card">
-      <div class="card-header border-bottom-dashed">
-        <div class="row align-items-center">
-          <div class="col-3">
+    <b-card no-body>
+      <b-card-header class="border-bottom-dashed">
+        <b-row class="align-items-center">
+          <b-col cols="3">
             <h5 class="card-title mb-0">Markets</h5>
-          </div>
-          <!--end col-->
+          </b-col>
           <div class="col-auto ms-auto">
             <div class="d-flex gap-2">
-              <button class="btn btn-primary">
+              <b-button variant="primary">
                 <i class="ri-equalizer-line align-bottom me-1"></i> Filters
-              </button>
+              </b-button>
             </div>
           </div>
-          <!--end col-->
-        </div>
-      </div>
-      <div class="card-body p-0 border-bottom border-bottom-dashed">
+        </b-row>
+      </b-card-header>
+      <b-card-body class="p-0 border-bottom border-bottom-dashed">
         <div class="search-box">
-          <input
-            type="text"
-            class="form-control search border-0 py-3"
-            placeholder="Search to currency..."
-          />
+          <input type="text" class="form-control search border-0 py-3" placeholder="Search to currency..." />
           <i class="ri-search-line search-icon"></i>
         </div>
-      </div>
-      <div class="card-body">
+      </b-card-body>
+      <b-card-body>
         <div class="table-responsive table-card">
           <table class="table align-middle table-nowrap" id="customerTable">
             <thead class="table-light text-muted">
@@ -1139,20 +1031,17 @@ export default {
                 <th scope="col">Action</th>
               </tr>
             </thead>
-            <!--end thead-->
             <tbody class="list form-check-all">
               <tr v-for="(data, index) of resultQuery" :key="index">
                 <td class="id" style="display: none">
-                  <a href="javascript:void(0);" class="fw-medium link-primary"
-                    >#VZ001</a
-                  >
+                  <b-link href="javascript:void(0);" class="fw-medium link-primary">#VZ001</b-link>
                 </td>
                 <td>
                   <div class="d-flex align-items-center fw-medium">
                     <img :src="data.image" alt="" class="avatar-xxs me-2" />
-                    <a href="javascript:void(0);" class="currency_name link-secondary">{{
-                      data.currency_name
-                    }}</a>
+                    <b-link href="javascript:void(0);" class="currency_name link-secondary">{{
+                        data.currency_name
+                    }}</b-link>
                   </div>
                 </td>
                 <td class="current_value">{{ data.price }}</td>
@@ -1161,65 +1050,40 @@ export default {
                 <td class="low">{{ data.low }}</td>
                 <td class="market_cap">{{ data.market }}</td>
                 <td class="valume">
-                  <h6
-                    class="fs-13 mb-0"
-                    :class="{
-                      'text-danger': data.volume > 1,
-                      'text-success': data.volume < 1,
-                    }"
-                  >
-                    <i
-                      class="align-middle me-1"
-                      :class="{
-                        'mdi mdi-trending-down': data.volume > 1,
-                        'mdi mdi-trending-up': data.volume < 1,
-                      }"
-                    ></i
-                    >{{ data.volume }}%
+                  <h6 class="fs-13 mb-0" :class="{
+                    'text-danger': data.volume > 1,
+                    'text-success': data.volume < 1,
+                  }">
+                    <i class="mdi mdi-trending-up align-middle me-1"></i>{{ data.volume }}%
                   </h6>
                 </td>
                 <td>
-                  <button class="btn btn-sm btn-soft-primary">Trade Now</button>
+                  <b-button varient="soft-primary" size="sm" class="btn-soft-primary">Trade Now</b-button>
                 </td>
               </tr>
             </tbody>
-            <!--end tbody-->
           </table>
         </div>
         <div class="d-flex justify-content-end mt-3">
           <div class="pagination-wrap hstack gap-2">
-            <a
-              class="page-item pagination-prev disabled"
-              href="#"
-              v-if="page != 1"
-              @click="page--"
-            >
+            <b-link class="page-item pagination-prev disabled" href="#" v-if="page != 1" @click="page--">
               Previous
-            </a>
+            </b-link>
             <ul class="pagination listjs-pagination mb-0">
-              <li
-                :class="{
-                  active: pageNumber == page,
-                  disabled: pageNumber == '...',
-                }"
-                v-for="(pageNumber, index) in pages.slice(page - 1, page + 5)"
-                :key="index"
-                @click="page = pageNumber"
-              >
-                <a class="page" href="#">{{ pageNumber }}</a>
+              <li :class="{
+                active: pageNumber == page,
+                disabled: pageNumber == '...',
+              }" v-for="(pageNumber, index) in pages.slice(page - 1, page + 5)" :key="index"
+                @click="page = pageNumber">
+                <b-link class="page" href="#">{{ pageNumber }}</b-link>
               </li>
             </ul>
-            <a
-              class="page-item pagination-next"
-              href="#"
-              @click="page++"
-              v-if="page < pages.length"
-            >
+            <b-link class="page-item pagination-next" href="#" @click="page++" v-if="page < pages.length">
               Next
-            </a>
+            </b-link>
           </div>
         </div>
-      </div>
-    </div>
+      </b-card-body>
+    </b-card>
   </Layout>
 </template>

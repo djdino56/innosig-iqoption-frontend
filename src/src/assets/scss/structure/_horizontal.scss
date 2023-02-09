@@ -31,6 +31,7 @@
 
     .navbar-menu {
         background: $topnav-bg;
+        border-right-color: transparent;
         padding: 0 calc(#{$grid-gutter-width} / 2);
         box-shadow: $horizontal-menu-box-shadow;
         margin-top: $header-height;
@@ -177,7 +178,7 @@
         animation-fill-mode: both;
         margin: 0;
         z-index: $zindex-dropdown;
-        background-color: $dropdown-bg;
+        background-color: var(--#{$prefix}choices-bg);
         background-clip: padding-box;
         border: $dropdown-border-width solid $dropdown-border-color;
         border-radius: $dropdown-border-radius;

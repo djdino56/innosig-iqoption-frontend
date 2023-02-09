@@ -8,7 +8,6 @@ export const userService = {
 };
 
 function login(email, password) {
-
     const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -29,7 +28,9 @@ function login(email, password) {
 
 function logout() {
     // remove user from local storage to log user out
-    localStorage.removeItem('user');
+    localStorage.removeItem('userdata');
+    localStorage.removeItem('jwt');
+    localStorage.removeItem('userid');
 }
 
 function register(user) {

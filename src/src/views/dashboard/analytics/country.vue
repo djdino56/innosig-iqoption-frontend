@@ -2,7 +2,7 @@
 var echarts = require("echarts");
 import usaJson from "../../../components/widgets/USA.json";
 export default {
- mounted() {
+  mounted() {
     let chartDom = document.getElementById("country-map");
     let myChart = echarts.init(chartDom);
     let option;
@@ -105,28 +105,22 @@ export default {
 </script>
 
 <template>
-  <div class="card card-height-100">
-    <div class="card-header align-items-center d-flex">
-      <h4 class="card-title mb-0 flex-grow-1">Live Users By Country</h4>
+  <b-card no-body class="card-height-100">
+    <b-card-header class="align-items-center d-flex">
+      <b-card-title class="mb-0 flex-grow-1">Live Users By Country</b-card-title>
       <div class="flex-shrink-0">
-        <button type="button" class="btn btn-soft-primary btn-sm">
+        <b-button type="button" variant="soft-primary" size="sm">
           Export Report
-        </button>
+        </b-button>
       </div>
-    </div>
-    <!-- end card header -->
+    </b-card-header>
 
-    <!-- card body -->
-    <div class="card-body">
+    <b-card-body>
       <div id="country-map" style="height: 252px;"></div>
-<div role="progressbar"></div>
+      <div role="progressbar"></div>
       <div class="table-responsive table-card mt-3">
-        <table
-          class="table table-borderless table-sm table-centered align-middle table-nowrap mb-1"
-        >
-          <thead
-            class="text-muted border-dashed border border-start-0 border-end-0 bg-soft-light"
-          >
+        <table class="table table-borderless table-sm table-centered align-middle table-nowrap mb-1">
+          <thead class="text-muted border-dashed border border-start-0 border-end-0 bg-soft-light">
             <tr>
               <th>Duration (Secs)</th>
               <th style="width: 30%">Sessions</th>
@@ -157,8 +151,6 @@ export default {
           </tbody>
         </table>
       </div>
-    </div>
-    <!-- end card body -->
-  </div>
-  <!-- end card -->
+    </b-card-body>
+  </b-card>
 </template>

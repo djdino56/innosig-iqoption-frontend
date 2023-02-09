@@ -12,7 +12,7 @@
 .chat-leftsidebar {
     height: calc(100vh - 137px);
     position: relative;
-    background-color: $card-bg;
+    background-color: var(--#{$prefix}card-bg-custom);
 
     @media (min-width: 992px) {
         min-width: 300px;
@@ -32,7 +32,7 @@
                 color: $chat-secondary-color;
 
                 .badge {
-                    background-color: rgba(var(--#{$variable-prefix}success-rgb), 0.15) !important;
+                    background-color: rgba(var(--#{$prefix}success-rgb), 0.15) !important;
                     color: $success !important;
                 }
             }
@@ -41,7 +41,7 @@
         a {
             display: block;
             padding: 7px 24px;
-            color: var(--#{$variable-prefix}body-color);
+            color: var(--#{$prefix}body-color);
             transition: all 0.4s;
             font-family: $font-family-secondary;
             font-weight: $font-weight-medium;
@@ -80,7 +80,7 @@
         height: 10px;
         background-color: $gray-500;
         border-radius: 50%;
-        border: 2px solid $card-bg;
+        border: 2px solid var(--#{$prefix}card-bg-custom);
         position: absolute;
         right: 0;
         left: auto;
@@ -101,13 +101,44 @@
 }
 
 .chat-room-list {
-    max-height: calc(100vh - 268px);
+    max-height: calc(100vh - 296px);
 
     @media (max-width: 991.98px) {
-        height: calc(100vh - 268px);
+        height: calc(100vh - 296px);
     }
 }
 
+// contact list
+
+.contact-list {
+    li {
+        cursor: pointer;
+        padding: 8px 24px;
+        transition: all 0.4s;
+        color: var(--#{$prefix}body-color);
+        font-family: $font-family-secondary;
+        font-weight: $font-weight-medium;
+        font-size: $font-size-base;
+    }
+}
+
+.contact-list-title{
+    padding: 6px 24px;
+    color: $primary;
+    font-weight: $font-weight-medium;
+    position: relative;
+    font-size: 12px;
+    &:after{
+        content: "";
+        height: 1px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 50px;
+        right: 0;
+        background-color: var(--#{$prefix}light);
+    }
+}
 
 
 // user chat
@@ -116,7 +147,7 @@
     background: url("~@/assets/images/chat-bg-pattern.png");
     transition: all 0.4s;
     position: relative;
-    background-color: var(--#{$variable-prefix}body-bg);
+    background-color: var(--#{$prefix}body-bg);
 
     @media (max-width: 991.98px) {
         position: absolute;
@@ -153,7 +184,7 @@
 
 .user-chat-topbar{
     border-bottom: 1px solid transparent;
-    background-color: $card-bg;
+    background-color: var(--#{$prefix}card-bg-custom);
     @media (max-width: 991.98px) {
         position: fixed;
         left: 0;
@@ -449,7 +480,7 @@
 
 .chat-input-section{
     border-top: 1px solid transparent;
-    background-color: $card-bg;
+    background-color: var(--#{$prefix}card-bg-custom);
     position: relative;
     z-index: 1;
 
@@ -489,6 +520,7 @@
     bottom: 0;
     left: 50%;
     transform:translateX(-50%);
+    display: none;
 }
 
 .replyCard{

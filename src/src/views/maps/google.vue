@@ -310,83 +310,55 @@ export default {
 <template>
   <Layout>
     <PageHeader :title="title" :items="items" />
-    <div class="row">
-      <div class="col-lg-6">
-        <div class="card">
-          <div class="card-body">
-            <h4 class="card-title">Basic</h4>
+    <b-row>
+      <b-col lg="6">
+        <b-card no-body>
+          <b-card-body>
+            <b-card-title>Basic</b-card-title>
             <p class="card-title-dsec">Example of google maps.</p>
-            <!-- basic map -->
-            <GoogleMap
-              api-key="AIzaSyAbvyBxmMbFhrzP9Z8moyYr6dCr-pzjhBE"
-              :center="{ lat: 2, lng: 2 }"
-              :zoom="5"
-              style="height: 300px"
-            ></GoogleMap>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-6">
-        <div class="card">
-          <div class="card-body">
-            <h4 class="card-title">Markers</h4>
+            <GoogleMap api-key="AIzaSyAbvyBxmMbFhrzP9Z8moyYr6dCr-pzjhBE" :center="{ lat: 2, lng: 2 }" :zoom="5"
+              style="height: 300px"></GoogleMap>
+          </b-card-body>
+        </b-card>
+      </b-col>
+      <b-col lg="6">
+        <b-card no-body>
+          <b-card-body>
+            <b-card-title>Markers</b-card-title>
             <p class="card-title-dsec">Example of google maps.</p>
-            <!-- Map with markers -->
-            <GoogleMap
-              :center="{ lat: 11, lng: 12 }"
-              :zoom="3"
-              style="height: 300px"
-            >
-              <Marker
-                v-for="(m, index) in markers"
-                :key="index"
-                :position="m.position"
-                :clickable="true"
-                :draggable="true"
-                @click="center = m.position"
-              ></Marker>
+            <GoogleMap api-key="AIzaSyAbvyBxmMbFhrzP9Z8moyYr6dCr-pzjhBE" :center="{ lat: 11, lng: 12 }" :zoom="3"
+              style="height: 300px">
+              <Marker v-for="(m, index) in markers" :key="index" :position="m.position" :clickable="true"
+                :draggable="true" @click="center = m.position"></Marker>
             </GoogleMap>
-          </div>
-        </div>
-      </div>
-    </div>
+          </b-card-body>
+        </b-card>
+      </b-col>
+    </b-row>
 
-    <div class="row">
-      <div class="col-lg-6">
-        <div class="card">
-          <div class="card-body">
-            <h4 class="card-title">Polygon Editing</h4>
+    <b-row>
+      <b-col lg="6">
+        <b-card no-body>
+          <b-card-body>
+            <b-card-title>Polygon Editing</b-card-title>
             <p class="card-title-dsec">Example of google maps.</p>
-            <!-- Polygon editiong map -->
-            <GoogleMap
-              :center="{ lat: 1.38, lng: 103.8 }"
-              :zoom="12"
-              style="height: 300px"
-            >
-              <Polygon
-                :paths="paths"
-                :editable="true"
-                @paths_changed="updateEdited($event)"
-              ></Polygon>
+            <GoogleMap api-key="AIzaSyAbvyBxmMbFhrzP9Z8moyYr6dCr-pzjhBE" :center="{ lat: 1.38, lng: 103.8 }" :zoom="12"
+              style="height: 300px">
+              <Polygon :paths="paths" :editable="true" @paths_changed="updateEdited($event)"></Polygon>
             </GoogleMap>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-6">
-        <div class="card">
-          <div class="card-body">
-            <h4 class="card-title">Map type</h4>
+          </b-card-body>
+        </b-card>
+      </b-col>
+      <b-col lg="6">
+        <b-card no-body>
+          <b-card-body>
+            <b-card-title>Map type</b-card-title>
             <p class="card-title-dsec">Example of google maps.</p>
-            <!-- Set map type -->
-            <GoogleMap
-              :center="{ lat: 4, lng: 4 }"
-              :zoom="3"
-              style="height: 300px"
-              map-type-id="terrain"
-            ></GoogleMap>
-          </div>
-        </div>
-      </div>
-    </div>
+            <GoogleMap api-key="AIzaSyAbvyBxmMbFhrzP9Z8moyYr6dCr-pzjhBE" :center="{ lat: 4, lng: 4 }" :zoom="3"
+              style="height: 300px" map-type-id="terrain"></GoogleMap>
+          </b-card-body>
+        </b-card>
+      </b-col>
+    </b-row>
   </Layout>
 </template>

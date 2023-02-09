@@ -51,61 +51,46 @@ export default {
 <template>
     <Layout>
         <PageHeader :title="title" :items="items" />
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card">
-                    <div class="card-header align-items-center d-flex">
-                        <h4 class="card-title mb-0 flex-grow-1">Default Placeholder</h4>
+        <b-row>
+            <b-col lg="12">
+                <b-card no-body>
+                    <b-card-header class="align-items-center d-flex">
+                        <b-card-title class="mb-0 flex-grow-1">Default Placeholder</b-card-title>
                         <div class="flex-shrink-0">
                             <div class="form-check form-switch form-switch-right form-switch-md">
-                                <label
-                                    for="baseexample-showcode"
-                                    class="form-label text-muted"
-                                >Show Code</label>
-                                <input
-                                    class="form-check-input code-switcher"
-                                    type="checkbox"
-                                    id="baseexample-showcode"
-                                />
+                                <label for="baseexample-showcode" class="form-label text-muted">Show Code</label>
+                                <input class="form-check-input code-switcher" type="checkbox"
+                                    id="baseexample-showcode" />
                             </div>
                         </div>
-                    </div>
-                    <!-- end card header -->
+                    </b-card-header>
 
-                    <div class="card-body">
-                        <p
-                            class="text-muted"
-                        >In the example below, we take a typical card component and recreate it with placeholders applied to create a “loading card”.</p>
+                    <b-card-body>
+                        <p class="text-muted">In the example below, we take a typical card component and recreate it
+                            with placeholders applied to create a “loading card”.</p>
 
                         <div class="live-preview">
-                            <div class="row justify-content-center">
-                                <div class="col-xl-7">
-                                    <div class="row justify-content-between">
-                                        <div class="col-lg-5 col-sm-6">
-                                            <div class="card">
-                                                <img
-                                                    src="@/assets/images/small/img-1.jpg"
-                                                    class="card-img-top"
-                                                    alt="card img"
-                                                />
+                            <b-row class="justify-content-center">
+                                <b-col xl="7">
+                                    <b-row class="justify-content-between">
+                                        <b-col lg="5" sm="6">
+                                            <b-card no-body>
+                                                <img src="@/assets/images/small/img-1.jpg" class="card-img-top"
+                                                    alt="card img" />
 
-                                                <div class="card-body">
+                                                <b-card-body>
                                                     <h5 class="card-title">Card title</h5>
-                                                    <p
-                                                        class="card-text"
-                                                    >Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-5 col-sm-6">
-                                            <div class="card" aria-hidden="true">
-                                                <img
-                                                    src="@/assets/images/small/img-2.jpg"
-                                                    class="card-img-top"
-                                                    alt="card dummy img"
-                                                />
-                                                <div class="card-body">
+                                                    <p class="card-text">Some quick example text to build on the card
+                                                        title and make up the bulk of the card's content.</p>
+                                                    <b-link href="#" class="btn btn-primary">Go somewhere</b-link>
+                                                </b-card-body>
+                                            </b-card>
+                                        </b-col>
+                                        <b-col lg="5" sm="6">
+                                            <b-card no-body aria-hidden="true">
+                                                <img src="@/assets/images/small/img-2.jpg" class="card-img-top"
+                                                    alt="card dummy img" />
+                                                <b-card-body>
                                                     <h5 class="card-title placeholder-glow">
                                                         <span class="placeholder col-6"></span>
                                                     </h5>
@@ -115,17 +100,14 @@ export default {
                                                         <span class="placeholder col-4"></span>
                                                         <span class="placeholder col-6"></span>
                                                     </p>
-                                                    <a
-                                                        href="#"
-                                                        tabindex="-1"
-                                                        class="btn btn-primary disabled placeholder col-6"
-                                                    ></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                                                    <b-link href="#" tabindex="-1"
+                                                        class="btn btn-primary disabled placeholder col-6"></b-link>
+                                                </b-card-body>
+                                            </b-card>
+                                        </b-col>
+                                    </b-row>
+                                </b-col>
+                            </b-row>
                         </div>
 
                         <div class="d-none code-view">
@@ -156,33 +138,24 @@ export default {
     &lt;/b-card&gt;
 &lt;/b-card&gt;</code></pre>
                         </div>
-                    </div>
-                    <!-- end card-body -->
-                </div>
-                <!-- end card -->
-            </div>
-            <!-- end col -->
-        </div>
-        <!-- end row -->
+                    </b-card-body>
+                </b-card>
+            </b-col>
+        </b-row>
 
-        <div class="row">
-            <div class="col-xxl-6">
-                <div class="card">
-                    <div class="card-header align-items-center d-flex">
-                        <h4 class="card-title mb-0 flex-grow-1">Width</h4>
+        <b-row>
+            <b-col xxl="6">
+                <b-card no-body>
+                    <b-card-header class="align-items-center d-flex">
+                        <b-card-title class="mb-0 flex-grow-1">Width</b-card-title>
                         <div class="flex-shrink-0">
                             <div class="form-check form-switch form-switch-right form-switch-md">
                                 <label for="width-showcode" class="form-label text-muted">Show Code</label>
-                                <input
-                                    class="form-check-input code-switcher"
-                                    type="checkbox"
-                                    id="width-showcode"
-                                />
+                                <input class="form-check-input code-switcher" type="checkbox" id="width-showcode" />
                             </div>
                         </div>
-                    </div>
-                    <!-- end card header -->
-                    <div class="card-body">
+                    </b-card-header>
+                    <b-card-body>
                         <p class="text-muted">
                             Use
                             <code>w-25,w-50,w-75</code> or
@@ -203,29 +176,21 @@ export default {
     &lt;span class=&quot;placeholder&quot; style=&quot;width: 25%;&quot;&gt;&lt;/span&gt;
 &lt;/div&gt;</code></pre>
                         </div>
-                    </div>
-                    <!-- end card-body -->
-                </div>
-                <!-- end card -->
-            </div>
-            <!-- end col -->
-            <div class="col-xxl-6">
-                <div class="card">
-                    <div class="card-header align-items-center d-flex">
-                        <h4 class="card-title mb-0 flex-grow-1">Sizing</h4>
+                    </b-card-body>
+                </b-card>
+            </b-col>
+            <b-col xxl="6">
+                <b-card no-body>
+                    <b-card-header class="align-items-center d-flex">
+                        <b-card-title class="mb-0 flex-grow-1">Sizing</b-card-title>
                         <div class="flex-shrink-0">
                             <div class="form-check form-switch form-switch-right form-switch-md">
                                 <label for="sizing-showcode" class="form-label text-muted">Show Code</label>
-                                <input
-                                    class="form-check-input code-switcher"
-                                    type="checkbox"
-                                    id="sizing-showcode"
-                                />
+                                <input class="form-check-input code-switcher" type="checkbox" id="sizing-showcode" />
                             </div>
                         </div>
-                    </div>
-                    <!-- end card header -->
-                    <div class="card-body">
+                    </b-card-header>
+                    <b-card-body>
                         <p class="text-muted">
                             Use
                             <code>placeholder-lg</code>,
@@ -233,20 +198,20 @@ export default {
                             <code>placeholder-xs</code> class to placeholder class to set different size placeholder.
                         </p>
                         <div class="live-preview">
-                            <div class="row gap-0">
-                                <div class="col-12">
+                            <b-row class="gap-0">
+                                <b-col cols="12">
                                     <span class="placeholder placeholder-lg w-100"></span>
-                                </div>
-                                <div class="col-12">
+                                </b-col>
+                                <b-col cols="12">
                                     <span class="placeholder w-100"></span>
-                                </div>
-                                <div class="col-12">
+                                </b-col>
+                                <b-col cols="12">
                                     <span class="placeholder placeholder-sm w-100"></span>
-                                </div>
-                                <div class="col-12">
+                                </b-col>
+                                <b-col cols="12">
                                     <span class="placeholder placeholder-xs w-100"></span>
-                                </div>
-                            </div>
+                                </b-col>
+                            </b-row>
                         </div>
                         <div class="d-none code-view">
                             <pre class="language-markup">
@@ -259,77 +224,58 @@ export default {
 
 <code>&lt;span class=&quot;placeholder col-12 placeholder-xs&quot;&gt;&lt;/span&gt;</code></pre>
                         </div>
-                    </div>
-                    <!-- end card-body -->
-                </div>
-                <!-- end card -->
-            </div>
-            <!--end col-->
-        </div>
-        <!-- end row -->
+                    </b-card-body>
+                </b-card>
+            </b-col>
+        </b-row>
 
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card">
-                    <div class="card-header align-items-center d-flex">
-                        <h4 class="card-title mb-0 flex-grow-1">Color</h4>
+        <b-row>
+            <b-col lg="12">
+                <b-card no-body>
+                    <b-card-header class="align-items-center d-flex">
+                        <b-card-title class="mb-0 flex-grow-1">Color</b-card-title>
                         <div class="flex-shrink-0">
                             <div class="form-check form-switch form-switch-right form-switch-md">
                                 <label for="color-showcode" class="form-label text-muted">Show Code</label>
-                                <input
-                                    class="form-check-input code-switcher"
-                                    type="checkbox"
-                                    id="color-showcode"
-                                />
+                                <input class="form-check-input code-switcher" type="checkbox" id="color-showcode" />
                             </div>
                         </div>
-                    </div>
-                    <!-- end card header -->
-                    <div class="card-body">
+                    </b-card-header>
+                    <b-card-body>
                         <p class="text-muted">
                             Use
                             <code>bg-</code> class with the below-mentioned color variation to set a custom color.
                         </p>
                         <div class="live-preview">
-                            <div class="row g-2">
-                                <div class="col-12">
+                            <b-row class="g-2">
+                                <b-col cols="12">
                                     <span class="placeholder w-100"></span>
-                                </div>
-                                <!--end col-->
-                                <div class="col-12">
+                                </b-col>
+                                <b-col cols="12">
                                     <span class="placeholder bg-primary w-100"></span>
-                                </div>
-                                <!--end col-->
-                                <div class="col-12">
+                                </b-col>
+                                <b-col cols="12">
                                     <span class="placeholder bg-secondary w-100"></span>
-                                </div>
-                                <!--end col-->
-                                <div class="col-12">
+                                </b-col>
+                                <b-col cols="12">
                                     <span class="placeholder bg-success w-100"></span>
-                                </div>
-                                <!--end col-->
-                                <div class="col-12">
+                                </b-col>
+                                <b-col cols="12">
                                     <span class="placeholder bg-danger w-100"></span>
-                                </div>
-                                <!--end col-->
-                                <div class="col-12">
+                                </b-col>
+                                <b-col cols="12">
                                     <span class="placeholder bg-warning w-100"></span>
-                                </div>
-                                <!--end col-->
-                                <div class="col-12">
+                                </b-col>
+                                <b-col cols="12">
                                     <span class="placeholder bg-info w-100"></span>
-                                </div>
-                                <!--end col-->
-                                <div class="col-12">
+                                </b-col>
+                                <b-col cols="12">
                                     <span class="placeholder bg-light w-100"></span>
-                                </div>
-                                <!--end col-->
-                                <div class="col-12">
+                                </b-col>
+                                <b-col cols="12">
                                     <span class="placeholder bg-dark w-100"></span>
-                                </div>
-                                <!--end col-->
-                            </div>
-                            <!--end row-->
+                                </b-col>
+                            </b-row>
                         </div>
                         <div class="d-none code-view">
                             <pre class="language-markup" style="height: 275px">
@@ -352,13 +298,9 @@ export default {
 
 <code>&lt;span class=&quot;placeholder col-12 mb-3 bg-dark&quot;&gt;&lt;/span&gt;</code></pre>
                         </div>
-                    </div>
-                    <!-- end card-body -->
-                </div>
-                <!-- end card -->
-            </div>
-            <!-- end col -->
-        </div>
-        <!--end row-->
+                    </b-card-body>
+                </b-card>
+            </b-col>
+        </b-row>
     </Layout>
 </template>

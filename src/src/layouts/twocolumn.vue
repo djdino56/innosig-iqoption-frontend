@@ -1,16 +1,42 @@
 <script>
-  import router from "@/router";
-  import {
-    SimpleBar
-  } from "simplebar-vue3";
-  import {
-    layoutComputed
-  } from "@/state/helpers";
-  import Menu from "@/components/menu.vue";
-  import NavBar from "@/components/nav-bar";
-  import RightBar from "@/components/right-bar";
-  import Footer from "@/components/footer";
-  import {
+import router from "@/router";
+import {
+  SimpleBar
+} from "simplebar-vue3";
+import {
+  layoutComputed
+} from "@/state/helpers";
+
+import {
+  HomeIcon,
+  GridIcon,
+  UsersIcon,
+  CommandIcon,
+  PackageIcon,
+  LayersIcon,
+  CopyIcon,
+  FileTextIcon,
+  DatabaseIcon,
+  PieChartIcon,
+  ArchiveIcon,
+  MapPinIcon,
+  Share2Icon
+} from "@zhuowenli/vue-feather-icons";
+import Menu from "@/components/menu.vue";
+import NavBar from "@/components/nav-bar";
+import RightBar from "@/components/right-bar";
+import Footer from "@/components/footer";
+
+/**
+ * Vertical layout
+ */
+export default {
+  components: {
+    NavBar,
+    RightBar,
+    Footer,
+    SimpleBar,
+    Menu,
     HomeIcon,
     GridIcon,
     UsersIcon,
@@ -24,200 +50,183 @@
     ArchiveIcon,
     MapPinIcon,
     Share2Icon
-  } from "@zhuowenli/vue-feather-icons";
+  },
+  data() {
+    return {
+      isMenuCondensed: false,
+      rmenu: localStorage.getItem('rmenu') ? localStorage.getItem('rmenu') : 'twocolumn',
+    };
+  },
 
-  /**
-   * Vertical layout
-   */
-  export default {
-    components: {
-      NavBar,
-      RightBar,
-      Footer,
-      SimpleBar,
-      Menu,
-      HomeIcon,
-      GridIcon,
-      UsersIcon,
-      CommandIcon,
-      PackageIcon,
-      LayersIcon,
-      CopyIcon,
-      FileTextIcon,
-      DatabaseIcon,
-      PieChartIcon,
-      ArchiveIcon,
-      MapPinIcon,
-      Share2Icon
-    },
-    data() {
-      return {
-        isMenuCondensed: false,
-        rmenu: localStorage.getItem('rmenu') ? localStorage.getItem('rmenu') : 'twocolumn',
-      };
-    },
-
-    computed: {
-      ...layoutComputed,
-    },
-    created: () => {
-      document.body.removeAttribute("data-layout", "horizontal");
-      document.body.removeAttribute("data-topbar", "dark");
-      document.body.removeAttribute("data-layout-size", "boxed");
-    },
-    methods: {
-      initActiveMenu() {
-        const pathName = window.location.pathname;
-        const ul = document.getElementById("navbar-nav");
-        if (ul) {
-          const items = Array.from(ul.querySelectorAll("a.nav-link"));
-          let activeItems = items.filter((x) => x.classList.contains("active"));
-          this.removeActivation(activeItems);
-          let matchingMenuItem = items.find((x) => {
-            return x.getAttribute("href") === pathName;
-          });
-          if (matchingMenuItem) {
-            this.activateParentDropdown(matchingMenuItem);
-          } else {
-            var id = pathName.replace("/", "");
-            if (id) document.body.classList.add("twocolumn-panel");
-            this.activateIconSidebarActive(pathName);
-          }
+  computed: {
+    ...layoutComputed,
+  },
+  created: () => {
+    document.body.removeAttribute("data-layout", "horizontal");
+    document.body.removeAttribute("data-topbar", "dark");
+    document.body.removeAttribute("data-layout-size", "boxed");
+  },
+  methods: {
+    initActiveMenu() {
+      const pathName = window.location.pathname;
+      const ul = document.getElementById("navbar-nav");
+      if (ul) {
+        const items = Array.from(ul.querySelectorAll("a.nav-link"));
+        let activeItems = items.filter((x) => x.classList.contains("active"));
+        this.removeActivation(activeItems);
+        let matchingMenuItem = items.find((x) => {
+          return x.getAttribute("href") === pathName;
+        });
+        if (matchingMenuItem) {
+          this.activateParentDropdown(matchingMenuItem);
+        } else {
+          var id = pathName.replace("/", "");
+          if (id) document.body.classList.add("twocolumn-panel");
+          this.activateIconSidebarActive(pathName);
         }
-      },
+      }
+    },
 
-      updateMenu(e) {
-        document.body.classList.remove("twocolumn-panel");
-        const ul = document.getElementById("navbar-nav");
-        if (ul) {
-          const items = Array.from(ul.querySelectorAll(".show"));
-          items.forEach((item) => {
-            item.classList.remove("show");
-          });
-        }
-        const icons = document.getElementById("two-column-menu");
-        if (icons) {
-          const activeIcons = Array.from(
-            icons.querySelectorAll(".nav-icon.active")
-          );
-          activeIcons.forEach((item) => {
-            item.classList.remove("active");
-          });
-        }
-        document.getElementById(e).classList.add("show");
-        this.activateIconSidebarActive("#" + e);
-      },
-
-      removeActivation(items) {
+    updateMenu(e) {
+      document.body.classList.remove("twocolumn-panel");
+      const ul = document.getElementById("navbar-nav");
+      if (ul) {
+        const items = Array.from(ul.querySelectorAll(".show"));
         items.forEach((item) => {
-          if (item.classList.contains("menu-link")) {
-            if (!item.classList.contains("active")) {
-              item.setAttribute("aria-expanded", false);
-            }
-            item.nextElementSibling.classList.remove("show");
-          }
-          if (item.classList.contains("nav-link")) {
-            if (item.nextElementSibling) {
-              item.nextElementSibling.classList.remove("show");
-            }
-            item.setAttribute("aria-expanded", false);
-          }
+          item.classList.remove("show");
+        });
+      }
+      const icons = document.getElementById("two-column-menu");
+      if (icons) {
+        const activeIcons = Array.from(
+          icons.querySelectorAll(".nav-icon.active")
+        );
+        activeIcons.forEach((item) => {
           item.classList.remove("active");
         });
-      },
-
-      activateIconSidebarActive(id) {
-        var menu = document.querySelector(
-          "#two-column-menu .simplebar-content-wrapper a[href='" +
-          id +
-          "'].nav-icon"
-        );
-        if (menu !== null) {
-          menu.classList.add("active");
-        }
-      },
-
-      activateParentDropdown(item) {
-        // navbar-nav menu add active
-        item.classList.add("active");
-        let parentCollapseDiv = item.closest(".collapse.menu-dropdown");
-        if (parentCollapseDiv) {
-          // to set aria expand true remaining
-          parentCollapseDiv.classList.add("show");
-          parentCollapseDiv.parentElement.children[0].classList.add("active");
-          parentCollapseDiv.parentElement.children[0].setAttribute("aria-expanded", "true");
-          if (parentCollapseDiv.parentElement.closest(".collapse.menu-dropdown")) {
-            this.activateIconSidebarActive("#" + parentCollapseDiv.parentElement.closest(".collapse.menu-dropdown")
-              .getAttribute("id"));
-            parentCollapseDiv.parentElement.closest(".collapse").classList.add("show");
-            if (parentCollapseDiv.parentElement.closest(".collapse").previousElementSibling)
-              parentCollapseDiv.parentElement.closest(".collapse").previousElementSibling.classList.add("active");
-            return false;
-          }
-          this.activateIconSidebarActive("#" + parentCollapseDiv.getAttribute("id"));
-          return false;
-        }
-        return false;
-      },
-
-      toggleMenu() {
-        document.body.classList.toggle("sidebar-enable");
-
-        if (window.screen.width >= 992) {
-          // eslint-disable-next-line no-unused-vars
-          router.afterEach((routeTo, routeFrom) => {
-            document.body.classList.remove("sidebar-enable");
-            document.body.classList.remove("vertical-collpsed");
-          });
-          document.body.classList.toggle("vertical-collpsed");
-        } else {
-          // eslint-disable-next-line no-unused-vars
-          router.afterEach((routeTo, routeFrom) => {
-            document.body.classList.remove("sidebar-enable");
-          });
-          document.body.classList.remove("vertical-collpsed");
-        }
-        this.isMenuCondensed = !this.isMenuCondensed;
-      },
-
-      toggleRightSidebar() {
-        document.body.classList.toggle("right-bar-enabled");
-      },
-
-      hideRightSidebar() {
-        document.body.classList.remove("right-bar-enabled");
-      },
+      }
+      document.getElementById(e).classList.add("show");
+      this.activateIconSidebarActive("#" + e);
     },
 
-    mounted() {
-      this.initActiveMenu();
-      if (this.rmenu == 'vertical' && this.layoutType == 'twocolumn') {
-        document.documentElement.setAttribute("data-layout", "vertical");
-      }
-      document.getElementById('overlay').addEventListener('click', () => {
-        document.body.classList.remove('vertical-sidebar-enable')
-      })
-
-      window.addEventListener("resize", () => {
-        if (this.layoutType == 'twocolumn') {
-          var windowSize = document.documentElement.clientWidth;
-          if (windowSize < 767) {
-            document.documentElement.setAttribute("data-layout", "vertical");
-            this.rmenu = 'vertical';
-            localStorage.setItem('rmenu', 'vertical')
-          } else {
-            document.documentElement.setAttribute("data-layout", "twocolumn");
-            this.rmenu = 'twocolumn';
-            localStorage.setItem('rmenu', 'twocolumn')
-            setTimeout(() => {
-              this.initActiveMenu();
-            }, 50);
-
+    removeActivation(items) {
+      items.forEach((item) => {
+        if (item.classList.contains("menu-link")) {
+          if (!item.classList.contains("active")) {
+            item.setAttribute("aria-expanded", false);
           }
+          item.nextElementSibling.classList.remove("show");
         }
+        if (item.classList.contains("nav-link")) {
+          if (item.nextElementSibling) {
+            item.nextElementSibling.classList.remove("show");
+          }
+          item.setAttribute("aria-expanded", false);
+        }
+        item.classList.remove("active");
       });
     },
-  };
+
+    activateIconSidebarActive(id) {
+      var menu = document.querySelector(
+        "#two-column-menu .simplebar-content-wrapper a[href='" +
+        id +
+        "'].nav-icon"
+      );
+      if (menu !== null) {
+        menu.classList.add("active");
+      }
+    },
+
+    activateParentDropdown(item) {
+      // navbar-nav menu add active
+      item.classList.add("active");
+      let parentCollapseDiv = item.closest(".collapse.menu-dropdown");
+      if (parentCollapseDiv) {
+        // to set aria expand true remaining
+        parentCollapseDiv.classList.add("show");
+        parentCollapseDiv.parentElement.children[0].classList.add("active");
+        parentCollapseDiv.parentElement.children[0].setAttribute("aria-expanded", "true");
+        if (parentCollapseDiv.parentElement.closest(".collapse.menu-dropdown")) {
+          if (parentCollapseDiv.parentElement.closest(".collapse.menu-dropdown").previousElementSibling) {
+            if (parentCollapseDiv.parentElement.closest(".collapse.menu-dropdown").previousElementSibling.parentElement.closest(".collapse.menu-dropdown")) {
+              const grandparent = parentCollapseDiv.parentElement.closest(".collapse.menu-dropdown").previousElementSibling.parentElement.closest(".collapse.menu-dropdown");
+              this.activateIconSidebarActive("#" + grandparent.getAttribute("id"));
+              grandparent.classList.add("show");
+            }
+          }
+          this.activateIconSidebarActive("#" + parentCollapseDiv.parentElement.closest(".collapse.menu-dropdown")
+            .getAttribute("id"));
+
+          parentCollapseDiv.parentElement.closest(".collapse").classList.add("show");
+          if (parentCollapseDiv.parentElement.closest(".collapse").previousElementSibling)
+            parentCollapseDiv.parentElement.closest(".collapse").previousElementSibling.classList.add("active");
+          return false;
+        }
+        this.activateIconSidebarActive("#" + parentCollapseDiv.getAttribute("id"));
+        return false;
+      }
+      return false;
+    },
+
+    toggleMenu() {
+      document.body.classList.toggle("sidebar-enable");
+
+      if (window.screen.width >= 992) {
+        // eslint-disable-next-line no-unused-vars
+        router.afterEach((routeTo, routeFrom) => {
+          document.body.classList.remove("sidebar-enable");
+          document.body.classList.remove("vertical-collpsed");
+        });
+        document.body.classList.toggle("vertical-collpsed");
+      } else {
+        // eslint-disable-next-line no-unused-vars
+        router.afterEach((routeTo, routeFrom) => {
+          document.body.classList.remove("sidebar-enable");
+        });
+        document.body.classList.remove("vertical-collpsed");
+      }
+      this.isMenuCondensed = !this.isMenuCondensed;
+    },
+
+    toggleRightSidebar() {
+      document.body.classList.toggle("right-bar-enabled");
+    },
+
+    hideRightSidebar() {
+      document.body.classList.remove("right-bar-enabled");
+    },
+  },
+
+  mounted() {
+    this.initActiveMenu();
+    if (this.rmenu == 'vertical' && this.layoutType == 'twocolumn') {
+      document.documentElement.setAttribute("data-layout", "vertical");
+    }
+    document.getElementById('overlay').addEventListener('click', () => {
+      document.body.classList.remove('vertical-sidebar-enable');
+    });
+
+    window.addEventListener("resize", () => {
+      if (this.layoutType == 'twocolumn') {
+        var windowSize = document.documentElement.clientWidth;
+        if (windowSize < 767) {
+          document.documentElement.setAttribute("data-layout", "vertical");
+          this.rmenu = 'vertical';
+          localStorage.setItem('rmenu', 'vertical');
+        } else {
+          document.documentElement.setAttribute("data-layout", "twocolumn");
+          this.rmenu = 'twocolumn';
+          localStorage.setItem('rmenu', 'twocolumn');
+          setTimeout(() => {
+            this.initActiveMenu();
+          }, 50);
+
+        }
+      }
+    });
+  },
+};
 </script>
 
 <template>
@@ -253,87 +262,88 @@
           </button>
         </div>
 
-        <div id="scrollbar" v-if="rmenu=='twocolumn'">
-          <div class="container-fluid">
+        <div id="scrollbar" v-if="rmenu == 'twocolumn'">
+          <b-container fluid>
             <div id="two-column-menu">
               <SimpleBar class="twocolumn-iconview list-unstyled">
-                <a href="#" class="logo"><img src="@/assets/images/logo-sm.png" alt="Logo" height="22" /></a>
+                <b-link href="#" class="logo"><img src="@/assets/images/logo-sm.png" alt="Logo" height="22" /></b-link>
                 <li>
-                  <a class="nav-icon" href="#sidebarDashboards" role="button"
+                  <b-link class="nav-icon" href="#sidebarDashboards" role="button"
                     @click.prevent="updateMenu('sidebarDashboards')">
-                    <HomeIcon></HomeIcon>
-                  </a>
+                    <HomeIcon />
+                  </b-link>
                 </li>
                 <li>
-                  <a class="nav-icon" href="#sidebarApps" role="button" @click.prevent="updateMenu('sidebarApps')">
-                    <GridIcon></GridIcon>
-                  </a>
+                  <b-link class="nav-icon" href="#sidebarApps" role="button" @click.prevent="updateMenu('sidebarApps')">
+                    <GridIcon />
+                  </b-link>
                 </li>
                 <li>
-                  <a class="nav-icon" href="#sidebarAuth" role="button" @click.prevent="updateMenu('sidebarAuth')">
-                    <UsersIcon></UsersIcon>
-                  </a>
+                  <b-link class="nav-icon" href="#sidebarAuth" role="button" @click.prevent="updateMenu('sidebarAuth')">
+                    <UsersIcon />
+                  </b-link>
                 </li>
                 <li>
-                  <a class="nav-icon" href="#sidebarPages" role="button" @click.prevent="updateMenu('sidebarPages')">
-                    <CommandIcon></CommandIcon>
-                  </a>
+                  <b-link class="nav-icon" href="#sidebarPages" role="button" @click.prevent="updateMenu('sidebarPages')">
+                    <CommandIcon />
+                  </b-link>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-icon" target="_blank" href="/landing">
+                <li>
+                  <b-link class="nav-icon" href="#sidebarlanding" role="button"
+                    @click.prevent="updateMenu('sidebarlanding')">
                     <i class="ri-rocket-line"></i>
-                  </a>
+                  </b-link>
                 </li>
                 <li>
-                  <a class="nav-icon" href="#sidebarUI" role="button" @click.prevent="updateMenu('sidebarUI')">
-                    <PackageIcon></PackageIcon>
-                  </a>
+                  <b-link class="nav-icon" href="#sidebarUI" role="button" @click.prevent="updateMenu('sidebarUI')">
+                    <PackageIcon />
+                  </b-link>
                 </li>
                 <li>
-                  <a class="nav-icon" href="#sidebarAdvanceUI" role="button"
+                  <b-link class="nav-icon" href="#sidebarAdvanceUI" role="button"
                     @click.prevent="updateMenu('sidebarAdvanceUI')">
-                    <LayersIcon></LayersIcon>
-                  </a>
+                    <LayersIcon />
+                  </b-link>
                 </li>
                 <li class="nav-item">
                   <router-link class="nav-icon" to="/widgets">
-                    <CopyIcon></CopyIcon>
+                    <CopyIcon />
                   </router-link>
                 </li>
                 <li>
-                  <a class="nav-icon" href="#sidebarForms" role="button" @click.prevent="updateMenu('sidebarForms')">
-                    <FileTextIcon></FileTextIcon>
-                  </a>
+                  <b-link class="nav-icon" href="#sidebarForms" role="button" @click.prevent="updateMenu('sidebarForms')">
+                    <FileTextIcon />
+                  </b-link>
                 </li>
                 <li>
-                  <a class="nav-icon" href="#sidebarTables" role="button" @click.prevent="updateMenu('sidebarTables')">
-                    <DatabaseIcon></DatabaseIcon>
-                  </a>
-                </li>
-
-                <li>
-                  <a class="nav-icon" href="#sidebarCharts" role="button" @click.prevent="updateMenu('sidebarCharts')">
-                    <PieChartIcon></PieChartIcon>
-                  </a>
+                  <b-link class="nav-icon" href="#sidebarTables" role="button" @click.prevent="updateMenu('sidebarTables')">
+                    <DatabaseIcon />
+                  </b-link>
                 </li>
 
                 <li>
-                  <a class="nav-icon" href="#sidebarIcons" role="button" @click.prevent="updateMenu('sidebarIcons')">
-                    <ArchiveIcon></ArchiveIcon>
-                  </a>
+                  <b-link class="nav-icon" href="#sidebarCharts" role="button" @click.prevent="updateMenu('sidebarCharts')">
+                    <PieChartIcon />
+                  </b-link>
                 </li>
 
                 <li>
-                  <a class="nav-icon" href="#sidebarMaps" role="button" @click.prevent="updateMenu('sidebarMaps')">
-                    <MapPinIcon></MapPinIcon>
-                  </a>
+                  <b-link class="nav-icon" href="#sidebarIcons" role="button" @click.prevent="updateMenu('sidebarIcons')">
+                    <ArchiveIcon />
+                  </b-link>
                 </li>
 
                 <li>
-                  <a class="nav-icon" href="#sidebarMultilevel" role="button"
+                  <b-link class="nav-icon" href="#sidebarMaps" role="button" @click.prevent="updateMenu('sidebarMaps')">
+                    <MapPinIcon />
+                  </b-link>
+                </li>
+
+                <li>
+                  <b-link class="nav-icon" href="#sidebarMultilevel" role="button"
                     @click.prevent="updateMenu('sidebarMultilevel')">
-                    <Share2Icon></Share2Icon>
-                  </a>
+                    <Share2Icon />
+                  </b-link>
                 </li>
               </SimpleBar>
             </div>
@@ -370,6 +380,19 @@
                           {{ $t("t-projects") }}
                         </router-link>
                       </li>
+                      <li class="nav-item">
+                        <router-link to="/dashboard/nft" class="nav-link" data-key="t-nft">
+                          {{ $t("t-nft") }}
+                        </router-link>
+                      </li>
+                      <li class="nav-item">
+                        <router-link to="/dashboard/job" class="nav-link" data-key="t-job">
+                          {{ $t("t-job") }}
+                          <b-badge variant="success" class="badge-pill" data-key="t-new">{{
+                              $t("t-new")
+                          }}</b-badge>
+                        </router-link>
+                      </li>
                     </ul>
                   </div>
                 </li>
@@ -388,15 +411,45 @@
                         </router-link>
                       </li>
                       <li class="nav-item">
-                        <router-link to="/mailbox" class="nav-link" data-key="t-mailbox">
-                          {{ $t("t-mailbox") }}
-                        </router-link>
+                        <b-link href="#sidebaremail" class="nav-link" data-bs-toggle="collapse" role="button"
+                          aria-expanded="false" aria-controls="sidebaremail" data-key="t-projects">
+                          {{ $t("t-email") }}
+                        </b-link>
+                        <div class="collapse menu-dropdown" id="sidebaremail">
+                          <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                              <router-link to="/mailbox" class="nav-link" data-key="t-mailbox">
+                                {{ $t("t-mailbox") }}
+                              </router-link>
+                            </li>
+                            <li class="nav-item">
+                              <b-link href="#sidebarsubemail" class="nav-link" data-bs-toggle="collapse" role="button"
+                                aria-expanded="false" aria-controls="sidebarsubemail" data-key="t-projects">
+                                {{ $t("t-email-templates") }}
+                              </b-link>
+                              <div class="collapse menu-dropdown" id="sidebarsubemail">
+                                <ul class="nav nav-sm flex-column">
+                                  <li class="nav-item">
+                                    <router-link to="/email/email-basic" class="nav-link" data-key="t-products">
+                                      {{ $t("t-basic-action") }}
+                                    </router-link>
+                                  </li>
+                                  <li class="nav-item">
+                                    <router-link to="/email/email-ecommerce" class="nav-link" data-key="t-products">
+                                      {{ $t("t-ecommerce-action") }}
+                                    </router-link>
+                                  </li>
+                                </ul>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
                       </li>
                       <li class="nav-item">
-                        <a href="#sidebarEcommerce" class="nav-link" data-bs-toggle="collapse" role="button"
+                        <b-link href="#sidebarEcommerce" class="nav-link" data-bs-toggle="collapse" role="button"
                           aria-expanded="false" aria-controls="sidebarEcommerce" data-key="t-ecommerce">
                           {{ $t("t-ecommerce") }}
-                        </a>
+                        </b-link>
                         <div class="collapse menu-dropdown" id="sidebarEcommerce">
                           <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
@@ -454,10 +507,10 @@
                         </div>
                       </li>
                       <li class="nav-item">
-                        <a href="#sidebarProjects" class="nav-link" data-bs-toggle="collapse" role="button"
+                        <b-link href="#sidebarProjects" class="nav-link" data-bs-toggle="collapse" role="button"
                           aria-expanded="false" aria-controls="sidebarProjects" data-key="t-projects">
                           {{ $t("t-projects") }}
-                        </a>
+                        </b-link>
                         <div class="collapse menu-dropdown" id="sidebarProjects">
                           <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
@@ -479,10 +532,10 @@
                         </div>
                       </li>
                       <li class="nav-item">
-                        <a href="#sidebarTasks" class="nav-link" data-bs-toggle="collapse" role="button"
+                        <b-link href="#sidebarTasks" class="nav-link" data-bs-toggle="collapse" role="button"
                           aria-expanded="false" aria-controls="sidebarTasks" data-key="t-tasks">
                           {{ $t("t-tasks") }}
-                        </a>
+                        </b-link>
                         <div class="collapse menu-dropdown" id="sidebarTasks">
                           <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
@@ -504,10 +557,10 @@
                         </div>
                       </li>
                       <li class="nav-item">
-                        <a href="#sidebarCRM" class="nav-link" data-bs-toggle="collapse" role="button"
+                        <b-link href="#sidebarCRM" class="nav-link" data-bs-toggle="collapse" role="button"
                           aria-expanded="false" aria-controls="sidebarCRM" data-key="t-crm">
                           {{ $t("t-crm") }}
-                        </a>
+                        </b-link>
                         <div class="collapse menu-dropdown" id="sidebarCRM">
                           <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
@@ -534,10 +587,10 @@
                         </div>
                       </li>
                       <li class="nav-item">
-                        <a href="#sidebarCrypto" class="nav-link" data-bs-toggle="collapse" role="button"
+                        <b-link href="#sidebarCrypto" class="nav-link" data-bs-toggle="collapse" role="button"
                           aria-expanded="false" aria-controls="sidebarCrypto" data-key="t-crypto">
                           {{ $t("t-crypto") }}
-                        </a>
+                        </b-link>
                         <div class="collapse menu-dropdown" id="sidebarCrypto">
                           <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
@@ -574,10 +627,10 @@
                         </div>
                       </li>
                       <li class="nav-item">
-                        <a href="#sidebarInvoices" class="nav-link" data-bs-toggle="collapse" role="button"
+                        <b-link href="#sidebarInvoices" class="nav-link" data-bs-toggle="collapse" role="button"
                           aria-expanded="false" aria-controls="sidebarInvoices" data-key="t-invoices">
                           {{ $t("t-invoices") }}
-                        </a>
+                        </b-link>
                         <div class="collapse menu-dropdown" id="sidebarInvoices">
                           <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
@@ -599,10 +652,10 @@
                         </div>
                       </li>
                       <li class="nav-item">
-                        <a href="#sidebarTickets" class="nav-link" data-bs-toggle="collapse" role="button"
+                        <b-link href="#sidebarTickets" class="nav-link" data-bs-toggle="collapse" role="button"
                           aria-expanded="false" aria-controls="sidebarTickets" data-key="t-supprt-tickets">
                           {{ $t("t-supprt-tickets") }}
-                        </a>
+                        </b-link>
                         <div class="collapse menu-dropdown" id="sidebarTickets">
                           <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
@@ -618,6 +671,164 @@
                           </ul>
                         </div>
                       </li>
+                      <li class="nav-item">
+                        <b-link href="#nftmarketplace" class="nav-link" data-bs-toggle="collapse" role="button"
+                          aria-expanded="false" aria-controls="nftmarketplace" data-key="t-supprt-tickets">
+                          {{ $t("t-nft-marketplace") }}
+                        </b-link>
+                        <div class="collapse menu-dropdown" id="nftmarketplace">
+                          <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                              <router-link to="/apps/nft-marketplace" class="nav-link" data-key="t-list-view">
+                                {{ $t("t-marketplace") }}
+                              </router-link>
+                            </li>
+                            <li class="nav-item">
+                              <router-link to="/apps/nft-explore" class="nav-link" data-key="t-ticket-details">
+                                {{ $t("t-explore-now") }}
+                              </router-link>
+                            </li>
+                            <li class="nav-item">
+                              <router-link to="/apps/nft-auction" class="nav-link" data-key="t-ticket-details">
+                                {{ $t("t-live-auction") }}
+                              </router-link>
+                            </li>
+                            <li class="nav-item">
+                              <router-link to="/apps/nft-item-detail" class="nav-link" data-key="t-ticket-details">
+                                {{ $t("t-item-details") }}
+                              </router-link>
+                            </li>
+                            <li class="nav-item">
+                              <router-link to="/apps/nft-collection" class="nav-link" data-key="t-ticket-details">
+                                {{ $t("t-collections") }}
+                              </router-link>
+                            </li>
+                            <li class="nav-item">
+                              <router-link to="/apps/nft-creators" class="nav-link" data-key="t-ticket-details">
+                                {{ $t("t-creators") }}
+                              </router-link>
+                            </li>
+                            <li class="nav-item">
+                              <router-link to="/apps/nft-ranking" class="nav-link" data-key="t-ticket-details">
+                                {{ $t("t-ranking") }}
+                              </router-link>
+                            </li>
+                            <li class="nav-item">
+                              <router-link to="/apps/nft-wallet" class="nav-link" data-key="t-ticket-details">
+                                {{ $t("t-wallet-connect") }}
+                              </router-link>
+                            </li>
+                            <li class="nav-item">
+                              <router-link to="/apps/nft-create" class="nav-link" data-key="t-ticket-details">
+                                {{ $t("t-create-nft") }}
+                              </router-link>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <li class="nav-item">
+                        <router-link to="/apps-file-manager" class="nav-link" data-key="t-file-manager">
+                          {{ $t("t-file-manager") }}
+                        </router-link>
+                      </li>
+                      <li class="nav-item">
+                        <router-link to="/apps-todo" class="nav-link" data-key="t-to-do">
+                          {{ $t("t-to-do") }}
+                        </router-link>
+                      </li>
+                      <li class="nav-item">
+                        <b-link href="#jobs" class="nav-link" data-bs-toggle="collapse" role="button" aria-expanded="false"
+                          aria-controls="jobs" data-key="t-jobs">
+                          {{ $t("t-jobs") }}
+                          <b-badge variant="success" class="badge-pill" data-key="t-new">{{
+                              $t("t-new")
+                          }}</b-badge>
+                        </b-link>
+                        <div class="collapse menu-dropdown" id="jobs">
+                          <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                              <router-link to="/jobs/statistics" class="nav-link" data-key="t-job-statistics">
+                                {{ $t("t-statistics") }}
+                              </router-link>
+                            </li>
+
+                            <li class="nav-item">
+                              <b-link href="#sidebarjoblist" class="nav-link" data-bs-toggle="collapse" role="button"
+                                aria-expanded="false" aria-controls="sidebarjoblist" data-key="t-job-list">
+                                {{ $t("t-job-lists") }}
+                              </b-link>
+                              <div class="collapse menu-dropdown" id="sidebarjoblist">
+                                <ul class="nav nav-sm flex-column">
+                                  <li class="nav-item">
+                                    <router-link to="/jobs/lists" class="nav-link" data-key="t-lists">
+                                      {{ $t("t-list") }}
+                                    </router-link>
+                                  </li>
+                                  <li class="nav-item">
+                                    <router-link to="/jobs/grid-lists" class="nav-link" data-key="t-grid">
+                                      {{ $t("t-grid") }}
+                                    </router-link>
+                                  </li>
+                                  <li class="nav-item">
+                                    <router-link to="/jobs/details" class="nav-link" data-key="t-overview">
+                                      {{ $t("t-overview") }}
+                                    </router-link>
+                                  </li>
+                                </ul>
+                              </div>
+                            </li>
+
+                            <li class="nav-item">
+                              <b-link href="#sidebarcandidatelists" class="nav-link" data-bs-toggle="collapse" role="button"
+                                aria-expanded="false" aria-controls="sidebarcandidatelists" data-key="t-job-list">
+                                {{ $t("t-candidate-lists") }}
+                              </b-link>
+                              <div class="collapse menu-dropdown" id="sidebarcandidatelists">
+                                <ul class="nav nav-sm flex-column">
+                                  <li class="nav-item">
+                                    <router-link to="/jobs/candidate-lists" class="nav-link" data-key="t-lists">
+                                      {{ $t("t-list-view") }}
+                                    </router-link>
+                                  </li>
+                                  <li class="nav-item">
+                                    <router-link to="/jobs/candidate-grid" class="nav-link" data-key="t-grid">
+                                      {{ $t("t-grid-view") }}
+                                    </router-link>
+                                  </li>
+                                </ul>
+                              </div>
+                            </li>
+                            <li class="nav-item">
+                              <router-link to="/jobs/application" class="nav-link" data-key="t-application">
+                                {{ $t("t-application") }}
+                              </router-link>
+                            </li>
+                            <li class="nav-item">
+                              <router-link to="/jobs/new" class="nav-link" data-key="t-new">
+                                {{ $t("t-new-job") }}
+                              </router-link>
+                            </li>
+                            <li class="nav-item">
+                              <router-link to="/jobs/companies-list" class="nav-link" data-key="t-companies-list">
+                                {{ $t("t-companies-list") }}
+                              </router-link>
+                            </li>
+                            <li class="nav-item">
+                              <router-link to="/jobs/categories" class="nav-link" data-key="t-job-categories">
+                                {{ $t("t-job-categories") }}
+                              </router-link>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <li class="nav-item">
+                        <router-link to="/apps-api-key" class="nav-link" data-key="t-api-key">
+                          {{ $t("t-api-key") }}
+                          <b-badge variant="success" class="badge-pill" data-key="t-new">{{
+                              $t("t-new")
+                          }}</b-badge>
+                        </router-link>
+                      </li>
                     </ul>
                   </div>
                 </li>
@@ -626,9 +837,9 @@
                   <div class="collapse menu-dropdown" id="sidebarAuth">
                     <ul class="nav nav-sm flex-column">
                       <li class="nav-item">
-                        <a href="#sidebarSignIn" class="nav-link" data-bs-toggle="collapse" role="button"
+                        <b-link href="#sidebarSignIn" class="nav-link" data-bs-toggle="collapse" role="button"
                           aria-expanded="false" aria-controls="sidebarSignIn" data-key="t-signin">{{ $t("t-signin") }}
-                        </a>
+                        </b-link>
                         <div class="collapse menu-dropdown" id="sidebarSignIn">
                           <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
@@ -645,9 +856,9 @@
                         </div>
                       </li>
                       <li class="nav-item">
-                        <a href="#sidebarSignUp" class="nav-link" data-bs-toggle="collapse" role="button"
+                        <b-link href="#sidebarSignUp" class="nav-link" data-bs-toggle="collapse" role="button"
                           aria-expanded="false" aria-controls="sidebarSignUp" data-key="t-signup">{{ $t("t-signup") }}
-                        </a>
+                        </b-link>
                         <div class="collapse menu-dropdown" id="sidebarSignUp">
                           <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
@@ -665,10 +876,10 @@
                       </li>
 
                       <li class="nav-item">
-                        <a href="#sidebarResetPass" class="nav-link" data-bs-toggle="collapse" role="button"
+                        <b-link href="#sidebarResetPass" class="nav-link" data-bs-toggle="collapse" role="button"
                           aria-expanded="false" aria-controls="sidebarResetPass" data-key="t-password-reset">
                           {{ $t("t-password-reset") }}
-                        </a>
+                        </b-link>
                         <div class="collapse menu-dropdown" id="sidebarResetPass">
                           <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
@@ -685,10 +896,10 @@
                         </div>
                       </li>
                       <li class="nav-item">
-                        <a href="#sidebarcreatepass" class="nav-link" data-bs-toggle="collapse" role="button"
+                        <b-link href="#sidebarcreatepass" class="nav-link" data-bs-toggle="collapse" role="button"
                           aria-expanded="false" aria-controls="sidebarcreatepass" data-key="t-password-reset">
                           {{ $t("t-password-create") }}
-                        </a>
+                        </b-link>
                         <div class="collapse menu-dropdown" id="sidebarcreatepass">
                           <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
@@ -705,10 +916,10 @@
                         </div>
                       </li>
                       <li class="nav-item">
-                        <a href="#sidebarLockScreen" class="nav-link" data-bs-toggle="collapse" role="button"
+                        <b-link href="#sidebarLockScreen" class="nav-link" data-bs-toggle="collapse" role="button"
                           aria-expanded="false" aria-controls="sidebarLockScreen" data-key="t-lock-screen">
                           {{ $t("t-lock-screen") }}
-                        </a>
+                        </b-link>
                         <div class="collapse menu-dropdown" id="sidebarLockScreen">
                           <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
@@ -726,10 +937,10 @@
                       </li>
 
                       <li class="nav-item">
-                        <a href="#sidebarLogout" class="nav-link" data-bs-toggle="collapse" role="button"
+                        <b-link href="#sidebarLogout" class="nav-link" data-bs-toggle="collapse" role="button"
                           aria-expanded="false" aria-controls="sidebarLogout" data-key="t-logout">
                           {{ $t("t-logout") }}
-                        </a>
+                        </b-link>
                         <div class="collapse menu-dropdown" id="sidebarLogout">
                           <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
@@ -746,10 +957,10 @@
                         </div>
                       </li>
                       <li class="nav-item">
-                        <a href="#sidebarSuccessMsg" class="nav-link" data-bs-toggle="collapse" role="button"
+                        <b-link href="#sidebarSuccessMsg" class="nav-link" data-bs-toggle="collapse" role="button"
                           aria-expanded="false" aria-controls="sidebarSuccessMsg" data-key="t-success-message">
                           {{ $t("t-success-message") }}
-                        </a>
+                        </b-link>
                         <div class="collapse menu-dropdown" id="sidebarSuccessMsg">
                           <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
@@ -766,10 +977,10 @@
                         </div>
                       </li>
                       <li class="nav-item">
-                        <a href="#sidebarTwoStep" class="nav-link" data-bs-toggle="collapse" role="button"
+                        <b-link href="#sidebarTwoStep" class="nav-link" data-bs-toggle="collapse" role="button"
                           aria-expanded="false" aria-controls="sidebarTwoStep" data-key="t-two-step-verification">
                           {{ $t("t-two-step-verification") }}
-                        </a>
+                        </b-link>
                         <div class="collapse menu-dropdown" id="sidebarTwoStep">
                           <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
@@ -786,10 +997,10 @@
                         </div>
                       </li>
                       <li class="nav-item">
-                        <a href="#sidebarErrors" class="nav-link" data-bs-toggle="collapse" role="button"
+                        <b-link href="#sidebarErrors" class="nav-link" data-bs-toggle="collapse" role="button"
                           aria-expanded="false" aria-controls="sidebarErrors" data-key="t-errors">
                           {{ $t("t-errors") }}
-                        </a>
+                        </b-link>
                         <div class="collapse menu-dropdown" id="sidebarErrors">
                           <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
@@ -832,10 +1043,10 @@
                         </router-link>
                       </li>
                       <li class="nav-item">
-                        <a href="#sidebarProfile" class="nav-link" data-bs-toggle="collapse" role="button"
-                          aria-expanded="false" aria-controls="sidebarProfile"
-                          data-key="t-profile">{{ $t("t-profile") }}
-                        </a>
+                        <b-link href="#sidebarProfile" class="nav-link" data-bs-toggle="collapse" role="button"
+                          aria-expanded="false" aria-controls="sidebarProfile" data-key="t-profile">{{ $t("t-profile")
+                          }}
+                        </b-link>
                         <div class="collapse menu-dropdown" id="sidebarProfile">
                           <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
@@ -892,14 +1103,57 @@
                           {{ $t("t-search-results") }}
                         </router-link>
                       </li>
+                      <li class="nav-item">
+                        <router-link to="/pages/privacy-policy" class="nav-link" data-key="t-privacy-policy">
+                          {{ $t("t-privacy-policy") }}
+                          <b-badge variant="success" class="badge-pill" data-key="t-new">{{
+                              $t("t-new")
+                          }}</b-badge>
+                        </router-link>
+                      </li>
+                      <li class="nav-item">
+                        <router-link to="/pages/term-conditions" class="nav-link" data-key="t-term-conditions">
+                          {{ $t("t-term-conditions") }}
+                          <b-badge variant="success" class="badge-pill" data-key="t-new">{{
+                              $t("t-new")
+                          }}</b-badge>
+                        </router-link>
+                      </li>
                     </ul>
                   </div>
                 </li>
+                <li class="nav-item">
+                  <div class="collapse menu-dropdown" id="sidebarlanding">
+                    <ul class="nav nav-sm flex-column">
+                      <li class="nav-item">
+                        <router-link to="/landing" target="_blank" class="nav-link" data-key="t-one-page">{{
+                            $t("t-one-page")
+                        }}</router-link>
+                      </li>
 
+                      <li class="nav-item">
+                        <router-link to="/nft-landing" target="_blank" class="nav-link" data-key="t-nft-landing">{{
+                            $t("t-nft-landing")
+                        }}</router-link>
+                      </li>
+
+                      <li class="nav-item">
+                        <router-link to="/job-landing" target="_blank" class="nav-link" data-key="t-nft-landing">{{
+                            $t("t-job")
+                        }}
+                          <b-badge variant="success" class="badge-pill" data-key="t-new">{{
+                              $t("t-new")
+                          }}</b-badge>
+                        </router-link>
+                      </li>
+
+                    </ul>
+                  </div>
+                </li>
                 <li class="nav-item">
                   <div class="collapse menu-dropdown mega-dropdown-menu" id="sidebarUI">
-                    <div class="row">
-                      <div class="col-lg-4">
+                    <b-row>
+                      <b-col lg="4">
                         <ul class="nav nav-sm flex-column">
                           <li class="nav-item">
                             <router-link to="/ui/alerts" class="nav-link" data-key="t-alerts">{{ $t("t-alerts") }}
@@ -934,8 +1188,8 @@
                             </router-link>
                           </li>
                         </ul>
-                      </div>
-                      <div class="col-lg-4">
+                      </b-col>
+                      <b-col lg="4">
                         <ul class="nav nav-sm flex-column">
                           <li class="nav-item">
                             <router-link to="/ui/images" class="nav-link" data-key="t-images">{{ $t("t-images") }}
@@ -970,8 +1224,8 @@
                               {{ $t("t-notifications") }}</router-link>
                           </li>
                         </ul>
-                      </div>
-                      <div class="col-lg-4">
+                      </b-col>
+                      <b-col lg="4">
                         <ul class="nav nav-sm flex-column">
                           <li class="nav-item">
                             <router-link to="/ui/media" class="nav-link" data-key="t-media-object">
@@ -1002,8 +1256,8 @@
                               {{ $t("t-utilities") }}</router-link>
                           </li>
                         </ul>
-                      </div>
-                    </div>
+                      </b-col>
+                    </b-row>
                   </div>
                 </li>
 
@@ -1116,10 +1370,10 @@
                   <div class="collapse menu-dropdown" id="sidebarCharts">
                     <ul class="nav nav-sm flex-column">
                       <li class="nav-item">
-                        <a href="#sidebarApexcharts" class="nav-link" data-bs-toggle="collapse" role="button"
+                        <b-link href="#sidebarApexcharts" class="nav-link" data-bs-toggle="collapse" role="button"
                           aria-expanded="false" aria-controls="sidebarApexcharts" data-key="t-apexcharts">
                           {{ $t("t-apexcharts") }}
-                        </a>
+                        </b-link>
                         <div class="collapse menu-dropdown" id="sidebarApexcharts">
                           <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
@@ -1236,6 +1490,11 @@
                         <router-link to="/icons/feather" class="nav-link" data-key="t-feather">{{ $t("t-feather") }}
                         </router-link>
                       </li>
+                      <li class="nav-item">
+                        <router-link to="/icons/crypto" class="nav-link" data-key="t-feather">{{ $t("t-crypto-svg")
+                        }}
+                        </router-link>
+                      </li>
                     </ul>
                   </div>
                 </li>
@@ -1261,38 +1520,38 @@
                   <div class="collapse menu-dropdown" id="sidebarMultilevel">
                     <ul class="nav nav-sm flex-column">
                       <li class="nav-item">
-                        <a href="#" class="nav-link" data-key="t-level-1.1">
+                        <b-link href="#" class="nav-link" data-key="t-level-1.1">
                           {{ $t("t-level-1.1") }}
-                        </a>
+                        </b-link>
                       </li>
                       <li class="nav-item">
-                        <a href="#sidebarAccount" class="nav-link" data-bs-toggle="collapse" role="button"
+                        <b-link href="#sidebarAccount" class="nav-link" data-bs-toggle="collapse" role="button"
                           aria-expanded="false" aria-controls="sidebarAccount" data-key="t-level-1.2">
                           {{ $t("t-level-1.2") }}
-                        </a>
+                        </b-link>
                         <div class="collapse menu-dropdown" id="sidebarAccount">
                           <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                              <a href="#" class="nav-link" data-key="t-level-2.1">
+                              <b-link href="#" class="nav-link" data-key="t-level-2.1">
                                 {{ $t("t-level-2.1") }}
-                              </a>
+                              </b-link>
                             </li>
                             <li class="nav-item">
-                              <a href="#sidebarCrm" class="nav-link" data-bs-toggle="collapse" role="button"
+                              <b-link href="#sidebarCrm" class="nav-link" data-bs-toggle="collapse" role="button"
                                 aria-expanded="false" aria-controls="sidebarCrm" data-key="t-level-2.2">
                                 {{ $t("t-level-2.2") }}
-                              </a>
+                              </b-link>
                               <div class="collapse menu-dropdown" id="sidebarCrm">
                                 <ul class="nav nav-sm flex-column">
                                   <li class="nav-item">
-                                    <a href="#" class="nav-link" data-key="t-level-3.1">
+                                    <b-link href="#" class="nav-link" data-key="t-level-3.1">
                                       {{ $t("t-level-3.1") }}
-                                    </a>
+                                    </b-link>
                                   </li>
                                   <li class="nav-item">
-                                    <a href="#" class="nav-link" data-key="t-level-3.2">
+                                    <b-link href="#" class="nav-link" data-key="t-level-3.2">
                                       {{ $t("t-level-3.2") }}
-                                    </a>
+                                    </b-link>
                                   </li>
                                 </ul>
                               </div>
@@ -1305,15 +1564,14 @@
                 </li>
               </SimpleBar>
             </template>
-          </div>
+          </b-container>
         </div>
 
-
-
-
-        <SimpleBar id="scrollbar" class="h-100" ref="scrollbar" v-if="rmenu=='vertical'">
+        <SimpleBar id="scrollbar" class="h-100" ref="scrollbar" v-if="rmenu == 'vertical'">
           <Menu></Menu>
         </SimpleBar>
+
+        <div class="sidebar-background"></div>
       </div>
       <!-- Left Sidebar End -->
       <!-- Vertical Overlay-->
@@ -1326,9 +1584,9 @@
     <div class="main-content">
       <div class="page-content">
         <!-- Start Content-->
-        <div class="container-fluid">
+        <b-container fluid>
           <slot />
-        </div>
+        </b-container>
       </div>
       <Footer />
     </div>

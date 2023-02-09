@@ -16,7 +16,7 @@
           <b-button
               class="mt-3"
               variant="outline-primary"
-              v-b-modal.modal-create
+              @click="modalShow = !modalShow"
           >
             Create
           </b-button>
@@ -34,7 +34,7 @@
               <b-button
                   class="float-end me-1"
                   variant="outline-primary"
-                  v-b-modal.modal-create
+                  @click="modalShow = !modalShow"
               >
                 Create
               </b-button>
@@ -71,11 +71,9 @@
 
         <!-- modal login-->
         <b-modal
+            class="v-modal-custom"
             size="lg"
-            id="modal-create"
-            ref="obj-create"
             v-model="modalShow"
-            cancel-variant="outline-secondary"
             centered
             title="Create new strategy"
             hide-footer

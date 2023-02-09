@@ -12,6 +12,12 @@ a {
     box-shadow: $element-shadow;
 }
 
+.btn.show,
+.btn:first-child:active,
+:not(.btn-check)+.btn:active {
+    border-color: transparent;
+}
+
 // Rounded Buttons
 .btn-rounded {
     border-radius: 30px;
@@ -47,23 +53,19 @@ a {
 // Soft Buttons
 // 
 
-@mixin button-variant-soft($bg) {
-    color: $bg;
-    background-color: rgba($bg, 0.1);
-    border-color: transparent;
-
-    &:hover,
-    &:focus,
-    &:active {
-        color: $white;
-        background-color: $bg;
-    }
-}
-
 @each $color,
 $value in $theme-colors {
     .btn-soft-#{$color} {
-        @include button-variant-soft($value);
+        --#{$prefix}btn-color: #{$value};
+        --#{$prefix}btn-bg: #{rgba($value, .1)};
+        --#{$prefix}btn-border-color: transparent;
+        --#{$prefix}btn-hover-color: #{$white};
+        --#{$prefix}btn-hover-bg: #{shade-color($value, 10%)};
+        --#{$prefix}btn-hover-border-color: transparent;
+        --#{$prefix}btn-focus-shadow-rgb: #{to-rgb($value)};
+        --#{$prefix}btn-active-color: var(--#{$prefix}btn-hover-color);
+        --#{$prefix}btn-active-bg: #{shade-color($value, 20%)};
+        --#{$prefix}btn-active-border-color: transparent;
     }
 }
 
@@ -71,27 +73,24 @@ $value in $theme-colors {
 // Ghost Buttons
 // 
 
-@mixin button-variant-ghost($bg) {
-    color: $bg;
-    border-color: transparent;
-
-    &:hover,
-    &:focus,
-    &:active {
-        color: $bg;
-        background-color: rgba($bg, 0.1);
-    }
-}
-
 @each $color,
 $value in $theme-colors {
     .btn-ghost-#{$color} {
-        @include button-variant-ghost($value);
+        --#{$prefix}btn-color: #{$value};
+        --#{$prefix}btn-bg: transparent;
+        --#{$prefix}btn-border-color: transparent;
+        --#{$prefix}btn-hover-color: #{$value};
+        --#{$prefix}btn-hover-bg: #{rgba($value, .1)};
+        --#{$prefix}btn-hover-border-color: transparent;
+        --#{$prefix}btn-focus-shadow-rgb: #{to-rgb($value)};
+        --#{$prefix}btn-active-color: #{$value};
+        --#{$prefix}btn-active-bg: #{rgba($value, .1)};
+        --#{$prefix}btn-active-border-color: transparent;
     }
 }
 
 .btn-ghost-secondary {
-    color: var(--#{$variable-prefix}gray-700);
+    color: var(--#{$prefix}gray-700);
 }
 
 //button with icon
@@ -177,7 +176,8 @@ $value in $theme-colors {
 
         &:hover,
         &:focus,
-        &:active {
+        &:active,
+        &:focus-visible {
             color: $bg;
             background-color: rgba($bg, 0.1);
         }
@@ -216,27 +216,14 @@ $value in $theme-colors {
 
 // theme dark
 [data-layout-mode="dark"] {
-    .btn-light {
-        color: var(--#{$variable-prefix}dark);
-        background-color: var(--#{$variable-prefix}light);
-        border-color: var(--#{$variable-prefix}light);
-
-        &:hover {
-            color: var(--#{$variable-prefix}dark);
-            background-color: rgba(var(--#{$variable-prefix}light-rgb), 0.75);
-            border-color: rgba(var(--#{$variable-prefix}light-rgb), 0.75);
-        }
-    }
 
     .btn-check:focus+.btn-light,
     .btn-check:focus+.btn-outline-light,
     .btn-check:focus+.btn-soft-light,
-    .btn-light:focus,
-    .btn-outline-light:focus,
     .btn-soft-light:focus {
-        color: var(--#{$variable-prefix}dark);
-        background-color: rgba(var(--#{$variable-prefix}light-rgb), 0.75);
-        border-color: rgba(var(--#{$variable-prefix}light-rgb), 0.75);
+        color: var(--#{$prefix}dark);
+        background-color: rgba(var(--#{$prefix}light-rgb), 0.75);
+        border-color: rgba(var(--#{$prefix}light-rgb), 0.75);
     }
 
     .btn-check:active+.btn-light,
@@ -254,34 +241,18 @@ $value in $theme-colors {
     .show>.btn-light.dropdown-toggle,
     .show>.btn-outline-light.dropdown-toggle,
     .show>.btn-soft-light.dropdown-toggle {
-        color: var(--#{$variable-prefix}dark);
-        background-color: rgba(var(--#{$variable-prefix}light-rgb), 0.75);
-        border-color: rgba(var(--#{$variable-prefix}light-rgb), 0.75);
-    }
-
-    // dark
-
-    .btn-dark {
-        color: var(--#{$variable-prefix}light);
-        background-color: var(--#{$variable-prefix}dark);
-        border-color: var(--#{$variable-prefix}dark);
-
-        &:hover {
-            color: var(--#{$variable-prefix}light);
-            background-color: rgba(var(--#{$variable-prefix}dark-rgb), 0.75);
-            border-color: rgba(var(--#{$variable-prefix}dark-rgb), 0.75);
-        }
+        color: var(--#{$prefix}dark);
+        background-color: rgba(var(--#{$prefix}light-rgb), 0.75);
+        border-color: rgba(var(--#{$prefix}light-rgb), 0.75);
     }
 
     .btn-check:focus+.btn-dark,
     .btn-check:focus+.btn-outline-dark,
     .btn-check:focus+.btn-soft-dark,
-    .btn-dark:focus,
-    .btn-outline-dark:focus,
     .btn-soft-dark:focus {
-        color: var(--#{$variable-prefix}light);
-        background-color: rgba(var(--#{$variable-prefix}dark-rgb), 0.75);
-        border-color: rgba(var(--#{$variable-prefix}dark-rgb), 0.75);
+        color: var(--#{$prefix}light);
+        background-color: rgba(var(--#{$prefix}dark-rgb), 0.75);
+        border-color: rgba(var(--#{$prefix}dark-rgb), 0.75);
     }
 
     .btn-check:active+.btn-dark,
@@ -299,77 +270,55 @@ $value in $theme-colors {
     .show>.btn-dark.dropdown-toggle,
     .show>.btn-outline-dark.dropdown-toggle,
     .show>.btn-soft-dark.dropdown-toggle {
-        color: var(--#{$variable-prefix}light);
-        background-color: rgba(var(--#{$variable-prefix}dark-rgb), 0.75);
-        border-color: rgba(var(--#{$variable-prefix}dark-rgb), 0.75);
-    }
-
-    // outline
-
-    .btn-outline-light {
-        color: var(--#{$variable-prefix}dark);
-        border-color: var(--#{$variable-prefix}light);
-
-        &:hover {
-            color: var(--#{$variable-prefix}dark);
-            background-color: rgba(var(--#{$variable-prefix}light-rgb), 0.75);
-            border-color: rgba(var(--#{$variable-prefix}light-rgb), 0.75);
-        }
-    }
-
-    .btn-outline-dark {
-        color: var(--#{$variable-prefix}dark);
-        border-color: var(--#{$variable-prefix}dark);
-
-        &:hover {
-            color: var(--#{$variable-prefix}light);
-            background-color: rgba(var(--#{$variable-prefix}dark-rgb), 0.75);
-            border-color: rgba(var(--#{$variable-prefix}dark-rgb), 0.75);
-        }
+        color: var(--#{$prefix}light);
+        background-color: rgba(var(--#{$prefix}dark-rgb), 0.75);
+        border-color: rgba(var(--#{$prefix}dark-rgb), 0.75);
     }
 
     // soft
 
     .btn-soft-light {
-        color: var(--#{$variable-prefix}dark);
-        background-color: rgba(var(--#{$variable-prefix}light-rgb), 0.1);
+        color: var(--#{$prefix}dark);
+        background-color: rgba(var(--#{$prefix}light-rgb), 0.1);
 
         &:hover {
-            color: var(--#{$variable-prefix}dark);
-            background-color: var(--#{$variable-prefix}light);
+            color: var(--#{$prefix}dark);
+            background-color: var(--#{$prefix}light);
         }
     }
 
     .btn-soft-dark {
-        color: var(--#{$variable-prefix}dark);
-        background-color: rgba(var(--#{$variable-prefix}dark-rgb), 0.1);
+        color: var(--#{$prefix}dark);
+        background-color: rgba(var(--#{$prefix}dark-rgb), 0.1);
 
         &:hover {
-            color: var(--#{$variable-prefix}light);
-            background-color: var(--#{$variable-prefix}dark);
+            color: var(--#{$prefix}light);
+            background-color: var(--#{$prefix}dark);
         }
     }
 
     // ghost
     .btn-ghost-light {
-        color: var(--#{$variable-prefix}dark);
+        color: var(--#{$prefix}dark);
 
         &:hover,
         &:focus,
-        &:active {
-            color: var(--#{$variable-prefix}dark);
-            background-color: rgba(var(--#{$variable-prefix}light-rgb), 0.5);
+        &:active,
+        &:focus-visible {
+            color: var(--#{$prefix}dark);
+            background-color: rgba(var(--#{$prefix}light-rgb), 0.5);
         }
     }
 
     .btn-ghost-dark {
-        color: var(--#{$variable-prefix}dark);
+        color: var(--#{$prefix}dark);
 
         &:hover,
         &:focus,
-        &:active {
-            color: var(--#{$variable-prefix}dark);
-            background-color: rgba(var(--#{$variable-prefix}dark-rgb), 0.1);
+        &:active,
+        &:focus-visible {
+            color: var(--#{$prefix}dark);
+            background-color: rgba(var(--#{$prefix}dark-rgb), 0.1);
         }
     }
 }
@@ -392,6 +341,23 @@ $value in $theme-colors {
     .btn-soft-#{$color} {
         &.btn-border {
             border-bottom: 2px solid darken($value, 8%);
+        }
+    }
+}
+
+//custom toggle
+.custom-toggle {
+    .icon-off {
+        display: none;
+    }
+
+    &.active {
+        .icon-on {
+            display: none;
+        }
+
+        .icon-off {
+            display: block;
         }
     }
 }

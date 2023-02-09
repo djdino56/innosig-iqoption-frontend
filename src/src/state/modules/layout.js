@@ -6,7 +6,9 @@ export const state = {
   mode: 'dark',
   position: 'fixed',
   sidebarView: 'default',
-  sidebarColor: 'light'
+  sidebarColor: 'dark',
+  sidebarImage: 'none',
+  preloader: 'disable'
 }
 
 export const mutations = {
@@ -33,6 +35,12 @@ export const mutations = {
   },
   CHANGE_SIDEBAR_COLOR(state, sidebarColor) {
     state.sidebarColor = sidebarColor;
+  },
+  CHANGE_SIDEBAR_IMAGE(state, sidebarImage) {
+    state.sidebarImage = sidebarImage;
+  },
+  CHANGE_PRELOADER(state, preloader) {
+    state.preloader = preloader;
   },
 }
 
@@ -68,5 +76,13 @@ export const actions = {
 
   changeSidebarColor({ commit }, { sidebarColor }) {
     commit('CHANGE_SIDEBAR_COLOR', sidebarColor)
+  },
+
+  changeSidebarImage({ commit }, { sidebarImage }) {
+    commit('CHANGE_SIDEBAR_IMAGE', sidebarImage)
+  },
+
+  changePreloader({ commit }, { preloader }) {
+    commit('CHANGE_PRELOADER', preloader)
   }
 }
