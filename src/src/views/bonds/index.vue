@@ -190,6 +190,7 @@ export default {
           name: _m.name,
           signal: _m.signal,
           interval: _m.interval.toString(),
+          _updated: _m._updated,
           actions: undefined,
         });
       }
