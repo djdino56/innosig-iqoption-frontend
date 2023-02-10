@@ -3,7 +3,7 @@ FROM node:lts-alpine as build-stage
 RUN apk add g++ make py3-pip
 WORKDIR /app
 COPY package*.json ./
-RUN npm install
+RUN npm install --force
 COPY . .
 RUN npm run build
 
