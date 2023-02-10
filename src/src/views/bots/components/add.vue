@@ -209,8 +209,8 @@ export default {
     return {
       isLoadingSelect: false,
       objModel: new BotViewModel(),
-      createColumns: ['name', 'exchange_account_id', 'practice_mode', 'enabled', 'buy_enabled', 'sell_enabled', 'coins', 'bond', 'base_symbol', 'amount', 'amountRemaining', 'percentage_per_trade', 'stop_loss', 'profit_at', 'sell_by_strategy','sell_by_tpst', 'max_positions_per_market'],
-      updateColumns: ['name', 'exchange_account_id', 'practice_mode', 'enabled', 'buy_enabled', 'sell_enabled', 'coins', 'bond', 'base_symbol', 'amount', 'amountRemaining', 'percentage_per_trade', 'stop_loss', 'profit_at', 'sell_by_strategy','sell_by_tpst', 'max_positions_per_market'],
+      createColumns: ['name', 'exchange_account_id', 'practice_mode', 'enabled', 'buy_enabled', 'sell_enabled', 'coins', 'bond', 'base_symbol', 'percentage_per_trade', 'stop_loss', 'profit_at', 'sell_by_strategy','sell_by_tpst', 'max_positions_per_market'],
+      updateColumns: ['name', 'exchange_account_id', 'practice_mode', 'enabled', 'buy_enabled', 'sell_enabled', 'coins', 'bond', 'base_symbol', 'percentage_per_trade', 'stop_loss', 'profit_at', 'sell_by_strategy','sell_by_tpst', 'max_positions_per_market'],
     };
   },
   watch: {

@@ -30,8 +30,6 @@ export default class BotViewModel extends BaseViewModel {
                     coins = [],
                     bond = "",
                     base_symbol = "EUR",
-                    amount = "0",
-                    amountRemaining = "0",
                     percentage_per_trade = 90,
                     stop_loss = -5,
                     profit_at = 5,
@@ -53,8 +51,6 @@ export default class BotViewModel extends BaseViewModel {
         this.coins = coins;
         this.bond = bond
         this.base_symbol = base_symbol;
-        this.amount = amount;
-        this.amountRemaining = amountRemaining;
         this.percentage_per_trade = percentage_per_trade;
         this.stop_loss = stop_loss;
         this.profit_at = profit_at;
