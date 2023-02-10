@@ -12,18 +12,18 @@
         </b-col>
         <b-col md="6">
           <div class="p-1">
-            <h5 class="font-size-14 mb-1 mt-0">strategy</h5>
+            <h5 class="font-size-14 mb-1 mt-0">bond</h5>
             <div class="p-0">
               <Multiselect class="form-control"
-                           v-model="objModel.strategy"
+                           v-model="objModel.bond"
                            :options="async function(query) {
-                              return await asyncFindStrategy(query) // check JS block for implementation
+                              return await asyncFindBond(query) // check JS block for implementation
                             }"
                            mode="single"
                            :searchable="true"
                            :delay="0"
               />
-              <pre class="language-json"><code>{{ objModel.strategy }}</code></pre>
+              <pre class="language-json"><code>{{ objModel.bond }}</code></pre>
             </div>
           </div>
         </b-col>
@@ -185,7 +185,7 @@ import {
 import Slider from "@vueform/slider";
 import Swal from "sweetalert2";
 import BotViewModel from "@/models/viewmodels/bot";
-import StrategyViewModel from "@/models/viewmodels/strategy";
+import BondViewModel from "@/models/viewmodels/bond";
 import ExchangeAccountViewModel from "@/models/viewmodels/exchange_account";
 
 export default {
@@ -209,8 +209,8 @@ export default {
     return {
       isLoadingSelect: false,
       objModel: new BotViewModel(),
-      createColumns: ['name', 'exchange_account_id', 'practice_mode', 'enabled', 'buy_enabled', 'sell_enabled', 'coins', 'strategy', 'base_symbol', 'amount', 'amountRemaining', 'percentage_per_trade', 'stop_loss', 'profit_at', 'sell_by_strategy','sell_by_tpst', 'max_positions_per_market'],
-      updateColumns: ['name', 'exchange_account_id', 'practice_mode', 'enabled', 'buy_enabled', 'sell_enabled', 'coins', 'strategy', 'base_symbol', 'amount', 'amountRemaining', 'percentage_per_trade', 'stop_loss', 'profit_at', 'sell_by_strategy','sell_by_tpst', 'max_positions_per_market'],
+      createColumns: ['name', 'exchange_account_id', 'practice_mode', 'enabled', 'buy_enabled', 'sell_enabled', 'coins', 'bond', 'base_symbol', 'amount', 'amountRemaining', 'percentage_per_trade', 'stop_loss', 'profit_at', 'sell_by_strategy','sell_by_tpst', 'max_positions_per_market'],
+      updateColumns: ['name', 'exchange_account_id', 'practice_mode', 'enabled', 'buy_enabled', 'sell_enabled', 'coins', 'bond', 'base_symbol', 'amount', 'amountRemaining', 'percentage_per_trade', 'stop_loss', 'profit_at', 'sell_by_strategy','sell_by_tpst', 'max_positions_per_market'],
     };
   },
   watch: {
@@ -229,11 +229,11 @@ export default {
         return { value: item["_id"], label: item["name"] }
       });
     },
-    asyncFindStrategy: async (query) => {
+    asyncFindBond: async (query) => {
       if (query === "") {
         return [];
       }
-      const response = await StrategyViewModel.search(query)
+      const response = await BondViewModel.search(query)
       return response.data._items.map((item) => {
         return { value: item["_id"], label: item["name"] }
       });

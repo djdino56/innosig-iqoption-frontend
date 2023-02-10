@@ -127,7 +127,7 @@ import PageHeader from "@/components/page-header";
 import BotViewModel from "@/models/viewmodels/bot";
 import BotCreateOrEdit from "@/views/bots/components/add";
 import appConfig from "../../../app.config.json";
-import StrategyViewModel from "@/models/viewmodels/strategy";
+import BondViewModel from "@/models/viewmodels/bond";
 
 export default {
   name: 'Bot',
@@ -153,7 +153,7 @@ export default {
       ],
       id: this.$route.params.id,
       obj: new BotViewModel(),
-      strategy: new StrategyViewModel(),
+      bond: new BondViewModel(),
       loading: true,
     };
   },
@@ -164,8 +164,8 @@ export default {
     init() {
       BotViewModel.Get(this.id).then(response => {
         this.obj = new BotViewModel(response.data);
-        StrategyViewModel.Get(this.obj.strategy).then(response => {
-          this.strategy = new StrategyViewModel(response.data);
+        BondViewModel.Get(this.obj.bond).then(response => {
+          this.bond = new BondViewModel(response.data);
           this.loading = false
         });
       });

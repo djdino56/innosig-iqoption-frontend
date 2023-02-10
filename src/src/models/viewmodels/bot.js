@@ -28,7 +28,7 @@ export default class BotViewModel extends BaseViewModel {
                     buy_enabled = true,
                     sell_enabled = true,
                     coins = [],
-                    strategy = "",
+                    bond = "",
                     base_symbol = "EUR",
                     amount = "0",
                     amountRemaining = "0",
@@ -51,7 +51,7 @@ export default class BotViewModel extends BaseViewModel {
         this.buy_enabled = buy_enabled;
         this.sell_enabled = sell_enabled;
         this.coins = coins;
-        this.strategy = strategy
+        this.bond = bond
         this.base_symbol = base_symbol;
         this.amount = amount;
         this.amountRemaining = amountRemaining;

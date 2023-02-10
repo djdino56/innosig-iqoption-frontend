@@ -196,6 +196,7 @@ export default {
       for (const _m of _modified) {
         this.modifiedObjects.push({
           market: _m.market,
+          bond: _m.bond,
           interval: _m.interval,
           signals: _m.signals,
           _updated: _m._updated

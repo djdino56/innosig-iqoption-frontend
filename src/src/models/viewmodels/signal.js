@@ -22,6 +22,7 @@ export default class SignalViewModel extends BaseViewModel {
         _updated = '',
         interval = '',
         market = '',
+        bond = "",
         exchange_type = '',
         signals = [],
     } = {}) {
@@ -31,6 +32,7 @@ export default class SignalViewModel extends BaseViewModel {
         this._updated = _updated;
         this.interval = interval;
         this.market = market;
+        this.bond = bond
         this.exchange_type = exchange_type;
         this.signals = new SignalValueRepository(signals);
     }

@@ -52,9 +52,9 @@
                 {{ row.item.name }}
               </a>
             </template>
-            <template #cell(strategy)="row">
-              <a :href="`/strategies/${objects.get_by_index(row.index).strategy}`">
-                {{ row.item.strategy }}
+            <template #cell(bond)="row">
+              <a :href="`/bonds/${objects.get_by_index(row.index).bond}`">
+                {{ row.item.bond }}
               </a>
             </template>
             <template #cell(practice_mode)="row">
@@ -218,7 +218,7 @@ export default {
       for (const _m of _modified) {
         this.modifiedObjects.push({
           name: _m.name,
-          strategy: _m.strategy,
+          bond: _m.bond,
           practice_mode: _m.practice_mode,
           max_positions_per_market: _m.max_positions_per_market,
           profit_at: _m.profit_at,
