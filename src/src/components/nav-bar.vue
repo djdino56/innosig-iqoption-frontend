@@ -64,14 +64,6 @@ export default {
           searchOptions.classList.add("d-none");
         });
       }
-
-
-      document.body.addEventListener("click", (e) => {
-        if (e.target.getAttribute("id") !== "search-options") {
-          dropdown.classList.remove("show");
-          searchOptions.classList.add("d-none");
-        }
-      });
     },
     toggleHamburgerMenu() {
       var windowSize = document.documentElement.clientWidth;
