@@ -19,6 +19,11 @@ export default class IndicatorViewModel extends BaseViewModel {
       return axios.get(`${IndicatorViewModel.ObjUrl({})}?where={"endpoint":{"$regex":"^(?i).*${search}.*"}}`)
   }
 
+  static findByEndpoint(search) {
+    return axios.get(`${IndicatorViewModel.ObjUrl({})}?where={"endpoint":"${search}"}`)
+  }
+
+
   constructor({
     _id = null,
     _created = "",

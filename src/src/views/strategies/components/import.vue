@@ -11,7 +11,7 @@
                   :show="showError"
               >
                 <div class="alert-body">
-                  Import JSON is not valid
+                  Import JSON is not valid or multiple strategies found
                 </div>
               </b-alert>
 
@@ -116,9 +116,9 @@ export default {
         this.objModel.minimal_buy_signals = parsedText.minimal_buy_signals;
         for (let indicator of parsedText.indicators) {
           let endpoint = indicator["endpoint"]
-          const response = await IndicatorViewModel.search(endpoint);
+          const response = await IndicatorViewModel.findByEndpoint(endpoint);
           let items = response.data._meta["total"];
-          if (items >= 2) {
+          if (items >= 2 || items === 0) {
             this.showError = true;
           }
           let indicators = new IndicatorRepository(response.data._items);
