@@ -33,6 +33,13 @@
             >
               <b-button
                   class="float-end me-1"
+                  variant="outline-success"
+                  @click="importModalShow = !importModalShow"
+              >
+                Import
+              </b-button>
+              <b-button
+                  class="float-end me-1"
                   variant="outline-primary"
                   @click="modalShow = !modalShow"
               >
@@ -69,7 +76,7 @@
           />
         </div>
 
-        <!-- modal login-->
+        <!-- modal create -->
         <b-modal
             class="v-modal-custom"
             size="lg"
@@ -79,6 +86,20 @@
             hide-footer
         >
           <strategy-add
+              @created="addObj"
+              @exit="closeModal"
+          />
+        </b-modal>
+        <!-- modal import -->
+        <b-modal
+            class="v-modal-custom"
+            size="lg"
+            v-model="importModalShow"
+            centered
+            title="Import a new strategy"
+            hide-footer
+        >
+          <strategy-import
               @created="addObj"
               @exit="closeModal"
           />
@@ -93,6 +114,7 @@ import {
   BRow, BCol, BPagination, BTable, BButton, BModal,
 } from 'bootstrap-vue-3';
 import StrategyAdd from "@/views/strategies/components/add";
+import StrategyImport from "@/views/strategies/components/import";
 import Layout from "../../layouts/main.vue";
 import PageHeader from "@/components/page-header";
 import appConfig from "../../../app.config";
@@ -122,6 +144,7 @@ export default {
       modifiedObjects: [],
       loading: true,
       modalShow: false,
+      importModalShow: false,
     };
   },
   components: {
@@ -134,7 +157,8 @@ export default {
     BTable,
     BButton,
     BModal,
-    StrategyAdd
+    StrategyAdd,
+    StrategyImport
   },
   props: {
     market: {
@@ -159,6 +183,7 @@ export default {
   methods: {
     closeModal() {
       this.modalShow = false;
+      this.importModalShow = false;
     },
     addObj(obj) {
       this.objects.add([obj]);
