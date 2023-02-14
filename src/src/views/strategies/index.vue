@@ -14,7 +14,7 @@
           </blockquote>
 
           <b-button
-              class="float-end me-1"
+              class="mt-3 me-1"
               variant="outline-success"
               @click="importModalShow = !importModalShow"
           >
