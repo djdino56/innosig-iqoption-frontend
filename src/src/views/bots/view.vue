@@ -95,23 +95,6 @@
         </div>
       </div>
     </div>
-
-    <div class="row">
-      <div class="col-12">
-        <div class="card">
-          <div class="card-header">
-            <h4 class="card-title">
-              History trades
-            </h4>
-          </div>
-          <div class="card-body">
-            <p class="card-text">
-              Here you can see the list of the latest trades of your bot!
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
   </b-row>
   </Layout>
 </template>
