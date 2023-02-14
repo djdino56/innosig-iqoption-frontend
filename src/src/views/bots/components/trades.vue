@@ -83,7 +83,7 @@ export default {
   },
   computed: {
     percentageVariant() {
-      return percentage => ((percentage > 0) ? 'light-success' : 'light-danger');
+      return percentage => ((percentage > 0) ? 'success' : 'danger');
     },
     statusVariant() {
       const statusColor = {
