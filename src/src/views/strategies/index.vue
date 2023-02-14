@@ -78,6 +78,7 @@
 
         <!-- modal create -->
         <b-modal
+            v-if="!loading"
             class="v-modal-custom"
             size="lg"
             v-model="modalShow"
@@ -93,7 +94,6 @@
         </b-modal>
         <!-- modal import -->
         <b-modal
-            v-if="!loading"
             class="v-modal-custom"
             size="lg"
             v-model="importModalShow"
