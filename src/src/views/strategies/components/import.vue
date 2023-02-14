@@ -114,6 +114,7 @@ export default {
         this.objModel.enabled = parsedText.enabled;
         this.objModel.minimal_sell_signals = parsedText.minimal_sell_signals;
         this.objModel.minimal_buy_signals = parsedText.minimal_buy_signals;
+        this.objModel.indicators = [];
         for (let indicator of parsedText.indicators) {
           let endpoint = indicator["endpoint"]
           const response = await IndicatorViewModel.findByEndpoint(endpoint);
