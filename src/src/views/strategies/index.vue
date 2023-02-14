@@ -62,6 +62,9 @@
                 {{ row.item.name }}
               </a>
             </template>
+            <template #cell(enabled)="row">
+              <i :class="boolVariant(row.item.enabled)" class="mdi"></i>
+            </template>
             <template #cell(actions)="row">
               <b-button variant="outline-danger" class="btn-icon waves-effect waves-light" @click="deleteObj(row)"><AlertTriangleIcon /></b-button>
             </template>
@@ -175,6 +178,9 @@ export default {
     generateName: function() {
       return "Strategy " + (this.total + 1)
     },
+    boolVariant() {
+      return status => (status) ? 'icon-dual-success mdi-check-circle' :  'icon-dual-danger mdi-close-circle';
+    },
   },
   watch: {
     listObjects() {
@@ -218,6 +224,7 @@ export default {
       for (const _m of _modified) {
         this.modifiedObjects.push({
           name: _m.name,
+          enabled: _m.enabled,
           minimal_sell_signals: _m.minimal_sell_signals,
           minimal_buy_signals: _m.minimal_buy_signals,
           actions: undefined,
