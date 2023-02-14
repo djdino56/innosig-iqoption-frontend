@@ -8,8 +8,8 @@
           :obj-prop="obj"
       />
     </b-col>
-    <div class="row">
-      <div class="col-12">
+    <b-row>
+      <b-col md="12">
         <div class="card">
           <div class="card-header">
             <h4 class="card-title">
@@ -28,11 +28,11 @@
               :bot_id="id"
           />
         </div>
-      </div>
-    </div>
+      </b-col>
+    </b-row>
 
-    <div class="row">
-      <div class="col-12">
+    <b-row>
+      <b-col md="12">
         <div class="card">
           <div class="card-header">
             <h4 class="card-title">
@@ -51,11 +51,11 @@
               :bot_id="id"
           />
         </div>
-      </div>
-    </div>
+      </b-col>
+    </b-row>
 
-    <div class="row">
-      <div class="col-12">
+    <b-row>
+      <b-col md="12">
         <div class="card">
           <div class="card-header">
             <h4 class="card-title">
@@ -74,11 +74,11 @@
               :bot_id="id"
           />
         </div>
-      </div>
-    </div>
+      </b-col>
+    </b-row>
 
-    <div class="row">
-      <div class="col-12">
+    <b-row>
+      <b-col md="12">
         <div class="card">
           <div class="card-header">
             <h4 class="card-title">
@@ -93,8 +93,8 @@
           <hr>
           <bot-logs :bot_id="id" />
         </div>
-      </div>
-    </div>
+      </b-col>
+    </b-row>
   </b-row>
   </Layout>
 </template>
