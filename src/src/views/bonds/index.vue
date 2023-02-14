@@ -55,13 +55,13 @@
                 {{ row.item.name }}
               </a>
             </template>
-            <template #cell(actions)="row">
-              <b-button variant="outline-danger" class="btn-icon waves-effect waves-light" @click="deleteObj(row)"><AlertTriangleIcon /></b-button>
-            </template>
             <template #cell(signal)="row">
               <b-badge :variant="statusVariant(row.item.signal)">
-                {{ row.item.status }}
+                {{ row.item.signal }}
               </b-badge>
+            </template>
+            <template #cell(actions)="row">
+              <b-button variant="outline-danger" class="btn-icon waves-effect waves-light" @click="deleteObj(row)"><AlertTriangleIcon /></b-button>
             </template>
           </b-table>
           <b-pagination
