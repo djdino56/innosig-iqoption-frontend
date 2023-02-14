@@ -55,6 +55,9 @@
                 {{ row.item.name }}
               </a>
             </template>
+            <template #cell(enabled)="row">
+              <i :class="boolVariant(row.item.enabled)" class="mdi"></i>
+            </template>
             <template #cell(signal)="row">
               <b-badge :variant="statusVariant(row.item.signal)">
                 {{ row.item.signal }}
@@ -168,6 +171,9 @@ export default {
     },
     generateName: function() {
       return "Bond " + (this.total + 1)
+    },
+    boolVariant() {
+      return status => (status) ? 'icon-dual-success mdi-check-circle' :  'icon-dual-danger mdi-close-circle';
     },
   },
   watch: {
