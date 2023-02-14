@@ -12,8 +12,8 @@
         :per-page="perPage"
         :total-rows="total"
         align="center"
-        class="pagination-lg mt-1 mb-1 justify-content-center"
-        @change="processPage"
+        class="pagination-md mt-1 mb-5 justify-content-center"
+        @update:modelValue="processPage"
     />
   </div>
 </template>

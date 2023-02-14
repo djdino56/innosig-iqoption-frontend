@@ -27,8 +27,8 @@
         :per-page="perPage"
         :total-rows="total"
         align="center"
-        class="pagination-lg mt-1 mb-1 justify-content-center"
-        @change="processPage"
+        class="pagination-md mt-1 mb-5 justify-content-center"
+        @update:modelValue="processPage"
     />
   </div>
 </template>
@@ -88,10 +88,10 @@ export default {
     statusVariant() {
       const statusColor = {
         /* eslint-disable key-spacing */
-        close: 'light-secondary',
-        close_on_market: 'light-warning',
-        open: 'light-success',
-        open_on_market: 'light-warning',
+        close: 'danger',
+        close_on_market: 'warning',
+        open: 'success',
+        open_on_market: 'warning',
         /* eslint-enable key-spacing */
       };
 
