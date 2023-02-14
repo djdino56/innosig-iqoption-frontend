@@ -99,6 +99,10 @@ export default {
         return new StrategyViewModel()
       }
     },
+    generatedName: {
+      type: String,
+      default: ""
+    },
   },
   data() {
     return {
@@ -108,6 +112,11 @@ export default {
       createColumns: ['name', 'indicators', 'minimal_buy_signals', 'minimal_sell_signals', 'enabled'],
       updateColumns: ['name', 'indicators', 'minimal_buy_signals', 'minimal_sell_signals', 'enabled'],
     };
+  },
+  mounted() {
+    if (this.generatedName !== "") {
+      this.objModel.name = this.generatedName;
+    }
   },
   watch: {
     objProp: function () { // watch it

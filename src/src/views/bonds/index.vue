@@ -74,8 +74,9 @@
           />
         </div>
 
-        <!-- modal login-->
+        <!-- modal create-->
         <b-modal
+            v-if="!loading"
             class="v-modal-custom"
             size="lg"
             v-model="modalShow"
@@ -86,6 +87,7 @@
           <bond-add
               @created="addObj"
               @exit="closeModal"
+              :generated-name="generateName"
           />
         </b-modal>
       </b-col>
@@ -163,6 +165,9 @@ export default {
         /* eslint-enable key-spacing */
       };
       return status => statusColor[status];
+    },
+    generateName: function() {
+      return "Bond " + (this.total + 1)
     },
   },
   watch: {

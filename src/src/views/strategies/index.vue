@@ -92,6 +92,7 @@
         </b-modal>
         <!-- modal import -->
         <b-modal
+            v-if="!loading"
             class="v-modal-custom"
             size="lg"
             v-model="importModalShow"
@@ -102,6 +103,7 @@
           <strategy-import
               @created="addObj"
               @exit="closeModal"
+              :generated-name="generateName"
           />
         </b-modal>
       </b-col>
@@ -169,6 +171,9 @@ export default {
   computed: {
     listObjects() {
       return this.objects.objsParsed;
+    },
+    generateName: function() {
+      return "Strategy " + (this.total + 1)
     },
   },
   watch: {

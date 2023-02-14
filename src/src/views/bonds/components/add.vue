@@ -112,6 +112,10 @@ export default {
         return new BondViewModel()
       }
     },
+    generatedName: {
+      type: String,
+      default: ""
+    },
   },
   data() {
     return {
@@ -121,6 +125,11 @@ export default {
       createColumns: ['name', 'strategies', 'interval', 'signal', 'enabled'],
       updateColumns: ['name', 'strategies', 'interval', 'signal', 'enabled'],
     };
+  },
+  mounted() {
+    if (this.generatedName !== "") {
+      this.objModel.name = this.generatedName;
+    }
   },
   watch: {
     objProp: function () { // watch it
