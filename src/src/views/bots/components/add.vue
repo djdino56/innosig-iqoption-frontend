@@ -198,6 +198,10 @@ export default {
       type: Boolean,
       default: false
     },
+    generatedName: {
+      type: String,
+      default: ""
+    },
     objProp: {
       type: BotViewModel,
       default: () => {
@@ -212,6 +216,11 @@ export default {
       createColumns: ['name', 'exchange_account_id', 'practice_mode', 'enabled', 'buy_enabled', 'sell_enabled', 'coins', 'bond', 'base_symbol', 'percentage_per_trade', 'stop_loss', 'profit_at', 'sell_by_strategy','sell_by_tpst', 'max_positions_per_market'],
       updateColumns: ['name', 'exchange_account_id', 'practice_mode', 'enabled', 'buy_enabled', 'sell_enabled', 'coins', 'bond', 'base_symbol', 'percentage_per_trade', 'stop_loss', 'profit_at', 'sell_by_strategy','sell_by_tpst', 'max_positions_per_market'],
     };
+  },
+  mounted() {
+    if (this.generatedName !== "") {
+      this.objModel.name = this.generatedName;
+    }
   },
   watch: {
     objProp: function () { // watch it

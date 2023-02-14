@@ -96,6 +96,7 @@
         </div>
         <!-- modal login-->
         <b-modal
+            v-if="!loading"
             class="v-modal-custom"
             size="lg"
             v-model="modalShow"
@@ -106,6 +107,7 @@
           <bot-add
               @created="addObj"
               @exit="closeModal"
+              :generated-name="generateName"
           />
         </b-modal>
       </b-col>
@@ -175,6 +177,9 @@ export default {
     },
     boolVariant() {
       return status => (status) ? 'icon-dual-success mdi-check-circle' :  'icon-dual-danger mdi-close-circle';
+    },
+    generateName: function() {
+      return "Bot " + (this.total + 1)
     },
   },
   watch: {
