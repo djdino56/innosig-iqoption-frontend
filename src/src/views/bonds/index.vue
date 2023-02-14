@@ -218,6 +218,7 @@ export default {
         this.modifiedObjects.push({
           name: _m.name,
           signal: _m.signal,
+          enabled: _m.enabled,
           interval: _m.interval.toString(),
           _updated: _m._updated,
           actions: undefined,
