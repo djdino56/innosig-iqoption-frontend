@@ -60,6 +60,7 @@
                            :create-option="false"
                            mode="tags"
                            :options="[
+                        { value: '5s', label: '5 S' },
                         { value: '1m', label: '1 M' },
                         { value: '5m', label: '5 M' },
                         { value: '15m', label: '15m' },
