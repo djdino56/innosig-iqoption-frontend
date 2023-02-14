@@ -88,6 +88,7 @@
           <strategy-add
               @created="addObj"
               @exit="closeModal"
+              :generated-name="generateName"
           />
         </b-modal>
         <!-- modal import -->
@@ -103,7 +104,6 @@
           <strategy-import
               @created="addObj"
               @exit="closeModal"
-              :generated-name="generateName"
           />
         </b-modal>
       </b-col>
