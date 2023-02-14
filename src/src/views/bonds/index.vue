@@ -58,6 +58,11 @@
             <template #cell(actions)="row">
               <b-button variant="outline-danger" class="btn-icon waves-effect waves-light" @click="deleteObj(row)"><AlertTriangleIcon /></b-button>
             </template>
+            <template #cell(signal)="row">
+              <b-badge :variant="statusVariant(row.item.signal)">
+                {{ row.item.status }}
+              </b-badge>
+            </template>
           </b-table>
           <b-pagination
               v-model="page"
@@ -90,7 +95,7 @@
 
 <script>
 import {
-  BRow, BCol, BPagination, BTable, BButton, BModal,
+  BRow, BCol, BPagination, BTable, BButton, BModal, BBadge
 } from 'bootstrap-vue-3';
 import BondAdd from "@/views/bonds/components/add";
 import Layout from "../../layouts/main.vue";
@@ -134,6 +139,7 @@ export default {
     BTable,
     BButton,
     BModal,
+    BBadge,
     BondAdd
   },
   props: {
@@ -145,6 +151,18 @@ export default {
   computed: {
     listObjects() {
       return this.objects.objsParsed;
+    },
+    statusVariant() {
+      const statusColor = {
+        /* eslint-disable key-spacing */
+        "sell": 'danger',
+        "strong sell": 'light-danger',
+        "none": 'light-secondary',
+        "buy": 'light-success',
+        "strong buy": 'success',
+        /* eslint-enable key-spacing */
+      };
+      return status => statusColor[status];
     },
   },
   watch: {
