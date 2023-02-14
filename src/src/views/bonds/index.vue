@@ -156,9 +156,9 @@ export default {
       const statusColor = {
         /* eslint-disable key-spacing */
         "sell": 'danger',
-        "strong sell": 'light-danger',
-        "none": 'light-secondary',
-        "buy": 'light-success',
+        "strong sell": 'danger',
+        "none": 'info',
+        "buy": 'success',
         "strong buy": 'success',
         /* eslint-enable key-spacing */
       };
