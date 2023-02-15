@@ -45,7 +45,7 @@
                   class="pop-overs"
               >
                 <b-button
-                    :id="`popover-button-${row.item.market}-${row.item.interval}-${index}`"
+                    :id="`popover-button-${row.item.market}-${row.item.interval}-${signal_value.strategy}`"
                     variant="outline-secondary"
                 >
                   {{ signal_value.strategy }}: <b-badge :variant="statusVariant(signal_value.value)">
@@ -54,10 +54,10 @@
                 </b-button>
 
                 <b-popover
-                    :target="`popover-button-${row.item.market}-${row.item.interval}-${index}`"
+                    :target="`popover-button-${row.item.market}-${row.item.interval}-${signal_value.strategy}`"
                     variant="dark"
                     triggers="focus"
-                    placement="top"
+                    placement="right"
                 >
                   <template #title>
                     <span>{{ signal_value.strategy }}</span>
