@@ -25,6 +25,7 @@ export default class BotViewModel extends BaseViewModel {
                     practice_mode = false,
                     exchange_account_id = "",
                     enabled = true,
+                    open_strong = true,
                     buy_enabled = true,
                     sell_enabled = true,
                     coins = [],
@@ -46,6 +47,7 @@ export default class BotViewModel extends BaseViewModel {
         this.exchange_account_id = exchange_account_id;
         this.practice_mode = practice_mode;
         this.enabled = enabled;
+        this.open_strong = open_strong;
         this.buy_enabled = buy_enabled;
         this.sell_enabled = sell_enabled;
         this.coins = coins;

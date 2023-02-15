@@ -82,6 +82,16 @@
         </b-col>
         <b-col md="6">
           <div class="p-1">
+            <h5 class="font-size-14 mb-1 mt-0">open_strong</h5>
+            <div class="p-0">
+              <div class="form-check form-switch form-switch-md" dir="ltr">
+                <input type="checkbox" class="form-check-input" v-model="objModel.open_strong">
+              </div>
+            </div>
+          </div>
+        </b-col>
+        <b-col md="6">
+          <div class="p-1">
             <h5 class="font-size-14 mb-1 mt-0">practice_mode</h5>
             <div class="p-0">
               <div class="form-check form-switch form-switch-md" dir="ltr">
@@ -213,8 +223,8 @@ export default {
     return {
       isLoadingSelect: false,
       objModel: new BotViewModel(),
-      createColumns: ['name', 'exchange_account_id', 'practice_mode', 'enabled', 'buy_enabled', 'sell_enabled', 'coins', 'bond', 'base_symbol', 'percentage_per_trade', 'stop_loss', 'profit_at', 'sell_by_strategy','sell_by_tpst', 'max_positions_per_market'],
-      updateColumns: ['name', 'exchange_account_id', 'practice_mode', 'enabled', 'buy_enabled', 'sell_enabled', 'coins', 'bond', 'base_symbol', 'percentage_per_trade', 'stop_loss', 'profit_at', 'sell_by_strategy','sell_by_tpst', 'max_positions_per_market'],
+      createColumns: ['name', 'exchange_account_id', 'practice_mode', 'enabled', 'open_strong', 'buy_enabled', 'sell_enabled', 'coins', 'bond', 'base_symbol', 'percentage_per_trade', 'stop_loss', 'profit_at', 'sell_by_strategy','sell_by_tpst', 'max_positions_per_market'],
+      updateColumns: ['name', 'exchange_account_id', 'practice_mode', 'enabled', 'open_strong', 'buy_enabled', 'sell_enabled', 'coins', 'bond', 'base_symbol', 'percentage_per_trade', 'stop_loss', 'profit_at', 'sell_by_strategy','sell_by_tpst', 'max_positions_per_market'],
     };
   },
   mounted() {
